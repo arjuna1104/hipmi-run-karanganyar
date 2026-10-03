@@ -34,8 +34,14 @@
     $('#pmName').textContent = p.name;
     $('#pmLead').textContent = p.lead;
 
-    // tampilan utama selalu menjadi sudut pandang pertama
-    views = [{ src: p.hero, alt: p.heroAlt, title: '', note: '' }].concat(p.gallery || []);
+    /* Tampilan utama menjadi sudut pandang pertama. Pada beberapa produk,
+       gambar utama memang sama dengan sudut pandang pertama di galeri; kalau
+       keduanya ditumpuk, thumbnail yang sama muncul dua kali. Dalam hal itu
+       galeri dipakai apa adanya, hanya alt gambar utamanya yang diambil. */
+    const galeri = p.gallery || [];
+    views = (galeri.length && galeri[0].src === p.hero)
+      ? [Object.assign({}, galeri[0], { alt: p.heroAlt })].concat(galeri.slice(1))
+      : [{ src: p.hero, alt: p.heroAlt, title: '', note: '' }].concat(galeri);
 
     $('#pmThumbs').innerHTML = views.length > 1
       ? views.map((v, i) =>

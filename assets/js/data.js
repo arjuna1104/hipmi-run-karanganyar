@@ -340,8 +340,8 @@ window.HIPMI = (function () {
       hero: IMG + 'bib-10k.webp',
       heroAlt: 'Desain nomor dada 10K HIPMI RUN Karanganyar.',
       gallery: [
-        { src: IMG + 'bib-10k.webp', title: 'Kategori 10K', note: 'Pita nomor hijau, logo Bank Jateng di sisi kiri' },
-        { src: IMG + 'bib-5k.webp',  title: 'Kategori 5K',  note: 'Pita nomor putih, logo Bank Jateng di sisi kiri' }
+        { src: IMG + 'bib-10k.webp', title: 'Kategori 10K', note: 'Pita nomor hijau, logo Bank Jateng di kiri, kotak ambil medali dan refreshment di kanan' },
+        { src: IMG + 'bib-5k.webp',  title: 'Kategori 5K',  note: 'Pita nomor putih, logo Bank Jateng di kiri, kotak ambil medali dan refreshment di kanan' }
       ],
       specs: [
         { k: 'Kode QR',    v: 'Scan for results, membuka halaman hasil' },

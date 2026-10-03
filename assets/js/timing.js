@@ -31,7 +31,7 @@
 
   const WAVES = [
     { id: 'A', label: 'Wave A - 10K Challenge', cat: '10k', offsetMin: 0  },
-    { id: 'B', label: 'Wave B - 5K Fun Run',    cat: '5k',  offsetMin: 25 }
+    { id: 'B', label: 'Wave B - 5K Race',    cat: '5k',  offsetMin: 25 }
   ];
 
   const COT_MIN = { '10k': 135, '5k': 75 };   // cut-off dalam menit

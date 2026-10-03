@@ -39,18 +39,18 @@ window.HIPMI = (function () {
       blurb: 'Lintasan penuh menembus poros kota Karanganyar dengan empat timing mat RFID.'
     },
     {
-      id: '5k', code: '5K', name: '5K Fun Run', distance: 5.0,
+      id: '5k', code: '5K', name: '5K Race', distance: 5.0,
       age: 'Semua umur', cot: '1 jam 15 menit',
       priceEarly: 175000, priceNormal: 200000,
       taken: 629,
-      blurb: 'Loop pendek lewat cheering zone warga, ramah keluarga dan pelari pemula.'
+      blurb: 'Loop pendek berjalur sama, dilombakan penuh dengan timing mat RFID dan podium sendiri.'
     }
   ];
 
   /* ---- hadiah podium : total Rp 75.000.000 ---------------------------- */
   const PRIZES = [
     { cat: '10K Challenge', top: true, rows: [11000000, 7000000, 4500000] },
-    { cat: '5K Fun Run', rows: [7000000, 5000000, 3000000] }
+    { cat: '5K Race', rows: [7000000, 5000000, 3000000] }
   ];
 
   /* ---- hasil lomba : demo feed ---------------------------------------- */
@@ -180,7 +180,7 @@ window.HIPMI = (function () {
       ]
     },
     '0523': {
-      bib: '0523', name: 'Bayu Anggoro', category: '5k', categoryName: '5K Fun Run',
+      bib: '0523', name: 'Bayu Anggoro', category: '5k', categoryName: '5K Race',
       gender: 'Putra', age: 16, city: 'Colomadu', club: 'Colomadu Pacers',
       jersey: 'S', blood: 'A', chip: 'UHF-DF-88240523', wave: 'Wave B - 06:10 WIB',
       emergency: 'Wenny Anggoro', emergencyPhone: '+62 8xx-xxxx-xxxx',
@@ -278,7 +278,7 @@ window.HIPMI = (function () {
       body: 'Penjelasan COT, aturan diskualifikasi, dan prosedur pos medis kedua kategori.' },
     { date: 'Minggu, 13 Des', time: '04:30', title: 'Area start dibuka', body: 'Penitipan barang, pemanasan bersama, dan pengecekan chip RFID di gate.' },
     { date: 'Minggu, 13 Des', time: '05:45', title: 'Flag-off 10K Challenge', body: 'Wave A dilepas dari Alun-alun Karanganyar.', now: true },
-    { date: 'Minggu, 13 Des', time: '06:10', title: 'Flag-off 5K Fun Run', body: 'Wave B bersama peserta keluarga dan komunitas.' },
+    { date: 'Minggu, 13 Des', time: '06:10', title: 'Flag-off 5K Race', body: 'Wave B dilepas 25 menit setelah 10K, waktu dihitung sejak gun time wave.' },
     { date: 'Minggu, 13 Des', time: '09:00', title: 'Seremoni podium dan penyerahan hadiah',
       body: 'Juara 1 sampai 3 putra dan putri kedua kategori, total hadiah Rp 75.000.000.' }
   ];

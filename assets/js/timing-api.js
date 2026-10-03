@@ -18,16 +18,31 @@ window.HipmiTiming = (function () {
   /* Mengembalikan objek JSON, null bila server timing menjawab "tidak ada",
      atau melempar galat bila server timing tidak terjangkau. Hosting statis
      tanpa penerus menjawab 404 berupa HTML; itu dianggap tidak terjangkau. */
+  /* Bila server timing tidak ada sama sekali, misalnya situs di-hosting statis,
+     pemanggilan berkala akan mengetuk alamat yang sama berulang kali dan
+     meninggalkan deretan 404 di konsol pengunjung. Setelah tiga kegagalan
+     beruntun, permintaan dihentikan di sini; cukup satu pemanggilan berhasil
+     untuk menyalakannya kembali. */
+  const BATAS_GAGAL = 3;
+  let gagalBeruntun = 0;
+
   async function get (path) {
+    if (gagalBeruntun >= BATAS_GAGAL) throw new Error('Server timing tidak terjangkau');
+
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 6000);
     try {
       const res = await fetch(BASE + '/api/public' + path, { signal: ctrl.signal, cache: 'no-store' });
       const json = (res.headers.get('content-type') || '').includes('json');
       if (!json) throw new Error('Server timing tidak terjangkau');
-      if (res.status === 404) return null;
+      if (res.status === 404) { gagalBeruntun = 0; return null; }
       if (!res.ok) throw new Error('Server timing menjawab ' + res.status);
-      return await res.json();
+      const data = await res.json();
+      gagalBeruntun = 0;
+      return data;
+    } catch (e) {
+      gagalBeruntun++;
+      throw e;
     } finally {
       clearTimeout(timer);
     }
@@ -36,6 +51,7 @@ window.HipmiTiming = (function () {
   /* Pemberitahuan "hasil berubah" dari server timing. */
   function subscribe (onChange) {
     if (!('EventSource' in window)) return () => {};
+    if (gagalBeruntun >= BATAS_GAGAL) return () => {};
     const es = new EventSource(BASE + '/api/public/events');
     ['results-dirty', 'gun', 'reset'].forEach(ev => es.addEventListener(ev, onChange));
     return () => es.close();

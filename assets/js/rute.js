@@ -1,213 +1,267 @@
 /* ==========================================================================
    HIPMI RUN KARANGANYAR VOL. #1 - rute.js
-   Checkpoint list, course markers placed along the schematic path, and the
-   elevation profile drawn from the surveyed points.
+   Peta rute, daftar pos layanan, dan profil elevasi.
+
+   Jalur yang digambar adalah jejak sebenarnya dari peta panitia, bukan skema,
+   jadi penanda ditempatkan pada koordinatnya masing-masing, bukan dibagi rata
+   sepanjang garis. Halaman menampilkan satu kategori pada satu waktu.
    ========================================================================== */
 (function () {
   'use strict';
 
-  const { $, $$, reduced } = window.HipmiUI;
+  const { $, $$ } = window.HipmiUI;
   const H = window.HIPMI;
+  if (!H.ROUTES) return;
 
   const TYPE_COLOR = {
     start: 'var(--brand-accent)', finish: 'var(--gold)',
     water: '#3b82f6', medic: '#d1443b', cheer: 'var(--lime)'
   };
+  const SVGNS = 'http://www.w3.org/2000/svg';
 
-  /* ---- checkpoint list -------------------------------------------------- */
-  const list = $('#cpList');
-  if (list) {
-    list.innerHTML = H.CHECKPOINTS.map(function (cp, i) {
+  let kini = '10k';
+  const R = () => H.ROUTES[kini];
+
+  /* ---- daftar pos layanan ---------------------------------------------- */
+  function gambarDaftar() {
+    const list = $('#cpList');
+    if (!list) return;
+    list.innerHTML = R().checkpoints.map(function (cp, i) {
       return '<article class="cp" data-cp="' + i + '" tabindex="0">' +
         '<span class="cp-km">KM ' + cp.km.replace('.', ',') + '</span>' +
         '<span><b>' + cp.name + '</b><span>' + cp.note + '</span></span>' +
         '<i class="ph-fill ' + cp.icon + '" style="color:' + TYPE_COLOR[cp.type] + '" aria-hidden="true"></i>' +
         '</article>';
     }).join('');
+
+    const judul = $('#cpTitle');
+    if (judul) {
+      judul.textContent = R().checkpoints.length + ' pos layanan, ' +
+        R().marshals + ' pos marshal';
+    }
   }
 
-  /* ---- markers along the course ---------------------------------------- */
-  const path = $('#routePath');
-  const markers = $('#mapMarkers');
+  /* ---- peta ------------------------------------------------------------- */
+  function gambarPeta() {
+    const svg = $('#routeMap');
+    if (!svg) return;
+    const r = R();
+    svg.setAttribute('viewBox', H.ROUTE_VIEWBOX);
 
-  if (path && markers && typeof path.getTotalLength === 'function') {
-    const total = path.getTotalLength();
+    const desc = $('#mapDesc');
+    if (desc) {
+      desc.textContent = 'Jejak rute ' + r.nominalKm + ' kilometer HIPMI RUN Karanganyar, ' +
+        'berangkat dan berakhir di titik yang sama, dengan ' +
+        r.checkpoints.filter(c => c.type === 'water').length + ' water station di sepanjang jalur.';
+    }
 
-    H.CHECKPOINTS.forEach(function (cp, i) {
-      // the course is a closed loop: nudge start and finish apart so both read
-      let ratio = parseFloat(cp.km) / 10;
-      if (cp.type === 'start') ratio = 0.008;
-      if (cp.type === 'finish') ratio = 0.935;
+    /* tiga lapis: halo tebal, garis emas padat, lalu garis putus berjalan
+       di atasnya sebagai penunjuk arah lari */
+    let out =
+      '<path d="' + r.path + '" fill="none" stroke="var(--brand-accent)" stroke-width="17" ' +
+      'stroke-linecap="round" stroke-linejoin="round" opacity=".16"/>' +
+      '<path d="' + r.path + '" fill="none" stroke="var(--gold)" stroke-width="6" ' +
+      'stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<path class="flow" d="' + r.path + '" fill="none" stroke="#ffd489" stroke-width="3" ' +
+      'stroke-linecap="round" stroke-linejoin="round" opacity=".62"/>';
 
-      const pt = path.getPointAtLength(total * ratio);
-      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      g.setAttribute('class', 'cp-dot');
-      g.setAttribute('data-cp', String(i));
-      g.setAttribute('tabindex', '0');
-      g.setAttribute('role', 'img');
-      g.setAttribute('aria-label', cp.name + ', KM ' + cp.km);
-      g.innerHTML =
-        '<circle cx="' + pt.x.toFixed(1) + '" cy="' + pt.y.toFixed(1) + '" r="9" ' +
-        'fill="var(--surface)" stroke="' + TYPE_COLOR[cp.type] + '" stroke-width="2.5"/>' +
-        '<circle cx="' + pt.x.toFixed(1) + '" cy="' + pt.y.toFixed(1) + '" r="3.4" fill="' + TYPE_COLOR[cp.type] + '"/>' +
-        '<text x="' + pt.x.toFixed(1) + '" y="' +
-        (cp.type === 'finish' ? (pt.y + 24) : (pt.y - 15)).toFixed(1) +
-        '" text-anchor="middle">' + cp.km.replace('.', ',') + '</text>';
-      markers.appendChild(g);
+    /* penanda kilometer: titik kecil, tidak bersaing dengan pos layanan */
+    r.kmMarkers.forEach(function (m) {
+      out += '<g class="km-dot" role="img" aria-label="Kilometer ' + m.km + '">' +
+        '<circle cx="' + m.x + '" cy="' + m.y + '" r="13" fill="var(--surface)" ' +
+        'stroke="var(--line-strong)" stroke-width="2"/>' +
+        '<text x="' + m.x + '" y="' + (m.y + 4.4) + '" text-anchor="middle">' + m.km + '</text></g>';
     });
 
-    // a dashed overlay travelling the loop shows which way the course runs
-    const flow = path.cloneNode();
-    flow.removeAttribute('id');
-    flow.setAttribute('class', 'flow');
-    flow.setAttribute('stroke', '#ffd489');
-    flow.setAttribute('stroke-width', '2');
-    flow.setAttribute('opacity', '.62');
-    path.parentNode.insertBefore(flow, markers);
+    r.checkpoints.forEach(function (cp, i) {
+      const x = cp.xy[0], y = cp.xy[1];
+      /* start dan finis berbagi satu titik: digeser sedikit agar dua-duanya terbaca */
+      const dy = cp.type === 'start' ? -17 : (cp.type === 'finish' ? 17 : 0);
+      out += '<g class="cp-dot" data-cp="' + i + '" tabindex="0" role="img" aria-label="' +
+        cp.name + ', KM ' + cp.km + '">' +
+        '<circle cx="' + x + '" cy="' + (y + dy) + '" r="15" fill="var(--surface)" stroke="' +
+        TYPE_COLOR[cp.type] + '" stroke-width="4"/>' +
+        '<circle cx="' + x + '" cy="' + (y + dy) + '" r="5.5" fill="' + TYPE_COLOR[cp.type] + '"/>' +
+        '<text x="' + x + '" y="' + (y + dy + (dy < 0 ? -21 : 33)) + '" text-anchor="middle">' +
+        cp.km.replace('.', ',') + '</text></g>';
+    });
 
-    // hovering either the map or the list highlights the same checkpoint
-    function focusCp(idx, on) {
+    svg.innerHTML =
+      '<title id="mapTitle">Rute HIPMI RUN KARANGANYAR VOL. #1 kategori ' + r.nominalKm + 'K</title>' +
+      '<desc id="mapDesc"></desc>' + out;
+    if (desc) svg.querySelector('#mapDesc').textContent = desc.textContent;
+
+    /* menyorot satu pos dari peta maupun dari daftar */
+    function sorot(idx, on) {
       $$('[data-cp="' + idx + '"]').forEach(function (el) {
         if (el.classList.contains('cp')) el.setAttribute('data-active', String(on));
-        else el.querySelector('circle').setAttribute('stroke-width', on ? '4' : '2.5');
+        else el.querySelector('circle').setAttribute('stroke-width', on ? '7' : '4');
       });
     }
     $$('[data-cp]').forEach(function (el) {
       const idx = el.getAttribute('data-cp');
-      ['mouseenter', 'focus'].forEach(ev => el.addEventListener(ev, () => focusCp(idx, true)));
-      ['mouseleave', 'blur'].forEach(ev => el.addEventListener(ev, () => focusCp(idx, false)));
+      ['mouseenter', 'focus'].forEach(ev => el.addEventListener(ev, () => sorot(idx, true)));
+      ['mouseleave', 'blur'].forEach(ev => el.addEventListener(ev, () => sorot(idx, false)));
     });
   }
 
-  /* ---- elevation profile ------------------------------------------------ */
-  /* The chart is drawn at the container's real pixel width so one SVG unit is
-     one CSS pixel. A fixed viewBox would scale 10px axis text down to about
-     3px on a phone, which is unreadable. Redrawn whenever the width changes. */
+  /* ---- ringkasan angka --------------------------------------------------- */
+  function gambarRingkas() {
+    const r = R();
+    const set = (id, v) => { const e = $(id); if (e) e.textContent = v; };
+    set('#statGain', '+' + r.gainM + ' m');
+    set('#statRange', r.minM + ' - ' + r.maxM + ' m');
+    set('#statJarak', String(r.nominalKm).replace('.', ',') + ' km');
+    const puncak = r.elevation.reduce((a, b) => (b.m > a.m ? b : a));
+    set('#statPuncak', 'KM ' + puncak.km.toFixed(1).replace('.', ','));
+  }
+
+  /* ---- profil elevasi ---------------------------------------------------- */
+  /* Digambar pada lebar piksel sebenarnya supaya satu satuan SVG sama dengan
+     satu piksel CSS; viewBox tetap akan mengecilkan teks sumbu jadi tak terbaca
+     di layar ponsel. Digambar ulang setiap lebarnya berubah. */
   const chart = $('#elevChart');
-  if (chart) {
-    const pts = H.ELEVATION;
-    let lastWidth = 0;
+  let lastWidth = 0;
 
-    function drawElevation() {
-      const box = chart.getBoundingClientRect();
-      const W = Math.round(box.width) || 640;
-      if (!W) return;
+  function drawElevation() {
+    if (!chart) return;
+    const pts = R().elevation;
+    const maxKm = R().nominalKm;
+    const box = chart.getBoundingClientRect();
+    const W = Math.round(box.width) || 640;
+    if (!W) return;
 
-      const narrow = W < 520;
-      const Hh = narrow ? 250 : 300;
-      const padL = narrow ? 42 : 50;
-      const padR = narrow ? 14 : 22;
-      const padT = narrow ? 30 : 28;
-      const padB = narrow ? 40 : 44;
-      const plotW = W - padL - padR, plotH = Hh - padT - padB;
-      const step = narrow ? 40 : 20;
-      const ticks = narrow ? [0, 2.5, 5, 7.5, 10] : [0, 2.5, 5, 7.5, 10];
+    const narrow = W < 520;
+    const Hh = narrow ? 250 : 300;
+    const padL = narrow ? 42 : 50, padR = narrow ? 14 : 22;
+    const padT = narrow ? 30 : 28, padB = narrow ? 40 : 44;
+    const plotW = W - padL - padR, plotH = Hh - padT - padB;
+    const step = 10;
+    const ticks = [0, maxKm * 0.25, maxKm * 0.5, maxKm * 0.75, maxKm];
 
-      chart.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh);
+    chart.setAttribute('viewBox', '0 0 ' + W + ' ' + Hh);
 
-      const metres = pts.map(p => p.m);
-      const lo = Math.floor((Math.min.apply(null, metres) - 12) / step) * step;
-      const hi = Math.ceil((Math.max.apply(null, metres) + 12) / step) * step;
-      const x = km => padL + (km / 10) * plotW;
-      const y = m => padT + plotH - ((m - lo) / (hi - lo)) * plotH;
+    const metres = pts.map(p => p.m);
+    const lo = Math.floor((Math.min.apply(null, metres) - 8) / step) * step;
+    const hi = Math.ceil((Math.max.apply(null, metres) + 8) / step) * step;
+    const x = km => padL + (km / maxKm) * plotW;
+    const y = m => padT + plotH - ((m - lo) / (hi - lo)) * plotH;
 
-      const line = pts.map((p, i) => (i ? 'L' : 'M') + x(p.km).toFixed(1) + ' ' + y(p.m).toFixed(1)).join(' ');
-      const area = line + ' L' + x(10).toFixed(1) + ' ' + (padT + plotH) + ' L' + padL + ' ' + (padT + plotH) + ' Z';
+    const line = pts.map((p, i) => (i ? 'L' : 'M') + x(p.km).toFixed(1) + ' ' + y(p.m).toFixed(1)).join(' ');
+    const area = line + ' L' + x(maxKm).toFixed(1) + ' ' + (padT + plotH) + ' L' + padL + ' ' + (padT + plotH) + ' Z';
+    const puncak = pts.reduce((a, b) => (b.m > a.m ? b : a));
 
-      let out = '<title id="elevTitle">Profil elevasi rute 10 kilometer, naik dari 511 meter di garis start ke 621 meter pada KM 7,5, lalu turun ke 527 meter di garis finis.</title>' +
-        '<defs><linearGradient id="elevFill" x1="0" y1="0" x2="0" y2="1">' +
-        '<stop offset="0%" stop-color="var(--gold)" stop-opacity=".34"/>' +
-        '<stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></linearGradient></defs>';
+    let out = '<title id="elevTitle">Profil elevasi rute ' + maxKm + ' kilometer, bergerak antara ' +
+      Math.min.apply(null, metres) + ' dan ' + Math.max.apply(null, metres) +
+      ' meter di atas permukaan laut, total tanjakan ' + R().gainM + ' meter.</title>' +
+      '<defs><linearGradient id="elevFill" x1="0" y1="0" x2="0" y2="1">' +
+      '<stop offset="0%" stop-color="var(--gold)" stop-opacity=".34"/>' +
+      '<stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></linearGradient></defs>';
 
-      for (let m = lo; m <= hi; m += step) {
-        out += '<line stroke="var(--line)" x1="' + padL + '" y1="' + y(m) + '" x2="' + (W - padR) + '" y2="' + y(m) + '"/>' +
-          '<text x="' + (padL - 8) + '" y="' + (y(m) + 3.5) + '" text-anchor="end">' + m + '</text>';
-      }
-
-      out += '<path d="' + area + '" fill="url(#elevFill)"/>' +
-        '<path d="' + line + '" fill="none" stroke="var(--gold)" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>';
-
-      ticks.forEach(function (km) {
-        const p = pts.reduce((a, b) => Math.abs(b.km - km) < Math.abs(a.km - km) ? b : a);
-        const anchor = km === 0 ? 'start' : (km === 10 ? 'end' : 'middle');
-        out += '<line stroke="var(--line-strong)" stroke-dasharray="3 4" x1="' + x(km) + '" y1="' + y(p.m) + '" x2="' + x(km) + '" y2="' + (padT + plotH) + '"/>' +
-          '<circle cx="' + x(km) + '" cy="' + y(p.m) + '" r="4.5" fill="var(--gold)" stroke="var(--surface)" stroke-width="2">' +
-          '<title>KM ' + String(km).replace('.', ',') + ' pada ' + p.m + ' mdpl</title></circle>' +
-          '<text x="' + x(km) + '" y="' + (Hh - 14) + '" text-anchor="' + anchor + '">' +
-          (narrow ? String(km).replace('.', ',') : 'KM ' + String(km).replace('.', ',')) + '</text>';
-      });
-
-      const peak = pts.reduce((a, b) => (b.m > a.m ? b : a));
-      out += '<text x="' + x(peak.km) + '" y="' + (y(peak.m) - 14) + '" text-anchor="middle" fill="var(--ink)">' +
-        peak.m + ' mdpl</text>';
-      out += '<text x="' + padL + '" y="' + (narrow ? 14 : 15) + '" text-anchor="start">' +
-        (narrow ? 'Ketinggian (mdpl)' : 'Ketinggian di atas permukaan laut (meter)') + '</text>';
-
-      out += '<line class="elev-cursor" id="elevCursor" y1="' + padT + '" y2="' + (padT + plotH) + '"/>';
-      out += '<circle class="elev-dot" id="elevDot" r="5" fill="var(--lime)" stroke="var(--surface)" stroke-width="2"/>';
-      chart.innerHTML = out;
-
-      wireReadout(W, Hh, padL, plotW, x, y);
+    for (let m = lo; m <= hi; m += step) {
+      out += '<line stroke="var(--line)" x1="' + padL + '" y1="' + y(m) + '" x2="' + (W - padR) + '" y2="' + y(m) + '"/>' +
+        '<text x="' + (padL - 8) + '" y="' + (y(m) + 3.5) + '" text-anchor="end">' + m + '</text>';
     }
 
-    function metresAt(kmVal) {
-      for (let i = 1; i < pts.length; i++) {
-        if (kmVal <= pts[i].km) {
-          const a = pts[i - 1], b = pts[i];
-          const t = (kmVal - a.km) / (b.km - a.km || 1);
-          return a.m + (b.m - a.m) * t;
-        }
+    out += '<path d="' + area + '" fill="url(#elevFill)"/>' +
+      '<path d="' + line + '" fill="none" stroke="var(--gold)" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>';
+
+    ticks.forEach(function (km) {
+      const p = pts.reduce((a, b) => Math.abs(b.km - km) < Math.abs(a.km - km) ? b : a);
+      const anchor = km === 0 ? 'start' : (km === maxKm ? 'end' : 'middle');
+      const label = (Math.round(km * 10) / 10).toString().replace('.', ',');
+      out += '<line stroke="var(--line-strong)" stroke-dasharray="3 4" x1="' + x(km) + '" y1="' + y(p.m) + '" x2="' + x(km) + '" y2="' + (padT + plotH) + '"/>' +
+        '<circle cx="' + x(km) + '" cy="' + y(p.m) + '" r="4.5" fill="var(--gold)" stroke="var(--surface)" stroke-width="2">' +
+        '<title>KM ' + label + ' pada ' + p.m + ' mdpl</title></circle>' +
+        '<text x="' + x(km) + '" y="' + (Hh - 14) + '" text-anchor="' + anchor + '">' +
+        (narrow ? label : 'KM ' + label) + '</text>';
+    });
+
+    out += '<text x="' + x(puncak.km) + '" y="' + (y(puncak.m) - 14) + '" text-anchor="middle" fill="var(--ink)">' +
+      puncak.m + ' mdpl</text>';
+    out += '<text x="' + padL + '" y="' + (narrow ? 14 : 15) + '" text-anchor="start">' +
+      (narrow ? 'Ketinggian (mdpl)' : 'Ketinggian di atas permukaan laut (meter)') + '</text>';
+    out += '<line class="elev-cursor" id="elevCursor" y1="' + padT + '" y2="' + (padT + plotH) + '"/>';
+    out += '<circle class="elev-dot" id="elevDot" r="5" fill="var(--lime)" stroke="var(--surface)" stroke-width="2"/>';
+    chart.innerHTML = out;
+
+    wireReadout(W, Hh, padL, plotW, maxKm, x, y);
+  }
+
+  function metresAt(kmVal) {
+    const pts = R().elevation;
+    for (let i = 1; i < pts.length; i++) {
+      if (kmVal <= pts[i].km) {
+        const a = pts[i - 1], b = pts[i];
+        const t = (kmVal - a.km) / (b.km - a.km || 1);
+        return a.m + (b.m - a.m) * t;
       }
-      return pts[pts.length - 1].m;
     }
+    return pts[pts.length - 1].m;
+  }
 
-    function wireReadout(W, Hh, padL, plotW, x, y) {
-      const readout = $('#elevReadout');
-      const cursor = $('#elevCursor');
-      const dot = $('#elevDot');
+  function wireReadout(W, Hh, padL, plotW, maxKm, x, y) {
+    const readout = $('#elevReadout');
+    const cursor = $('#elevCursor');
+    const dot = $('#elevDot');
+    if (!readout || !cursor || !dot) return;
 
-      function track(e) {
-        const rect = chart.getBoundingClientRect();
-        if (!rect.width) return;
-        const vx = ((e.clientX - rect.left) / rect.width) * W;
-        const kmVal = Math.min(10, Math.max(0, ((vx - padL) / plotW) * 10));
-        const m = metresAt(kmVal);
-        const px = x(kmVal), py = y(m);
+    function track(e) {
+      const rect = chart.getBoundingClientRect();
+      if (!rect.width) return;
+      const vx = ((e.clientX - rect.left) / rect.width) * W;
+      const kmVal = Math.min(maxKm, Math.max(0, ((vx - padL) / plotW) * maxKm));
+      const m = metresAt(kmVal);
+      const px = x(kmVal), py = y(m);
 
-        cursor.setAttribute('x1', px); cursor.setAttribute('x2', px);
-        cursor.setAttribute('data-on', 'true');
-        dot.setAttribute('cx', px); dot.setAttribute('cy', py);
-        dot.setAttribute('data-on', 'true');
+      cursor.setAttribute('x1', px); cursor.setAttribute('x2', px);
+      cursor.setAttribute('data-on', 'true');
+      dot.setAttribute('cx', px); dot.setAttribute('cy', py);
+      dot.setAttribute('data-on', 'true');
 
-        readout.innerHTML = 'KM ' + kmVal.toFixed(1).replace('.', ',') +
-          ' \u00b7 <b>' + Math.round(m) + ' mdpl</b>';
-        // keep the bubble inside the chart on narrow screens
-        const leftPx = (px / W) * rect.width;
-        readout.style.left = Math.min(rect.width - 58, Math.max(58, leftPx)) + 'px';
-        readout.style.top = ((py / Hh) * rect.height) + 'px';
-        readout.setAttribute('data-on', 'true');
-      }
-
-      function clear() {
-        cursor.setAttribute('data-on', 'false');
-        dot.setAttribute('data-on', 'false');
-        readout.setAttribute('data-on', 'false');
-      }
-
-      chart.addEventListener('pointermove', track);
-      chart.addEventListener('pointerdown', track);
-      chart.addEventListener('pointerleave', clear);
-      chart.addEventListener('pointercancel', clear);
+      readout.innerHTML = 'KM ' + kmVal.toFixed(1).replace('.', ',') +
+        ' · <b>' + Math.round(m) + ' mdpl</b>';
+      const leftPx = (px / W) * rect.width;
+      readout.style.left = Math.min(rect.width - 58, Math.max(58, leftPx)) + 'px';
+      readout.style.top = ((py / Hh) * rect.height) + 'px';
+      readout.setAttribute('data-on', 'true');
     }
+    function clear() {
+      cursor.setAttribute('data-on', 'false');
+      dot.setAttribute('data-on', 'false');
+      readout.setAttribute('data-on', 'false');
+    }
+    chart.addEventListener('pointermove', track);
+    chart.addEventListener('pointerdown', track);
+    chart.addEventListener('pointerleave', clear);
+    chart.addEventListener('pointercancel', clear);
+  }
 
+  /* ---- pemilih kategori -------------------------------------------------- */
+  function pilih(key) {
+    if (!H.ROUTES[key]) return;
+    kini = key;
+    $$('[data-route]').forEach(function (b) {
+      const on = b.getAttribute('data-route') === key;
+      b.setAttribute('aria-pressed', String(on));
+    });
+    gambarDaftar();
+    gambarPeta();
+    gambarRingkas();
     drawElevation();
-    lastWidth = Math.round(chart.getBoundingClientRect().width);
+  }
 
-    if ('ResizeObserver' in window) {
-      new ResizeObserver(function () {
-        const w = Math.round(chart.getBoundingClientRect().width);
-        if (w && Math.abs(w - lastWidth) > 2) { lastWidth = w; drawElevation(); }
-      }).observe(chart.parentElement);
-    }
+  $$('[data-route]').forEach(function (b) {
+    b.addEventListener('click', function () { pilih(b.getAttribute('data-route')); });
+  });
+
+  pilih('10k');
+  lastWidth = chart ? Math.round(chart.getBoundingClientRect().width) : 0;
+
+  if (chart && 'ResizeObserver' in window) {
+    new ResizeObserver(function () {
+      const w = Math.round(chart.getBoundingClientRect().width);
+      if (w && Math.abs(w - lastWidth) > 2) { lastWidth = w; drawElevation(); }
+    }).observe(chart.parentElement);
   }
 })();

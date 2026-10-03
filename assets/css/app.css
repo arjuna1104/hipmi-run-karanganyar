@@ -579,7 +579,7 @@
   radial-gradient(120% 90% at 70% 15%, rgba(34,197,94,.10), transparent 60%),
   radial-gradient(100% 80% at 20% 85%, rgba(29,67,128,.12), transparent 62%),
   var(--surface-2)}
-.map-svg text{font-family:"Space Mono",monospace;fill:var(--ink-2);font-size:11px}
+.map-svg text{font-family:"Space Mono",monospace;fill:var(--ink-2);font-size:15px;font-weight:700}
 .map-svg .cp-dot{cursor:pointer}
 .map-svg .cp-dot:hover circle,.map-svg .cp-dot:focus circle{stroke-width:3.5}
 .map-legend{display:flex;gap:1.25rem;flex-wrap:wrap;padding:.9rem 1rem;border-top:1px solid var(--line);background:var(--surface)}
@@ -1737,3 +1737,14 @@ a.sponsor-plate:hover{transform:translateY(-2px)}
 /* pelat kecil: logo mitra tetap berwarna asli, ukurannya di bawah sponsor utama */
 .sponsor-plate.is-sm{padding:.65rem 1.05rem}
 .sponsor-plate.is-sm img{height:clamp(26px,1.1vw + 1.15rem,36px)}
+
+/* -- pemilih kategori rute ---------------------------------------------- */
+.route-switch{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.route-switch [aria-pressed="true"]{
+  background:var(--brand-ink);border-color:var(--brand-ink);color:var(--on-dark);
+}
+.route-switch [aria-pressed="true"]:hover{background:var(--brand-ink-2);border-color:var(--brand-ink-2)}
+/* penanda kilometer dibuat lebih tenang daripada pos layanan */
+.map-svg .km-dot text{
+  font-family:"Space Mono",monospace;font-size:12px;font-weight:700;fill:var(--ink-3);
+}

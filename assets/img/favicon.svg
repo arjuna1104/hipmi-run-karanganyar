@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="HIPMI RUN Karanganyar">
+  <rect width="64" height="64" rx="14" fill="#0a0d0b"/>
+  <!-- puncak Lawu dalam emas, lintasan pelari dalam hijau limau -->
+  <path d="M6 44 L20 22 L30 36 L38 26 L52 44 Z" fill="#e0a81a"/>
+  <path d="M8 52 h48" stroke="#7bc70d" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="38" cy="26" r="4" fill="#a4e60a"/>
+</svg>

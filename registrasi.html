@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pendaftaran Peserta - HIPMI RUN KARANGANYAR VOL. #1</title>
+<meta name="description" content="Daftar 10K Challenge atau 5K Fun Run HIPMI RUN Karanganyar, 13 Desember 2026. Early bird mulai Rp 175.000, termasuk jersey, race pack, BIB, dan medali finisher.">
+<meta name="theme-color" content="#fbfcfa">
+<script>
+/* Tema cerah adalah bawaan, apa pun setelan sistem pengunjung. Pilihan yang
+   pernah ditekan pengunjung tetap dihormati. Ditaruh di head dan berjalan
+   sebelum CSS dilukis, supaya tidak ada kedipan gelap sesaat. */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('hipmi-theme'); } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-192.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+<header class="masthead">
+  <div class="shell masthead-inner">
+    <div class="brand-group">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/img/v2/logo.webp" alt=""
+             width="599" height="686" decoding="async">
+        <span class="brand-text">
+          <b>HIPMI RUN</b>
+          <span>Karanganyar Vol. #1</span>
+        </span>
+      </a>
+
+      <!-- sponsor utama, berdampingan dengan lambang lomba -->
+      <a class="brand-co" href="https://www.bankjateng.co.id"
+         target="_blank" rel="noopener" aria-label="Bank Jateng, sponsor utama">
+        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
+             width="219" height="101" decoding="async">
+      </a>
+    </div>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="index.html#kategori">Kategori</a>
+      <a href="index.html#fasilitas">Fasilitas</a>
+      <a href="rute.html">Rute &amp; Hadiah</a>
+      <a href="hasil.html">Hasil &amp; E-Pass</a>
+      <a href="registrasi.html" data-nav-cta>Daftar sekarang</a>
+    </nav>
+    <div class="masthead-actions">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Ganti tema"></button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Buka menu navigasi">
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+      <a class="btn btn-gold btn-sm hide-xs" href="registrasi.html" aria-current="page">Daftar sekarang</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="band-tight">
+  <div class="shell">
+
+    <div class="section-head" style="margin-bottom:2rem">
+      <p class="eyebrow">Pendaftaran peserta</p>
+      <h1 class="display h-lg">Empat langkah menuju nomor dada.</h1>
+    </div>
+
+    <!-- lockup penyelenggara dan sponsor utama -->
+    <div class="cobrand" data-reveal>
+      <a class="cobrand-mark" href="index.html" aria-label="HIPMI RUN Karanganyar">
+        <img src="assets/img/v2/logo.webp" alt="" width="599" height="686" loading="lazy" decoding="async">
+      </a>
+      <span class="cobrand-x" aria-hidden="true">&times;</span>
+      <a class="cobrand-mark" href="https://www.bankjateng.co.id" target="_blank" rel="noopener"
+         aria-label="Bank Jateng, sponsor utama">
+        <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy" decoding="async">
+      </a>
+      <p>Disponsori oleh Bank Jateng</p>
+    </div>
+
+    <!-- ===== success state (revealed after payment) ===== -->
+    <section class="panel pad-lg" id="regDone" hidden aria-live="polite" style="max-width:640px;margin-inline:auto;text-align:center">
+      <div class="stack" style="gap:1.25rem;justify-items:center">
+        <div class="success-seal"><i class="ph-fill ph-check-circle" aria-hidden="true"></i></div>
+        <h2 class="display h-md">Pembayaran terkonfirmasi.</h2>
+        <p class="lede" style="text-align:center;margin-inline:auto">
+          Nomor dada Anda sudah terkunci dan e-Pass aktif. Tunjukkan e-Pass saat Race Pack
+          Collection di Gedung Wanita Karanganyar.
+        </p>
+        <dl class="epass-rows" style="width:100%;max-width:420px;text-align:left;color:var(--ink)">
+          <div><dt style="color:var(--ink-3)">Nomor dada</dt><dd id="doneBib" class="tel">-</dd></div>
+          <div><dt style="color:var(--ink-3)">Kategori</dt><dd id="doneCat">-</dd></div>
+          <div><dt style="color:var(--ink-3)">Nama peserta</dt><dd id="doneName">-</dd></div>
+          <div><dt style="color:var(--ink-3)">Total dibayar</dt><dd id="doneTotal" class="tel">-</dd></div>
+        </dl>
+        <div class="row" style="justify-content:center">
+          <a class="btn btn-gold" id="doneEpass" href="hasil.html">
+            <i class="ph ph-qr-code" aria-hidden="true"></i> Buka e-Pass
+          </a>
+          <a class="btn btn-ghost" href="index.html">Kembali ke beranda</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== wizard ===== -->
+    <div class="reg-layout" id="regWizard">
+      <form id="regForm" novalidate>
+
+        <div class="step-compact" id="stepCompact" aria-hidden="true">
+          <div class="step-compact-top">
+            <span class="step-compact-n" id="stepCompactN">Langkah 1 dari 4</span>
+            <span class="step-compact-t" id="stepCompactT">Kategori lomba</span>
+          </div>
+          <div class="step-compact-bar"><i id="stepCompactBar" style="width:25%"></i></div>
+        </div>
+
+        <ol class="stepper" id="stepper" aria-label="Tahapan pendaftaran">
+          <li><button class="step-pill" type="button" data-goto="1" data-state="active">
+            <span class="s-n">LANGKAH 1</span><span class="s-t">Kategori lomba</span></button></li>
+          <li><button class="step-pill" type="button" data-goto="2">
+            <span class="s-n">LANGKAH 2</span><span class="s-t">Data dan riwayat medis</span></button></li>
+          <li><button class="step-pill" type="button" data-goto="3">
+            <span class="s-n">LANGKAH 3</span><span class="s-t">Perlengkapan lomba</span></button></li>
+          <li><button class="step-pill" type="button" data-goto="4">
+            <span class="s-n">LANGKAH 4</span><span class="s-t">Pembayaran</span></button></li>
+        </ol>
+
+        <!-- ---- step 1 ---- -->
+        <section class="step-panel" data-step="1">
+          <fieldset class="fieldset">
+            <legend>Pilih kategori lomba</legend>
+            <p>Kuota di bawah ini adalah sisa slot terkini. Slot terkunci selama 20 menit setelah Anda masuk halaman pembayaran.</p>
+            <div class="pick" role="radiogroup" aria-label="Kategori lomba">
+
+              <label class="pick-row">
+                <input type="radio" name="kategori" value="10k" data-price="225000" data-normal="250000" data-label="10K Challenge" data-bib="1316" checked>
+                <span class="pick-info">
+                  <b>10K Challenge</b>
+                  <span>17 tahun ke atas &middot; COT 2 jam 15 menit</span>
+                  <span class="tel dim" style="font-size:.76rem">684 pelari terdaftar</span>
+                </span>
+                <span class="pick-price">
+                  <b>Rp 225.000</b>
+                  <span><s>Rp 250.000</s> early bird</span>
+                </span>
+              </label>
+
+              <label class="pick-row">
+                <input type="radio" name="kategori" value="5k" data-price="175000" data-normal="200000" data-label="5K Fun Run" data-bib="0730">
+                <span class="pick-info">
+                  <b>5K Fun Run</b>
+                  <span>Semua umur &middot; COT 1 jam 15 menit</span>
+                  <span class="tel dim" style="font-size:.76rem">629 pelari terdaftar</span>
+                </span>
+                <span class="pick-price">
+                  <b>Rp 175.000</b>
+                  <span><s>Rp 200.000</s> early bird</span>
+                </span>
+              </label>
+
+            </div>
+          </fieldset>
+
+          <div class="demo-note">
+            <i class="ph ph-info" aria-hidden="true"></i>
+            <p>Harga early bird berlaku sampai 13 November 2026 atau sampai kuota early bird habis.</p>
+          </div>
+        </section>
+
+        <!-- ---- step 2 ---- -->
+        <section class="step-panel" data-step="2" hidden>
+          <fieldset class="fieldset">
+            <legend>Identitas peserta</legend>
+            <p>NIK diverifikasi silang dengan nomor dada untuk mencegah penggunaan identitas ganda di garis start.</p>
+
+            <div class="field" data-field="nama">
+              <label for="nama" class="field-label">Nama lengkap sesuai KTP <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="nama" name="nama" type="text" autocomplete="name" required>
+              <p class="hint">Nama ini dicetak pada e-sertifikat finisher.</p>
+              <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+
+            <div class="grid-2">
+              <div class="field" data-field="nik">
+                <label for="nik" class="field-label">NIK KTP <span class="req" aria-hidden="true">*</span></label>
+                <input class="input tel" id="nik" name="nik" type="text" inputmode="numeric" maxlength="16" autocomplete="off" required>
+                <p class="hint">16 digit tanpa spasi.</p>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+              <div class="field" data-field="lahir">
+                <label for="lahir" class="field-label">Tanggal lahir <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="lahir" name="lahir" type="date" required>
+                <p class="hint" id="lahirHint">Usia dihitung per 13 Desember 2026.</p>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+            </div>
+
+            <div class="grid-3">
+              <div class="field" data-field="gender">
+                <label for="gender" class="field-label">Jenis kelamin <span class="req" aria-hidden="true">*</span></label>
+                <select class="select" id="gender" name="gender" required>
+                  <option value="">Pilih</option>
+                  <option value="Putra">Putra</option>
+                  <option value="Putri">Putri</option>
+                </select>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+              <div class="field" data-field="darah">
+                <label for="darah" class="field-label">Golongan darah <span class="req" aria-hidden="true">*</span></label>
+                <select class="select" id="darah" name="darah" required>
+                  <option value="">Pilih</option>
+                  <option>A</option><option>B</option><option>AB</option><option>O</option>
+                </select>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+              <div class="field" data-field="kota">
+                <label for="kota" class="field-label">Kota domisili <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="kota" name="kota" type="text" autocomplete="address-level2" required>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field" data-field="email">
+                <label for="email" class="field-label">Email aktif <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+                <p class="hint">E-Pass dan e-sertifikat dikirim ke alamat ini.</p>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+              <div class="field" data-field="telepon">
+                <label for="telepon" class="field-label">Nomor WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="telepon" name="telepon" type="tel" inputmode="tel" autocomplete="tel" placeholder="+62 8xx xxxx xxxx" required>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+            </div>
+          </fieldset>
+
+          <hr class="rule">
+
+          <fieldset class="fieldset">
+            <legend>Riwayat medis dan kontak darurat</legend>
+            <p>Data ini hanya dibuka oleh tim medis lapangan bila terjadi insiden di sepanjang rute.</p>
+
+            <div class="field" data-field="riwayat">
+              <label for="riwayat" class="field-label">Riwayat alergi atau penyakit</label>
+              <textarea class="textarea" id="riwayat" name="riwayat" placeholder="Contoh: asma ringan, alergi obat golongan sulfa"></textarea>
+              <p class="hint">Kosongkan bila tidak ada. Tulis juga obat rutin yang sedang dikonsumsi.</p>
+            </div>
+
+            <div class="grid-2">
+              <div class="field" data-field="darurat">
+                <label for="darurat" class="field-label">Nama kontak darurat <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="darurat" name="darurat" type="text" required>
+                <p class="hint">Anggota keluarga yang dapat dihubungi pada hari lomba.</p>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+              <div class="field" data-field="daruratTelepon">
+                <label for="daruratTelepon" class="field-label">Telepon kontak darurat <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="daruratTelepon" name="daruratTelepon" type="tel" inputmode="tel" placeholder="+62 8xx xxxx xxxx" required>
+                <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+              </div>
+            </div>
+
+            <div class="field" data-field="waiver">
+              <label class="check">
+                <input type="checkbox" id="waiver" name="waiver" required>
+                <span class="check-text">
+                  <b>Saya menandatangani pakta pelepasan tanggung jawab</b>
+                  <span>Saya menyatakan sehat jasmani, memahami risiko lomba lari jalan raya, dan membebaskan panitia dari tuntutan atas cedera yang timbul selama perlombaan.</span>
+                </span>
+              </label>
+              <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ---- step 3 ---- -->
+        <section class="step-panel" data-step="3" hidden>
+          <fieldset class="fieldset">
+            <legend>Ukuran jersey dry-fit</legend>
+            <p>Ukuran mengikuti standar Asia. Penukaran ukuran hanya dilayani saat Race Pack Collection selama stok tersedia.</p>
+            <div class="field" data-field="jersey">
+              <div class="sizes" role="radiogroup" aria-label="Ukuran jersey">
+                <label class="size-opt"><input type="radio" name="jersey" value="XS"><span>XS<small>lebar 44</small></span></label>
+                <label class="size-opt"><input type="radio" name="jersey" value="S"><span>S<small>lebar 47</small></span></label>
+                <label class="size-opt"><input type="radio" name="jersey" value="M"><span>M<small>lebar 50</small></span></label>
+                <label class="size-opt"><input type="radio" name="jersey" value="L"><span>L<small>lebar 53</small></span></label>
+                <label class="size-opt"><input type="radio" name="jersey" value="XL"><span>XL<small>lebar 56</small></span></label>
+                <label class="size-opt"><input type="radio" name="jersey" value="XXL"><span>XXL<small>lebar 59</small></span></label>
+              </div>
+              <p class="hint">
+                Angka menunjukkan lebar dada dalam sentimeter saat jersey dibentangkan.
+                <button class="size-link" type="button" id="btnSizeGuide">Lihat panduan ukuran</button>
+              </p>
+              <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+          </fieldset>
+
+          <hr class="rule">
+
+          <fieldset class="fieldset">
+            <legend>Personalisasi nomor dada</legend>
+            <p>Nama panggilan dicetak di bawah nomor dada supaya penonton di cheering zone dapat menyemangati Anda.</p>
+
+            <div class="grid-2" style="align-items:start">
+              <div class="stack">
+                <div class="field" data-field="bibName">
+                  <label for="bibName" class="field-label">Nama cetak di BIB</label>
+                  <input class="input" id="bibName" name="bibName" type="text" maxlength="12" autocomplete="off" placeholder="BIMA">
+                  <p class="hint">Maksimal 12 karakter, huruf dan spasi saja. Kosongkan bila tidak ingin dicetak.</p>
+                  <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+                </div>
+                <div class="demo-note">
+                  <i class="ph ph-shield-check" aria-hidden="true"></i>
+                  <p>Nomor dada di samping bersifat sementara dan dikunci permanen setelah pembayaran terkonfirmasi.</p>
+                </div>
+              </div>
+
+              <figure class="bib-preview" data-cat="10k" aria-live="polite">
+                <figcaption class="bib-head">HIPMI KARANGANYAR RUN 2026<br><span id="bibCat">10K CHALLENGE OPEN</span></figcaption>
+                <p class="bib-num" id="bibNum">1316</p>
+                <p class="bib-name" id="bibNamePreview"></p>
+                <div class="bib-foot">
+                  <span>panitia JATENG</span>
+                  <span id="bibChip">UHF-DF</span>
+                </div>
+              </figure>
+            </div>
+          </fieldset>
+        </section>
+
+        <!-- ---- step 4 ---- -->
+        <section class="step-panel" data-step="4" hidden>
+          <fieldset class="fieldset">
+            <legend>Metode pembayaran</legend>
+            <p>Konfirmasi otomatis dalam 10 detik setelah pembayaran diterima gateway. E-Pass langsung aktif.</p>
+
+            <div class="field" data-field="bayar">
+              <div class="pay-list" role="radiogroup" aria-label="Metode pembayaran">
+                <label class="pay-row">
+                  <input type="radio" name="bayar" value="QRIS Nasional" checked>
+                  <span class="pay-logo">QRIS</span>
+                  <span><b>QRIS Nasional</b><span class="pay-sub">Scan dari GoPay, OVO, DANA, ShopeePay, atau m-banking</span></span>
+                  <span class="pay-time">10 detik</span>
+                </label>
+                <label class="pay-row">
+                  <input type="radio" name="bayar" value="Virtual Account BCA">
+                  <span class="pay-logo">BCA</span>
+                  <span><b>Virtual Account BCA</b><span class="pay-sub">Transfer dari ATM, m-BCA, atau KlikBCA</span></span>
+                  <span class="pay-time">10 detik</span>
+                </label>
+                <label class="pay-row">
+                  <input type="radio" name="bayar" value="Virtual Account Mandiri">
+                  <span class="pay-logo">MDR</span>
+                  <span><b>Virtual Account Mandiri</b><span class="pay-sub">Livin by Mandiri dan ATM Mandiri</span></span>
+                  <span class="pay-time">10 detik</span>
+                </label>
+                <label class="pay-row">
+                  <input type="radio" name="bayar" value="Virtual Account BNI">
+                  <span class="pay-logo">BNI</span>
+                  <span><b>Virtual Account BNI</b><span class="pay-sub">Wondr by BNI dan ATM BNI</span></span>
+                  <span class="pay-time">10 detik</span>
+                </label>
+                <label class="pay-row">
+                  <input type="radio" name="bayar" value="Virtual Account BRI">
+                  <span class="pay-logo">BRI</span>
+                  <span><b>Virtual Account BRI</b><span class="pay-sub">BRImo dan ATM BRI</span></span>
+                  <span class="pay-time">10 detik</span>
+                </label>
+              </div>
+              <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+
+            <div class="inline-error" id="payError" hidden>
+              <i class="ph ph-warning-circle" aria-hidden="true"></i>
+              <span>Pembayaran tidak dapat diproses karena perangkat sedang luring. Periksa koneksi internet Anda, lalu ulangi pembayaran.</span>
+            </div>
+          </fieldset>
+        </section>
+
+        <div class="wizard-nav">
+          <button class="btn btn-ghost" type="button" id="btnBack" hidden>
+            <i class="ph ph-arrow-left" aria-hidden="true"></i> Kembali
+          </button>
+          <span></span>
+          <button class="btn btn-gold" type="button" id="btnNext">
+            Lanjutkan <i class="ph ph-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- ---- sticky summary ---- -->
+      <aside class="panel summary" aria-label="Ringkasan pendaftaran">
+        <div class="sum-head">
+          <div>
+            <p class="eyebrow" style="margin-bottom:.25rem">Ringkasan</p>
+            <p class="h-sm display" id="sumCat">10K Challenge</p>
+          </div>
+          <button class="sum-toggle" type="button" id="sumToggle" aria-expanded="false" aria-controls="sumBody">
+            <span id="sumToggleText">Rincian</span>
+            <i class="ph ph-caret-down" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="sum-body" id="sumBody">
+          <p class="sum-line"><span>Peserta</span><span id="sumName">Belum diisi</span></p>
+          <p class="sum-line"><span>Nomor dada sementara</span><span id="sumBib">1789</span></p>
+          <p class="sum-line"><span>Ukuran jersey</span><span id="sumJersey">Belum dipilih</span></p>
+          <hr class="rule">
+          <p class="sum-line"><span>Biaya registrasi</span><span id="sumPrice">Rp 225.000</span></p>
+          <p class="sum-line" id="sumSave" hidden><span>Potongan early bird</span><span id="sumSaveValue" style="color:var(--lime-deep)">-</span></p>
+          <p class="sum-line"><span>Biaya layanan</span><span>Rp 7.500</span></p>
+        </div>
+        <div class="sum-total">
+          <b>Total</b>
+          <b id="sumTotal">Rp 232.500</b>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+
+<!-- ============ jersey size guide ============ -->
+<div class="modal" id="sizeModal" role="dialog" aria-modal="true" aria-labelledby="sizeTitle" hidden>
+  <div class="modal-card" style="width:min(100%,520px)">
+    <div class="modal-head">
+      <h3 id="sizeTitle">Panduan ukuran jersey dry-fit</h3>
+      <button class="icon-btn" type="button" data-modal-close aria-label="Tutup panduan ukuran">
+        <i class="ph ph-x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="pad">
+      <table class="size-table" id="sizeTable">
+        <caption class="sr-only">Tabel ukuran jersey berdasarkan lebar dada, panjang badan, dan tinggi badan</caption>
+        <thead>
+          <tr>
+            <th scope="col">Ukuran</th>
+            <th scope="col">Lebar dada</th>
+            <th scope="col">Panjang badan</th>
+            <th scope="col">Tinggi badan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-size="XS"><td class="s-code">XS</td><td>44 cm</td><td>64 cm</td><td>150 - 158 cm</td></tr>
+          <tr data-size="S"><td class="s-code">S</td><td>47 cm</td><td>66 cm</td><td>158 - 165 cm</td></tr>
+          <tr data-size="M"><td class="s-code">M</td><td>50 cm</td><td>68 cm</td><td>165 - 170 cm</td></tr>
+          <tr data-size="L"><td class="s-code">L</td><td>53 cm</td><td>70 cm</td><td>170 - 176 cm</td></tr>
+          <tr data-size="XL"><td class="s-code">XL</td><td>56 cm</td><td>72 cm</td><td>176 - 182 cm</td></tr>
+          <tr data-size="XXL"><td class="s-code">XXL</td><td>59 cm</td><td>74 cm</td><td>182 cm ke atas</td></tr>
+        </tbody>
+      </table>
+      <p class="hint" style="margin-top:1rem">
+        Potongan raglan unisex dengan toleransi jahitan 1 sampai 2 cm. Bila berada di antara dua
+        ukuran, panitia menyarankan mengambil ukuran yang lebih besar untuk kenyamanan berlari.
+      </p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ink btn-block" type="button" data-modal-close>Mengerti</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="shell">
+    <!-- sponsor utama : tampil di kaki seluruh halaman -->
+    <div class="sponsor-band">
+      <p class="eyebrow">Disponsori oleh</p>
+      <a class="sponsor-plate" href="https://www.bankjateng.co.id" target="_blank" rel="noopener">
+        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
+             width="219" height="101" decoding="async">
+      </a>
+      <p>Bank Jateng, sponsor utama HIPMI RUN Karanganyar Vol. #1.</p>
+
+      <div class="partner-row">
+        <div class="partner-item">
+          <span>Race management</span>
+          <span class="sponsor-plate is-sm">
+            <img src="assets/img/partner/krh-dark.webp" alt="Karanganyar Running Hub"
+                 width="900" height="314" loading="lazy" decoding="async">
+          </span>
+        </div>
+        <div class="partner-item">
+          <span>Media partner</span>
+          <span class="sponsor-plate is-sm">
+            <img src="assets/img/partner/explore.webp" alt="Explore Kabkaranganyar.id"
+                 width="894" height="174" loading="lazy" decoding="async">
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-base" style="margin-top:0;border-top:0;padding-top:0">
+      <p>&copy; <span data-year>2026</span> BPC HIPMI Karanganyar. Seluruh hak cipta dilindungi.</p>
+      <p><a href="index.html">Kembali ke beranda</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/registrasi.js"></script>
+</body>
+</html>

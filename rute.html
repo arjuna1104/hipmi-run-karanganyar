@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panduan Rute dan Hadiah Podium - HIPMI RUN KARANGANYAR VOL. #1</title>
+<meta name="description" content="Peta rute poros kota Karanganyar, profil elevasi +110 meter, posisi water station, pos medis, cheering zone, dan rincian hadiah podium Rp 75.000.000.">
+<meta name="theme-color" content="#fbfcfa">
+<script>
+/* Tema cerah adalah bawaan, apa pun setelan sistem pengunjung. Pilihan yang
+   pernah ditekan pengunjung tetap dihormati. Ditaruh di head dan berjalan
+   sebelum CSS dilukis, supaya tidak ada kedipan gelap sesaat. */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('hipmi-theme'); } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-192.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+<header class="masthead">
+  <div class="shell masthead-inner">
+    <div class="brand-group">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/img/v2/logo.webp" alt=""
+             width="599" height="686" decoding="async">
+        <span class="brand-text">
+          <b>HIPMI RUN</b>
+          <span>Karanganyar Vol. #1</span>
+        </span>
+      </a>
+
+      <!-- sponsor utama, berdampingan dengan lambang lomba -->
+      <a class="brand-co" href="https://www.bankjateng.co.id"
+         target="_blank" rel="noopener" aria-label="Bank Jateng, sponsor utama">
+        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
+             width="219" height="101" decoding="async">
+      </a>
+    </div>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="index.html#kategori">Kategori</a>
+      <a href="index.html#fasilitas">Fasilitas</a>
+      <a href="rute.html" aria-current="page">Rute &amp; Hadiah</a>
+      <a href="hasil.html">Hasil &amp; E-Pass</a>
+      <a href="registrasi.html" data-nav-cta>Daftar sekarang</a>
+    </nav>
+    <div class="masthead-actions">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Ganti tema"></button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Buka menu navigasi">
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+      <a class="btn btn-gold btn-sm hide-xs" href="registrasi.html">Daftar sekarang</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ route map + checkpoints ============ -->
+  <section class="band-tight">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Panduan rute</p>
+        <h1 class="display h-lg">Keluar alun-alun, memutar kota, pulang.</h1>
+        <p class="lede">
+          Loop 10 kilometer melewati jalan raya tertutup penuh. Kategori 5K memutar balik di KM 2,5
+          dan berbagi garis finis yang sama.
+        </p>
+      </div>
+
+      <div class="route-grid">
+        <div data-reveal>
+          <!-- Schematic of the surveyed course. Replace with the certified GPX
+               trace over a map tile layer once the course is officially measured. -->
+          <div class="map-stage">
+            <svg class="map-svg" viewBox="0 0 640 440" role="img" aria-labelledby="mapTitle mapDesc">
+              <title id="mapTitle">Skema rute HIPMI RUN KARANGANYAR VOL. #1</title>
+              <desc id="mapDesc">Rute memutar dari Alun-alun Karanganyar ke arah timur laut menuju Poros Kota pada KM 7,5, lalu kembali ke garis finis di titik start. Delapan pos layanan tersebar di sepanjang jalur.</desc>
+
+              <g opacity=".5" stroke="var(--line-strong)" stroke-width="1" fill="none">
+                <path d="M0 96h640M0 200h640M0 304h640M148 0v440M320 0v440M492 0v440"/>
+              </g>
+
+              <path id="routePath"
+                d="M118 352 C 168 340, 206 318, 236 284 C 268 248, 288 214, 330 196
+                   C 380 174, 424 178, 462 152 C 500 126, 512 96, 492 74
+                   C 470 50, 420 58, 396 90 C 372 122, 386 158, 418 188
+                   C 452 220, 486 248, 468 288 C 452 324, 388 338, 322 336
+                   C 252 334, 176 340, 118 352 Z"
+                fill="none" stroke="var(--brand-accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity=".22"/>
+              <path
+                d="M118 352 C 168 340, 206 318, 236 284 C 268 248, 288 214, 330 196
+                   C 380 174, 424 178, 462 152 C 500 126, 512 96, 492 74
+                   C 470 50, 420 58, 396 90 C 372 122, 386 158, 418 188
+                   C 452 220, 486 248, 468 288 C 452 324, 388 338, 322 336
+                   C 252 334, 176 340, 118 352 Z"
+                fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+              <g id="mapMarkers"></g>
+            </svg>
+            <div class="map-legend">
+              <div><i class="ph-fill ph-flag-banner" style="color:var(--brand-accent)" aria-hidden="true"></i> Start</div>
+              <div><i class="ph-fill ph-trophy" style="color:var(--gold)" aria-hidden="true"></i> Finis</div>
+              <div><i class="ph-fill ph-drop" style="color:#3b82f6" aria-hidden="true"></i> Water station</div>
+              <div><i class="ph-fill ph-first-aid-kit" style="color:#d1443b" aria-hidden="true"></i> Ambulans siaga</div>
+              <div><i class="ph-fill ph-megaphone" style="color:var(--lime)" aria-hidden="true"></i> Cheering zone</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack" data-reveal data-delay="1">
+          <h2 class="h-sm display">Delapan pos sepanjang jalur</h2>
+          <div class="cp-list" id="cpList"></div>
+        </div>
+      </div>
+      <!-- lockup penyelenggara dan sponsor utama -->
+      <div class="cobrand" data-reveal>
+        <a class="cobrand-mark" href="index.html" aria-label="HIPMI RUN Karanganyar">
+          <img src="assets/img/v2/logo.webp" alt="" width="599" height="686" loading="lazy" decoding="async">
+        </a>
+        <span class="cobrand-x" aria-hidden="true">&times;</span>
+        <a class="cobrand-mark" href="https://www.bankjateng.co.id" target="_blank" rel="noopener"
+           aria-label="Bank Jateng, sponsor utama">
+          <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy" decoding="async">
+        </a>
+        <p>Disponsori oleh Bank Jateng</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ elevation ============ -->
+  <section class="band-tight">
+    <div class="shell">
+      <div class="panel pad-lg" data-reveal>
+        <div class="between" style="margin-bottom:1.5rem">
+          <div>
+            <h2 class="display h-md">Profil elevasi.</h2>
+            <p class="muted" style="font-size:.92rem">Titik tertinggi berada di Poros Kota, KM 7,5.</p>
+          </div>
+          <div class="elev-stats" style="margin-top:0">
+            <div><b style="color:var(--ink)">+110 m</b><span style="color:var(--ink-3)">Elevation gain</span></div>
+            <div><b style="color:var(--ink)">511 - 621 m</b><span style="color:var(--ink-3)">Rentang mdpl</span></div>
+          </div>
+        </div>
+        <div class="elev-stage">
+          <svg class="elev-chart" id="elevChart" viewBox="0 0 900 300" role="img" aria-labelledby="elevTitle"></svg>
+          <div class="elev-readout" id="elevReadout" aria-hidden="true"></div>
+        </div>
+        <p class="hint" style="margin-top:.85rem">
+          Arahkan kursor atau sentuh grafik untuk membaca ketinggian pada kilometer mana pun.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ prizes ============ -->
+  <section class="band" id="hadiah" style="background:var(--bg-2);border-top:1px solid var(--line)">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Hadiah podium</p>
+        <h2 class="display h-lg">Rp 75.000.000 dibagi ke 12 podium.</h2>
+        <p class="lede">
+          Kedua kategori memberi hadiah untuk juara 1 sampai 3 pada kelompok putra dan putri.
+          Pajak hadiah ditanggung panitia.
+        </p>
+      </div>
+
+      <div class="prize-grid prize-grid-2">
+        <article class="prize-card is-top" data-reveal>
+          <div class="prize-head">
+            <h3>10K Challenge</h3>
+            <span class="chip chip-gold">Rp 22,5 jt</span>
+          </div>
+          <div class="prize-rows">
+            <p class="prize-row"><span class="pr-place"><i class="ph-fill ph-medal m1" aria-hidden="true"></i> Juara 1</span><b>Rp 11.000.000</b></p>
+            <p class="prize-row"><span class="pr-place"><i class="ph-fill ph-medal m2" aria-hidden="true"></i> Juara 2</span><b>Rp 7.000.000</b></p>
+            <p class="prize-row"><span class="pr-place"><i class="ph-fill ph-medal m3" aria-hidden="true"></i> Juara 3</span><b>Rp 4.500.000</b></p>
+          </div>
+          <p class="prize-note">Nominal berlaku masing-masing untuk kelompok putra dan putri, ditambah tropi dan piagam resmi panitia.</p>
+        </article>
+
+        <article class="prize-card" data-reveal data-delay="1">
+          <div class="prize-head">
+            <h3>5K Fun Run</h3>
+            <span class="chip">Rp 15 jt</span>
+          </div>
+          <div class="prize-rows">
+            <p class="prize-row"><span class="pr-place"><i class="ph-fill ph-medal m1" aria-hidden="true"></i> Juara 1</span><b>Rp 7.000.000</b></p>
+            <p class="prize-row"><span class="pr-place"><i class="ph-fill ph-medal m2" aria-hidden="true"></i> Juara 2</span><b>Rp 5.000.000</b></p>
+            <p class="prize-row"><span class="pr-place"><i class="ph-fill ph-medal m3" aria-hidden="true"></i> Juara 3</span><b>Rp 3.000.000</b></p>
+          </div>
+          <p class="prize-note">Seluruh finisher 5K tetap menerima medali dan e-sertifikat resmi, apa pun catatan waktunya.</p>
+        </article>
+      </div>
+
+      <div class="demo-note" style="margin-top:1.5rem">
+        <i class="ph ph-scales" aria-hidden="true"></i>
+        <p>Total 2 kategori x 2 kelompok x 3 posisi podium = 12 penerima hadiah, senilai Rp 75.000.000. Keputusan dewan juri bersifat final.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ closing ============ -->
+  <section class="band">
+    <div class="shell closer" data-reveal>
+      <h2 class="display h-lg">Siap memutari kota?</h2>
+      <p class="lede" style="margin-inline:auto;text-align:center">
+        Kuota gabungan tersisa 1.095 slot dari 3.500 yang disediakan untuk edisi perdana ini.
+      </p>
+      <a class="btn btn-gold btn-lg" href="registrasi.html">Daftar sekarang</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <!-- sponsor utama : tampil di kaki seluruh halaman -->
+    <div class="sponsor-band">
+      <p class="eyebrow">Disponsori oleh</p>
+      <a class="sponsor-plate" href="https://www.bankjateng.co.id" target="_blank" rel="noopener">
+        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
+             width="219" height="101" decoding="async">
+      </a>
+      <p>Bank Jateng, sponsor utama HIPMI RUN Karanganyar Vol. #1.</p>
+
+      <div class="partner-row">
+        <div class="partner-item">
+          <span>Race management</span>
+          <span class="sponsor-plate is-sm">
+            <img src="assets/img/partner/krh-dark.webp" alt="Karanganyar Running Hub"
+                 width="900" height="314" loading="lazy" decoding="async">
+          </span>
+        </div>
+        <div class="partner-item">
+          <span>Media partner</span>
+          <span class="sponsor-plate is-sm">
+            <img src="assets/img/partner/explore.webp" alt="Explore Kabkaranganyar.id"
+                 width="894" height="174" loading="lazy" decoding="async">
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-base" style="margin-top:0;border-top:0;padding-top:0">
+      <p>&copy; <span data-year>2026</span> BPC HIPMI Karanganyar. Seluruh hak cipta dilindungi.</p>
+      <p><a href="hasil.html">Hasil lomba dan e-Pass</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/rute.js"></script>
+</body>
+</html>

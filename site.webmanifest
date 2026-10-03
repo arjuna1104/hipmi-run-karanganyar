@@ -1,0 +1,25 @@
+{
+  "name": "HIPMI RUN KARANGANYAR VOL. #1",
+  "short_name": "HIPMI RUN",
+  "description": "Lomba lari jalan raya BPC HIPMI Karanganyar. Pengusaha Pejuang, Pejuang Pengusaha.",
+  "lang": "id",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbfcfa",
+  "theme_color": "#0a0d0b",
+  "icons": [
+    {
+      "src": "assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

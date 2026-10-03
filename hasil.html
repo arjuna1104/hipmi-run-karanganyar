@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hasil Lomba, E-Pass dan Leaderboard - HIPMI RUN KARANGANYAR VOL. #1</title>
+<meta name="description" content="Lacak nomor dada, buka e-Pass race pack, unduh e-sertifikat finisher resmi, bandingkan split pace, dan pantau leaderboard RFID live.">
+<meta name="theme-color" content="#fbfcfa">
+<script>
+/* Tema cerah adalah bawaan, apa pun setelan sistem pengunjung. Pilihan yang
+   pernah ditekan pengunjung tetap dihormati. Ditaruh di head dan berjalan
+   sebelum CSS dilukis, supaya tidak ada kedipan gelap sesaat. */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('hipmi-theme'); } catch (e) {}
+  document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+})();
+</script>
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-192.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,400;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Lewati ke konten utama</a>
+
+<header class="masthead">
+  <div class="shell masthead-inner">
+    <div class="brand-group">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="assets/img/v2/logo.webp" alt=""
+             width="599" height="686" decoding="async">
+        <span class="brand-text">
+          <b>HIPMI RUN</b>
+          <span>Karanganyar Vol. #1</span>
+        </span>
+      </a>
+
+      <!-- sponsor utama, berdampingan dengan lambang lomba -->
+      <a class="brand-co" href="https://www.bankjateng.co.id"
+         target="_blank" rel="noopener" aria-label="Bank Jateng, sponsor utama">
+        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
+             width="219" height="101" decoding="async">
+      </a>
+    </div>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="index.html">Beranda</a>
+      <a href="index.html#kategori">Kategori</a>
+      <a href="index.html#fasilitas">Fasilitas</a>
+      <a href="rute.html">Rute &amp; Hadiah</a>
+      <a href="hasil.html" aria-current="page">Hasil &amp; E-Pass</a>
+      <a href="registrasi.html" data-nav-cta>Daftar sekarang</a>
+    </nav>
+    <div class="masthead-actions">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Ganti tema"></button>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Buka menu navigasi">
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+      <a class="btn btn-gold btn-sm hide-xs" href="registrasi.html">Daftar sekarang</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ lookup ============ -->
+  <section class="band-tight">
+    <div class="shell">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Telemetri peserta</p>
+        <h1 class="display h-lg">Masukkan nomor dada Anda.</h1>
+        <p class="lede">
+          Satu nomor dada membuka e-Pass race pack, hasil resmi, sertifikat finisher,
+          dan galeri foto rute Anda.
+        </p>
+      </div>
+
+      <div class="panel pad" data-reveal data-delay="1">
+        <form class="lookup" id="lookupForm" novalidate>
+          <div class="field" data-field="bib">
+            <label for="bibInput" class="field-label">Nomor dada (BIB)</label>
+            <input class="input" id="bibInput" name="bib" type="text" inputmode="numeric"
+                   maxlength="4" placeholder="1493" autocomplete="off">
+            <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+          </div>
+          <button class="btn btn-ink btn-lg" type="submit">
+            <i class="ph ph-magnifying-glass" aria-hidden="true"></i> Lacak
+          </button>
+          <button class="btn btn-ghost btn-lg" type="button" id="btnScan">
+            <i class="ph ph-qr-code" aria-hidden="true"></i> Pindai barcode
+          </button>
+        </form>
+
+        <div class="quick-bibs">
+          <span class="dim" style="font-size:.8rem">Contoh data demo:</span>
+          <button type="button" data-bib="1493">1493</button>
+          <button type="button" data-bib="2088">2088</button>
+          <button type="button" data-bib="4312">4312</button>
+          <button type="button" data-bib="1155">1155 (belum diambil)</button>
+          <button type="button" data-bib="01">01 (nomor kehormatan)</button>
+        </div>
+
+        <!-- camera scanner -->
+        <div id="scanWrap" hidden style="margin-top:1.25rem;display:grid;gap:.85rem">
+          <div class="scanner">
+            <video id="scanVideo" playsinline muted></video>
+            <div class="scan-frame" aria-hidden="true"></div>
+            <p class="scan-note">Arahkan kamera ke barcode pada e-Pass atau nomor dada peserta.</p>
+          </div>
+          <div class="row" style="justify-content:space-between">
+            <p class="dim" id="scanStatus" style="font-size:.84rem">Meminta izin kamera</p>
+            <button class="btn btn-ghost btn-sm" type="button" id="btnScanStop">Tutup pemindai</button>
+          </div>
+        </div>
+        <div class="inline-error" id="scanError" hidden style="margin-top:1.25rem">
+          <i class="ph ph-video-camera-slash" aria-hidden="true"></i>
+          <span id="scanErrorText"></span>
+        </div>
+      </div>
+      <!-- lockup penyelenggara dan sponsor utama -->
+      <div class="cobrand" data-reveal>
+        <a class="cobrand-mark" href="index.html" aria-label="HIPMI RUN Karanganyar">
+          <img src="assets/img/v2/logo.webp" alt="" width="599" height="686" loading="lazy" decoding="async">
+        </a>
+        <span class="cobrand-x" aria-hidden="true">&times;</span>
+        <a class="cobrand-mark" href="https://www.bankjateng.co.id" target="_blank" rel="noopener"
+           aria-label="Bank Jateng, sponsor utama">
+          <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy" decoding="async">
+        </a>
+        <p>Disponsori oleh Bank Jateng</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ runner panel ============ -->
+  <section class="band-tight" id="runnerSection">
+    <div class="shell">
+
+      <!-- empty state -->
+      <div class="empty" id="runnerEmpty" data-reveal>
+        <i class="ph ph-identification-card" aria-hidden="true"></i>
+        <b>Belum ada nomor dada yang dilacak</b>
+        <p>Ketik nomor dada empat digit di atas, atau pindai barcode e-Pass untuk membuka data peserta.</p>
+      </div>
+
+      <!-- loading state -->
+      <div id="runnerLoading" hidden aria-hidden="true">
+        <div class="skel" style="height:52px;margin-bottom:1.25rem"></div>
+        <div class="epass">
+          <div class="skel" style="height:300px"></div>
+          <div class="stack"><div class="skel" style="height:64px"></div><div class="skel" style="height:64px"></div>
+            <div class="skel" style="height:64px"></div><div class="skel" style="height:64px"></div></div>
+        </div>
+      </div>
+
+      <!-- not found -->
+      <div class="empty" id="runnerMissing" hidden>
+        <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+        <b>Nomor dada tidak ditemukan</b>
+        <p id="runnerMissingText">Periksa kembali empat digit pada nomor dada Anda.</p>
+      </div>
+
+      <!-- result -->
+      <div id="runnerPanel" hidden>
+        <div class="between" style="margin-bottom:1.5rem">
+          <div>
+            <h2 class="display h-md" id="rName">Nama Pelari</h2>
+            <p class="muted" id="rMeta" style="font-size:.92rem"></p>
+          </div>
+          <span class="chip" id="rStatus"></span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Data peserta">
+          <button class="tab" role="tab" id="tab-epass" aria-controls="panel-epass" aria-selected="true">
+            <span class="tab-full">E-Pass &amp; race pack</span><span class="tab-short">E-Pass</span>
+          </button>
+          <button class="tab" role="tab" id="tab-hasil" aria-controls="panel-hasil" aria-selected="false">
+            <span class="tab-full">Hasil &amp; sertifikat</span><span class="tab-short">Hasil</span>
+          </button>
+          <button class="tab" role="tab" id="tab-foto" aria-controls="panel-foto" aria-selected="false">
+            <span class="tab-full">Foto rute</span><span class="tab-short">Foto</span>
+          </button>
+        </div>
+
+        <!-- ---- tab : e-Pass ---- -->
+        <div role="tabpanel" id="panel-epass" aria-labelledby="tab-epass">
+          <div class="epass">
+            <article class="epass-card">
+              <div class="epass-top">
+                <div class="epass-bib">
+                  <span>Nomor dada</span>
+                  <b class="num" id="epBib">0000</b>
+                </div>
+                <span class="chip chip-on-dark" id="epCat">Kategori</span>
+              </div>
+              <div class="epass-body">
+                <dl class="epass-rows">
+                  <div><dt>Nama peserta</dt><dd id="epName">-</dd></div>
+                  <div><dt>Wave start</dt><dd id="epWave">-</dd></div>
+                  <div><dt>Ukuran jersey</dt><dd id="epJersey">-</dd></div>
+                  <div><dt>Golongan darah</dt><dd id="epBlood">-</dd></div>
+                  <div><dt>Timing chip</dt><dd class="tel" id="epChip" style="font-size:.82rem">-</dd></div>
+                  <div><dt>Kontak darurat</dt><dd id="epEmergency" style="font-size:.86rem">-</dd></div>
+                </dl>
+                <button class="btn btn-gold btn-block" type="button" id="btnEpass">
+                  <i class="ph ph-qr-code" aria-hidden="true"></i> Simpan E-Pass
+                </button>
+              </div>
+            </article>
+
+            <div class="stack">
+              <div class="between">
+                <h3 class="h-sm display">Status Race Pack Collection</h3>
+                <span class="chip" id="rpcCount">0 dari 4</span>
+              </div>
+              <div class="rpc" id="rpcList"></div>
+              <div class="demo-note">
+                <i class="ph ph-map-pin" aria-hidden="true"></i>
+                <p>Gedung Wanita Karanganyar, Jumat 11 Desember pukul 10:00 - 20:00 dan Sabtu 12 Desember pukul 09:00 - 18:00. Bawa KTP asli sesuai NIK pendaftaran.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- tab : hasil ---- -->
+        <div role="tabpanel" id="panel-hasil" aria-labelledby="tab-hasil" hidden>
+          <div class="stack-lg">
+
+            <!-- pre-race state for runners without a result yet -->
+            <div class="empty" id="resultPending" hidden>
+              <i class="ph ph-timer" aria-hidden="true"></i>
+              <b>Hasil terbit setelah Anda melintasi garis finis</b>
+              <p>Sertifikat finisher dan analisis split pace muncul otomatis begitu timing mat di KM 10,0 membaca chip Anda.</p>
+            </div>
+
+            <div id="resultReady" hidden>
+              <section id="sertifikat" style="margin-bottom:2.5rem">
+                <article class="cert" id="certificate">
+                  <div class="cert-guilloche" aria-hidden="true"></div>
+                  <div class="cert-inner">
+                    <img class="cert-logo" src="assets/img/v2/logo-light.webp" alt="" width="599" height="686">
+                    <p class="cert-org">
+                      BPC HIPMI Karanganyar<br>
+                      Pengusaha Pejuang Berdampak
+                    </p>
+                    <h3 class="cert-title">Sertifikat Finisher Resmi</h3>
+                    <p class="cert-runner" id="certName">Nama Pelari</p>
+                    <p class="cert-ribbon" id="certRibbon">Finisher</p>
+                    <p class="cert-line" id="certLine">
+                      Telah menyelesaikan lomba pada rute terukur poros kota Karanganyar.
+                    </p>
+
+                    <div class="cert-stats">
+                      <div class="cert-stat"><b id="certGun">00:00</b><span>Gun time</span></div>
+                      <div class="cert-stat"><b id="certNet">00:00</b><span>Net time</span></div>
+                      <div class="cert-stat"><b id="certPace">00:00</b><span>Pace / KM</span></div>
+                      <div class="cert-stat"><b id="certRank">#0</b><span>Peringkat</span></div>
+                    </div>
+
+                    <div class="cert-sign">
+                      <div class="sign-col">
+                        <span class="sign-name">Ir. Danang Wicaksana</span>
+                        <span class="sign-role">Ketua Umum<br>BPC HIPMI Karanganyar</span>
+                      </div>
+                      <div class="sign-col">
+                        <div class="cert-qr" id="certQr" aria-hidden="true"></div>
+                        <span class="sign-role">Stempel validasi</span>
+                      </div>
+                      <div class="sign-col">
+                        <span class="sign-name">Drs. Purwanto Hadi</span>
+                        <span class="sign-role">Wasit Utama<br>Dewan Juri Lomba</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+
+                <div class="row" style="margin-top:1.25rem">
+                  <button class="btn btn-gold" type="button" id="btnCert">
+                    <i class="ph ph-download-simple" aria-hidden="true"></i> Unduh sertifikat
+                  </button>
+                  <button class="btn btn-ghost" type="button" id="btnVerify">
+                    <i class="ph ph-shield-check" aria-hidden="true"></i> Cek keaslian
+                  </button>
+                </div>
+              </section>
+
+              <hr class="rule">
+
+              <section style="padding-top:2.5rem">
+                <div class="section-head" style="margin-bottom:1.75rem">
+                  <h3 class="display h-md">Komparasi split pace.</h3>
+                  <p class="lede" id="chartIntro">
+                    Laju per kilometer Anda dibandingkan dengan pemuncak kategori pada timing mat resmi.
+                  </p>
+                </div>
+
+                <div class="panel pad chart-wrap">
+                  <div class="chart-legend" id="chartLegend"></div>
+                  <svg class="chart-svg" id="paceChart" viewBox="0 0 720 320" role="img" aria-labelledby="paceChartTitle">
+                    <title id="paceChartTitle">Grafik pace per kilometer juara 1 dibanding pelari aktif pada checkpoint KM 2,5, 5,0, 7,5, dan 10,0.</title>
+                  </svg>
+                  <div class="demo-note" id="chartNote" hidden>
+                    <i class="ph ph-info" aria-hidden="true"></i>
+                    <p>Split per kilometer pembanding direkonstruksi pada laju rata-rata dari net time,
+                    karena bacaan timing mat per kilometer untuk pelari tersebut belum tersedia.</p>
+                  </div>
+                  <div class="split-table">
+                    <table>
+                      <caption class="sr-only">Tabel split waktu per checkpoint</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">Checkpoint</th>
+                          <th scope="col">Pace pembanding</th>
+                          <th scope="col">Pace Anda</th>
+                          <th scope="col">Selisih kumulatif</th>
+                        </tr>
+                      </thead>
+                      <tbody id="splitBody"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---- tab : foto ---- -->
+        <div role="tabpanel" id="panel-foto" aria-labelledby="tab-foto" hidden>
+          <div class="between" style="margin-bottom:1.5rem">
+            <div>
+              <h3 class="display h-md">Galeri rute Anda.</h3>
+              <p class="muted" style="font-size:.92rem">Dikelompokkan otomatis oleh pembacaan AI atas nomor dada di setiap titik foto.</p>
+            </div>
+            <span class="chip chip-live" id="photoCount"><span class="pulse" aria-hidden="true"></span> 0 foto</span>
+          </div>
+          <div class="photo-grid" id="photoGrid"></div>
+          <div class="empty" id="photoEmpty" hidden>
+            <i class="ph ph-image" aria-hidden="true"></i>
+            <b>Belum ada foto untuk nomor dada ini</b>
+            <p>Foto terbit bertahap dalam enam jam setelah lomba selesai, setelah AI selesai membaca nomor dada pada setiap frame.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ leaderboard ============ -->
+  <section class="band" id="leaderboard" style="background:var(--bg-2);border-top:1px solid var(--line)">
+    <div class="shell">
+      <div class="between" style="margin-bottom:1.75rem" data-reveal>
+        <div class="section-head" style="margin-bottom:0">
+          <h2 class="display h-lg">Leaderboard dan podium.</h2>
+          <p class="lede">Telemetri timing mat RFID, diperbarui setiap 15 detik sepanjang hari lomba.</p>
+        </div>
+        <span class="chip chip-gold" id="feedChip"><i class="ph ph-circle-notch" aria-hidden="true"></i> Menghubungi timing</span>
+      </div>
+
+      <div class="lb-filters" role="group" aria-label="Filter kategori leaderboard" data-reveal>
+        <button type="button" data-cat="10k" aria-pressed="true">10K Challenge</button>
+        <button type="button" data-cat="5k" aria-pressed="false">5K Fun Run</button>
+      </div>
+
+      <div class="between" style="margin-bottom:1.15rem">
+        <h3 class="h-sm display">Podium</h3>
+        <div class="lb-filters" role="group" aria-label="Filter gender podium" style="margin-bottom:0">
+          <button type="button" data-gender="putra" aria-pressed="true">Putra</button>
+          <button type="button" data-gender="putri" aria-pressed="false">Putri</button>
+        </div>
+      </div>
+
+      <div class="podium" id="podium" data-reveal></div>
+
+      <div class="between" style="margin:2.5rem 0 1.15rem">
+        <h3 class="h-sm display" id="lbHeading">Top 10 putra</h3>
+        <p class="dim tel" id="lbFinishers" style="font-size:.8rem"></p>
+      </div>
+
+      <form class="lb-tools" id="lbFindForm" novalidate>
+        <div class="field" data-field="lbFind">
+          <label for="lbFind" class="field-label">Cari posisi pelari</label>
+          <input class="input" id="lbFind" name="lbFind" type="text" inputmode="numeric"
+                 maxlength="4" placeholder="Nomor dada" autocomplete="off">
+        </div>
+        <button class="btn btn-ghost" type="submit">
+          <i class="ph ph-crosshair-simple" aria-hidden="true"></i> Temukan
+        </button>
+      </form>
+
+      <div class="panel lb" data-reveal>
+        <table>
+          <caption class="sr-only">Sepuluh pelari tercepat pada kategori terpilih</caption>
+          <thead>
+            <tr>
+              <th scope="col">Pos</th>
+              <th scope="col">BIB</th>
+              <th scope="col">Nama pelari</th>
+              <th scope="col" class="col-club">Klub</th>
+              <th scope="col" class="r col-gun">Gun time</th>
+              <th scope="col" class="r">Net time</th>
+              <th scope="col" class="r">Pace</th>
+            </tr>
+          </thead>
+          <tbody id="lbBody"></tbody>
+        </table>
+      </div>
+
+      <div class="demo-note" style="margin-top:1.25rem">
+        <i class="ph ph-info" aria-hidden="true"></i>
+        <p id="sourceNote">Menghubungi server timing RFID.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ e-Pass QR modal ============ -->
+<div class="modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrTitle" hidden>
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3 id="qrTitle">E-Pass Race Pack Collection</h3>
+      <button class="icon-btn" type="button" data-modal-close aria-label="Tutup e-Pass">
+        <i class="ph ph-x" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="qr-stage">
+      <div class="qr-box" id="qrBox"><div class="skel"></div></div>
+      <p class="h-sm display" id="qrName">Nama Pelari</p>
+      <p class="qr-code-text" id="qrPayload">-</p>
+      <p class="dim" style="font-size:.82rem;max-width:32ch">
+        Tunjukkan layar ini kepada marshall RPC. Barcode terenkripsi dan terikat NIK pendaftaran Anda.
+      </p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ink btn-block" type="button" id="btnQrPrint">
+        <i class="ph ph-printer" aria-hidden="true"></i> Simpan sebagai PDF
+      </button>
+      <button class="btn btn-ghost btn-block" type="button" data-modal-close>Tutup</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ race photo lightbox ============ -->
+<div class="modal lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-labelledby="lbPoint" hidden>
+  <button class="lb-close" type="button" data-modal-close aria-label="Tutup foto">
+    <i class="ph ph-x" aria-hidden="true"></i>
+  </button>
+  <div class="lb-frame">
+    <img id="lbImage" alt="" decoding="async">
+    <div class="lb-bar">
+      <div class="lb-meta">
+        <b id="lbPoint">Titik foto</b>
+        <span id="lbTime">00:00:00</span>
+      </div>
+      <div class="lb-nav">
+        <button type="button" id="lbPrev" aria-label="Foto sebelumnya"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+        <span class="tel" id="lbCount" style="display:grid;place-items:center;padding-inline:.5rem;font-size:.8rem">1 / 1</span>
+        <button type="button" id="lbNext" aria-label="Foto berikutnya"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+        <a class="btn btn-gold btn-sm" id="lbDownload" href="#" download target="_blank" rel="noopener">
+          <i class="ph ph-download-simple" aria-hidden="true"></i> Unduh HD
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="shell">
+    <!-- sponsor utama : tampil di kaki seluruh halaman -->
+    <div class="sponsor-band">
+      <p class="eyebrow">Disponsori oleh</p>
+      <a class="sponsor-plate" href="https://www.bankjateng.co.id" target="_blank" rel="noopener">
+        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
+             width="219" height="101" decoding="async">
+      </a>
+      <p>Bank Jateng, sponsor utama HIPMI RUN Karanganyar Vol. #1.</p>
+
+      <div class="partner-row">
+        <div class="partner-item">
+          <span>Race management</span>
+          <span class="sponsor-plate is-sm">
+            <img src="assets/img/partner/krh-dark.webp" alt="Karanganyar Running Hub"
+                 width="900" height="314" loading="lazy" decoding="async">
+          </span>
+        </div>
+        <div class="partner-item">
+          <span>Media partner</span>
+          <span class="sponsor-plate is-sm">
+            <img src="assets/img/partner/explore.webp" alt="Explore Kabkaranganyar.id"
+                 width="894" height="174" loading="lazy" decoding="async">
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-base" style="margin-top:0;border-top:0;padding-top:0">
+      <p>&copy; <span data-year>2026</span> BPC HIPMI Karanganyar. Seluruh hak cipta dilindungi.</p>
+      
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/timing-api.js"></script>
+<script src="assets/js/hasil.js"></script>
+</body>
+</html>

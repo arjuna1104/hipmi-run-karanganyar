@@ -344,42 +344,58 @@
         <section class="step-panel" data-step="4" hidden>
           <fieldset class="fieldset">
             <legend>Metode pembayaran</legend>
-            <p>Konfirmasi otomatis dalam 10 detik setelah pembayaran diterima gateway. E-Pass langsung aktif.</p>
+            <p>
+              Seluruh pembayaran HIPMI RUN Karanganyar dilayani <b>Bank Jateng</b> selaku
+              sponsor utama. Virtual account dan QRIS terkonfirmasi otomatis; transfer manual
+              diverifikasi panitia pada jam kerja.
+            </p>
 
             <div class="field" data-field="bayar">
               <div class="pay-list" role="radiogroup" aria-label="Metode pembayaran">
                 <label class="pay-row">
-                  <input type="radio" name="bayar" value="QRIS Nasional" checked>
+                  <input type="radio" name="bayar" value="Virtual Account Bank Jateng" checked>
+                  <span class="pay-logo pay-logo-img">
+                    <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy">
+                  </span>
+                  <span><b>Virtual Account Bank Jateng</b><span class="pay-sub">Nomor VA terbit otomatis, bayar lewat Bima Mobile, ATM, atau teller</span></span>
+                  <span class="pay-time">10 detik</span>
+                </label>
+                <label class="pay-row">
+                  <input type="radio" name="bayar" value="QRIS Bank Jateng">
                   <span class="pay-logo">QRIS</span>
-                  <span><b>QRIS Nasional</b><span class="pay-sub">Scan dari GoPay, OVO, DANA, ShopeePay, atau m-banking</span></span>
+                  <span><b>QRIS Bank Jateng</b><span class="pay-sub">Scan dari Bima Mobile atau aplikasi pembayaran lain</span></span>
                   <span class="pay-time">10 detik</span>
                 </label>
                 <label class="pay-row">
-                  <input type="radio" name="bayar" value="Virtual Account BCA">
-                  <span class="pay-logo">BCA</span>
-                  <span><b>Virtual Account BCA</b><span class="pay-sub">Transfer dari ATM, m-BCA, atau KlikBCA</span></span>
-                  <span class="pay-time">10 detik</span>
-                </label>
-                <label class="pay-row">
-                  <input type="radio" name="bayar" value="Virtual Account Mandiri">
-                  <span class="pay-logo">MDR</span>
-                  <span><b>Virtual Account Mandiri</b><span class="pay-sub">Livin by Mandiri dan ATM Mandiri</span></span>
-                  <span class="pay-time">10 detik</span>
-                </label>
-                <label class="pay-row">
-                  <input type="radio" name="bayar" value="Virtual Account BNI">
-                  <span class="pay-logo">BNI</span>
-                  <span><b>Virtual Account BNI</b><span class="pay-sub">Wondr by BNI dan ATM BNI</span></span>
-                  <span class="pay-time">10 detik</span>
-                </label>
-                <label class="pay-row">
-                  <input type="radio" name="bayar" value="Virtual Account BRI">
-                  <span class="pay-logo">BRI</span>
-                  <span><b>Virtual Account BRI</b><span class="pay-sub">BRImo dan ATM BRI</span></span>
-                  <span class="pay-time">10 detik</span>
+                  <input type="radio" name="bayar" value="Transfer rekening Bank Jateng">
+                  <span class="pay-logo pay-logo-img">
+                    <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy">
+                  </span>
+                  <span><b>Transfer ke rekening panitia</b><span class="pay-sub">Rekening Bank Jateng atas nama BPC HIPMI Karanganyar</span></span>
+                  <span class="pay-time">Verifikasi panitia</span>
                 </label>
               </div>
               <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+
+            <!-- Nomor rekening sengaja dikosongkan sampai panitia menerbitkan
+                 yang resmi. Jangan diisi angka contoh: halaman ini dibaca calon
+                 peserta dan nomor keliru berarti uang masuk ke rekening asing. -->
+            <div class="rek-card">
+              <p class="eyebrow">Rekening Bank Jateng HIPMI</p>
+              <p class="rek-no" aria-label="Nomor rekening belum tersedia">
+                <span class="rek-kosong" aria-hidden="true">&bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull;</span>
+                <span class="chip chip-gold">Menunggu nomor resmi</span>
+              </p>
+              <dl class="rek-meta">
+                <div><dt>Bank</dt><dd>Bank Jateng</dd></div>
+                <div><dt>Atas nama</dt><dd>BPC HIPMI Karanganyar</dd></div>
+                <div><dt>Keperluan</dt><dd>Biaya pendaftaran HIPMI RUN Vol. #1</dd></div>
+              </dl>
+              <p class="hint">
+                Nomor rekening dicantumkan di sini sebelum pendaftaran dibuka. Jangan
+                mentransfer ke rekening mana pun yang tidak tertera di halaman ini.
+              </p>
             </div>
 
             <div class="inline-error" id="payError" hidden>

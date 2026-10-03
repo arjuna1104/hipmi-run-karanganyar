@@ -1748,3 +1748,28 @@ a.sponsor-plate:hover{transform:translateY(-2px)}
 .map-svg .km-dot text{
   font-family:"Space Mono",monospace;font-size:12px;font-weight:700;fill:var(--ink-3);
 }
+
+/* -- metode bayar: logo bank sebagai gambar, bukan singkatan huruf ------ */
+.pay-logo-img{background:#fff;padding:3px 4px}
+.pay-logo-img img{width:100%;height:auto;display:block}
+
+/* -- kartu rekening panitia --------------------------------------------- */
+.rek-card{
+  margin-top:1.25rem;padding:clamp(1rem,.8rem + 1vw,1.5rem);
+  border:1.5px dashed var(--line-strong);border-radius:var(--r-card);
+  background:var(--surface-2);display:grid;gap:.9rem;
+}
+.rek-no{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+/* nomor sengaja kosong: dibuat terbaca sebagai tempat kosong, bukan angka */
+.rek-kosong{
+  font-family:"Space Mono",monospace;font-weight:700;
+  font-size:clamp(1.25rem,1rem + 1.2vw,1.8rem);letter-spacing:.22em;
+  color:var(--ink-3);user-select:none;
+}
+.rek-meta{display:grid;gap:.55rem;margin:0}
+.rek-meta > div{display:flex;gap:.6rem;flex-wrap:wrap;align-items:baseline}
+.rek-meta dt{
+  font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);min-width:9ch;
+}
+.rek-meta dd{margin:0;font-size:.92rem;font-weight:600;color:var(--ink)}

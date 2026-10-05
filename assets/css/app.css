@@ -1442,16 +1442,19 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
 .brand-mark{height:42px}
 @media (max-width:520px){.brand-mark{height:36px}}
 /* masthead berlatar terang memakai logo hijau; footer gelap membalikkannya */
-.footer .brand-mark{filter:brightness(0) invert(1)}
-:root[data-theme="dark"] .masthead .brand-mark{filter:brightness(0) invert(1)}
+/* Logo resmi punya dua varian: hijau tua dengan emas untuk latar terang, dan
+   putih dengan emas untuk latar gelap. Membalik warna lewat filter akan
+   meratakan emasnya jadi putih, jadi berkasnya yang ditukar. */
+.footer .brand-mark{content:url("../img/v2/logo-light.webp")}
+:root[data-theme="dark"] .masthead .brand-mark{content:url("../img/v2/logo-light.webp")}
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .masthead .brand-mark{filter:brightness(0) invert(1)}
+  :root:not([data-theme="light"]) .masthead .brand-mark{content:url("../img/v2/logo-light.webp")}
 }
 .hero-logo{width:min(100%,360px)}
 @media (max-width:980px){.hero-logo{width:min(100%,300px)}}
-:root[data-theme="dark"] .hero-logo{filter:brightness(0) invert(1)}
+:root[data-theme="dark"] .hero-logo{content:url("../img/v2/logo-light.webp")}
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .hero-logo{filter:brightness(0) invert(1)}
+  :root:not([data-theme="light"]) .hero-logo{content:url("../img/v2/logo-light.webp")}
 }
 .cert-logo{height:96px}
 @media (max-width:640px){.cert-logo{height:74px}}
@@ -1773,3 +1776,16 @@ a.sponsor-plate:hover{transform:translateY(-2px)}
   text-transform:uppercase;color:var(--ink-3);min-width:9ch;
 }
 .rek-meta dd{margin:0;font-size:.92rem;font-weight:600;color:var(--ink)}
+
+/* Pada lockup, logo HIPMI ditukar ke varian terangnya sementara logo Bank
+   Jateng tetap dibalik jadi putih, karena Bank Jateng hanya punya satu berkas. */
+:root[data-theme="dark"] .cobrand-mark img[src*="v2/logo"],
+:root[data-theme="dark"] .partner-lockup > img[src*="v2/logo"]{
+  filter:none;content:url("../img/v2/logo-light.webp");
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .cobrand-mark img[src*="v2/logo"],
+  :root:not([data-theme="light"]) .partner-lockup > img[src*="v2/logo"]{
+    filter:none;content:url("../img/v2/logo-light.webp");
+  }
+}

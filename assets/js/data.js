@@ -316,11 +316,11 @@ window.HIPMI = (function () {
       hero: IMG + 'medal-pair.webp',
       heroAlt: 'Medali finisher 5K dan 10K HIPMI RUN Karanganyar.',
       gallery: [
-        { src: IMG + 'medal-5k.webp',     title: 'Varian 5K',    note: 'Tali hijau tua bertuliskan HIPMI RUN' },
-        { src: IMG + 'medal-10k.webp',    title: 'Varian 10K',   note: 'Tali hijau muda bertuliskan HIPMI RUN' },
+        { src: IMG + 'medal-5k.webp',     title: 'Varian 5K',    note: 'Tali hijau tua bertuliskan HIPMI RUN dan logo Bank Jateng' },
+        { src: IMG + 'medal-10k.webp',    title: 'Varian 10K',   note: 'Tali hijau muda bertuliskan HIPMI RUN dan logo Bank Jateng' },
         { src: IMG + 'medal-logo.webp',   title: 'Kepala medali', note: 'Peta Indonesia pada bidang bundar' },
         { src: IMG + 'medal-jarak.webp',  title: 'Tulisan jarak', note: 'Alas bertuliskan 5K FINISHER atau 10K FINISHER' },
-        { src: IMG + 'medal-tali.webp',   title: 'Tali medali',  note: 'Sublimasi full color, nyaman di leher' }
+        { src: IMG + 'medal-tali.webp',   title: 'Tali medali',  note: 'Sublimasi full color, membawa logo Bank Jateng di dekat jahitan' }
       ],
       specs: [
         { k: 'Bentuk',   v: 'Logo HIPMI dengan peta Indonesia' },
@@ -340,8 +340,8 @@ window.HIPMI = (function () {
       hero: IMG + 'bib-10k.webp',
       heroAlt: 'Desain nomor dada 10K HIPMI RUN Karanganyar.',
       gallery: [
-        { src: IMG + 'bib-10k.webp', title: 'Kategori 10K', note: 'Pita nomor hijau, logo Bank Jateng di kiri, kotak ambil medali dan refreshment di kanan' },
-        { src: IMG + 'bib-5k.webp',  title: 'Kategori 5K',  note: 'Pita nomor putih, logo Bank Jateng di kiri, kotak ambil medali dan refreshment di kanan' }
+        { src: IMG + 'bib-10k.webp', title: 'Kategori 10K', note: 'Pita nomor hijau, kotak ambil medali dan refreshment, logo Bank Jateng di pita bawah' },
+        { src: IMG + 'bib-5k.webp',  title: 'Kategori 5K',  note: 'Pita nomor putih, kotak ambil medali dan refreshment, logo Bank Jateng di pita bawah' }
       ],
       specs: [
         { k: 'Kode QR',    v: 'Scan for results, membuka halaman hasil' },

@@ -296,7 +296,7 @@ window.HIPMI = (function () {
       heroAlt: 'Jersey HIPMI RUN Karanganyar tampak depan.',
       gallery: [
         { src: IMG + 'jersey-front.webp',  title: 'Tampak depan',  note: 'Logo HIPMI RUN di tengah dada' },
-        { src: IMG + 'jersey-back.webp',   title: 'Tampak belakang', note: 'Aksara Jawa di bawah kerah, logo Bank Jateng di punggung bawah' },
+        { src: IMG + 'jersey-back.webp',   title: 'Tampak belakang', note: 'Aksara Jawa membentang di bawah kerah' },
         { src: IMG + 'jersey-sleeve.webp', title: 'Detail lengan', note: 'Panel putih menyambung ke sisi badan' }
       ],
       specs: [
@@ -316,11 +316,11 @@ window.HIPMI = (function () {
       hero: IMG + 'medal-pair.webp',
       heroAlt: 'Medali finisher 5K dan 10K HIPMI RUN Karanganyar.',
       gallery: [
-        { src: IMG + 'medal-5k.webp',     title: 'Varian 5K',    note: 'Tali hijau tua bertuliskan HIPMI RUN dan logo Bank Jateng' },
-        { src: IMG + 'medal-10k.webp',    title: 'Varian 10K',   note: 'Tali hijau muda bertuliskan HIPMI RUN dan logo Bank Jateng' },
+        { src: IMG + 'medal-5k.webp',     title: 'Varian 5K',    note: 'Tali hijau tua bertuliskan HIPMI RUN' },
+        { src: IMG + 'medal-10k.webp',    title: 'Varian 10K',   note: 'Tali hijau muda bertuliskan HIPMI RUN' },
         { src: IMG + 'medal-logo.webp',   title: 'Kepala medali', note: 'Peta Indonesia pada bidang bundar' },
         { src: IMG + 'medal-jarak.webp',  title: 'Tulisan jarak', note: 'Alas bertuliskan 5K FINISHER atau 10K FINISHER' },
-        { src: IMG + 'medal-tali.webp',   title: 'Tali medali',  note: 'Sublimasi full color, membawa logo Bank Jateng di dekat jahitan' }
+        { src: IMG + 'medal-tali.webp',   title: 'Tali medali',  note: 'Sublimasi full color, nyaman di leher' }
       ],
       specs: [
         { k: 'Bentuk',   v: 'Logo HIPMI dengan peta Indonesia' },
@@ -340,8 +340,8 @@ window.HIPMI = (function () {
       hero: IMG + 'bib-10k.webp',
       heroAlt: 'Desain nomor dada 10K HIPMI RUN Karanganyar.',
       gallery: [
-        { src: IMG + 'bib-10k.webp', title: 'Kategori 10K', note: 'Pita nomor hijau, kotak ambil medali dan refreshment, logo Bank Jateng di pita bawah' },
-        { src: IMG + 'bib-5k.webp',  title: 'Kategori 5K',  note: 'Pita nomor putih, kotak ambil medali dan refreshment, logo Bank Jateng di pita bawah' }
+        { src: IMG + 'bib-10k.webp', title: 'Kategori 10K', note: 'Pita nomor hijau, kotak ambil medali dan refreshment di sisi kiri' },
+        { src: IMG + 'bib-5k.webp',  title: 'Kategori 5K',  note: 'Pita nomor putih, kotak ambil medali dan refreshment di sisi kiri' }
       ],
       specs: [
         { k: 'Kode QR',    v: 'Scan for results, membuka halaman hasil' },
@@ -409,30 +409,12 @@ window.HIPMI = (function () {
       approvedBy: 'Panitia Inti', issuedAt: '2026-09-02T10:20:00+07:00', status: 'aktif'
     },
     {
-      bib: '17', name: 'Retno Palupi', title: 'Direktur Utama Bank Jateng Cabang Karanganyar',
+      bib: '17', name: 'Retno Palupi', title: 'Pimpinan mitra sponsor',
       category: '5k', type: 'sponsor', competitive: false,
-      reason: 'Sponsor utama kategori 5K, nomor sesuai tanggal perjanjian.',
+      reason: 'Mitra sponsor kategori 5K, nomor sesuai tanggal perjanjian.',
       approvedBy: 'Divisi Kemitraan', issuedAt: '2026-09-11T14:05:00+07:00', status: 'aktif'
     }
   ];
-
-  /* ---- sponsor -------------------------------------------------------- */
-  const SPONSORS = {
-    main: {
-      name: 'Bank Jateng', tier: 'Sponsor Utama',
-      amount: 200000000, share: 0.6,
-      logo: 'assets/img/sponsor/bank-jateng.svg',
-      logoReverse: 'assets/img/sponsor/bank-jateng-white.svg',
-      site: 'https://www.bankjateng.co.id',
-      video: {
-        id: 'KSKR3-uJdb0',
-        title: 'Bima Mobile Terbaru Semua Bisa!',
-        channel: 'Bank Jateng',
-        poster: 'assets/img/sponsor/bima-mobile.webp',
-        url: 'https://www.youtube.com/watch?v=KSKR3-uJdb0'
-      }
-    }
-  };
 
   /* ---- helpers -------------------------------------------------------- */
   const rupiah = n => 'Rp ' + n.toLocaleString('id-ID');
@@ -453,6 +435,5 @@ window.HIPMI = (function () {
 
   return { EVENT, CATEGORIES, PRIZES, RESULTS, SPLITS, RUNNERS, ROUTES, ROUTE_VIEWBOX, AGENDA,
            QUOTA, BIB_RULES, EXCEPTION_TYPES, SEED_EXCEPTIONS, PRODUCTS,
-           SPONSORS,
            rupiah, catById, secToClock, photoUrl };
 })();

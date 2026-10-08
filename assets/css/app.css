@@ -1612,119 +1612,6 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
    SPONSOR UTAMA  —  strip beranda, pita kaki halaman, pemutar video
    ====================================================================== */
 
-/* -- strip di bawah hero beranda --------------------------------------- */
-.endorse-main{
-  display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;
-  margin-inline-start:auto;padding-inline-start:clamp(1.25rem,.8rem + 2vw,2.5rem);
-  border-inline-start:1px solid var(--line);
-}
-.endorse-main img{display:block;height:clamp(28px,1.5vw + 1.35rem,38px);width:auto}
-:root[data-theme="dark"] .endorse-main img{filter:brightness(0) invert(1)}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .endorse-main img{filter:brightness(0) invert(1)}
-}
-@media (max-width:820px){
-  .endorse-main{
-    width:100%;margin-inline-start:0;padding-inline-start:0;border-inline-start:0;
-    padding-block-start:1.1rem;border-block-start:1px solid var(--line);
-  }
-}
-
-/* -- pita sponsor di kaki setiap halaman -------------------------------- */
-.sponsor-band{
-  display:grid;gap:.85rem;place-items:center;text-align:center;
-  padding-block-end:clamp(1.9rem,1.4rem + 2vw,2.8rem);
-  margin-block-end:clamp(1.9rem,1.4rem + 2vw,2.8rem);
-  border-block-end:1px solid rgba(255,255,255,.1);
-}
-.sponsor-band .eyebrow{color:var(--gold)}
-.sponsor-band p:last-child{font-size:.85rem;color:var(--on-dark-2);max-width:48ch}
-
-/* pelat putih: menjaga warna resmi logo tetap utuh di atas latar gelap */
-.sponsor-plate{
-  display:grid;place-items:center;background:#fff;border-radius:var(--r-card);
-  padding:clamp(.8rem,.6rem + .7vw,1.25rem) clamp(1.35rem,1rem + 2vw,2.35rem);
-  transition:transform .18s;
-}
-a.sponsor-plate:hover{transform:translateY(-2px)}
-.sponsor-plate img{display:block;height:clamp(30px,1.7vw + 1.45rem,44px);width:auto}
-
-/* -- blok video sponsor ------------------------------------------------- */
-.spot{
-  display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);
-  gap:clamp(1.5rem,1rem + 3vw,3.25rem);align-items:center;
-}
-.spot-copy{display:grid;gap:1rem;align-content:start;min-width:0}
-.spot-copy .sponsor-plate{justify-self:start;border:1px solid var(--line)}
-@media (max-width:860px){.spot{grid-template-columns:minmax(0,1fr)}}
-
-.yt{
-  position:relative;aspect-ratio:16/9;min-width:0;overflow:hidden;
-  border-radius:var(--r-card);border:1px solid var(--line);background:var(--brand-black);
-}
-.yt > img,.yt > iframe{position:absolute;inset:0;display:block;width:100%;height:100%;border:0}
-.yt > img{object-fit:cover}
-.yt-play{
-  position:absolute;inset:0;display:grid;place-items:center;
-  padding:0;border:0;cursor:pointer;color:#fff;
-  background:linear-gradient(180deg,rgba(14,33,25,.12),rgba(14,33,25,.58));
-}
-.yt-play i{
-  font-size:clamp(3.2rem,2rem + 4vw,4.6rem);line-height:1;
-  filter:drop-shadow(0 6px 18px rgba(0,0,0,.5));transition:transform .18s;
-}
-.yt-play:hover i,.yt-play:focus-visible i{transform:scale(1.07)}
-.yt.is-playing > img,.yt.is-playing .yt-play{display:none}
-.yt-note{
-  font-family:"Space Mono",monospace;font-size:.68rem;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--ink-3);
-}
-
-/* -- hero memuat video sponsor ------------------------------------------
-   Panel hitung mundur turun ke bawah pemutar, bukan menumpuk di atasnya,
-   supaya kendali YouTube tetap bisa diklik.                              */
-.hero-media.is-video{background:var(--brand-black)}
-.hero-media.is-video::after{display:none}
-.hero-media.is-video .yt{border:0;border-radius:0;background:var(--brand-black)}
-.hero-media.is-video .yt > img{aspect-ratio:auto}
-.hero-media.is-video .hero-overlay{position:static;background:var(--brand-black)}
-
-/* pernyataan dukungan sponsor, satu kolom terpusat */
-.spot-lead{
-  display:grid;gap:1.1rem;justify-items:center;text-align:center;
-  max-width:62ch;margin-inline:auto;
-}
-.spot-lead .sponsor-plate{border:1px solid var(--line)}
-
-/* -- lockup penyelenggara x sponsor utama, di dalam isi halaman --------- */
-.cobrand{
-  display:flex;align-items:center;flex-wrap:wrap;
-  gap:clamp(.9rem,.6rem + 1.4vw,1.8rem);
-  margin-top:clamp(2rem,1.5rem + 2vw,3rem);
-  padding:clamp(.9rem,.7rem + .8vw,1.3rem) clamp(1.1rem,.8rem + 1.4vw,1.75rem);
-  border:1px solid var(--line);border-radius:var(--r-card);background:var(--bg-2);
-}
-/* bila masih ada isi di bawahnya, beri jarak supaya tidak menempel */
-.cobrand:not(:last-child){margin-bottom:clamp(1.5rem,1.2rem + 1.4vw,2.25rem)}
-.cobrand-mark{display:flex;align-items:center;flex:none}
-.cobrand-mark img{display:block;height:clamp(32px,1.6vw + 1.7rem,44px);width:auto}
-:root[data-theme="dark"] .cobrand-mark img{filter:brightness(0) invert(1)}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .cobrand-mark img{filter:brightness(0) invert(1)}
-}
-.cobrand-x{
-  flex:none;font-family:"Chivo",sans-serif;font-weight:300;
-  font-size:clamp(1.1rem,.9rem + .6vw,1.5rem);color:var(--ink-3);
-}
-.cobrand p{
-  margin-inline-start:auto;max-width:36ch;
-  font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--ink-3);
-}
-@media (max-width:640px){
-  .cobrand p{margin-inline-start:0;width:100%}
-}
-
 /* -- mitra penyelenggaraan: race management dan media partner ---------- */
 .partner-row{
   width:100%;display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;
@@ -1777,15 +1664,27 @@ a.sponsor-plate:hover{transform:translateY(-2px)}
 }
 .rek-meta dd{margin:0;font-size:.92rem;font-weight:600;color:var(--ink)}
 
-/* Pada lockup, logo HIPMI ditukar ke varian terangnya sementara logo Bank
-   Jateng tetap dibalik jadi putih, karena Bank Jateng hanya punya satu berkas. */
-:root[data-theme="dark"] .cobrand-mark img[src*="v2/logo"],
+/* Logo HIPMI pada lockup kemitraan ditukar ke varian terangnya di mode gelap,
+   bukan dibalik warnanya, supaya pelari emasnya tidak ikut rata jadi putih. */
 :root[data-theme="dark"] .partner-lockup > img[src*="v2/logo"]{
   filter:none;content:url("../img/v2/logo-light.webp");
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .cobrand-mark img[src*="v2/logo"],
   :root:not([data-theme="light"]) .partner-lockup > img[src*="v2/logo"]{
     filter:none;content:url("../img/v2/logo-light.webp");
   }
 }
+
+/* -- pelat putih untuk logo mitra -------------------------------------- */
+.sponsor-plate{
+  display:grid;place-items:center;background:#fff;border-radius:var(--r-card);
+  padding:clamp(.8rem,.6rem + .7vw,1.25rem) clamp(1.35rem,1rem + 2vw,2.35rem);
+}
+.sponsor-plate img{display:block;height:clamp(30px,1.7vw + 1.45rem,44px);width:auto}
+/* pita mitra berdiri sendiri di kaki halaman */
+.partner-band{
+  padding-block-end:clamp(1.9rem,1.4rem + 2vw,2.8rem);
+  margin-block-end:clamp(1.9rem,1.4rem + 2vw,2.8rem);
+  border-block-end:1px solid rgba(255,255,255,.1);
+}
+.partner-band .partner-row{margin-top:0;padding-top:0;border-top:0}

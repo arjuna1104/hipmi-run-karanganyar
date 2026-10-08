@@ -33,23 +33,14 @@
 
 <header class="masthead">
   <div class="shell masthead-inner">
-    <div class="brand-group">
-      <a class="brand" href="index.html">
-        <img class="brand-mark" src="assets/img/v2/logo.webp" alt=""
-             width="599" height="686" decoding="async">
-        <span class="brand-text">
-          <b>HIPMI RUN</b>
-          <span>Karanganyar Vol. #1</span>
-        </span>
-      </a>
-
-      <!-- sponsor utama, berdampingan dengan lambang lomba -->
-      <a class="brand-co" href="https://www.bankjateng.co.id"
-         target="_blank" rel="noopener" aria-label="Bank Jateng, sponsor utama">
-        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
-             width="219" height="101" decoding="async">
-      </a>
-    </div>
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/v2/logo.webp" alt=""
+           width="599" height="686" decoding="async">
+      <span class="brand-text">
+        <b>HIPMI RUN</b>
+        <span>Karanganyar Vol. #1</span>
+      </span>
+    </a>
     <nav class="nav" aria-label="Navigasi utama">
       <a href="index.html">Beranda</a>
       <a href="index.html#kategori">Kategori</a>
@@ -76,18 +67,6 @@
       <h1 class="display h-lg">Empat langkah menuju nomor dada.</h1>
     </div>
 
-    <!-- lockup penyelenggara dan sponsor utama -->
-    <div class="cobrand" data-reveal>
-      <a class="cobrand-mark" href="index.html" aria-label="HIPMI RUN Karanganyar">
-        <img src="assets/img/v2/logo.webp" alt="" width="599" height="686" loading="lazy" decoding="async">
-      </a>
-      <span class="cobrand-x" aria-hidden="true">&times;</span>
-      <a class="cobrand-mark" href="https://www.bankjateng.co.id" target="_blank" rel="noopener"
-         aria-label="Bank Jateng, sponsor utama">
-        <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy" decoding="async">
-      </a>
-      <p>Disponsori oleh Bank Jateng</p>
-    </div>
 
     <!-- ===== success state (revealed after payment) ===== -->
     <section class="panel pad-lg" id="regDone" hidden aria-live="polite" style="max-width:640px;margin-inline:auto;text-align:center">
@@ -345,50 +324,46 @@
           <fieldset class="fieldset">
             <legend>Metode pembayaran</legend>
             <p>
-              Seluruh pembayaran HIPMI RUN Karanganyar dilayani <b>Bank Jateng</b> selaku
-              sponsor utama. Virtual account dan QRIS terkonfirmasi otomatis; transfer manual
-              diverifikasi panitia pada jam kerja.
+              Kanal pembayaran sedang difinalisasi panitia. QRIS dan virtual account
+              terkonfirmasi otomatis; transfer manual diverifikasi panitia pada jam kerja.
             </p>
 
             <div class="field" data-field="bayar">
               <div class="pay-list" role="radiogroup" aria-label="Metode pembayaran">
                 <label class="pay-row">
-                  <input type="radio" name="bayar" value="Virtual Account Bank Jateng" checked>
-                  <span class="pay-logo pay-logo-img">
-                    <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy">
-                  </span>
-                  <span><b>Virtual Account Bank Jateng</b><span class="pay-sub">Nomor VA terbit otomatis, bayar lewat Bima Mobile, ATM, atau teller</span></span>
-                  <span class="pay-time">10 detik</span>
-                </label>
-                <label class="pay-row">
-                  <input type="radio" name="bayar" value="QRIS Bank Jateng">
+                  <input type="radio" name="bayar" value="QRIS" checked>
                   <span class="pay-logo">QRIS</span>
-                  <span><b>QRIS Bank Jateng</b><span class="pay-sub">Scan dari Bima Mobile atau aplikasi pembayaran lain</span></span>
+                  <span><b>QRIS</b><span class="pay-sub">Scan dari aplikasi pembayaran atau m-banking mana pun</span></span>
                   <span class="pay-time">10 detik</span>
                 </label>
                 <label class="pay-row">
-                  <input type="radio" name="bayar" value="Transfer rekening Bank Jateng">
-                  <span class="pay-logo pay-logo-img">
-                    <img src="assets/img/sponsor/bank-jateng.svg" alt="" width="219" height="101" loading="lazy">
-                  </span>
-                  <span><b>Transfer ke rekening panitia</b><span class="pay-sub">Rekening Bank Jateng atas nama BPC HIPMI Karanganyar</span></span>
+                  <input type="radio" name="bayar" value="Virtual Account">
+                  <span class="pay-logo">VA</span>
+                  <span><b>Virtual Account</b><span class="pay-sub">Nomor VA terbit otomatis, bayar lewat ATM, m-banking, atau teller</span></span>
+                  <span class="pay-time">10 detik</span>
+                </label>
+                <label class="pay-row">
+                  <input type="radio" name="bayar" value="Transfer rekening panitia">
+                  <span class="pay-logo">TRF</span>
+                  <span><b>Transfer ke rekening panitia</b><span class="pay-sub">Rekening atas nama BPC HIPMI Karanganyar</span></span>
                   <span class="pay-time">Verifikasi panitia</span>
                 </label>
               </div>
               <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
             </div>
 
-            <!-- Nomor rekening sengaja dikosongkan sampai panitia menerbitkan
-                 yang resmi. Jangan diisi angka contoh: halaman ini dibaca calon
-                 peserta dan nomor keliru berarti uang masuk ke rekening asing. -->
+            <!-- Bank dan nomor rekening sengaja dikosongkan sampai panitia
+                 menerbitkan yang resmi. Jangan diisi angka contoh: halaman ini
+                 dibaca calon peserta dan nomor keliru berarti uang masuk ke
+                 rekening asing. -->
             <div class="rek-card">
-              <p class="eyebrow">Rekening Bank Jateng HIPMI</p>
+              <p class="eyebrow">Rekening panitia</p>
               <p class="rek-no" aria-label="Nomor rekening belum tersedia">
                 <span class="rek-kosong" aria-hidden="true">&bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull;</span>
                 <span class="chip chip-gold">Menunggu nomor resmi</span>
               </p>
               <dl class="rek-meta">
-                <div><dt>Bank</dt><dd>Bank Jateng</dd></div>
+                <div><dt>Bank</dt><dd>Menunggu penetapan panitia</dd></div>
                 <div><dt>Atas nama</dt><dd>BPC HIPMI Karanganyar</dd></div>
                 <div><dt>Keperluan</dt><dd>Biaya pendaftaran HIPMI RUN Vol. #1</dd></div>
               </dl>
@@ -489,15 +464,8 @@
 
 <footer class="footer">
   <div class="shell">
-    <!-- sponsor utama : tampil di kaki seluruh halaman -->
-    <div class="sponsor-band">
-      <p class="eyebrow">Disponsori oleh</p>
-      <a class="sponsor-plate" href="https://www.bankjateng.co.id" target="_blank" rel="noopener">
-        <img src="assets/img/sponsor/bank-jateng.svg" alt="Bank Jateng"
-             width="219" height="101" decoding="async">
-      </a>
-      <p>Bank Jateng, sponsor utama HIPMI RUN Karanganyar Vol. #1.</p>
-
+    <!-- mitra penyelenggaraan : tampil di kaki seluruh halaman -->
+    <div class="partner-band">
       <div class="partner-row">
         <div class="partner-item">
           <span>Race management</span>
@@ -515,6 +483,7 @@
         </div>
       </div>
     </div>
+
 
     <div class="footer-base" style="margin-top:0;border-top:0;padding-top:0">
       <p>&copy; <span data-year>2026</span> BPC HIPMI Karanganyar. Seluruh hak cipta dilindungi.</p>

@@ -1704,3 +1704,14 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
 }
 .reel-stage iframe{display:block;width:100%;height:640px;border:0}
 @media (max-width:520px){.reel-stage iframe{height:580px}}
+
+/* -- hero memuat reel Instagram ----------------------------------------
+   Kerangka Instagram menangkap sentuhan sendiri dan tidak bisa ditimpa
+   apa pun, jadi panel hitung mundur turun ke bawahnya. */
+.hero-media.is-reel{background:var(--brand-black)}
+.hero-media.is-reel::after{display:none}
+.hero-media.is-reel .reel-stage{
+  max-width:none;margin:0;border:0;border-radius:0;background:#fff;
+}
+.hero-media.is-reel .reel-stage iframe{height:540px;transition:height .2s}
+.hero-media.is-reel .hero-overlay{position:static;background:var(--brand-black)}

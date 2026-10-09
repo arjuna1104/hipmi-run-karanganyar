@@ -206,6 +206,30 @@
     }, 4200);
   }
 
+  /* ---- reel Instagram ----------------------------------------------------
+     Kerangka Instagram tidak menyesuaikan tingginya sendiri, tetapi mengabarkan
+     tinggi isinya lewat postMessage. Didengarkan di sini supaya tidak ada ruang
+     kosong menganga di bawah video, berapa pun lebar layarnya. Nilai dari luar
+     tetap diperlakukan sebagai data: asalnya diperiksa dan angkanya dibatasi. */
+  function initReel() {
+    const bingkai = $$('.reel-stage iframe');
+    if (!bingkai.length) return;
+
+    window.addEventListener('message', function (e) {
+      if (e.origin !== 'https://www.instagram.com') return;
+      let pesan;
+      try { pesan = JSON.parse(e.data); } catch (err) { return; }
+      if (!pesan || pesan.type !== 'MEASURE') return;
+
+      const tinggi = Number(pesan.details && pesan.details.height);
+      if (!(tinggi >= 200 && tinggi <= 1600)) return;
+
+      bingkai.forEach(function (f) {
+        if (f.contentWindow === e.source) f.style.height = Math.round(tinggi) + 'px';
+      });
+    });
+  }
+
   /* ---- boot ------------------------------------------------------------ */
   function boot() {
     initTheme();
@@ -213,6 +237,7 @@
     initReveal();
     initCountdown();
     initModals();
+    initReel();
     const y = $('[data-year]');
     if (y) y.textContent = new Date().getFullYear();
   }

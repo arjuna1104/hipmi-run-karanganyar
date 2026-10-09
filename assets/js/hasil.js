@@ -727,7 +727,8 @@
         '<p class="pod-name">' + row.name + '</p>' +
         '<p class="pod-sub">BIB ' + row.bib + ' \u00b7 ' + row.club + '</p>' +
         '<p class="pod-time">' + row.net + '</p>' +
-        '<p class="pod-prize">' + H.rupiah(prizeFor(lbCat, i)) + '</p>' +
+        /* nominal hadiah disembunyikan sampai panitia mengumumkannya;
+           prizeFor() dan data PRIZES sengaja dibiarkan agar mudah dipasang lagi */
         '</article>';
     }).join('');
 

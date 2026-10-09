@@ -7,5 +7,5 @@ Dua kategori, 10K dan 5K, keduanya dilombakan penuh.
 - Media partner: **Explore Kabkaranganyar.id**
 - Slot sponsor utama masih terbuka
 
-Rute digambar dari jejak peta resmi panitia; elevasi dari data SRTM 30 m.
-Situs statis tanpa proses build. Halaman internal panitia tidak disertakan.
+Halaman rute, rincian hadiah, dan nomor dada ditahan dulu sampai panitia
+menetapkan versi finalnya. Situs statis tanpa proses build.

@@ -295,7 +295,7 @@ window.HIPMI = (function () {
       hero: IMG + 'jersey-front.webp',
       heroAlt: 'Jersey HIPMI RUN Karanganyar tampak depan.',
       gallery: [
-        { src: IMG + 'jersey-front.webp',  title: 'Tampak depan',  note: 'Logo HIPMI RUN di tengah dada' },
+        { src: IMG + 'jersey-front.webp',  title: 'Tampak depan',  note: 'Logo HIPMI RUN bersulam di tengah dada' },
         { src: IMG + 'jersey-back.webp',   title: 'Tampak belakang', note: 'Aksara Jawa membentang di bawah kerah' },
         { src: IMG + 'jersey-sleeve.webp', title: 'Detail lengan', note: 'Panel putih menyambung ke sisi badan' }
       ],
@@ -314,12 +314,12 @@ window.HIPMI = (function () {
       lead: 'Berbentuk logo HIPMI: sepasang tangan menopang bola dunia dengan peta ' +
             'Indonesia di bagian kepala. Tersedia dua varian dengan warna tali berbeda.',
       hero: IMG + 'medal-pair.webp',
-      heroAlt: 'Medali finisher 5K dan 10K HIPMI RUN Karanganyar.',
+      heroAlt: 'Medali finisher 10K HIPMI RUN Karanganyar.',
       gallery: [
         { src: IMG + 'medal-5k.webp',     title: 'Varian 5K',    note: 'Tali hijau tua bertuliskan HIPMI RUN' },
         { src: IMG + 'medal-10k.webp',    title: 'Varian 10K',   note: 'Tali hijau muda bertuliskan HIPMI RUN' },
-        { src: IMG + 'medal-logo.webp',   title: 'Kepala medali', note: 'Peta Indonesia pada bidang bundar' },
-        { src: IMG + 'medal-jarak.webp',  title: 'Tulisan jarak', note: 'Alas bertuliskan 5K FINISHER atau 10K FINISHER' },
+        { src: IMG + 'medal-logo.webp',   title: 'Kepala medali', note: 'Peta Indonesia timbul pada bidang bundar' },
+        { src: IMG + 'medal-jarak.webp',  title: 'Tulisan jarak', note: 'Alas bertuliskan 5K FINISHER atau 10K FINISHER, bertekstur peta topografi' },
         { src: IMG + 'medal-tali.webp',   title: 'Tali medali',  note: 'Sublimasi full color, nyaman di leher' }
       ],
       specs: [
@@ -333,25 +333,6 @@ window.HIPMI = (function () {
       note: 'Diameter dan berat medali belum tercantum di berkas desain.'
     },
 
-    bib: {
-      name: 'Nomor dada',
-      lead: 'Memuat kode QR yang membuka hasil lomba Anda, nama cetak, kategori, ' +
-            'dan jenis kelamin. Warna berbeda tiap kategori agar mudah dikenali marshall.',
-      hero: IMG + 'bib-10k.webp',
-      heroAlt: 'Desain nomor dada 10K HIPMI RUN Karanganyar.',
-      gallery: [
-        { src: IMG + 'bib-10k.webp', title: 'Kategori 10K', note: 'Pita nomor hijau, kotak ambil medali dan refreshment di sisi kiri' },
-        { src: IMG + 'bib-5k.webp',  title: 'Kategori 5K',  note: 'Pita nomor putih, kotak ambil medali dan refreshment di sisi kiri' }
-      ],
-      specs: [
-        { k: 'Kode QR',    v: 'Scan for results, membuka halaman hasil' },
-        { k: 'Nama cetak', v: 'Nama panggilan pilihan Anda' },
-        { k: 'Penanda',    v: 'Kategori, jenis kelamin, dan warna BIB' },
-        { k: 'Timing chip',v: 'RFID menempel di balik nomor dada' },
-        { k: 'Sponsor',    v: 'Deretan logo pendukung di bagian bawah' }
-      ],
-      cta: { label: 'Cek nomor dada saya', href: 'hasil.html' }
-    },
 
     racepack: {
       name: 'Race pack',

@@ -1688,3 +1688,19 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
   border-block-end:1px solid rgba(255,255,255,.1);
 }
 .partner-band .partner-row{margin-top:0;padding-top:0;border-top:0}
+
+/* -- reel Instagram ------------------------------------------------------
+   Tinggi kerangka dikunci karena Instagram tidak mengabarkan tinggi isinya
+   ke halaman induk, jadi tidak bisa menyesuaikan diri. */
+.reel-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);
+  gap:clamp(1.5rem,1rem + 3vw,3.25rem);align-items:center;
+}
+@media (max-width:860px){.reel-grid{grid-template-columns:minmax(0,1fr)}}
+.reel-stage{
+  position:relative;width:100%;max-width:420px;margin-inline:auto;
+  border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line);
+  background:var(--surface);
+}
+.reel-stage iframe{display:block;width:100%;height:640px;border:0}
+@media (max-width:520px){.reel-stage iframe{height:580px}}

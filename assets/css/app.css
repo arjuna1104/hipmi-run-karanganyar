@@ -1663,6 +1663,29 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
   text-transform:uppercase;color:var(--ink-3);min-width:9ch;
 }
 .rek-meta dd{margin:0;font-size:.92rem;font-weight:600;color:var(--ink)}
+.rek-meta dd a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+/* -- dua kanal pembayaran berdampingan -------------------------------- */
+/* QRIS dicetak sebagai kartu putih utuh. Latarnya dipaksa putih di mode
+   gelap juga: kode QR yang diredam atau dibalik warnanya bisa gagal
+   dipindai, dan peserta tidak punya cara tahu sebelum uangnya telanjur. */
+.bayar-kanal{grid-template-columns:minmax(0,17.5rem) minmax(0,1fr);align-items:start;gap:1.5rem}
+.qris-box{margin:0;display:grid;gap:.6rem}
+.qris-box img{
+  width:100%;height:auto;display:block;border-radius:calc(var(--r-card) - 6px);
+  background:#fff;border:1px solid var(--line);
+}
+.qris-box figcaption{margin:0}
+.rek-detail{display:grid;gap:.9rem;min-width:0}
+.rek-angka{
+  font-family:"Space Mono",monospace;font-weight:700;
+  font-size:clamp(1.25rem,1rem + 1.2vw,1.8rem);letter-spacing:.14em;
+  color:var(--ink);
+}
+@media (max-width:720px){
+  .bayar-kanal{grid-template-columns:minmax(0,1fr)}
+  .qris-box{justify-self:center;max-width:19rem;width:100%}
+}
 
 /* Logo HIPMI pada lockup kemitraan ditukar ke varian terangnya di mode gelap,
    bukan dibalik warnanya, supaya pelari emasnya tidak ikut rata jadi putih. */

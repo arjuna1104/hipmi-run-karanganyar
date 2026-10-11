@@ -60,22 +60,29 @@
     return age;
   }
 
+  /* ---- harga ------------------------------------------------------------
+     Kode promo tidak diperiksa di sini. Daftar 50 kode itu milik panitia dan
+     tidak boleh ikut terkirim ke peramban: siapa pun bisa membacanya dari kode
+     sumber. Halaman hanya menampilkan nominal bila kode diisi, dan panitia yang
+     memastikan kodenya sah saat memeriksa bukti transfer. */
+  function promoDipakai(cat) {
+    const kode = (val('promo') || '').trim();
+    return kode.length >= 4 && Number(cat.dataset.promo || 0) > 0;
+  }
+  function hargaDibayar(cat) {
+    return promoDipakai(cat) ? Number(cat.dataset.promo) : Number(cat.dataset.price);
+  }
+
   /* ---- live summary and BIB preview ------------------------------------ */
   function refresh() {
     const cat = selectedCategory();
     if (!cat) return;
     const label = cat.dataset.label;
-    const bib = cat.dataset.bib;
 
-    /* Kode promo tidak diperiksa di sini. Daftar 50 kode itu milik panitia dan
-       tidak boleh ikut terkirim ke peramban: siapa pun bisa membacanya dari
-       kode sumber. Halaman hanya menampilkan nominal bila kode diisi, dan
-       panitia yang memastikan kodenya sah saat memeriksa bukti transfer. */
-    const kodePromo = (val('promo') || '').trim();
     const hargaEarly = Number(cat.dataset.price);
     const hargaPromo = Number(cat.dataset.promo || 0);
-    const pakaiPromo = kodePromo.length >= 4 && hargaPromo > 0;
-    const price = pakaiPromo ? hargaPromo : hargaEarly;
+    const pakaiPromo = promoDipakai(cat);
+    const price = hargaDibayar(cat);
 
     const barisPromo = $('#sumPromo');
     if (barisPromo) {
@@ -86,7 +93,6 @@
     }
 
     $('#sumCat').textContent = label;
-    $('#sumBib').textContent = bib;
     $('#sumPrice').textContent = window.HIPMI.rupiah(price);
     $('#sumTotal').textContent = window.HIPMI.rupiah(price + SERVICE_FEE);
 
@@ -105,9 +111,10 @@
     const jersey = form.querySelector('input[name="jersey"]:checked');
     $('#sumJersey').textContent = jersey ? jersey.value : 'Belum dipilih';
 
-    $('#bibNum').textContent = bib;
+    /* Nomor dada dan nomor chip tidak diisi di sini. Keduanya baru ada
+       setelah panitia memverifikasi pembayaran dan menetapkan nomor dari
+       rentang 0101 ke atas, jadi pratinjau ini sengaja tetap kosong. */
     $('#bibCat').textContent = label.toUpperCase();
-    $('#bibChip').textContent = 'UHF-DF-8824' + bib;
 
     // desain nomor dada memakai warna berbeda tiap kategori
     const prev = $('.bib-preview');
@@ -213,65 +220,114 @@
     if (head) head.scrollIntoView({ behavior: window.HipmiUI.reduced ? 'auto' : 'smooth', block: 'start' });
   }
 
-  /* ---- payment ---------------------------------------------------------- */
-  function pay() {
+  /* ---- pengiriman pendaftaran ------------------------------------------- */
+  /* Halaman ini tidak memproses uang. Yang dikirim adalah data pendaftaran
+     dan bukti pembayaran, ke lembar panitia. Nomor dada tidak pernah dibuat
+     di sini: panitia menerbitkannya dari rentang 0101 ke atas setelah bukti
+     dicocokkan, supaya tidak ada dua orang memegang nomor yang sama. */
+
+  const BATAS_BUKTI = 5 * 1024 * 1024;
+
+  function base64Dari(berkas) {
+    return new Promise(function (resolve, reject) {
+      const r = new FileReader();
+      r.onerror = function () { reject(new Error('Berkas bukti gagal dibaca.')); };
+      r.onload = function () {
+        const hasil = String(r.result);
+        resolve(hasil.slice(hasil.indexOf(',') + 1));
+      };
+      r.readAsDataURL(berkas);
+    });
+  }
+
+  function gagal(pesan) {
+    payError.hidden = false;
+    payError.querySelector('span').textContent = pesan;
+    btnNext.removeAttribute('aria-disabled');
+    btnNext.innerHTML = 'Kirim ulang <i class="ph ph-arrow-clockwise" aria-hidden="true"></i>';
+    payError.scrollIntoView({ behavior: window.HipmiUI.reduced ? 'auto' : 'smooth', block: 'center' });
+  }
+
+  async function pay() {
     if (!validateStep(3)) { goTo(3); return; }
     const method = form.querySelector('input[name="bayar"]:checked');
     if (!method) { setError('bayar', 'Pilih satu metode pembayaran.'); return; }
     clearError('bayar');
     payError.hidden = true;
 
+    const endpoint = window.HIPMI.ENDPOINT_DAFTAR;
+    if (!endpoint) {
+      gagal('Pendaftaran daring belum dibuka. Jangan mentransfer dulu; '
+          + 'hubungi hipmirun@hipmikaranganyar.com untuk jadwal pembukaannya.');
+      return;
+    }
+
+    const inputBukti = $('#bukti');
+    const bukti = (inputBukti && inputBukti.files[0]) || null;
+    if (bukti && bukti.size > BATAS_BUKTI) {
+      setError('bukti', 'Bukti transfer melebihi 5 MB. Perkecil dulu fotonya.');
+      return;
+    }
+    clearError('bukti');
+
     btnNext.setAttribute('aria-disabled', 'true');
-    btnNext.innerHTML = '<i class="ph ph-circle-notch" aria-hidden="true"></i> Menunggu konfirmasi gateway';
+    btnNext.innerHTML = '<i class="ph ph-circle-notch" aria-hidden="true"></i> Mengirim pendaftaran';
 
-    window.setTimeout(function () {
-      btnNext.removeAttribute('aria-disabled');
+    const cat = selectedCategory();
+    const jersey = form.querySelector('input[name="jersey"]:checked');
+    const bibName = val('bibName');
 
-      if (navigator.onLine === false) {
-        payError.hidden = false;
-        btnNext.innerHTML = 'Ulangi pembayaran <i class="ph ph-arrow-clockwise" aria-hidden="true"></i>';
-        payError.scrollIntoView({ behavior: window.HipmiUI.reduced ? 'auto' : 'smooth', block: 'center' });
-        return;
+    const muatan = {
+      nama: val('nama'),
+      kategori: cat.value,
+      jk: val('gender'),
+      klub: bibName || '',
+      kelompok_umur: String(ageAtRaceDay(val('lahir')) || ''),
+      catatan: [val('kota') ? 'Kota ' + val('kota') : '',
+                val('darah') ? 'Gol. darah ' + val('darah') : ''].filter(Boolean).join(' / '),
+      hp: val('telepon'),
+      email: val('email'),
+      ukuran_jersey: jersey ? jersey.value : '',
+      kontak_darurat: val('darurat'),
+      hp_darurat: val('daruratTelepon'),
+      harga: hargaDibayar(cat) + SERVICE_FEE,
+      kode_promo: (val('promo') || '').trim().toUpperCase(),
+      metode_bayar: method.value
+    };
+
+    try {
+      if (bukti) {
+        muatan.bukti_nama = bukti.name;
+        muatan.bukti_tipe = bukti.type;
+        muatan.bukti_data = await base64Dari(bukti);
       }
 
-      const cat = selectedCategory();
-      persistRegistration(cat);
-      $('#doneBib').textContent = cat.dataset.bib;
+      /* text/plain supaya permintaannya tetap "sederhana" dan tidak memicu
+         preflight CORS, yang tidak dilayani Apps Script. */
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(muatan)
+      });
+      const hasil = await res.json();
+      if (!hasil.ok) { gagal(hasil.pesan || 'Pendaftaran ditolak server.'); return; }
+
       $('#doneCat').textContent = cat.dataset.label;
       $('#doneName').textContent = val('nama');
-      $('#doneTotal').textContent = window.HIPMI.rupiah(Number(cat.dataset.price) + SERVICE_FEE);
-      $('#doneEpass').href = 'hasil.html?bib=' + cat.dataset.bib;
+      $('#doneTotal').textContent = window.HIPMI.rupiah(muatan.harga);
+      const kode = $('#doneKode');
+      if (kode) kode.textContent = hasil.kode_daftar || '-';
 
       wizard.hidden = true;
       done.hidden = false;
       done.scrollIntoView({ behavior: window.HipmiUI.reduced ? 'auto' : 'smooth', block: 'center' });
-    }, 1900);
-  }
 
-  /* Hands the new entry to the results page so "Buka e-Pass" resolves for a
-     BIB that was created in this session and is not in the demo dataset. */
-  function persistRegistration(cat) {
-    const jersey = form.querySelector('input[name="jersey"]:checked');
-    const bibName = val('bibName');
-    const entry = {
-      bib: cat.dataset.bib, name: val('nama'), promo: (val('promo') || '').trim().toUpperCase(),
-      category: cat.value, categoryName: cat.dataset.label,
-      gender: val('gender'), age: ageAtRaceDay(val('lahir')), city: val('kota'),
-      club: bibName ? bibName : 'Independent',
-      jersey: jersey ? jersey.value : '-', blood: val('darah'),
-      chip: 'UHF-DF-8824' + cat.dataset.bib,
-      wave: cat.value === '5k' ? 'Wave B - 06:10 WIB' : 'Wave A - 05:45 WIB',
-      emergency: val('darurat'), emergencyPhone: val('daruratTelepon'),
-      status: 'registered',
-      rpc: [
-        { item: 'Nomor dada (BIB) + safety pin', done: false, at: null },
-        { item: 'Jersey dry-fit ukuran ' + (jersey ? jersey.value : '-'), done: false, at: null },
-        { item: 'Timing chip RFID', done: false, at: null },
-        { item: 'Goodie bag + kupon refreshment', done: false, at: null }
-      ],
-      result: null, photos: []
-    };
-    try { sessionStorage.setItem('hipmi-reg-' + entry.bib, JSON.stringify(entry)); } catch (e) { /* private mode */ }
+    } catch (err) {
+      gagal(navigator.onLine === false
+        ? 'Perangkat sedang luring. Periksa koneksi, lalu kirim ulang.'
+        : 'Pendaftaran gagal terkirim. Jangan mentransfer ulang; coba kirim ulang '
+          + 'atau hubungi hipmirun@hipmikaranganyar.com.');
+    }
   }
 
   /* ---- wiring ----------------------------------------------------------- */

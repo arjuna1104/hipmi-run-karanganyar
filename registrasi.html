@@ -67,26 +67,34 @@
     </div>
 
 
-    <!-- ===== success state (revealed after payment) ===== -->
+    <!-- ===== success state (revealed after submit) =====
+         Halaman ini TIDAK memproses pembayaran dan TIDAK menerbitkan nomor
+         dada. Yang terjadi hanyalah formulirnya terkirim. Nomor dada hanya
+         boleh keluar dari panitia setelah bukti transfer diperiksa, jadi
+         layar ini tidak boleh menjanjikan lebih dari itu. -->
     <section class="panel pad-lg" id="regDone" hidden aria-live="polite" style="max-width:640px;margin-inline:auto;text-align:center">
       <div class="stack" style="gap:1.25rem;justify-items:center">
-        <div class="success-seal"><i class="ph-fill ph-check-circle" aria-hidden="true"></i></div>
-        <h2 class="display h-md">Pembayaran terkonfirmasi.</h2>
+        <div class="success-seal"><i class="ph-fill ph-paper-plane-tilt" aria-hidden="true"></i></div>
+        <h2 class="display h-md">Pendaftaran terkirim.</h2>
         <p class="lede" style="text-align:center;margin-inline:auto">
-          Nomor dada Anda sudah terkunci dan e-Pass aktif. Tunjukkan e-Pass saat Race Pack
-          Collection di Gedung Wanita Karanganyar.
+          Bukti pembayaran Anda sedang diperiksa panitia. <b>Nomor dada belum terbit</b>
+          &mdash; nomor dan e-Pass dikirim ke email Anda setelah pembayaran terverifikasi,
+          biasanya satu hari kerja.
         </p>
         <dl class="epass-rows" style="width:100%;max-width:420px;text-align:left;color:var(--ink)">
-          <div><dt style="color:var(--ink-3)">Nomor dada</dt><dd id="doneBib" class="tel">-</dd></div>
+          <div><dt style="color:var(--ink-3)">Kode pendaftaran</dt><dd id="doneKode" class="tel">-</dd></div>
           <div><dt style="color:var(--ink-3)">Kategori</dt><dd id="doneCat">-</dd></div>
           <div><dt style="color:var(--ink-3)">Nama peserta</dt><dd id="doneName">-</dd></div>
-          <div><dt style="color:var(--ink-3)">Total dibayar</dt><dd id="doneTotal" class="tel">-</dd></div>
+          <div><dt style="color:var(--ink-3)">Nominal dibayar</dt><dd id="doneTotal" class="tel">-</dd></div>
+          <div><dt style="color:var(--ink-3)">Status</dt><dd><span class="chip chip-gold">Menunggu verifikasi panitia</span></dd></div>
         </dl>
+        <p class="hint" style="max-width:420px">
+          Ada yang perlu dikoreksi? Balas ke
+          <a href="mailto:hipmirun@hipmikaranganyar.com">hipmirun@hipmikaranganyar.com</a>
+          dengan menyebut nama dan kategori Anda.
+        </p>
         <div class="row" style="justify-content:center">
-          <a class="btn btn-gold" id="doneEpass" href="hasil.html">
-            <i class="ph ph-qr-code" aria-hidden="true"></i> Buka e-Pass
-          </a>
-          <a class="btn btn-ghost" href="index.html">Kembali ke beranda</a>
+          <a class="btn btn-gold" href="index.html">Kembali ke beranda</a>
         </div>
       </div>
     </section>
@@ -122,7 +130,7 @@
             <div class="pick" role="radiogroup" aria-label="Kategori lomba">
 
               <label class="pick-row">
-                <input type="radio" name="kategori" value="10k" data-price="200000" data-normal="250000" data-promo="175000" data-label="10K Challenge" data-bib="0100" checked>
+                <input type="radio" name="kategori" value="10k" data-price="200000" data-normal="250000" data-promo="175000" data-label="10K Challenge" checked>
                 <span class="pick-info">
                   <b>10K Challenge</b>
                   <span>17 tahun ke atas &middot; COT 2 jam 15 menit</span>
@@ -135,7 +143,7 @@
               </label>
 
               <label class="pick-row">
-                <input type="radio" name="kategori" value="5k" data-price="175000" data-normal="200000" data-promo="150000" data-label="5K Race" data-bib="0101">
+                <input type="radio" name="kategori" value="5k" data-price="175000" data-normal="200000" data-promo="150000" data-label="5K Race">
                 <span class="pick-info">
                   <b>5K Race</b>
                   <span>Semua umur &middot; COT 1 jam 15 menit</span>
@@ -315,13 +323,13 @@
                 </div>
                 <div class="demo-note">
                   <i class="ph ph-shield-check" aria-hidden="true"></i>
-                  <p>Nomor dada di samping hanya contoh tampilan. Nomor asli Anda diterbitkan panitia setelah bukti transfer diverifikasi.</p>
+                  <p>Nomor dada diterbitkan panitia setelah bukti pembayaran diverifikasi, lalu dikirim ke email Anda. Nomor 0001&ndash;0100 ditahan untuk undangan kehormatan dan tidak pernah dibagikan lewat pendaftaran umum.</p>
                 </div>
               </div>
 
               <figure class="bib-preview" data-cat="10k" aria-live="polite">
                 <figcaption class="bib-head">HIPMI RUN KARANGANYAR VOL. #1<br><span id="bibCat">10K CHALLENGE OPEN</span></figcaption>
-                <p class="bib-num" id="bibNum">0100</p>
+                <p class="bib-num" id="bibNum">&mdash;&mdash;&mdash;&mdash;</p>
                 <p class="bib-name" id="bibNamePreview"></p>
                 <div class="bib-foot">
                   <span>panitia JATENG</span>
@@ -337,9 +345,10 @@
           <fieldset class="fieldset">
             <legend>Metode pembayaran</legend>
             <p>
-              Pembayaran lewat <b>transfer ke rekening BNI HIPMI</b>, lalu unggah bukti
-              transfernya. Panitia memverifikasi pada jam kerja, lalu nomor dada terbit.
-              QRIS dan virtual account menyusul setelah kanal pembayarannya siap.
+              Dua kanal resmi: <b>QRIS</b> atau <b>transfer ke rekening BNI HIPMI</b>.
+              Keduanya masuk ke rekening yang sama atas nama BPC HIPMI Karanganyar.
+              Setelah membayar, unggah bukti transaksinya di bawah. Panitia
+              memverifikasi pada jam kerja, lalu nomor dada terbit.
             </p>
 
             <div class="field" data-field="bayar">
@@ -347,14 +356,8 @@
                 <label class="pay-row">
                   <input type="radio" name="bayar" value="QRIS">
                   <span class="pay-logo">QRIS</span>
-                  <span><b>QRIS</b><span class="pay-sub">Scan dari aplikasi pembayaran atau m-banking mana pun</span></span>
-                  <span class="pay-time">10 detik</span>
-                </label>
-                <label class="pay-row">
-                  <input type="radio" name="bayar" value="Virtual Account">
-                  <span class="pay-logo">VA</span>
-                  <span><b>Virtual Account</b><span class="pay-sub">Nomor VA terbit otomatis, bayar lewat ATM, m-banking, atau teller</span></span>
-                  <span class="pay-time">10 detik</span>
+                  <span><b>QRIS</b><span class="pay-sub">Pindai dari m-banking atau dompet digital mana pun</span></span>
+                  <span class="pay-time">Verifikasi panitia</span>
                 </label>
                 <label class="pay-row">
                   <input type="radio" name="bayar" value="Transfer rekening BNI HIPMI" checked>
@@ -366,25 +369,44 @@
               <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
             </div>
 
-            <!-- Bank dan nomor rekening sengaja dikosongkan sampai panitia
-                 menerbitkan yang resmi. Jangan diisi angka contoh: halaman ini
-                 dibaca calon peserta dan nomor keliru berarti uang masuk ke
-                 rekening asing. -->
-            <div class="rek-card">
-              <p class="eyebrow">Rekening BNI HIPMI</p>
-              <p class="rek-no" aria-label="Nomor rekening belum tersedia">
-                <span class="rek-kosong" aria-hidden="true">&bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull;</span>
-                <span class="chip chip-gold">Menunggu nomor resmi</span>
-              </p>
-              <dl class="rek-meta">
-                <div><dt>Bank</dt><dd>BNI</dd></div>
-                <div><dt>Atas nama</dt><dd>BPC HIPMI Karanganyar</dd></div>
-                <div><dt>Keperluan</dt><dd>Biaya pendaftaran HIPMI RUN Vol. #1</dd></div>
-              </dl>
-              <p class="hint">
-                Nomor rekening dicantumkan di sini sebelum pendaftaran dibuka. Jangan
-                mentransfer ke rekening mana pun yang tidak tertera di halaman ini.
-              </p>
+            <!-- Nomor rekening dan QRIS resmi BPC HIPMI Karanganyar. Keduanya
+                 diverifikasi terhadap muatan QR aslinya (NMID ID1026585974243,
+                 kanal BNI). Jangan pernah menggantinya dengan angka contoh:
+                 halaman ini dibaca calon peserta dan satu digit keliru berarti
+                 uang masuk ke rekening asing. -->
+            <div class="rek-card bayar-kanal">
+              <figure class="qris-box">
+                <img src="assets/img/v2/qris-hipmi.webp" width="603" height="902"
+                     alt="Kode QRIS HIPMI Kabupaten Karanganyar, NMID ID1026585974243, terminal A01"
+                     loading="lazy" decoding="async">
+                <figcaption class="hint">
+                  Pindai dengan aplikasi apa pun yang menerima QRIS. Pastikan nama
+                  penerima terbaca <b>HIPMI KABUPATEN KARANGANYAR</b> sebelum Anda
+                  menyetujui pembayaran.
+                </figcaption>
+              </figure>
+
+              <div class="rek-detail">
+                <p class="eyebrow">Atau transfer ke rekening BNI HIPMI</p>
+                <p class="rek-no">
+                  <span class="rek-angka">4414412020</span>
+                  <button type="button" class="btn btn-ghost btn-sm" data-salin="4414412020">
+                    <i class="ph ph-copy" aria-hidden="true"></i><span>Salin</span>
+                  </button>
+                </p>
+                <dl class="rek-meta">
+                  <div><dt>Bank</dt><dd>BNI</dd></div>
+                  <div><dt>Atas nama</dt><dd>BPC HIPMI Karanganyar</dd></div>
+                  <div><dt>Keperluan</dt><dd>Biaya pendaftaran HIPMI RUN Vol. #1</dd></div>
+                  <div><dt>Konfirmasi</dt><dd><a href="mailto:hipmirun@hipmikaranganyar.com">hipmirun@hipmikaranganyar.com</a></dd></div>
+                </dl>
+                <p class="hint">
+                  Jangan mentransfer ke rekening mana pun yang tidak tertera di
+                  halaman ini. Panitia tidak pernah meminta pembayaran lewat nomor
+                  pribadi, dan tidak pernah menghubungi Anda untuk meminta ulang
+                  kode promo atau kata sandi.
+                </p>
+              </div>
             </div>
 
             <div class="field" data-field="bukti" style="margin-top:1.25rem">
@@ -429,7 +451,7 @@
         </div>
         <div class="sum-body" id="sumBody">
           <p class="sum-line"><span>Peserta</span><span id="sumName">Belum diisi</span></p>
-          <p class="sum-line"><span>Nomor dada sementara</span><span id="sumBib">1789</span></p>
+          <p class="sum-line"><span>Nomor dada</span><span id="sumBib">Terbit setelah verifikasi</span></p>
           <p class="sum-line"><span>Ukuran jersey</span><span id="sumJersey">Belum dipilih</span></p>
           <hr class="rule">
           <p class="sum-line"><span>Biaya registrasi</span><span id="sumPrice">Rp 200.000</span></p>
@@ -512,7 +534,7 @@
 
     <div class="footer-base" style="margin-top:0;border-top:0;padding-top:0">
       <p>&copy; <span data-year>2026</span> BPC HIPMI Karanganyar. Seluruh hak cipta dilindungi.</p>
-      <p><a href="index.html">Kembali ke beranda</a></p>
+      <p><a href="index.html">Kembali ke beranda</a> &middot; <a href="sponsor.html">Sponsor</a> &middot; <a href="admin.html">Portal panitia</a> &middot; <a href="timing.html">Konsol timing</a></p>
     </div>
   </div>
 </footer>

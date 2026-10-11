@@ -214,7 +214,12 @@ window.HIPMI = (function () {
   /* Kuota satu kolam untuk kedua kategori: tidak ada batas per jarak,
      siapa cepat dia dapat. Nomor dada ikut satu deret, kategorinya ditandai
      lencana 5KM atau 10KM pada desain BIB, bukan oleh rentang nomornya. */
-  const QUOTA = { total: 3000, taken: 0, bibRange: '0100 - 3099' };
+  /* Alamat Apps Script tempat pendaftaran dikirim, berakhiran /exec.
+     Dikosongkan = pendaftaran belum dibuka: formulir menolak mengirim dan
+     berkata jujur, bukan diam-diam membuang data peserta. */
+  const ENDPOINT_DAFTAR = '';
+
+  const QUOTA = { total: 3000, taken: 0, bibRange: '0101 - 3100' };
 
   /* Tiga lapis harga, dipakai berurutan:
      1. Kode promo press conference  - 50 kode, sekali pakai, harga pricePromo
@@ -224,10 +229,13 @@ window.HIPMI = (function () {
   const EARLY_BIRD = { quota: 100, taken: 0 };
   const PROMO = { total: 50, used: 0, label: 'Kode press conference' };
 
+  /* 0001 - 0100 ditahan seluruhnya: nomor kehormatan, undangan protokoler, dan
+     cadangan panitia. Nomor peserta mulai 0101 supaya tidak ada satu pun nomor
+     di rentang tahanan yang bisa terbit lewat pendaftaran umum. */
   const BIB_RULES = {
-    honour: { from: 1, to: 99, label: 'Nomor kehormatan' },   // peserta mulai 0100
+    honour: { from: 1, to: 100, label: 'Nomor kehormatan, ditahan' },
     competitive: [
-      { id: 'peserta', label: 'Undian peserta, kedua kategori', from: 100, to: 3099 }
+      { id: 'peserta', label: 'Undian peserta, kedua kategori', from: 101, to: 3100 }
     ]
   };
 
@@ -264,5 +272,6 @@ window.HIPMI = (function () {
 
   return { EVENT, CATEGORIES, PRIZES, RESULTS, SPLITS, RUNNERS, ROUTES, ROUTE_VIEWBOX, AGENDA,
            QUOTA, EARLY_BIRD, PROMO, BIB_RULES, EXCEPTION_TYPES, SEED_EXCEPTIONS, PRODUCTS,
+           ENDPOINT_DAFTAR,
            rupiah, catById, secToClock, photoUrl };
 })();

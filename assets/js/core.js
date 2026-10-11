@@ -231,6 +231,36 @@
   }
 
   /* ---- boot ------------------------------------------------------------ */
+  /* Tombol salin untuk nomor rekening. navigator.clipboard hanya ada pada
+     konteks aman, dan pengguna bisa menolak izinnya; kalau gagal nomornya
+     diseleksi saja supaya tetap bisa disalin manual, jangan dibiarkan diam. */
+  function initSalin() {
+    $$('[data-salin]').forEach(function (btn) {
+      btn.addEventListener('click', async function () {
+        const teks = btn.getAttribute('data-salin') || '';
+        const label = btn.querySelector('span');
+        const semula = label ? label.textContent : '';
+        try {
+          if (!navigator.clipboard) throw new Error('clipboard tidak tersedia');
+          await navigator.clipboard.writeText(teks);
+          if (label) label.textContent = 'Tersalin';
+          toast('Nomor rekening tersalin: ' + teks);
+          setTimeout(function () { if (label) label.textContent = semula; }, 2200);
+        } catch (err) {
+          const target = btn.parentElement && btn.parentElement.querySelector('.rek-angka');
+          if (target && window.getSelection) {
+            const r = document.createRange();
+            r.selectNodeContents(target);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(r);
+          }
+          toast('Peramban menolak menyalin. Nomornya sudah disorot, salin manual.', 'warn');
+        }
+      });
+    });
+  }
+
   function boot() {
     initTheme();
     initNav();
@@ -238,6 +268,7 @@
     initCountdown();
     initModals();
     initReel();
+    initSalin();
     const y = $('[data-year]');
     if (y) y.textContent = new Date().getFullYear();
   }

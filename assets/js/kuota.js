@@ -48,6 +48,23 @@
       }
     }
 
+    /* Kartu kategori ikut harga yang berlaku. Begitu early bird habis,
+       coretan harga lama dicabut dan lencananya berubah - memajang diskon
+       yang sudah tidak ditagih lebih buruk daripada tidak memajang apa pun. */
+    if (r.harga) {
+      [['10k', 250000], ['5k', 200000]].forEach(function (x) {
+        const kat = x[0], normal = x[1];
+        const kotak = el('hargaKartu' + kat), tag = el('tagKartu' + kat);
+        const berlaku = Number(r.harga[kat] || 0);
+        if (!kotak || !berlaku) return;
+        const rp = function (n) { return 'Rp ' + angka(n); };
+        kotak.innerHTML = berlaku < normal
+          ? '<b>' + rp(berlaku) + '</b><s>' + rp(normal) + '</s>'
+          : '<b>' + rp(berlaku) + '</b>';
+        if (tag) tag.textContent = berlaku < normal ? 'Early bird' : 'Harga normal';
+      });
+    }
+
     if (el('kuotaPromo') && r.promo && r.promo.total) {
       el('kuotaPromo').textContent = r.promo.sisa > 0
         ? angka(r.promo.sisa) + ' kode tersisa'

@@ -73,13 +73,61 @@
     return promoDipakai(cat) ? Number(cat.dataset.promo) : Number(cat.dataset.price);
   }
 
+  /* ---- harga yang berlaku, menurut server -------------------------------
+     Early bird berhenti sendiri begitu kuota kategorinya habis atau
+     tanggalnya lewat. Halaman tidak memutuskan itu sendiri: ia menanyakan
+     harga yang berlaku dan memakai jawabannya.
+
+     Kalau permintaannya gagal, angka bawaan di HTML tetap terpakai dan
+     peserta tidak terhalang mendaftar - nominal yang tercatat toh dihitung
+     ulang di server saat pendaftaran masuk. */
+  function segarkanHarga() {
+    const ep = window.HIPMI && window.HIPMI.ENDPOINT_DAFTAR;
+    if (!ep) return;
+
+    fetch(ep + '?aksi=ringkas')
+      .then(function (r) { return r.json(); })
+      .then(function (h) {
+        if (!h || h.ok !== true) return;
+
+        $$('input[name="kategori"]').forEach(function (cat) {
+          /* Jumlah pendaftar per kategori, menggantikan "0" yang ditulis
+             tangan di HTML. */
+          if (h.kategori && h.kategori[cat.value] != null) {
+            const info = cat.parentNode.querySelector('.pick-info .tel');
+            if (info) info.textContent = h.kategori[cat.value] + ' pelari terdaftar';
+          }
+
+          if (!h.harga) return;
+          const berlaku = Number(h.harga[cat.value] || 0);
+          if (!berlaku) return;
+          cat.dataset.price = String(berlaku);
+
+          const normal = Number(cat.dataset.normal || 0);
+          const kotak = cat.parentNode.querySelector('.pick-price');
+          if (!kotak) return;
+
+          /* Masih di bawah harga normal = early bird masih berlaku. Begitu
+             sama dengan normal, coretan harga lama dicabut supaya tidak ada
+             diskon yang dipajang padahal sudah tidak ada. */
+          kotak.innerHTML = berlaku < normal
+            ? '<b>' + window.HIPMI.rupiah(berlaku) + '</b>' +
+              '<span><s>' + window.HIPMI.rupiah(normal) + '</s> early bird</span>'
+            : '<b>' + window.HIPMI.rupiah(berlaku) + '</b><span>harga normal</span>';
+        });
+
+        refresh();
+      })
+      .catch(function () { /* angka bawaan dipakai; server tetap penentunya */ });
+  }
+
   /* ---- live summary and BIB preview ------------------------------------ */
   function refresh() {
     const cat = selectedCategory();
     if (!cat) return;
     const label = cat.dataset.label;
 
-    const hargaEarly = Number(cat.dataset.price);
+    const hargaDasar = Number(cat.dataset.price);   // berlaku sekarang, belum tentu early bird
     const hargaPromo = Number(cat.dataset.promo || 0);
     const pakaiPromo = promoDipakai(cat);
     const price = hargaDibayar(cat);
@@ -88,7 +136,7 @@
     if (barisPromo) {
       barisPromo.hidden = !pakaiPromo;
       if (pakaiPromo) {
-        $('#sumPromoValue').textContent = '- ' + window.HIPMI.rupiah(hargaEarly - hargaPromo);
+        $('#sumPromoValue').textContent = '- ' + window.HIPMI.rupiah(hargaDasar - hargaPromo);
       }
     }
 
@@ -96,11 +144,11 @@
     $('#sumPrice').textContent = window.HIPMI.rupiah(price);
     $('#sumTotal').textContent = window.HIPMI.rupiah(price + SERVICE_FEE);
 
-    // selisih terhadap harga normal hanya tampil selama early bird berlaku
+    // selisih terhadap harga normal hilang sendiri begitu harganya normal
     const normal = Number(cat.dataset.normal || 0);
     const saveRow = $('#sumSave');
     if (saveRow) {
-      const saving = normal - hargaEarly;
+      const saving = normal - hargaDasar;
       saveRow.hidden = saving <= 0;
       if (saving > 0) $('#sumSaveValue').textContent = '- ' + window.HIPMI.rupiah(saving);
     }
@@ -411,4 +459,5 @@
   paintSteps();
   refresh();
   refreshBibName();
+  segarkanHarga();
 })();

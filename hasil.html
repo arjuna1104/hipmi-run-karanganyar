@@ -94,6 +94,7 @@
           <div class="scanner">
             <video id="scanVideo" playsinline muted></video>
             <div class="scan-frame" aria-hidden="true"></div>
+
             <p class="scan-note">Arahkan kamera ke barcode pada e-Pass atau nomor dada peserta.</p>
           </div>
           <div class="row" style="justify-content:space-between">
@@ -106,6 +107,50 @@
           <span id="scanErrorText"></span>
         </div>
       </div>
+      <!-- ===== daftar peserta dan cek pendaftaran ===== -->
+      <section id="startlist" class="panel pad" data-reveal data-delay="2" style="margin-top:1.5rem">
+        <div class="sl-atas">
+          <div>
+            <p class="eyebrow">Peserta terdaftar</p>
+            <h2 class="h-sm" style="margin:.2rem 0 0">Nomor dada yang sudah terbit.</h2>
+          </div>
+          <button class="btn btn-ghost btn-sm" type="button" id="slSegar">
+            <i class="ph ph-arrow-clockwise" aria-hidden="true"></i> Muat ulang
+          </button>
+        </div>
+        <p class="hint" style="margin:.6rem 0 0">
+          Hanya nomor dada, nama, dan kategori yang ditampilkan &mdash; sama dengan
+          yang tercetak di dada peserta sepanjang lomba.
+        </p>
+
+        <div class="sl-hitung" id="slHitung"></div>
+        <label class="sl-cari">
+          <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+          <input id="slCari" type="search" placeholder="Cari nama atau nomor dada" autocomplete="off">
+        </label>
+        <p class="hint" id="slPesan" hidden></p>
+        <ol class="sl-daftar" id="slDaftar"></ol>
+      </section>
+
+      <section class="panel pad" data-reveal data-delay="3" style="margin-top:1.5rem">
+        <p class="eyebrow">Sudah mendaftar?</p>
+        <h2 class="h-sm" style="margin:.2rem 0 .6rem">Cek status pendaftaran Anda.</h2>
+        <p class="hint" style="margin:0 0 1rem">
+          Masukkan kode pendaftaran dari email konfirmasi beserta email yang Anda
+          pakai mendaftar. Keduanya harus cocok.
+        </p>
+        <form class="cek-form" id="cekForm" novalidate>
+          <label>Kode pendaftaran
+            <input class="input" id="cekKode" type="text" placeholder="HRK-D0001"
+                   autocomplete="off" style="text-transform:uppercase">
+          </label>
+          <label>Email
+            <input class="input" id="cekEmail" type="email" placeholder="nama@email.com" autocomplete="email">
+          </label>
+          <button class="btn btn-ink" type="submit">Cek</button>
+        </form>
+        <p class="cek-hasil" id="cekHasil" hidden></p>
+      </section>
 
     </div>
   </section>
@@ -476,6 +521,7 @@
 <script src="assets/js/data.js"></script>
 <script src="assets/js/core.js"></script>
 <script src="assets/js/timing-api.js"></script>
-<script src="assets/js/hasil.js"></script>
+<script src="assets/js/peserta.js" defer></script>
+  <script src="assets/js/hasil.js"></script>
 </body>
 </html>

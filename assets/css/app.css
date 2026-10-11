@@ -1789,3 +1789,56 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
 }
 .lapis-list b{display:block;font-size:.95rem}
 .lapis-list b + span{display:block;font-size:.86rem;color:var(--ink-2);margin-top:.15rem}
+
+/* -- daftar peserta dan cek pendaftaran -------------------------------- */
+.sl-atas{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+.sl-hitung{display:flex;gap:.45rem;flex-wrap:wrap;margin:1rem 0 .8rem}
+.sl-hitung button{
+  flex:1 1 auto;min-width:84px;border:1px solid var(--line);background:var(--surface);
+  color:var(--ink-2);border-radius:8px;padding:.55rem .5rem;font:inherit;font-size:.78rem;
+  cursor:pointer;line-height:1.3;
+}
+.sl-hitung button[aria-pressed="true"]{
+  background:var(--brand-ink);border-color:var(--brand-ink);color:var(--on-dark);font-weight:600;
+}
+.sl-hitung b{display:block;font-size:1.05rem}
+.sl-cari{
+  display:flex;align-items:center;gap:.55rem;border:1px solid var(--line);
+  border-radius:9px;padding:.15rem .8rem;background:var(--surface);
+}
+.sl-cari i{color:var(--ink-3)}
+.sl-cari input{flex:1;border:0;background:transparent;padding:.65rem 0;font:inherit;color:var(--ink);min-width:0}
+.sl-cari input:focus{outline:none}
+.sl-cari:focus-within{border-color:var(--brand-ink)}
+/* Daftar bisa panjang; dibatasi tingginya supaya tidak menelan halaman,
+   dan tetap bisa digulir di dalam kotaknya sendiri. */
+.sl-daftar{
+  list-style:none;margin:.9rem 0 0;padding:0;max-height:26rem;overflow-y:auto;
+  border:1px solid var(--line);border-radius:9px;
+}
+.sl-baris{
+  display:grid;grid-template-columns:4.2rem 1fr auto;gap:.8rem;align-items:center;
+  padding:.65rem .85rem;border-bottom:1px solid var(--line);font-size:.92rem;
+}
+.sl-baris:last-child{border-bottom:0}
+.sl-bib{font-family:"Space Mono",monospace;font-weight:700;color:var(--brand-ink)}
+.sl-nama{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sl-kat{
+  font-size:.68rem;letter-spacing:.08em;color:var(--ink-3);
+  border:1px solid var(--line);border-radius:999px;padding:.15rem .5rem;
+}
+.sl-kosong{padding:1.8rem .85rem;text-align:center;color:var(--ink-3);font-size:.9rem;margin:0}
+:root[data-theme="dark"] .sl-bib{color:var(--gold-bright)}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .sl-bib{color:var(--gold-bright)}
+}
+
+.cek-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;align-items:end}
+.cek-form label{display:grid;gap:.3rem;font-size:.78rem;font-weight:600;color:var(--ink-2)}
+.cek-form .btn{min-height:46px}
+.cek-hasil{
+  margin:1rem 0 0;padding:.8rem .95rem;border-radius:9px;font-size:.9rem;
+  background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2);
+}
+.cek-hasil.is-ok{background:var(--lime-wash);border-color:transparent;color:var(--ink)}
+.cek-hasil.is-gagal{background:rgba(156,43,37,.1);border-color:rgba(156,43,37,.3);color:#9c2b25}

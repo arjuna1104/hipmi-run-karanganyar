@@ -228,11 +228,13 @@ window.HIPMI = (function () {
 
   /* Tiga lapis harga, dipakai berurutan:
      1. Kode promo press conference  - 50 kode, sekali pakai, harga pricePromo
-     2. Early bird                   - 100 slot untuk kedua kategori, pricePromo tidak ikut menggerus
+     2. Early bird                   - 100 slot untuk MASING-MASING kategori
+                                       (100 untuk 10K, 100 lagi untuk 5K),
+                                       pricePromo tidak ikut menggerus
      3. Harga normal                 - setelah early bird habis
      Angka "terpakai" diisi kuota.js dari spreadsheet panitia, bukan ditulis
      tangan di sini. */
-  const EARLY_BIRD = { quota: 100, taken: 0 };
+  const EARLY_BIRD = { quotaPerKategori: 100, taken: { '10k': 0, '5k': 0 } };
   const PROMO = { total: 51, used: 0, label: 'Kode press conference' };
 
   /* 0001 - 0100 ditahan seluruhnya: nomor kehormatan, undangan protokoler, dan

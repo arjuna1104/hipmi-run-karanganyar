@@ -54,10 +54,15 @@
         : 'kode habis';
     }
 
-    if (el('kuotaEarly') && r.earlyBird) {
-      el('kuotaEarly').textContent = r.earlyBird.sisa > 0
-        ? angka(r.earlyBird.sisa) + ' slot tersisa'
-        : 'slot habis';
+    /* Early bird punya kuota sendiri-sendiri per kategori, jadi sisanya
+       disebut terpisah. Yang sudah habis dikatakan habis, bukan "0 slot". */
+    if (el('kuotaEarly') && r.earlyBird && r.earlyBird.sisa) {
+      const sisaKat = function (n) {
+        return Number(n) > 0 ? angka(n) + ' slot' : 'habis';
+      };
+      el('kuotaEarly').textContent =
+        '10K ' + sisaKat(r.earlyBird.sisa['10k']) +
+        ' \u00b7 5K ' + sisaKat(r.earlyBird.sisa['5k']) + ' tersisa';
     }
   }
 

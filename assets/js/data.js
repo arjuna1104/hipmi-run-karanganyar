@@ -217,7 +217,7 @@ window.HIPMI = (function () {
   /* Alamat Apps Script tempat pendaftaran dikirim, berakhiran /exec.
      Dikosongkan = pendaftaran belum dibuka: formulir menolak mengirim dan
      berkata jujur, bukan diam-diam membuang data peserta. */
-  const ENDPOINT_DAFTAR = '';
+  const ENDPOINT_DAFTAR = 'https://script.google.com/macros/s/AKfycbyifONj1mPPS0PL98lnXGiscyaw6hTA0OicyWUFQWA_R4Zt5RDbSgZHw5nlmUU4L9Y/exec';
 
   const QUOTA = { total: 3000, taken: 0, bibRange: '0101 - 3100' };
 

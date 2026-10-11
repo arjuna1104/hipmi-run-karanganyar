@@ -16,81 +16,98 @@
   const cari   = $('#slCari');
   const pesan  = $('#slPesan');
 
-  let semua = [];
-  let saring = 'semua';
-
   function aman(t) {
     const d = document.createElement('div');
     d.textContent = t == null ? '' : String(t);
     return d.innerHTML;
   }
 
-  function gambar() {
-    const kata = (cari.value || '').trim().toLowerCase();
-    const tampil = semua.filter(function (p) {
-      if (saring !== 'semua' && p.kategori !== saring) return false;
-      if (!kata) return true;
-      return p.nama.toLowerCase().indexOf(kata) >= 0 || p.bib.indexOf(kata) >= 0;
-    });
-
-    if (!tampil.length) {
-      daftar.innerHTML = '<p class="sl-kosong">' +
-        (semua.length ? 'Tidak ada yang cocok dengan pencarian itu.'
-                      : 'Belum ada peserta bernomor dada. Nomor terbit setelah panitia memverifikasi pembayaran.') +
-        '</p>';
-      return;
-    }
-    daftar.innerHTML = tampil.map(function (p) {
-      return '<li class="sl-baris">' +
-             '<span class="sl-bib">' + aman(p.bib) + '</span>' +
-             '<span class="sl-nama">' + aman(p.nama) + '</span>' +
-             '<span class="sl-kat">' + aman(p.kategori.toUpperCase()) + '</span></li>';
-    }).join('');
+  function kosong(teks) {
+    daftar.innerHTML = '<p class="sl-kosong">' + aman(teks) + '</p>';
   }
 
-  function hitungan() {
-    const n10 = semua.filter(function (p) { return p.kategori === '10k'; }).length;
-    const n5  = semua.filter(function (p) { return p.kategori === '5k'; }).length;
-    hitung.innerHTML = [
-      ['semua', 'Semua', semua.length],
-      ['10k', '10K', n10],
-      ['5k', '5K', n5]
-    ].map(function (x) {
-      return '<button type="button" data-kat="' + x[0] + '" aria-pressed="' +
-             (saring === x[0]) + '"><b>' + x[2] + '</b>' + x[1] + '</button>';
-    }).join('');
-  }
-
-  function muat() {
-    pesan.textContent = 'Memuat daftar peserta…';
-    pesan.hidden = false;
-    fetch(ENDPOINT_DAFTAR + '?aksi=peserta', { method: 'GET' })
+  /* ---- hitungan: angka saja, tanpa satu nama pun --------------------- */
+  function muatHitungan() {
+    fetch(ENDPOINT_DAFTAR + '?aksi=peserta')
       .then(function (r) { return r.json(); })
       .then(function (h) {
-        if (!h || !h.ok) throw new Error('Daftar peserta tidak terbaca.');
-        semua = h.peserta || [];
+        if (!h || !h.ok) return;
+        hitung.innerHTML = [
+          ['Semua', h.jumlah || 0],
+          ['10K', h.k10 || 0],
+          ['5K', h.k5 || 0]
+        ].map(function (x) {
+          return '<span class="sl-angka"><b>' + x[1] + '</b>' + x[0] + '</span>';
+        }).join('');
+      })
+      .catch(function () { /* hitungan pelengkap; diamkan bila gagal */ });
+  }
+
+  /* ---- pencarian: dikerjakan server, bukan di sini -------------------- */
+  /* Halaman ini tidak pernah lagi memegang daftar lengkapnya. Setiap
+     pencarian bertanya ke server dan hanya menerima yang cocok, jadi
+     menutup daftar di layar betul-betul menutupnya - bukan sekadar
+     menyembunyikan data yang terlanjur dikirim ke peramban. */
+  var tunda = null;
+  var permintaanKe = 0;
+
+  function bersihkan() {
+    pesan.hidden = true;
+    kosong('Ketik nama atau nomor dada untuk mencari peserta.');
+  }
+
+  function telusuri() {
+    const kata = (cari.value || '').trim();
+    if (kata.length < 2) { bersihkan(); return; }
+
+    const ini = ++permintaanKe;
+    pesan.textContent = 'Mencari…';
+    pesan.hidden = false;
+
+    fetch(ENDPOINT_DAFTAR + '?aksi=cari&q=' + encodeURIComponent(kata))
+      .then(function (r) { return r.json(); })
+      .then(function (h) {
+        /* Jawaban yang datang terlambat tidak boleh menimpa yang terbaru. */
+        if (ini !== permintaanKe) return;
         pesan.hidden = true;
-        hitungan();
-        gambar();
+
+        if (!h || !h.ok) { kosong(h && h.pesan ? h.pesan : 'Pencarian gagal.'); return; }
+        if (!h.peserta || !h.peserta.length) {
+          kosong('Tidak ada peserta bernomor dada yang cocok dengan "' + kata + '".');
+          return;
+        }
+
+        daftar.innerHTML = h.peserta.map(function (p) {
+          return '<li class="sl-baris">' +
+                 '<span class="sl-bib">' + aman(p.bib) + '</span>' +
+                 '<span class="sl-nama">' + aman(p.nama) + '</span>' +
+                 '<span class="sl-kat">' + aman(p.kategori.toUpperCase()) + '</span></li>';
+        }).join('');
+
+        if (h.dipotong) {
+          pesan.textContent = 'Menampilkan ' + h.peserta.length + ' dari ' + h.jumlah +
+                              ' yang cocok. Persempit pencarian Anda.';
+          pesan.hidden = false;
+        }
       })
       .catch(function () {
-        /* Daftar ini pelengkap, bukan inti halaman. Kalau tidak terjangkau,
-           katakan apa adanya dan jangan mengosongkan sisanya. */
-        pesan.textContent = 'Daftar peserta sedang tidak dapat dimuat. Coba beberapa saat lagi.';
-        pesan.hidden = false;
+        if (ini !== permintaanKe) return;
+        pesan.hidden = true;
+        kosong('Tidak dapat menghubungi server. Coba lagi sebentar.');
       });
   }
 
-  hitung.addEventListener('click', function (e) {
-    const t = e.target.closest('button[data-kat]');
-    if (!t) return;
-    saring = t.dataset.kat;
-    hitungan();
-    gambar();
+  /* Menunggu ketikan berhenti dulu supaya tidak satu permintaan per huruf. */
+  cari.addEventListener('input', function () {
+    clearTimeout(tunda);
+    tunda = setTimeout(telusuri, 350);
   });
-  cari.addEventListener('input', gambar);
+
   const btnSegar = $('#slSegar');
-  if (btnSegar) btnSegar.addEventListener('click', muat);
+  if (btnSegar) btnSegar.addEventListener('click', function () {
+    muatHitungan();
+    telusuri();
+  });
 
   /* ---- cek pendaftaran sendiri ------------------------------------------ */
   /* Kode pendaftaran berurutan dan mudah ditebak, jadi email harus cocok
@@ -135,5 +152,6 @@
     });
   }
 
-  muat();
+  bersihkan();
+  muatHitungan();
 })();

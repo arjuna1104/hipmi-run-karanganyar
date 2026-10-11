@@ -1766,15 +1766,12 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
 /* -- daftar peserta dan cek pendaftaran -------------------------------- */
 .sl-atas{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
 .sl-hitung{display:flex;gap:.45rem;flex-wrap:wrap;margin:1rem 0 .8rem}
-.sl-hitung button{
+.sl-hitung .sl-angka{
   flex:1 1 auto;min-width:84px;border:1px solid var(--line);background:var(--surface);
-  color:var(--ink-2);border-radius:8px;padding:.55rem .5rem;font:inherit;font-size:.78rem;
-  cursor:pointer;line-height:1.3;
+  color:var(--ink-2);border-radius:8px;padding:.55rem .5rem;font-size:.78rem;
+  line-height:1.3;text-align:center;
 }
-.sl-hitung button[aria-pressed="true"]{
-  background:var(--brand-ink);border-color:var(--brand-ink);color:var(--on-dark);font-weight:600;
-}
-.sl-hitung b{display:block;font-size:1.05rem}
+.sl-hitung b{display:block;font-size:1.05rem;color:var(--ink)}
 .sl-cari{
   display:flex;align-items:center;gap:.55rem;border:1px solid var(--line);
   border-radius:9px;padding:.15rem .8rem;background:var(--surface);

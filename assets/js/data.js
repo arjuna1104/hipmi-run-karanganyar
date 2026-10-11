@@ -34,7 +34,7 @@ window.HIPMI = (function () {
     {
       id: '10k', code: '10K', name: '10K Challenge', distance: 10.0,
       age: '17 tahun ke atas', cot: '2 jam 15 menit',
-      priceEarly: 200000, priceNormal: 250000, pricePromo: 175000,
+      priceEarly: 225000, priceNormal: 250000, pricePromo: 175000,
       taken: 0,
       blurb: 'Lintasan penuh menembus poros kota Karanganyar dengan empat timing mat RFID.'
     },
@@ -219,13 +219,19 @@ window.HIPMI = (function () {
      berkata jujur, bukan diam-diam membuang data peserta. */
   const ENDPOINT_DAFTAR = 'https://script.google.com/macros/s/AKfycbzlBkDg2X9FfILRnuVe2hVYFCmcxaNreBS7mPvUn3sP1GnWw5mSG0msxvuEp_5-bD4P/exec';
 
+  /* taken/used di bawah ini hanya angka awal sebelum jaringan menjawab.
+     Angka sebenarnya datang dari endpoint ?aksi=ringkas dan dipasang oleh
+     kuota.js. Jangan menulis tangan angka terpakai di sini: dulu nilainya
+     tertinggal di 0 sehingga beranda tetap berkata "3.000 tersisa" padahal
+     sudah ada yang mendaftar. */
   const QUOTA = { total: 3000, taken: 0, bibRange: '0101 - 3100' };
 
   /* Tiga lapis harga, dipakai berurutan:
      1. Kode promo press conference  - 50 kode, sekali pakai, harga pricePromo
      2. Early bird                   - 100 slot untuk kedua kategori, pricePromo tidak ikut menggerus
      3. Harga normal                 - setelah early bird habis
-     Angka "terpakai" diisi dari basis data panitia, bukan ditulis tangan. */
+     Angka "terpakai" diisi kuota.js dari spreadsheet panitia, bukan ditulis
+     tangan di sini. */
   const EARLY_BIRD = { quota: 100, taken: 0 };
   const PROMO = { total: 51, used: 0, label: 'Kode press conference' };
 

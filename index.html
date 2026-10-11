@@ -110,9 +110,9 @@
           <div id="heroQuota">
             <p class="quota-line">
               <span>Kuota tersisa seluruh kategori</span>
-              <b>3.000 <span style="color:rgba(255,255,255,.6);font-size:.72rem">/ 3.000</span></b>
+              <b><span id="kuotaSisa">3.000</span> <span style="color:rgba(255,255,255,.6);font-size:.72rem">/ <span id="kuotaTotal">3.000</span></span></b>
             </p>
-            <div class="gauge" role="presentation"><i style="width:0%"></i></div>
+            <div class="gauge" role="presentation"><i id="kuotaGauge" style="width:0%"></i></div>
           </div>
           <a class="race-live-stats" id="heroStats" href="#langsung" hidden></a>
         </figcaption>
@@ -197,7 +197,7 @@
             </div>
           </div>
           <div class="cat-quota">
-            <p class="q-num">0 <em>pelari terdaftar</em></p>
+            <p class="q-num"><span id="kuotaKat10k">0</span> <em>pelari terdaftar</em></p>
           </div>
           <div class="cat-price">
             <span class="price-stack">
@@ -220,7 +220,7 @@
             </div>
           </div>
           <div class="cat-quota">
-            <p class="q-num">0 <em>pelari terdaftar</em></p>
+            <p class="q-num"><span id="kuotaKat5k">0</span> <em>pelari terdaftar</em></p>
           </div>
           <div class="cat-price">
             <span class="price-stack">
@@ -239,12 +239,12 @@
           <li>
             <span class="lapis-tag">1</span>
             <span><b>Kode press conference</b>
-              <span>51 kode, sekali pakai. 10K Rp 175.000 &middot; 5K Rp 150.000</span></span>
+              <span><span id="kuotaPromo">51 kode</span>, sekali pakai. 10K Rp 175.000 &middot; 5K Rp 150.000</span></span>
           </li>
           <li>
             <span class="lapis-tag">2</span>
             <span><b>Early bird</b>
-              <span>100 slot untuk kedua kategori. 10K Rp 225.000 &middot; 5K Rp 175.000</span></span>
+              <span><span id="kuotaEarly">100 slot</span> untuk kedua kategori. 10K Rp 225.000 &middot; 5K Rp 175.000</span></span>
           </li>
           <li>
             <span class="lapis-tag">3</span>
@@ -452,6 +452,7 @@
 </footer>
 
 <script src="assets/js/data.js"></script>
+<script src="assets/js/kuota.js"></script>
 <script src="assets/js/core.js"></script>
 <script src="assets/js/beranda.js"></script>
 <script src="assets/js/timing-api.js"></script>

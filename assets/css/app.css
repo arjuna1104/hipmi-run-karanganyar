@@ -1628,6 +1628,13 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
 .sponsor-plate.is-sm{padding:.65rem 1.05rem}
 .sponsor-plate.is-sm img{height:clamp(26px,1.1vw + 1.15rem,36px)}
 
+/* Satu label boleh menaungi beberapa lambang; letakkan berdampingan, bukan
+   bertumpuk. Lambang berbentuk perisai dibuat sedikit lebih tinggi daripada
+   logo mendatar: pada tinggi yang sama ia tampak jauh lebih kecil. */
+.partner-logos{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.sponsor-plate.is-sm.is-lambang{padding:.5rem .75rem}
+.sponsor-plate.is-sm.is-lambang img{height:clamp(34px,1.4vw + 1.5rem,46px)}
+
 /* -- pemilih kategori rute ---------------------------------------------- */
 .route-switch{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
 .route-switch [aria-pressed="true"]{

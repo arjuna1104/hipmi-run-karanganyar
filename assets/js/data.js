@@ -34,7 +34,7 @@ window.HIPMI = (function () {
     {
       id: '10k', code: '10K', name: '10K Challenge', distance: 10.0,
       age: '17 tahun ke atas', cot: '2 jam 15 menit',
-      priceEarly: 200000, priceNormal: 250000, pricePromo: 175000,
+      priceEarly: 225000, priceNormal: 250000, pricePromo: 175000,
       taken: 0,
       blurb: 'Lintasan penuh menembus poros kota Karanganyar dengan empat timing mat RFID.'
     },
@@ -169,7 +169,7 @@ window.HIPMI = (function () {
       hero: IMG + 'medal-pair.webp',
       heroAlt: 'Medali finisher 10K HIPMI RUN Karanganyar.',
       gallery: [
-        { src: IMG + 'medal-5k.webp',     title: 'Varian 5K',    note: 'Tali hijau tua bertuliskan HIPMI RUN' },
+        { src: IMG + 'medal-5k.webp',     title: 'Varian 5K',    note: 'Tampak depan dan belakang, tali hijau tua bertuliskan HIPMI RUN' },
         { src: IMG + 'medal-10k.webp',    title: 'Varian 10K',   note: 'Tali hijau muda bertuliskan HIPMI RUN' },
         { src: IMG + 'medal-logo.webp',   title: 'Kepala medali', note: 'Peta Indonesia timbul pada bidang bundar' },
         { src: IMG + 'medal-jarak.webp',  title: 'Tulisan jarak', note: 'Alas bertuliskan 5K FINISHER atau 10K FINISHER, bertekstur peta topografi' },

@@ -279,6 +279,7 @@
 
     const muatan = {
       nama: val('nama'),
+      nik: (val('nik') || '').replace(/\D/g, ''),
       kategori: cat.value,
       jk: val('gender'),
       klub: bibName || '',

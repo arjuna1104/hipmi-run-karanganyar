@@ -64,9 +64,26 @@
   function refresh() {
     const cat = selectedCategory();
     if (!cat) return;
-    const price = Number(cat.dataset.price);
     const label = cat.dataset.label;
     const bib = cat.dataset.bib;
+
+    /* Kode promo tidak diperiksa di sini. Daftar 50 kode itu milik panitia dan
+       tidak boleh ikut terkirim ke peramban: siapa pun bisa membacanya dari
+       kode sumber. Halaman hanya menampilkan nominal bila kode diisi, dan
+       panitia yang memastikan kodenya sah saat memeriksa bukti transfer. */
+    const kodePromo = (val('promo') || '').trim();
+    const hargaEarly = Number(cat.dataset.price);
+    const hargaPromo = Number(cat.dataset.promo || 0);
+    const pakaiPromo = kodePromo.length >= 4 && hargaPromo > 0;
+    const price = pakaiPromo ? hargaPromo : hargaEarly;
+
+    const barisPromo = $('#sumPromo');
+    if (barisPromo) {
+      barisPromo.hidden = !pakaiPromo;
+      if (pakaiPromo) {
+        $('#sumPromoValue').textContent = '- ' + window.HIPMI.rupiah(hargaEarly - hargaPromo);
+      }
+    }
 
     $('#sumCat').textContent = label;
     $('#sumBib').textContent = bib;
@@ -77,7 +94,7 @@
     const normal = Number(cat.dataset.normal || 0);
     const saveRow = $('#sumSave');
     if (saveRow) {
-      const saving = normal - price;
+      const saving = normal - hargaEarly;
       saveRow.hidden = saving <= 0;
       if (saving > 0) $('#sumSaveValue').textContent = '- ' + window.HIPMI.rupiah(saving);
     }
@@ -237,7 +254,7 @@
     const jersey = form.querySelector('input[name="jersey"]:checked');
     const bibName = val('bibName');
     const entry = {
-      bib: cat.dataset.bib, name: val('nama'),
+      bib: cat.dataset.bib, name: val('nama'), promo: (val('promo') || '').trim().toUpperCase(),
       category: cat.value, categoryName: cat.dataset.label,
       gender: val('gender'), age: ageAtRaceDay(val('lahir')), city: val('kota'),
       club: bibName ? bibName : 'Independent',
@@ -277,6 +294,11 @@
   });
   form.addEventListener('input', function (e) {
     if (e.target.id === 'bibName') { refreshBibName(); return; }
+    if (e.target.id === 'promo') {
+      e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9-]/g, '').slice(0, 16);
+      refresh();
+      return;
+    }
     if (e.target.id === 'nik') e.target.value = e.target.value.replace(/\D/g, '').slice(0, 16);
     if (e.target.id === 'nama') $('#sumName').textContent = e.target.value.trim() || 'Belum diisi';
     const f = e.target.closest('[data-field]');

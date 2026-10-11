@@ -34,15 +34,15 @@ window.HIPMI = (function () {
     {
       id: '10k', code: '10K', name: '10K Challenge', distance: 10.0,
       age: '17 tahun ke atas', cot: '2 jam 15 menit',
-      priceEarly: 225000, priceNormal: 250000,
-      taken: 684,
+      priceEarly: 200000, priceNormal: 250000, pricePromo: 175000,
+      taken: 0,
       blurb: 'Lintasan penuh menembus poros kota Karanganyar dengan empat timing mat RFID.'
     },
     {
       id: '5k', code: '5K', name: '5K Race', distance: 5.0,
       age: 'Semua umur', cot: '1 jam 15 menit',
-      priceEarly: 175000, priceNormal: 200000,
-      taken: 629,
+      priceEarly: 175000, priceNormal: 200000, pricePromo: 150000,
+      taken: 0,
       blurb: 'Loop pendek berjalur sama, dilombakan penuh dengan timing mat RFID dan podium sendiri.'
     }
   ];
@@ -55,164 +55,17 @@ window.HIPMI = (function () {
 
   /* ---- hasil lomba : demo feed ---------------------------------------- */
   const RESULTS = {
-    '10k': {
-      finishers: 1186,
-      putra: [
-        { rank: 1, bib: '1002', name: 'Agus Prayogo', club: 'Dewan Juri Lomba', gun: '32:24', net: '32:10', pace: '03:13' },
-        { rank: 2, bib: '1017', name: 'Rikki Simbolon', club: 'Solo Runners', gun: '33:16', net: '33:02', pace: '03:18' },
-        { rank: 3, bib: '1045', name: 'Hamdan Sayuti', club: 'Lawu Trail Club', gun: '34:03', net: '33:48', pace: '03:23' },
-        { rank: 4, bib: '1128', name: 'Yulianto Wibowo', club: 'Karanganyar Striders', gun: '35:29', net: '35:11', pace: '03:31' },
-        { rank: 5, bib: '1074', name: 'Bagas Ardiansyah', club: 'Tawangmangu Pace', gun: '36:44', net: '36:27', pace: '03:39' },
-        { rank: 6, bib: '1233', name: 'Dimas Nurhidayat', club: 'Sragen Run Club', gun: '38:11', net: '37:53', pace: '03:47' },
-        { rank: 7, bib: '1190', name: 'Fauzan Ramadhan', club: 'Solo Runners', gun: '39:40', net: '39:20', pace: '03:56' },
-        { rank: 8, bib: '1361', name: 'Teguh Prasetyo', club: 'Matesih Runners', gun: '41:27', net: '41:06', pace: '04:07' },
-        { rank: 9, bib: '1288', name: 'Ilham Maulana', club: 'Independent', gun: '43:58', net: '43:34', pace: '04:21' },
-        { rank: 10, bib: '1407', name: 'Rizky Firmansyah', club: 'Colomadu Pacers', gun: '45:39', net: '45:12', pace: '04:31' },
-        { rank: 11, bib: '1512', name: 'Wahyu Kurniawan', club: 'Karanganyar Striders', gun: '47:56', net: '47:28', pace: '04:45' },
-        { rank: 12, bib: '1338', name: 'Satria Nugroho', club: 'Independent', gun: '49:34', net: '49:05', pace: '04:55' },
-        { rank: 13, bib: '1620', name: 'Adit Pambudi', club: 'Jaten Run Club', gun: '51:02', net: '50:31', pace: '05:03' },
-        { rank: 14, bib: '1493', name: 'Bima Pratama', club: 'Karanganyar Striders', gun: '51:38', net: '51:10', pace: '05:07' }
-      ],
-      putri: [
-        { rank: 1, bib: '1009', name: 'Odekta Naibaho', club: 'Dewan Juri Lomba', gun: '36:12', net: '35:58', pace: '03:36' },
-        { rank: 2, bib: '1063', name: 'Ayu Kartika Wijaya', club: 'Solo Runners', gun: '37:48', net: '37:31', pace: '03:45' },
-        { rank: 3, bib: '1121', name: 'Nurul Fadhilah', club: 'Lawu Trail Club', gun: '39:22', net: '39:04', pace: '03:54' },
-        { rank: 4, bib: '1255', name: 'Ratna Dewi Anjani', club: 'Karanganyar Striders', gun: '42:17', net: '41:55', pace: '04:11' },
-        { rank: 5, bib: '1302', name: 'Salsabila Ramadhani', club: 'Independent', gun: '44:50', net: '44:26', pace: '04:26' },
-        { rank: 6, bib: '1418', name: 'Retno Widyastuti', club: 'Tawangmangu Pace', gun: '46:35', net: '46:08', pace: '04:37' },
-        { rank: 7, bib: '1377', name: 'Anisa Puspita Dewi', club: 'Jaten Run Club', gun: '48:19', net: '47:52', pace: '04:47' },
-        { rank: 8, bib: '1544', name: 'Maharani Sekar Ayu', club: 'Colomadu Pacers', gun: '50:41', net: '50:12', pace: '05:01' },
-        { rank: 9, bib: '1188', name: 'Sri Wahyuni Hartati', club: 'Lawu Veteran Run', gun: '52:11', net: '51:44', pace: '05:10' },
-        { rank: 10, bib: '1466', name: 'Kirana Hapsari', club: 'Independent', gun: '52:28', net: '51:57', pace: '05:12' },
-        { rank: 11, bib: '1591', name: 'Laras Ayuningtyas', club: 'Matesih Runners', gun: '54:06', net: '53:33', pace: '05:21' }
-      ]
-    },
-    '5k': {
-      finishers: 1842,
-      putra: [
-        { rank: 1, bib: '0521', name: 'Raka Adiwijaya', club: 'SMAN 1 Karanganyar', gun: '17:06', net: '16:58', pace: '03:24' },
-        { rank: 2, bib: '0588', name: 'Galih Saputro', club: 'Jaten Run Club', gun: '17:52', net: '17:41', pace: '03:32' },
-        { rank: 3, bib: '0644', name: 'Naufal Hakim', club: 'Solo Runners', gun: '18:40', net: '18:27', pace: '03:41' },
-        { rank: 4, bib: '0709', name: 'Arif Setiawan', club: 'Independent', gun: '19:33', net: '19:18', pace: '03:52' },
-        { rank: 5, bib: '0523', name: 'Bayu Anggoro', club: 'Colomadu Pacers', gun: '20:47', net: '20:29', pace: '04:06' },
-        { rank: 6, bib: '0877', name: 'Fajar Kurniawan', club: 'Matesih Runners', gun: '21:58', net: '21:36', pace: '04:19' },
-        { rank: 7, bib: '0955', name: 'Reza Maulana', club: 'Independent', gun: '23:12', net: '22:49', pace: '04:34' },
-        { rank: 8, bib: '0901', name: 'Yusuf Ardiansyah', club: 'Tawangmangu Pace', gun: '24:40', net: '24:15', pace: '04:51' }
-      ],
-      putri: [
-        { rank: 1, bib: '0533', name: 'Alika Permatasari', club: 'SMAN 1 Karanganyar', gun: '19:24', net: '19:12', pace: '03:50' },
-        { rank: 2, bib: '0597', name: 'Nayla Zahra Putri', club: 'Solo Runners', gun: '20:36', net: '20:21', pace: '04:04' },
-        { rank: 3, bib: '0668', name: 'Citra Wulandari', club: 'Jaten Run Club', gun: '21:49', net: '21:30', pace: '04:18' },
-        { rank: 4, bib: '0741', name: 'Hana Maharani', club: 'Independent', gun: '23:05', net: '22:44', pace: '04:33' },
-        { rank: 5, bib: '0888', name: 'Shafa Aulia Rahma', club: 'Colomadu Pacers', gun: '24:31', net: '24:07', pace: '04:49' },
-        { rank: 6, bib: '0970', name: 'Keisha Amelia', club: 'Matesih Runners', gun: '26:02', net: '25:35', pace: '05:07' }
-      ]
-    }
+    /* Belum ada hasil. Bentuknya dipertahankan agar halaman hasil dan
+       papan peringkat tetap menampilkan keadaan kosong, bukan error. */
+    '10k': { finishers: 0, putra: [], putri: [] },
+    '5k':  { finishers: 0, putra: [], putri: [] }
   };
 
   /* ---- split pace : juara 1 vs pelari aktif (PRD section 5.3) --------- */
-  const SPLITS = {
-    checkpoints: [2.5, 5.0, 7.5, 10.0],
-    // paceSec = detik per km pada segmen tersebut, cumSec = waktu kumulatif
-    champion: {
-      name: 'Agus Prayogo', bib: '1002', label: 'Juara 1 - 10K Challenge',
-      avgPace: '03:13',
-      legs: [
-        { km: 2.5, paceSec: 190, cumSec: 475 },
-        { km: 5.0, paceSec: 192, cumSec: 955 },
-        { km: 7.5, paceSec: 196, cumSec: 1445 },
-        { km: 10.0, paceSec: 194, cumSec: 1930 }
-      ]
-    },
-    runner: {
-      name: 'Bima Pratama', bib: '1493', label: 'Pelari aktif',
-      avgPace: '05:07',
-      legs: [
-        { km: 2.5, paceSec: 292, cumSec: 730 },
-        { km: 5.0, paceSec: 304, cumSec: 1490 },
-        { km: 7.5, paceSec: 320, cumSec: 2290 },
-        { km: 10.0, paceSec: 312, cumSec: 3070 }
-      ]
-    }
-  };
+  const SPLITS = {};
 
   /* ---- peserta : e-Pass lookup ---------------------------------------- */
-  const RUNNERS = {
-    '1493': {
-      bib: '1493', name: 'Bima Pratama', category: '10k', categoryName: '10K Challenge',
-      gender: 'Putra', age: 24, city: 'Karanganyar', club: 'Karanganyar Striders',
-      jersey: 'L', blood: 'O', chip: 'UHF-DF-88241493', wave: 'Wave A - 05:45 WIB',
-      emergency: 'Sulastri Pratama', emergencyPhone: '+62 8xx-xxxx-xxxx',
-      status: 'finished',
-      rpc: [
-        { item: 'Nomor dada (BIB) + safety pin', done: true, at: '12 Des, 10:24' },
-        { item: 'Jersey dry-fit ukuran L', done: true, at: '12 Des, 10:24' },
-        { item: 'Timing chip RFID', done: true, at: '12 Des, 10:26' },
-        { item: 'Goodie bag + kupon refreshment', done: true, at: '12 Des, 10:26' }
-      ],
-      result: { rank: 14, of: 1186, gun: '51:38', net: '51:10', pace: '05:07' },
-      photos: [
-        { seed: 'hipmi-run-lawu-boulevard-km75-a', point: 'Poros Kota', km: 'KM 7.5', time: '06:23:41' },
-        { seed: 'hipmi-run-lawu-boulevard-km75-b', point: 'Poros Kota', km: 'KM 7.5', time: '06:23:44' },
-        { seed: 'hipmi-run-finish-arch-km10-a', point: 'Finish Line Arch', km: 'KM 10.0', time: '06:36:55' },
-        { seed: 'hipmi-run-finish-arch-km10-b', point: 'Finish Line Arch', km: 'KM 10.0', time: '06:36:58' },
-        { seed: 'hipmi-run-finish-arch-km10-c', point: 'Finish Line Arch', km: 'KM 10.0', time: '06:37:02' },
-        { seed: 'hipmi-run-medal-zone-finisher', point: 'Medal Zone', km: 'Finish', time: '06:39:10' }
-      ]
-    },
-    '1188': {
-      bib: '1188', name: 'Sri Wahyuni Hartati', category: '10k', categoryName: '10K Challenge',
-      gender: 'Putri', age: 47, city: 'Tawangmangu', club: 'Lawu Veteran Run',
-      jersey: 'M', blood: 'B', chip: 'UHF-DF-88241188', wave: 'Wave B - 05:55 WIB',
-      emergency: 'Bagus Hartati', emergencyPhone: '+62 8xx-xxxx-xxxx',
-      status: 'finished',
-      rpc: [
-        { item: 'Nomor dada (BIB) + safety pin', done: true, at: '11 Des, 15:02' },
-        { item: 'Jersey dry-fit ukuran M', done: true, at: '11 Des, 15:02' },
-        { item: 'Timing chip RFID', done: true, at: '11 Des, 15:03' },
-        { item: 'Goodie bag + kupon refreshment', done: true, at: '11 Des, 15:05' }
-      ],
-      result: { rank: 9, of: 1186, gun: '52:11', net: '51:44', pace: '05:10' },
-      photos: [
-        { seed: 'hipmi-run-master-km75-climb', point: 'Poros Kota', km: 'KM 7.5', time: '06:41:12' },
-        { seed: 'hipmi-run-master-finish-arch', point: 'Finish Line Arch', km: 'KM 10.0', time: '06:47:39' },
-        { seed: 'hipmi-run-master-podium-zone', point: 'Podium Zone', km: 'Finish', time: '07:52:20' }
-      ]
-    },
-    '0523': {
-      bib: '0523', name: 'Bayu Anggoro', category: '5k', categoryName: '5K Race',
-      gender: 'Putra', age: 16, city: 'Colomadu', club: 'Colomadu Pacers',
-      jersey: 'S', blood: 'A', chip: 'UHF-DF-88240523', wave: 'Wave B - 06:10 WIB',
-      emergency: 'Wenny Anggoro', emergencyPhone: '+62 8xx-xxxx-xxxx',
-      status: 'finished',
-      rpc: [
-        { item: 'Nomor dada (BIB) + safety pin', done: true, at: '12 Des, 08:47' },
-        { item: 'Jersey dry-fit ukuran S', done: true, at: '12 Des, 08:47' },
-        { item: 'Timing chip RFID', done: true, at: '12 Des, 08:49' },
-        { item: 'Goodie bag + kupon refreshment', done: true, at: '12 Des, 08:50' }
-      ],
-      result: { rank: 5, of: 1842, gun: '20:47', net: '20:29', pace: '04:06' },
-      photos: [
-        { seed: 'hipmi-run-5k-cheering-zone', point: 'Cheering Zone', km: 'KM 3.0', time: '06:22:08' },
-        { seed: 'hipmi-run-5k-finish-arch', point: 'Finish Line Arch', km: 'KM 5.0', time: '06:30:29' }
-      ]
-    },
-    '1155': {
-      bib: '1155', name: 'Dinda Ayu Lestari', category: '10k', categoryName: '10K Challenge',
-      gender: 'Putri', age: 27, city: 'Jaten', club: 'Karanganyar Striders',
-      jersey: 'XS', blood: 'AB', chip: 'UHF-DF-88241155', wave: 'Wave A - 05:45 WIB',
-      emergency: 'Prasetya Lestari', emergencyPhone: '+62 8xx-xxxx-xxxx',
-      status: 'registered',
-      rpc: [
-        { item: 'Nomor dada (BIB) + safety pin', done: false, at: null },
-        { item: 'Jersey dry-fit ukuran XS', done: false, at: null },
-        { item: 'Timing chip RFID', done: false, at: null },
-        { item: 'Goodie bag + kupon refreshment', done: false, at: null }
-      ],
-      result: null,
-      photos: []
-    }
-  };
+  const RUNNERS = {};
 
   /* ---- rute : checkpoint, water station, medis ------------------------ */
   /* Rute resmi, diturunkan dari peta Google My Maps panitia
@@ -361,7 +214,15 @@ window.HIPMI = (function () {
   /* Kuota satu kolam untuk kedua kategori: tidak ada batas per jarak,
      siapa cepat dia dapat. Nomor dada ikut satu deret, kategorinya ditandai
      lencana 5KM atau 10KM pada desain BIB, bukan oleh rentang nomornya. */
-  const QUOTA = { total: 3000, taken: 1313, bibRange: '0100 - 3099' };
+  const QUOTA = { total: 3000, taken: 0, bibRange: '0100 - 3099' };
+
+  /* Tiga lapis harga, dipakai berurutan:
+     1. Kode promo press conference  - 50 kode, sekali pakai, harga pricePromo
+     2. Early bird                   - 100 slot untuk kedua kategori, pricePromo tidak ikut menggerus
+     3. Harga normal                 - setelah early bird habis
+     Angka "terpakai" diisi dari basis data panitia, bukan ditulis tangan. */
+  const EARLY_BIRD = { quota: 100, taken: 0 };
+  const PROMO = { total: 50, used: 0, label: 'Kode press conference' };
 
   const BIB_RULES = {
     honour: { from: 1, to: 99, label: 'Nomor kehormatan' },   // peserta mulai 0100
@@ -382,20 +243,7 @@ window.HIPMI = (function () {
   ];
 
   /* Contoh yang sudah terbit sebelum antarmuka ini dibuka. */
-  const SEED_EXCEPTIONS = [
-    {
-      bib: '01', name: 'Sugeng Raharjo', title: 'Ketua Umum BPC HIPMI Karanganyar',
-      category: '5k', type: 'undangan-vip', competitive: false,
-      reason: 'Pelepas balon start dan flag-off bersama.',
-      approvedBy: 'Panitia Inti', issuedAt: '2026-09-02T10:20:00+07:00', status: 'aktif'
-    },
-    {
-      bib: '17', name: 'Retno Palupi', title: 'Pimpinan mitra sponsor',
-      category: '5k', type: 'sponsor', competitive: false,
-      reason: 'Mitra sponsor kategori 5K, nomor sesuai tanggal perjanjian.',
-      approvedBy: 'Divisi Kemitraan', issuedAt: '2026-09-11T14:05:00+07:00', status: 'aktif'
-    }
-  ];
+  const SEED_EXCEPTIONS = [];
 
   /* ---- helpers -------------------------------------------------------- */
   const rupiah = n => 'Rp ' + n.toLocaleString('id-ID');
@@ -415,6 +263,6 @@ window.HIPMI = (function () {
   };
 
   return { EVENT, CATEGORIES, PRIZES, RESULTS, SPLITS, RUNNERS, ROUTES, ROUTE_VIEWBOX, AGENDA,
-           QUOTA, BIB_RULES, EXCEPTION_TYPES, SEED_EXCEPTIONS, PRODUCTS,
+           QUOTA, EARLY_BIRD, PROMO, BIB_RULES, EXCEPTION_TYPES, SEED_EXCEPTIONS, PRODUCTS,
            rupiah, catById, secToClock, photoUrl };
 })();

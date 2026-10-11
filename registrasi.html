@@ -118,28 +118,28 @@
         <section class="step-panel" data-step="1">
           <fieldset class="fieldset">
             <legend>Pilih kategori lomba</legend>
-            <p>Kuota di bawah ini adalah sisa slot terkini. Slot terkunci selama 20 menit setelah Anda masuk halaman pembayaran.</p>
+            <p>Kuota 3.000 dipakai bersama kedua kategori. Early bird 100 slot pertama; setelah habis, biaya kembali ke harga normal.</p>
             <div class="pick" role="radiogroup" aria-label="Kategori lomba">
 
               <label class="pick-row">
-                <input type="radio" name="kategori" value="10k" data-price="225000" data-normal="250000" data-label="10K Challenge" data-bib="1316" checked>
+                <input type="radio" name="kategori" value="10k" data-price="200000" data-normal="250000" data-promo="175000" data-label="10K Challenge" data-bib="0100" checked>
                 <span class="pick-info">
                   <b>10K Challenge</b>
                   <span>17 tahun ke atas &middot; COT 2 jam 15 menit</span>
-                  <span class="tel dim" style="font-size:.76rem">684 pelari terdaftar</span>
+                  <span class="tel dim" style="font-size:.76rem">0 pelari terdaftar</span>
                 </span>
                 <span class="pick-price">
-                  <b>Rp 225.000</b>
+                  <b>Rp 200.000</b>
                   <span><s>Rp 250.000</s> early bird</span>
                 </span>
               </label>
 
               <label class="pick-row">
-                <input type="radio" name="kategori" value="5k" data-price="175000" data-normal="200000" data-label="5K Race" data-bib="0730">
+                <input type="radio" name="kategori" value="5k" data-price="175000" data-normal="200000" data-promo="150000" data-label="5K Race" data-bib="0101">
                 <span class="pick-info">
                   <b>5K Race</b>
                   <span>Semua umur &middot; COT 1 jam 15 menit</span>
-                  <span class="tel dim" style="font-size:.76rem">629 pelari terdaftar</span>
+                  <span class="tel dim" style="font-size:.76rem">0 pelari terdaftar</span>
                 </span>
                 <span class="pick-price">
                   <b>Rp 175.000</b>
@@ -150,9 +150,23 @@
             </div>
           </fieldset>
 
+          <fieldset class="fieldset">
+            <legend>Kode promo</legend>
+            <p>Punya kode dari press conference? Masukkan di sini. Kosongkan bila tidak ada.</p>
+            <div class="field" data-field="promo">
+              <label for="promo">Kode promo</label>
+              <input id="promo" name="promo" type="text" autocomplete="off" maxlength="16"
+                     placeholder="HRK-XXXXXX" spellcheck="false" style="text-transform:uppercase">
+              <p class="hint">
+                Kode berlaku sekali pakai dan tidak menggerus kuota early bird.
+                Nominal akhir dipastikan panitia saat memeriksa bukti transfer Anda.
+              </p>
+            </div>
+          </fieldset>
+
           <div class="demo-note">
             <i class="ph ph-info" aria-hidden="true"></i>
-            <p>Harga early bird berlaku sampai 13 November 2026 atau sampai kuota early bird habis.</p>
+            <p>Harga early bird berlaku sampai 13 November 2026 atau sampai 100 slot early bird habis.</p>
           </div>
         </section>
 
@@ -301,13 +315,13 @@
                 </div>
                 <div class="demo-note">
                   <i class="ph ph-shield-check" aria-hidden="true"></i>
-                  <p>Nomor dada di samping bersifat sementara dan dikunci permanen setelah pembayaran terkonfirmasi.</p>
+                  <p>Nomor dada di samping hanya contoh tampilan. Nomor asli Anda diterbitkan panitia setelah bukti transfer diverifikasi.</p>
                 </div>
               </div>
 
               <figure class="bib-preview" data-cat="10k" aria-live="polite">
-                <figcaption class="bib-head">HIPMI KARANGANYAR RUN 2026<br><span id="bibCat">10K CHALLENGE OPEN</span></figcaption>
-                <p class="bib-num" id="bibNum">1316</p>
+                <figcaption class="bib-head">HIPMI RUN KARANGANYAR VOL. #1<br><span id="bibCat">10K CHALLENGE OPEN</span></figcaption>
+                <p class="bib-num" id="bibNum">0100</p>
                 <p class="bib-name" id="bibNamePreview"></p>
                 <div class="bib-foot">
                   <span>panitia JATENG</span>
@@ -323,14 +337,15 @@
           <fieldset class="fieldset">
             <legend>Metode pembayaran</legend>
             <p>
-              Kanal pembayaran sedang difinalisasi panitia. QRIS dan virtual account
-              terkonfirmasi otomatis; transfer manual diverifikasi panitia pada jam kerja.
+              Pembayaran lewat <b>transfer ke rekening BNI HIPMI</b>, lalu unggah bukti
+              transfernya. Panitia memverifikasi pada jam kerja, lalu nomor dada terbit.
+              QRIS dan virtual account menyusul setelah kanal pembayarannya siap.
             </p>
 
             <div class="field" data-field="bayar">
               <div class="pay-list" role="radiogroup" aria-label="Metode pembayaran">
                 <label class="pay-row">
-                  <input type="radio" name="bayar" value="QRIS" checked>
+                  <input type="radio" name="bayar" value="QRIS">
                   <span class="pay-logo">QRIS</span>
                   <span><b>QRIS</b><span class="pay-sub">Scan dari aplikasi pembayaran atau m-banking mana pun</span></span>
                   <span class="pay-time">10 detik</span>
@@ -342,9 +357,9 @@
                   <span class="pay-time">10 detik</span>
                 </label>
                 <label class="pay-row">
-                  <input type="radio" name="bayar" value="Transfer rekening panitia">
+                  <input type="radio" name="bayar" value="Transfer rekening BNI HIPMI" checked>
                   <span class="pay-logo">TRF</span>
-                  <span><b>Transfer ke rekening panitia</b><span class="pay-sub">Rekening atas nama BPC HIPMI Karanganyar</span></span>
+                  <span><b>Transfer ke rekening BNI HIPMI</b><span class="pay-sub">Atas nama BPC HIPMI Karanganyar, unggah bukti transfer di bawah</span></span>
                   <span class="pay-time">Verifikasi panitia</span>
                 </label>
               </div>
@@ -356,13 +371,13 @@
                  dibaca calon peserta dan nomor keliru berarti uang masuk ke
                  rekening asing. -->
             <div class="rek-card">
-              <p class="eyebrow">Rekening panitia</p>
+              <p class="eyebrow">Rekening BNI HIPMI</p>
               <p class="rek-no" aria-label="Nomor rekening belum tersedia">
                 <span class="rek-kosong" aria-hidden="true">&bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull; &bull;&bull;&bull;</span>
                 <span class="chip chip-gold">Menunggu nomor resmi</span>
               </p>
               <dl class="rek-meta">
-                <div><dt>Bank</dt><dd>Menunggu penetapan panitia</dd></div>
+                <div><dt>Bank</dt><dd>BNI</dd></div>
                 <div><dt>Atas nama</dt><dd>BPC HIPMI Karanganyar</dd></div>
                 <div><dt>Keperluan</dt><dd>Biaya pendaftaran HIPMI RUN Vol. #1</dd></div>
               </dl>
@@ -370,6 +385,16 @@
                 Nomor rekening dicantumkan di sini sebelum pendaftaran dibuka. Jangan
                 mentransfer ke rekening mana pun yang tidak tertera di halaman ini.
               </p>
+            </div>
+
+            <div class="field" data-field="bukti" style="margin-top:1.25rem">
+              <label for="bukti">Bukti transfer</label>
+              <input id="bukti" name="bukti" type="file" accept="image/jpeg,image/png,image/webp,application/pdf">
+              <p class="hint">
+                Foto atau tangkapan layar struk transfer, maksimal 5 MB. Panitia memeriksa
+                nominal, tanggal, dan kode promo Anda sebelum nomor dada diterbitkan.
+              </p>
+              <p class="err" hidden><i class="ph ph-warning-circle" aria-hidden="true"></i><span></span></p>
             </div>
 
             <div class="inline-error" id="payError" hidden>
@@ -407,13 +432,14 @@
           <p class="sum-line"><span>Nomor dada sementara</span><span id="sumBib">1789</span></p>
           <p class="sum-line"><span>Ukuran jersey</span><span id="sumJersey">Belum dipilih</span></p>
           <hr class="rule">
-          <p class="sum-line"><span>Biaya registrasi</span><span id="sumPrice">Rp 225.000</span></p>
+          <p class="sum-line"><span>Biaya registrasi</span><span id="sumPrice">Rp 200.000</span></p>
           <p class="sum-line" id="sumSave" hidden><span>Potongan early bird</span><span id="sumSaveValue" style="color:var(--lime-deep)">-</span></p>
+          <p class="sum-line" id="sumPromo" hidden><span>Potongan kode promo</span><span id="sumPromoValue" style="color:var(--lime-deep)">-</span></p>
           <p class="sum-line"><span>Biaya layanan</span><span>Rp 7.500</span></p>
         </div>
         <div class="sum-total">
           <b>Total</b>
-          <b id="sumTotal">Rp 232.500</b>
+          <b id="sumTotal">Rp 207.500</b>
         </div>
       </aside>
     </div>

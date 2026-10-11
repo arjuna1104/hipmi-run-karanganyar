@@ -1715,3 +1715,20 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
 }
 .hero-media.is-reel .reel-stage iframe{height:540px;transition:height .2s}
 .hero-media.is-reel .hero-overlay{position:static;background:var(--brand-black)}
+
+/* -- tiga lapis harga ---------------------------------------------------- */
+.harga-lapis{
+  margin-top:clamp(1.75rem,1.25rem + 2vw,2.75rem);
+  padding:clamp(1.25rem,1rem + 1.4vw,1.9rem);
+  border:1px solid var(--line);border-radius:var(--r-card);background:var(--surface-2);
+  display:grid;gap:1rem;
+}
+.lapis-list{display:grid;gap:.85rem;margin:0;padding:0;list-style:none;counter-reset:none}
+.lapis-list li{display:flex;gap:.9rem;align-items:flex-start}
+.lapis-tag{
+  flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  background:var(--brand-ink);color:var(--on-dark);
+  font-family:"Space Mono",monospace;font-size:.72rem;font-weight:700;
+}
+.lapis-list b{display:block;font-size:.95rem}
+.lapis-list b + span{display:block;font-size:.86rem;color:var(--ink-2);margin-top:.15rem}

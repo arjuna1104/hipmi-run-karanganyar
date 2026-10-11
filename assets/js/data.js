@@ -227,7 +227,7 @@ window.HIPMI = (function () {
      3. Harga normal                 - setelah early bird habis
      Angka "terpakai" diisi dari basis data panitia, bukan ditulis tangan. */
   const EARLY_BIRD = { quota: 100, taken: 0 };
-  const PROMO = { total: 50, used: 0, label: 'Kode press conference' };
+  const PROMO = { total: 51, used: 0, label: 'Kode press conference' };
 
   /* 0001 - 0100 ditahan seluruhnya: nomor kehormatan, undangan protokoler, dan
      cadangan panitia. Nomor peserta mulai 0101 supaya tidak ada satu pun nomor

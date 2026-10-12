@@ -310,9 +310,23 @@
       return;
     }
 
+    /* Bukti transfer wajib. Tanpa berkasnya, panitia hanya punya nama dan
+       nominal yang diketik sendiri oleh pendaftar - tidak ada yang bisa
+       dicocokkan ke mutasi rekening, dan nomor dada tidak akan pernah bisa
+       diterbitkan. Lebih baik ditahan di sini daripada mengendap sebagai
+       baris yang tak terverifikasi. */
     const inputBukti = $('#bukti');
     const bukti = (inputBukti && inputBukti.files[0]) || null;
-    if (bukti && bukti.size > BATAS_BUKTI) {
+    if (!bukti) {
+      setError('bukti', 'Unggah bukti transfer atau tangkapan layar transaksinya dulu.');
+      const kotak = fieldEl('bukti');
+      if (kotak) {
+        kotak.scrollIntoView({ behavior: window.HipmiUI.reduced ? 'auto' : 'smooth', block: 'center' });
+        if (inputBukti) inputBukti.focus({ preventScroll: true });
+      }
+      return;
+    }
+    if (bukti.size > BATAS_BUKTI) {
       setError('bukti', 'Bukti transfer melebihi 5 MB. Perkecil dulu fotonya.');
       return;
     }

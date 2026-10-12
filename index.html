@@ -107,13 +107,6 @@
             <p class="race-live-label"><span class="pulse" aria-hidden="true"></span> Lomba berjalan sejak flag-off</p>
             <b class="race-live-clock tel" id="heroClock" role="timer">0:00:00</b>
           </div>
-          <div id="heroQuota">
-            <p class="quota-line">
-              <span>Kuota tersisa seluruh kategori</span>
-              <b><span id="kuotaSisa">3.000</span> <span style="color:rgba(255,255,255,.6);font-size:.72rem">/ <span id="kuotaTotal">3.000</span></span></b>
-            </p>
-            <div class="gauge" role="presentation"><i id="kuotaGauge" style="width:0%"></i></div>
-          </div>
           <a class="race-live-stats" id="heroStats" href="#langsung" hidden></a>
         </figcaption>
       </figure>
@@ -179,7 +172,7 @@
         <h2 class="display h-lg">Dua jarak, satu garis finis.</h2>
         <p class="lede">
           Keduanya memakai timing mat RFID dual-frequency dan berbagi garis finis yang sama.
-          Kuota <b>3.000 peserta dipakai bersama</b>, tanpa batas per kategori: siapa cepat
+          Keduanya berbagi satu kolam tempat, <b>tanpa batas per kategori</b>: siapa cepat
           dia dapat. Nomor dada diambil dari satu deret 0101 sampai 3100, kategorinya
           ditandai lencana pada BIB.
         </p>
@@ -195,9 +188,6 @@
               <span><i class="ph ph-timer" aria-hidden="true"></i> COT 2 jam 15 menit</span>
               <span><i class="ph ph-hash" aria-hidden="true"></i> BIB 0101 - 3100</span>
             </div>
-          </div>
-          <div class="cat-quota">
-            <p class="q-num"><span id="kuotaKat10k">0</span> <em>pelari terdaftar</em></p>
           </div>
           <div class="cat-price">
             <span class="price-stack" id="hargaKartu10k">
@@ -219,9 +209,6 @@
               <span><i class="ph ph-hash" aria-hidden="true"></i> BIB 0101 - 3100</span>
             </div>
           </div>
-          <div class="cat-quota">
-            <p class="q-num"><span id="kuotaKat5k">0</span> <em>pelari terdaftar</em></p>
-          </div>
           <div class="cat-price">
             <span class="price-stack" id="hargaKartu5k">
               <b>Rp 175.000</b>
@@ -233,31 +220,6 @@
         </article>
       </div>
 
-      <div class="harga-lapis" data-reveal>
-        <p class="eyebrow">Tiga lapis harga</p>
-        <ol class="lapis-list">
-          <li>
-            <span class="lapis-tag">1</span>
-            <span><b>Kode press conference</b>
-              <span><span id="kuotaPromo">51 kode</span>, sekali pakai. 10K Rp 175.000 &middot; 5K Rp 150.000</span></span>
-          </li>
-          <li>
-            <span class="lapis-tag">2</span>
-            <span><b>Early bird</b>
-              <span>100 slot tiap kategori &mdash; <span id="kuotaEarly">10K 100 slot &middot; 5K 100 slot tersisa</span>.<br>10K Rp 225.000 &middot; 5K Rp 175.000</span></span>
-          </li>
-          <li>
-            <span class="lapis-tag">3</span>
-            <span><b>Harga normal</b>
-              <span>Setelah early bird habis. 10K Rp 250.000 &middot; 5K Rp 200.000</span></span>
-          </li>
-        </ol>
-        <p class="hint">
-          Early bird 100 slot untuk 10K dan 100 slot lagi untuk 5K, bukan 100
-          yang dibagi berdua. Kode promo dihitung terpisah: memakainya tidak
-          menggerus slot early bird.
-        </p>
-      </div>
 
     </div>
   </section>
@@ -321,7 +283,7 @@
       <h2 class="display h-lg">Early bird tutup 13 November.</h2>
       <p class="lede" style="margin-inline:auto;text-align:center">
         Setelah tanggal itu biaya naik ke harga normal. Pendaftaran tetap ditutup lebih awal
-        bila kuota kategori sudah habis.
+        bila tempatnya sudah penuh.
       </p>
       <a class="btn btn-gold btn-lg" href="registrasi.html">Daftar sekarang</a>
     </div>

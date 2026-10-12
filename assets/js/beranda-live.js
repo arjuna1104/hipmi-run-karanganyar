@@ -40,7 +40,10 @@
     $('#langsung').hidden = !running;
     $('#heroLive').hidden = !running;
     $('#heroStats').hidden = !running;
-    $('#heroQuota').hidden = running;
+    /* Papan kuota sudah dicabut dari halaman. Dijaga supaya baris ini
+       tidak meledak kalau elemennya memang tidak ada. */
+    const papanKuota = $('#heroQuota');
+    if (papanKuota) papanKuota.hidden = running;
     const cd = $('.countdown');
     if (cd) cd.hidden = running;
     if (!running) return;

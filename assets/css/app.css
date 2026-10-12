@@ -37,10 +37,6 @@
   display:block;font-family:"Space Mono",monospace;font-size:.58rem;
   letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-top:.15rem;
 }
-.quota-line{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;font-size:.82rem}
-.quota-line b{font-family:"Space Mono",monospace;font-size:1.05rem;color:var(--gold)}
-.gauge{height:3px;background:rgba(255,255,255,.22);border-radius:2px;overflow:hidden}
-.gauge i{display:block;height:100%;background:var(--gold);border-radius:2px}
 
 /* endorsement strip : sits UNDER the hero, logos only */
 .endorse{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
@@ -55,7 +51,7 @@
 /* ==== CATEGORY RAIL : full-width rows, no cards ========================== */
 .cat-rail{border-top:1px solid var(--line)}
 .cat-row{
-  display:grid;grid-template-columns:auto 1fr auto auto;gap:1.5rem;align-items:center;
+  display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;
   padding:clamp(1.4rem,1rem + 1.4vw,2.1rem) 0;border-bottom:1px solid var(--line);
   transition:background-color .22s var(--ease);
 }
@@ -70,9 +66,6 @@
 .cat-meta{display:flex;gap:1rem;flex-wrap:wrap;font-size:.83rem;color:var(--ink-2)}
 .cat-meta span{display:flex;align-items:center;gap:.35rem}
 .cat-meta i{font-size:1rem;color:var(--ink-3)}
-.cat-quota{display:grid;gap:.4rem;min-width:170px}
-.cat-quota .q-num{font-family:"Space Mono",monospace;font-size:.95rem;font-weight:700;letter-spacing:-.02em}
-.cat-quota .q-num em{font-style:normal;color:var(--ink-3);font-size:.82em}
 .q-bar{height:2px;background:var(--line);border-radius:2px;overflow:hidden}
 .q-bar i{display:block;height:100%;background:var(--brand-accent);border-radius:2px}
 .q-bar.low i{background:var(--gold)}
@@ -80,7 +73,6 @@
 .cat-price b{font-family:"Space Mono",monospace;font-size:1.02rem;letter-spacing:-.03em}
 @media (max-width:900px){
   .cat-row{grid-template-columns:auto 1fr;gap:1rem 1.25rem}
-  .cat-quota{grid-column:1/-1;min-width:0}
   .cat-price{grid-column:1/-1;justify-items:start;text-align:left;
     display:flex;align-items:center;justify-content:space-between;width:100%}
 }
@@ -652,7 +644,6 @@
     align-items:start;padding-block:1.5rem;
   }
   .cat-dist{grid-row:1 / span 2;padding-top:.15rem}
-  .cat-quota{grid-column:2;margin-top:.9rem}
   .cat-price{
     grid-column:2;margin-top:.9rem;width:100%;
     display:flex;align-items:center;justify-content:space-between;
@@ -663,7 +654,7 @@
   .cat-row{grid-template-columns:1fr}
   .cat-dist{grid-row:auto;display:flex;align-items:baseline;gap:.5rem;margin-bottom:.35rem}
   .cat-dist small{margin-top:0}
-  .cat-quota,.cat-price{grid-column:1}
+  .cat-price{grid-column:1}
 }
 
 /* ---- motion : hover affordances ---------------------------------------- */
@@ -1746,32 +1737,8 @@ tr.is-revoked .lb-rank,tr.is-revoked .lb-name{text-decoration:line-through}
 .hero-media.is-reel .reel-stage iframe{height:540px;transition:height .2s}
 .hero-media.is-reel .hero-overlay{position:static;background:var(--brand-black)}
 
-/* -- tiga lapis harga ---------------------------------------------------- */
-.harga-lapis{
-  margin-top:clamp(1.75rem,1.25rem + 2vw,2.75rem);
-  padding:clamp(1.25rem,1rem + 1.4vw,1.9rem);
-  border:1px solid var(--line);border-radius:var(--r-card);background:var(--surface-2);
-  display:grid;gap:1rem;
-}
-.lapis-list{display:grid;gap:.85rem;margin:0;padding:0;list-style:none;counter-reset:none}
-.lapis-list li{display:flex;gap:.9rem;align-items:flex-start}
-.lapis-tag{
-  flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
-  background:var(--brand-ink);color:var(--on-dark);
-  font-family:"Space Mono",monospace;font-size:.72rem;font-weight:700;
-}
-.lapis-list b{display:block;font-size:.95rem}
-.lapis-list b + span{display:block;font-size:.86rem;color:var(--ink-2);margin-top:.15rem}
-
 /* -- daftar peserta dan cek pendaftaran -------------------------------- */
 .sl-atas{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap}
-.sl-hitung{display:flex;gap:.45rem;flex-wrap:wrap;margin:1rem 0 .8rem}
-.sl-hitung .sl-angka{
-  flex:1 1 auto;min-width:84px;border:1px solid var(--line);background:var(--surface);
-  color:var(--ink-2);border-radius:8px;padding:.55rem .5rem;font-size:.78rem;
-  line-height:1.3;text-align:center;
-}
-.sl-hitung b{display:block;font-size:1.05rem;color:var(--ink)}
 .sl-cari{
   display:flex;align-items:center;gap:.55rem;border:1px solid var(--line);
   border-radius:9px;padding:.15rem .8rem;background:var(--surface);

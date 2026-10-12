@@ -12,7 +12,6 @@
   if (!wadah || !ENDPOINT_DAFTAR) return;
 
   const daftar = $('#slDaftar');
-  const hitung = $('#slHitung');
   const cari   = $('#slCari');
   const pesan  = $('#slPesan');
 
@@ -24,23 +23,6 @@
 
   function kosong(teks) {
     daftar.innerHTML = '<p class="sl-kosong">' + aman(teks) + '</p>';
-  }
-
-  /* ---- hitungan: angka saja, tanpa satu nama pun --------------------- */
-  function muatHitungan() {
-    fetch(ENDPOINT_DAFTAR + '?aksi=peserta')
-      .then(function (r) { return r.json(); })
-      .then(function (h) {
-        if (!h || !h.ok) return;
-        hitung.innerHTML = [
-          ['Semua', h.jumlah || 0],
-          ['10K', h.k10 || 0],
-          ['5K', h.k5 || 0]
-        ].map(function (x) {
-          return '<span class="sl-angka"><b>' + x[1] + '</b>' + x[0] + '</span>';
-        }).join('');
-      })
-      .catch(function () { /* hitungan pelengkap; diamkan bila gagal */ });
   }
 
   /* ---- pencarian: dikerjakan server, bukan di sini -------------------- */
@@ -104,10 +86,7 @@
   });
 
   const btnSegar = $('#slSegar');
-  if (btnSegar) btnSegar.addEventListener('click', function () {
-    muatHitungan();
-    telusuri();
-  });
+  if (btnSegar) btnSegar.addEventListener('click', telusuri);
 
   /* ---- cek pendaftaran sendiri ------------------------------------------ */
   /* Kode pendaftaran berurutan dan mudah ditebak, jadi email harus cocok
@@ -153,5 +132,4 @@
   }
 
   bersihkan();
-  muatHitungan();
 })();

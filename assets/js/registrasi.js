@@ -90,15 +90,9 @@
       .then(function (h) {
         if (!h || h.ok !== true) return;
 
-        $$('input[name="kategori"]').forEach(function (cat) {
-          /* Jumlah pendaftar per kategori, menggantikan "0" yang ditulis
-             tangan di HTML. */
-          if (h.kategori && h.kategori[cat.value] != null) {
-            const info = cat.parentNode.querySelector('.pick-info .tel');
-            if (info) info.textContent = h.kategori[cat.value] + ' pelari terdaftar';
-          }
+        if (!h.harga) return;
 
-          if (!h.harga) return;
+        $$('input[name="kategori"]').forEach(function (cat) {
           const berlaku = Number(h.harga[cat.value] || 0);
           if (!berlaku) return;
           cat.dataset.price = String(berlaku);

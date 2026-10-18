@@ -156,7 +156,7 @@ window.HIPMI = (function () {
         { k: 'Warna',    v: 'Hijau hutan dengan panel putih' },
         { k: 'Potongan', v: 'Raglan, sporty fit' },
         { k: 'Punggung', v: 'Aksara Jawa' },
-        { k: 'Ukuran',   v: 'XS sampai XXL' },
+        { k: 'Ukuran',   v: 'S sampai XXL' },
         { k: 'Bahan',    v: 'Rajut cepat kering' }
       ],
       cta: { label: 'Lihat panduan ukuran', href: 'registrasi.html?kategori=10k' }

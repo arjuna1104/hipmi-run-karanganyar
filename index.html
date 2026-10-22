@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HIPMI Karanganyar</title>
 <meta name="description" content="Profil Badan Pengurus Cabang Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar, masa bakti 2025–2028: susunan pengurus, kegiatan, agenda nasional, dan dokumen SK.">
-<meta name="theme-color" content="#0E3B26">
+<meta name="theme-color" content="#07225E">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="canonical" href="https://hipmikaranganyar.com/">
 <meta property="og:type" content="website">
@@ -16,437 +16,471 @@
 <meta property="og:image" content="https://hipmikaranganyar.com/assets/hipmi-run.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
+/* Sistem desain mengikuti nada HIPMI Jaya: navy, emas, latar putih & tint. */
 :root{
-  --bg:#F5F3EA; --bg-2:#EDEADF; --surface:#FFFFFF; --surface-2:#FAF9F4;
-  --line:#E0DCCD; --line-strong:#C9C3AE;
-  --ink:#10201A; --ink-2:#3A4A42; --ink-3:#5D6A63;
-  --green:#0E5233; --green-ink:#0E5233; --green-wash:rgba(14,82,51,.08);
-  --gold:#F2D21B; --gold-ink:#7A5E00; --gold-wash:rgba(242,210,27,.22);
-  --brand:#0E3B26; --brand-2:#13492F; --on-brand:#F3F6EF; --on-brand-2:#B9CDBE;
-  --shadow:0 1px 0 rgba(255,255,255,.7), 0 18px 40px -30px rgba(16,32,26,.45);
-  --radius:18px;
+  --navy:#254180; --navy-deep:#07225E; --navy-ink:#111C35;
+  --tint:#EEF1F8; --white:#FFFFFF; --surface-2:#F6F8FC;
+  --gold:#EFD43D; --gold-hover:#F7E06A; --gold-ink:#7A6200;
+  --heading:#404040; --ink:#2E3440; --ink-2:#4F5B67; --ink-3:#606E79;
+  --line:#E2E7F1; --line-strong:#C9D2E3;
+  --wash:rgba(37,65,128,.07);
+  --on-navy:#FFFFFF; --on-navy-2:rgba(255,255,255,.78); --on-navy-3:rgba(255,255,255,.55);
+  --shadow:0 18px 40px -24px rgba(17,28,53,.28);
+  --shadow-sm:0 6px 18px -10px rgba(17,28,53,.22);
+  --radius:16px; --font-head:"Sora",Inter,system-ui,sans-serif; --font-body:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0A130E; --bg-2:#0E1913; --surface:#111D16; --surface-2:#15231B;
-    --line:#203328; --line-strong:#2E4637;
-    --ink:#EEF2EC; --ink-2:#BFCBC3; --ink-3:#8FA096;
-    --green:#4DB57F; --green-ink:#6CCB98; --green-wash:rgba(77,181,127,.12);
-    --gold:#F2D21B; --gold-ink:#F2D21B; --gold-wash:rgba(242,210,27,.12);
-    --brand:#0D2A1C; --brand-2:#123524; --on-brand:#F3F6EF; --on-brand-2:#A9BFB0;
-    --shadow:0 1px 0 rgba(255,255,255,.03), 0 20px 44px -30px rgba(0,0,0,.9);
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0A130E; --bg-2:#0E1913; --surface:#111D16; --surface-2:#15231B;
-  --line:#203328; --line-strong:#2E4637;
-  --ink:#EEF2EC; --ink-2:#BFCBC3; --ink-3:#8FA096;
-  --green:#4DB57F; --green-ink:#6CCB98; --green-wash:rgba(77,181,127,.12);
-  --gold:#F2D21B; --gold-ink:#F2D21B; --gold-wash:rgba(242,210,27,.12);
-  --brand:#0D2A1C; --brand-2:#123524; --on-brand:#F3F6EF; --on-brand-2:#A9BFB0;
-  --shadow:0 1px 0 rgba(255,255,255,.03), 0 20px 44px -30px rgba(0,0,0,.9);
-}
-
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:80px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 16px/1.65 var(--font-body);overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit}
-h1,h2,h3,h4{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0;line-height:1.08;letter-spacing:-.02em}
+h1,h2,h3,h4{font-family:var(--font-head);margin:0;line-height:1.15;color:var(--heading)}
 p{margin:0}
-.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
-.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.82em;letter-spacing:.01em}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-ink)}
-.eyebrow::before{content:"";width:18px;height:2px;background:var(--gold);border-radius:2px}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.82em}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 
-/* ---------- nav ---------- */
-.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.brand img{width:26px;height:auto}
-.brand b{font:700 15px/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em;display:block}
-.brand small{font-size:11.5px;color:var(--ink-3);display:block;font-weight:500}
-.nav-links{display:flex;gap:4px;margin-left:auto}
-.nav-links a{font-size:14px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:999px;transition:background .2s,color .2s}
-.nav-links a:hover{background:var(--green-wash);color:var(--ink)}
+/* eyebrow: garis tipis + huruf kapital renggang */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:700 11px/1.2 var(--font-body);letter-spacing:.3em;text-transform:uppercase;color:var(--navy)}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.6}
+.on-navy .eyebrow,.eyebrow.light{color:var(--gold)}
+.center{text-align:center}
+.center .eyebrow{justify-content:center}
+@media (max-width:480px){.eyebrow{letter-spacing:.18em;font-size:10.5px}}
+.center .eyebrow::after{content:"";width:26px;height:1px;background:currentColor;opacity:.6}
+
+/* tombol pil */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font:700 14px/1.2 var(--font-body);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s;white-space:nowrap}
+.btn:active{transform:scale(.97)}
+.btn svg{width:16px;height:16px}
+.btn-gold{background:var(--gold);color:var(--navy-ink)}
+.btn-gold:hover{background:var(--gold-hover)}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-deep)}
+.btn-white{background:#fff;color:var(--navy-deep)}
+.btn-white:hover{background:var(--tint)}
+.btn-line{background:#fff;border-color:var(--line-strong);color:var(--navy)}
+.btn-line:hover{border-color:var(--navy)}
+
+/* ---------- header: transparan di atas hero, putih saat digulir ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;flex-shrink:0;min-width:0}
+.brand img{width:24px;height:auto}
+.brand b{font:700 17px/1.1 var(--font-head);letter-spacing:.01em;display:block;text-transform:uppercase}
+.brand small{display:block;font-size:11px;letter-spacing:.08em;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav-links a{font:600 14px var(--font-body);color:rgba(255,255,255,.85);text-decoration:none;padding:8px 11px;position:relative;transition:color .2s}
+.nav-links a::after{content:"";position:absolute;left:11px;right:11px;bottom:2px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--gold)}
 .nav-actions{display:flex;gap:8px;align-items:center}
-.icon-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s,transform .2s}
-.icon-btn:hover{border-color:var(--line-strong)}
-.icon-btn:active{transform:scale(.95)}
-.icon-btn svg{width:18px;height:18px}
+.icon-btn{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.icon-btn svg{width:19px;height:19px}
 .menu-btn{display:none}
+.run-pill{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:999px;border:0;background:#fff;color:var(--navy-deep);font:700 14px var(--font-body);cursor:pointer;transition:background .2s,transform .2s}
+.run-pill:hover{background:var(--gold)}
+.run-pill svg{width:16px;height:16px}
+.nav-links .run-pill{margin-left:12px}
+.nav.solid{background:rgba(255,255,255,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 6px 20px -10px rgba(17,28,53,.18)}
+.nav.solid .brand{color:var(--navy-ink)}
+.nav.solid .nav-links a{color:var(--ink-2)}
+.nav.solid .nav-links a:hover{color:var(--navy)}
+.nav.solid .nav-links a.active{color:var(--navy)}
+.nav.solid .run-pill{background:var(--navy);color:#fff}
+.nav.solid .run-pill:hover{background:var(--navy-deep)}
+.nav.solid .icon-btn{border-color:var(--line-strong);color:var(--navy-ink)}
 .mobile-menu{display:none}
 @media (max-width:1120px){
   .nav-links{display:none}
   .nav-actions{margin-left:auto}
   .menu-btn{display:grid}
-  .mobile-menu{position:fixed;inset:64px 0 auto 0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 18px;flex-direction:column;z-index:49}
+  .mobile-menu{position:fixed;inset:72px 0 auto 0;background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow);padding:6px 20px 18px;flex-direction:column;z-index:49}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{padding:13px 4px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
-  .mobile-menu a:last-child{border:0}
+  .mobile-menu a{padding:13px 2px;font-weight:600;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
+  .mobile-menu .run-item{border:0;background:none;font:700 15px var(--font-body);color:var(--navy);text-align:left;padding:14px 2px 4px;cursor:pointer;display:flex;align-items:center;gap:8px}
+  .mobile-menu .run-item svg{width:18px;height:18px}
 }
+.brand > span{min-width:0}
+.brand b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:380px){.brand small{display:none}.nav .wrap{gap:10px}.brand b{font-size:15px}}
 
 /* ---------- hero ---------- */
-.hero{background:var(--brand);color:var(--on-brand);position:relative;overflow:hidden;isolation:isolate}
-.hero::before{content:"";position:absolute;width:760px;height:760px;right:-220px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(242,210,27,.20),rgba(242,210,27,0) 62%);z-index:-1}
-.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,#000 30%,transparent);z-index:-1}
-.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;padding:88px 0 72px;align-items:center}
-.hero .eyebrow{color:var(--gold)}
-.hero h1{font-size:clamp(40px,6.4vw,78px);font-weight:800;margin:20px 0 22px;letter-spacing:-.035em}
+.hero{position:relative;isolation:isolate;background:var(--navy-ink);color:#fff;min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(900px 520px at 82% 30%,rgba(239,212,61,.16),transparent 60%),
+  radial-gradient(800px 600px at 10% 0%,rgba(37,65,128,.9),transparent 70%),
+  linear-gradient(160deg,#1B3270 0%,#111C35 70%)}
+.hero-bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.hero-emblem{position:absolute;z-index:-1;right:max(4vw,calc((100vw - 1200px)/2));top:50%;translate:0 -58%;width:min(30vw,340px);filter:drop-shadow(0 30px 60px rgba(239,212,61,.28));opacity:.95;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;z-index:-1;background:linear-gradient(0deg,rgba(17,28,53,.85),transparent)}
+.hero-content{padding:140px 0 150px}
+.hero h1{font:700 clamp(38px,5.6vw,64px)/1.05 var(--font-head);letter-spacing:-.025em;text-transform:uppercase;color:#fff;margin:18px 0 18px;max-width:14ch}
 .hero h1 em{font-style:normal;color:var(--gold)}
-.hero .lede{font-size:clamp(16px,1.6vw,18.5px);color:var(--on-brand-2);max-width:56ch}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .2s,background .2s,border-color .2s}
-.btn:active{transform:scale(.97)}
-.btn svg{width:17px;height:17px}
-.btn-gold{background:var(--gold);color:#16200F}
-.btn-gold:hover{background:#FFE14A}
-.btn-ghost{border:1px solid rgba(255,255,255,.22);color:var(--on-brand)}
-.btn-ghost:hover{border-color:rgba(255,255,255,.5)}
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12);margin-top:48px;padding-top:24px;gap:16px}
-.hero-stats b{display:block;font:800 clamp(24px,2.6vw,36px)/1 "Bricolage Grotesque",sans-serif;color:var(--on-brand);white-space:nowrap}
-.hero-stats span{font-size:13px;color:var(--on-brand-2)}
+.hero .lede{font-size:clamp(15px,1.4vw,17px);color:var(--on-navy-2);max-width:52ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.stats{position:relative;z-index:2;margin-top:-86px}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:linear-gradient(120deg,var(--navy-deep),var(--navy));border-radius:18px;box-shadow:0 30px 60px -30px rgba(7,34,94,.6);overflow:hidden}
+.stat{padding:26px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font:700 clamp(30px,3.6vw,46px)/1 var(--font-head);color:#fff;letter-spacing:-.02em}
+.stat span{display:block;margin-top:8px;font:700 11px var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+@media (max-width:900px){.hero-emblem{opacity:.18;right:-40px;width:300px}.hero-content{padding:120px 0 130px}}
+@media (max-width:640px){.stats-bar{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}.stat{padding:20px 10px}}
 
-.emblem-card{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:32px 28px 26px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
-.emblem{width:132px;margin:0 auto 22px;filter:drop-shadow(0 12px 28px rgba(242,210,27,.25))}
-.trio{display:grid;gap:10px}
-.trio-item{display:flex;align-items:center;gap:14px;padding:12px 14px;background:rgba(0,0,0,.18);border-radius:14px;border:1px solid rgba(255,255,255,.06)}
-.avatar{width:42px;height:42px;border-radius:50%;background:var(--gold);color:#16200F;display:grid;place-items:center;font:800 15px "Bricolage Grotesque",sans-serif;flex-shrink:0}
-.trio-item small{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-brand-2);font-weight:600}
-.trio-item strong{font-size:15.5px;font-weight:700}
-.trio-item a{color:var(--on-brand-2);font-size:13px;margin-left:auto;text-decoration:none;white-space:nowrap}
+/* ---------- section umum ---------- */
+section{padding:110px 0}
+.bg-tint{background:var(--tint)}
+.bg-white{background:#fff}
+.sec-head{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end;margin-bottom:46px}
+.sec-head h2,.h2{font:700 clamp(30px,4vw,48px)/1.1 var(--font-head);letter-spacing:-.025em;color:var(--heading);margin-top:14px}
+.sec-head p{color:var(--ink-3);max-width:52ch;justify-self:end}
+.sec-head.center{display:block;text-align:center;max-width:760px;margin-inline:auto}
+.sec-head.center p{margin:14px auto 0}
+@media (max-width:820px){section{padding:76px 0}.sec-head{grid-template-columns:1fr;gap:14px;margin-bottom:32px}.sec-head p{justify-self:start}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.tag{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;font:700 11px var(--font-body);letter-spacing:.08em;text-transform:uppercase}
+.tag.gold{background:var(--gold);color:var(--navy-ink)}
+.tag.soft{background:var(--wash);color:var(--navy)}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--navy-ink);display:grid;place-items:center;font:700 15px var(--font-head);flex-shrink:0}
+
+/* ---------- tentang ---------- */
+.about2{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about2 h2{font:700 clamp(32px,4.2vw,50px)/1.08 var(--font-head);letter-spacing:-.025em;margin:16px 0 22px}
+.about2 h2 span{display:block;color:var(--navy)}
+.about-copy{display:grid;gap:14px;color:var(--ink-3);max-width:58ch}
+.about2 .btn{margin-top:28px}
+.about-visual{position:relative;padding-bottom:34px}
+.visual-card{background:linear-gradient(150deg,var(--navy),var(--navy-deep));border-radius:22px;padding:34px 30px 64px;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.visual-card::before{content:"";position:absolute;width:420px;height:420px;right:-160px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(239,212,61,.22),transparent 65%)}
+.visual-card .emblem{width:110px;margin:0 auto 24px;position:relative;filter:drop-shadow(0 14px 30px rgba(239,212,61,.25))}
+.trio{display:grid;gap:10px;position:relative}
+.trio-item{display:flex;align-items:center;gap:14px;padding:12px 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:14px}
+.trio-item small{display:block;font:700 10.5px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.trio-item strong{font:600 15.5px var(--font-head)}
+.trio-item a{margin-left:auto;font-size:13px;color:var(--on-navy-3);text-decoration:none;white-space:nowrap}
 .trio-item a:hover{color:var(--gold)}
-.sk-badge{margin-top:16px;font-size:12.5px;color:var(--on-brand-2);text-align:center}
-@media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr;gap:40px;padding:56px 0 48px}
-  .hero-stats{grid-template-columns:repeat(2,1fr);row-gap:22px}
-}
+.visual-badge{position:absolute;left:-18px;bottom:0;background:var(--navy-deep);color:#fff;border-radius:14px;padding:14px 20px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08)}
+.visual-badge b{display:block;font:700 20px var(--font-head);color:var(--gold)}
+.visual-badge span{font:700 10.5px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--on-navy-2)}
+@media (max-width:900px){.about2{grid-template-columns:1fr;gap:44px}.visual-badge{left:12px}}
 
-/* ---------- sections ---------- */
-section{padding:104px 0}
-.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
-.sec-head h2{font-size:clamp(32px,4.2vw,52px);font-weight:800;margin-top:14px}
-.sec-head p{color:var(--ink-2);max-width:52ch;justify-self:end}
-@media (max-width:820px){
-  section{padding:72px 0}
-  .sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:32px}
-  .sec-head p{justify-self:start}
-}
+/* ---------- pita navy: arah gerak ---------- */
+.band{background:linear-gradient(120deg,var(--navy-deep),var(--navy));color:#fff;padding:90px 0}
+.band-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.band-lead{font:600 clamp(22px,2.6vw,30px)/1.4 var(--font-head);color:#fff;margin-top:18px}
+.misi{display:grid;gap:12px;margin-top:18px}
+.misi li{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;color:var(--on-navy-2);font-size:15px}
+.misi li b{color:#fff;display:block;font-weight:600}
+.misi .num{width:30px;height:30px;border-radius:50%;background:var(--gold);color:var(--navy-ink);display:grid;place-items:center;font:700 14px var(--font-head);flex-shrink:0}
+.misi ol,ol.misi{list-style:none;padding:0;margin:18px 0 0}
+@media (max-width:900px){.band-grid{grid-template-columns:1fr;gap:36px}}
 
-/* about */
-.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px}
-.manifesto{font:700 clamp(24px,2.8vw,34px)/1.22 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
-.manifesto mark{background:linear-gradient(transparent 62%,var(--gold-wash) 62%);color:inherit;padding:0 2px}
-.about-copy{margin-top:22px;color:var(--ink-2);display:grid;gap:14px;max-width:58ch}
-.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
-.pillar{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.pillar b{display:block;font:700 16px "Bricolage Grotesque",sans-serif;margin-bottom:4px}
-.pillar span{font-size:13.5px;color:var(--ink-3);line-height:1.45;display:block}
-.timeline{position:relative;padding-left:28px}
-.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
-.tl{position:relative;padding-bottom:26px}
-.tl:last-child{padding-bottom:0}
-.tl::before{content:"";position:absolute;left:-28px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--green)}
-.tl.upcoming::before{border-color:var(--gold);background:var(--gold)}
-.tl time{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink)}
-.tl.upcoming time{color:var(--gold-ink)}
-.tl h4{font-size:19px;margin:4px 0 4px}
-.tl p{font-size:14.5px;color:var(--ink-2)}
-@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:44px}}
-@media (max-width:560px){.pillars{grid-template-columns:1fr}}
-
-/* pengurus */
-#pengurus{background:var(--bg-2)}
-.core{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:56px}
-.core-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow)}
-.core-card .role{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink)}
-.core-card h3{font-size:24px;font-weight:700}
-.core-card .avatar{width:52px;height:52px;font-size:18px}
-.core-card.lead{background:var(--brand);color:var(--on-brand);border-color:transparent}
-.core-card.lead .role{color:var(--gold)}
-.core-card .ig{font-size:13.5px;color:var(--ink-3);text-decoration:none;margin-top:auto}
-.core-card.lead .ig{color:var(--on-brand-2)}
-.core-card .ig:hover{color:var(--green-ink)}
-.core-card.lead .ig:hover{color:var(--gold)}
-@media (max-width:820px){.core{grid-template-columns:1fr}}
-
-.bid-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
-.bid-tools h3{font-size:26px}
-.search{position:relative;flex:0 1 340px}
-.search input{width:100%;font:inherit;font-size:15px;padding:12px 16px 12px 42px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
-.search input::placeholder{color:var(--ink-3)}
-.search svg{position:absolute;left:15px;top:50%;translate:0 -50%;width:17px;height:17px;color:var(--ink-3)}
-.search-note{font-size:13.5px;color:var(--ink-3);min-height:20px;margin:-6px 0 14px}
-.bidang-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.bidang{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
-.bidang[hidden]{display:none}
-.bidang summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:20px 22px}
-.bidang summary::-webkit-details-marker{display:none}
-.bidang:hover{border-color:var(--line-strong)}
-.bid-no{width:46px;height:46px;border-radius:12px;background:var(--green-wash);color:var(--green-ink);display:grid;place-items:center;font:800 15px "Bricolage Grotesque",sans-serif}
-.bidang[open] .bid-no{background:var(--gold);color:#16200F}
-.bid-name{font:700 17px/1.25 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
-.bid-lead{font-size:13.5px;color:var(--ink-3);margin-top:3px}
-.chev{width:20px;height:20px;color:var(--ink-3);transition:transform .25s}
-.bidang[open] .chev{transform:rotate(180deg)}
-.bid-body{padding:0 22px 22px;display:grid;gap:16px}
-.officers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.officer{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-.officer small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
-.officer b{font-size:14px;font-weight:600;line-height:1.35;display:block;margin-top:2px}
-.komp-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
-.komp{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
-.komp li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px dashed var(--line);font-size:14px}
-.komp li span{color:var(--ink-2)}
-.komp li b{font-weight:600;text-align:right}
-.hl{background:var(--gold-wash);border-radius:4px;box-shadow:0 0 0 2px var(--gold-wash)}
-@media (max-width:900px){.bidang-grid{grid-template-columns:1fr}}
-@media (max-width:520px){.officers{grid-template-columns:1fr}.komp li{flex-direction:column;gap:2px}.komp li b{text-align:left}}
-
-.councils{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:56px}
-.council{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-.council h3{font-size:22px;margin-bottom:6px}
-.council > p{font-size:14px;color:var(--ink-3);margin-bottom:18px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:8px 13px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);font-size:14px;font-weight:600}
-.chip.lead{background:var(--brand);color:var(--on-brand);border-color:transparent}
-.chip.lead small{color:var(--gold);font-weight:700;margin-right:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
-@media (max-width:820px){.councils{grid-template-columns:1fr}}
-
-/* kegiatan */
-.feature{display:grid;grid-template-columns:1.1fr 1fr;background:var(--brand);color:var(--on-brand);border-radius:26px;overflow:hidden;margin-bottom:18px}
-.feature-img{position:relative;min-height:340px}
-.feature-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.feature-body{padding:36px;display:flex;flex-direction:column;gap:16px}
-.tag{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em}
-.tag.gold{background:var(--gold);color:#16200F}
-.tag.soft{background:var(--green-wash);color:var(--green-ink)}
-.feature h3{font-size:clamp(28px,3.2vw,40px);font-weight:800}
-.feature p{color:var(--on-brand-2)}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.fact{background:rgba(0,0,0,.2);border-radius:12px;padding:10px 12px}
-.fact small{display:block;font-size:11px;color:var(--on-brand-2);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
-.fact b{font-size:14.5px}
-.countdown{display:flex;gap:8px}
-.cd{flex:1;text-align:center;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 4px}
-.cd b{display:block;font:800 28px/1 "Bricolage Grotesque",sans-serif;color:var(--gold);font-variant-numeric:tabular-nums}
-.cd span{font-size:11px;color:var(--on-brand-2);letter-spacing:.08em;text-transform:uppercase}
-.feature .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
-@media (max-width:900px){.feature{grid-template-columns:1fr}.feature-img{min-height:240px}.feature-body{padding:24px}}
-@media (max-width:420px){.facts{grid-template-columns:1fr}}
-
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 18px}
-.filter{font:inherit;font-size:14px;font-weight:600;padding:8px 15px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
-.filter[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.events{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.event{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .25s,border-color .25s}
-.event:hover{transform:translateY(-3px);border-color:var(--line-strong)}
-.event[hidden]{display:none}
-.event-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.event time{font-size:13px;font-weight:700;color:var(--ink-3)}
-.event h4{font-size:20px;font-weight:700}
-.event p{font-size:14.5px;color:var(--ink-2)}
-.event .src{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-3)}
-.event .src a{font-weight:700;color:var(--green-ink);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
-.event .src a:hover{text-decoration:underline}
-.event .src svg{width:14px;height:14px}
-@media (max-width:980px){.events{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:620px){.events{grid-template-columns:1fr}}
-
-/* nasional */
-#nasional{background:var(--brand);color:var(--on-brand)}
-#nasional .eyebrow{color:var(--gold)}
-#nasional .sec-head p{color:var(--on-brand-2)}
-.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:48px;border:1px solid rgba(255,255,255,.12);border-radius:20px;overflow:hidden}
-.rung{padding:22px;border-right:1px solid rgba(255,255,255,.12);position:relative}
-.rung:last-child{border-right:0}
-.rung small{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-brand-2);font-weight:600}
-.rung b{display:block;font:700 19px/1.2 "Bricolage Grotesque",sans-serif;margin:6px 0 4px}
-.rung span{font-size:13.5px;color:var(--on-brand-2)}
-.rung.here{background:var(--gold);color:#16200F}
-.rung.here small,.rung.here span{color:#3D4A1C}
-@media (max-width:820px){.ladder{grid-template-columns:1fr 1fr}.rung:nth-child(2){border-right:0}.rung:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}}
-@media (max-width:460px){.ladder{grid-template-columns:1fr}.rung{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}.rung:last-child{border-bottom:0}}
-.agenda{display:grid;gap:12px}
-.ag{display:grid;grid-template-columns:150px 1fr auto;gap:28px;padding:26px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);align-items:start}
-.ag-date b{display:block;font:800 30px/1 "Bricolage Grotesque",sans-serif;color:var(--gold)}
-.ag-date span{font-size:13px;color:var(--on-brand-2)}
-.ag h3{font-size:22px;margin-bottom:8px}
-.ag p{color:var(--on-brand-2);font-size:15px;max-width:68ch}
-.ag ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
-.ag li{font-size:12.5px;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:var(--on-brand)}
-.ag .srcs{display:flex;flex-direction:column;gap:6px;font-size:13px;text-align:right}
-.ag .srcs a{color:var(--on-brand-2);text-decoration:none;white-space:nowrap}
-.ag .srcs a:hover{color:var(--gold)}
-@media (max-width:820px){.ag{grid-template-columns:1fr;gap:14px;padding:22px}.ag .srcs{text-align:left;flex-direction:row;flex-wrap:wrap;gap:14px}}
-
-/* profil ksb */
-.ksb{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;align-items:start}
-.person{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+/* ---------- profil ksb ---------- */
+.ksb{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:18px;align-items:start}
+.person{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
 .person-head{padding:26px 26px 22px;display:flex;gap:16px;align-items:center;border-bottom:1px solid var(--line)}
-.person .avatar{width:64px;height:64px;font-size:22px}
-.person-head small{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink)}
-.person-head h3{font-size:23px;font-weight:700;margin-top:4px}
+.person .avatar{width:62px;height:62px;font-size:21px}
+.person-head small{display:block;font:700 10.5px var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--navy)}
+.person-head h3{font-size:21px;font-weight:700;margin-top:6px}
 .person-head .cred{font-size:13px;color:var(--ink-3);margin-top:3px}
-
-.person.lead .person-head{background:var(--brand);color:var(--on-brand);border-color:transparent}
+.person.lead .person-head{background:linear-gradient(140deg,var(--navy),var(--navy-deep));border-color:transparent}
+.person.lead .person-head h3{color:#fff}
 .person.lead .person-head small{color:var(--gold)}
-.person.lead .person-head .cred{color:var(--on-brand-2)}
-.person-body{padding:20px 26px 24px;display:grid;gap:18px}
-.facts-list{display:grid;gap:0;margin:0}
+.person.lead .person-head .cred{color:var(--on-navy-2)}
+.person-body{padding:22px 26px 24px;display:grid;gap:18px}
+.facts-list{display:grid;margin:0}
 .facts-list div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-top:1px dashed var(--line);font-size:14px}
 .facts-list div:first-child{border-top:0;padding-top:0}
 .facts-list dt{color:var(--ink-3);font-weight:600}
-.facts-list dd{margin:0;font-weight:600}
-.person h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-family:"Plus Jakarta Sans",sans-serif;font-weight:700;margin-bottom:8px}
+.facts-list dd{margin:0;font-weight:600;color:var(--ink)}
+.person h4{font:700 11px var(--font-body);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
 .ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14.5px;color:var(--ink-2)}
 .ticks li{position:relative;padding-left:20px}
-.ticks li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--gold);transform:rotate(45deg)}
-.person blockquote{margin:0;border-left:3px solid var(--gold);padding:2px 0 2px 14px;font:600 16px/1.45 "Bricolage Grotesque",sans-serif}
-.person blockquote cite{display:block;font:500 12.5px "Plus Jakarta Sans",sans-serif;color:var(--ink-3);margin-top:6px;font-style:normal}
+.ticks li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(239,212,61,.25)}
+.person blockquote{margin:0;border-left:3px solid var(--gold);padding:2px 0 2px 14px;font:600 15.5px/1.5 var(--font-head);color:var(--heading)}
+.person blockquote cite{display:block;font:500 12.5px var(--font-body);color:var(--ink-3);margin-top:6px;font-style:normal}
 .person-foot{margin-top:auto;padding:14px 26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;background:var(--surface-2)}
 .person-foot a{color:var(--ink-3);text-decoration:none}
-.person-foot a:hover{color:var(--green-ink)}
-.person-foot a.ig{color:var(--green-ink);font-weight:700;margin-right:auto}
-@media (max-width:1020px){.ksb{grid-template-columns:1fr 1fr}.person.lead{grid-row:auto;grid-column:1/-1}}
+.person-foot a:hover{color:var(--navy)}
+.person-foot a.ig{color:var(--navy);font-weight:700;margin-right:auto}
+@media (max-width:1020px){.ksb{grid-template-columns:1fr 1fr}.person.lead{grid-column:1/-1}}
 @media (max-width:680px){.ksb{grid-template-columns:1fr}.facts-list div{grid-template-columns:1fr;gap:1px}}
 
-.more-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:26px}
-.more-wrap[hidden]{display:none}
-.btn-line{border:1px solid var(--line-strong);color:var(--ink);background:var(--surface);cursor:pointer;font-family:inherit}
-.btn-line:hover{border-color:var(--ink-3)}
-.more-count{font-size:13px;color:var(--ink-3)}
-.event .src{flex-wrap:wrap;gap:6px 12px}
-.event .src .links{display:flex;gap:12px;flex-wrap:wrap}
-.price{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--on-brand-2)}
-.price b{color:var(--on-brand)}
+/* ---------- pengurus ---------- */
+.bid-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+.bid-tools h3{font-size:24px}
+.search{position:relative;flex:0 1 360px}
+.search input{width:100%;font:inherit;font-size:15px;padding:12px 18px 12px 44px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;color:var(--ink)}
+.search input::placeholder{color:var(--ink-3)}
+.search input:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px var(--wash)}
+.search svg{position:absolute;left:16px;top:50%;translate:0 -50%;width:17px;height:17px;color:var(--ink-3)}
+.search-note{font-size:13.5px;color:var(--ink-3);min-height:20px;margin:-4px 0 12px}
+.bidang-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.bidang{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:border-color .2s}
+.bidang[hidden]{display:none}
+.bidang:hover{border-color:var(--line-strong)}
+.bidang summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:18px 20px}
+.bidang summary::-webkit-details-marker{display:none}
+.bid-no{width:48px;height:48px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;font:700 14px var(--font-head)}
+.bidang[open] .bid-no{background:var(--gold);color:var(--navy-ink)}
+.bid-name{font:600 16.5px/1.3 var(--font-head);color:var(--heading)}
+.bid-lead{font-size:13.5px;color:var(--ink-3);margin-top:3px}
+.chev{width:20px;height:20px;color:var(--ink-3);transition:transform .25s}
+.bidang[open] .chev{transform:rotate(180deg)}
+.bid-body{padding:0 20px 20px;display:grid;gap:16px}
+.officers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.officer{background:var(--tint);border-radius:12px;padding:10px 12px}
+.officer small{display:block;font:700 10px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.officer b{font-size:14px;font-weight:600;line-height:1.35;display:block;margin-top:3px;color:var(--ink)}
+.komp-title{font:700 11px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+.komp{list-style:none;margin:8px 0 0;padding:0}
+.komp li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px dashed var(--line);font-size:14px}
+.komp li span{color:var(--ink-3)}
+.komp li b{font-weight:600;text-align:right;color:var(--ink)}
+.hl{background:rgba(239,212,61,.45);border-radius:4px;box-shadow:0 0 0 2px rgba(239,212,61,.45)}
+@media (max-width:900px){.bidang-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.officers{grid-template-columns:1fr}.komp li{flex-direction:column;gap:2px}.komp li b{text-align:left}}
+.councils{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:48px}
+.council{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-sm)}
+.council h3{font-size:21px;margin-bottom:6px}
+.council > p{font-size:14px;color:var(--ink-3);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 14px;border-radius:999px;background:var(--tint);font-size:14px;font-weight:600;color:var(--ink)}
+.chip.lead{background:var(--navy);color:#fff}
+.chip.lead small{color:var(--gold);font-weight:700;margin-right:6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+@media (max-width:820px){.councils{grid-template-columns:1fr}}
 
-/* pop-up hipmi run */
-.run-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 14px 8px 12px;border-radius:999px;border:0;background:var(--gold);color:#16200F;font:700 14px "Plus Jakarta Sans",sans-serif;cursor:pointer;transition:transform .2s,background .2s}
-.run-pill:hover{background:#FFE14A}
-.run-pill:active{transform:scale(.96)}
-.run-pill svg{width:17px;height:17px}
-.nav-links .run-pill{margin-left:6px}
-.mobile-menu .run-item{border:0;background:none;font:inherit;font-weight:700;color:var(--gold-ink);text-align:left;padding:13px 4px;cursor:pointer;display:flex;align-items:center;gap:8px}
-.mobile-menu .run-item svg{width:18px;height:18px}
-.run-fab{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 14px 30px -12px rgba(0,0,0,.55);padding:12px 18px 12px 14px;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .3s,translate .3s,background .2s}
+/* ---------- kalender kegiatan ---------- */
+.cal{display:grid;grid-template-columns:.8fr 1.6fr;gap:48px;padding:44px;background:#fff;border-radius:22px;box-shadow:var(--shadow-sm);border:1px solid var(--line);margin-bottom:56px}
+.cal h2{font:700 clamp(30px,3.6vw,44px)/1.1 var(--font-head);letter-spacing:-.025em;margin:14px 0 14px}
+.cal > div > p{color:var(--ink-3);max-width:34ch}
+.cal .btn{margin-top:24px}
+.cal-list{list-style:none;margin:0;padding:0;display:grid}
+.cal-item{display:grid;grid-template-columns:62px 1fr;gap:20px;align-items:center;padding:16px 0;border-top:1px solid var(--line)}
+.cal-item:first-child{border-top:0;padding-top:0}
+.date-tile{width:62px;height:66px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-content:center;text-align:center}
+.date-tile small{font:700 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;opacity:.8}
+.date-tile b{font:700 24px/1 var(--font-head)}
+.cal-item.next .date-tile{background:var(--gold);color:var(--navy-ink)}
+.cal-time{font:700 11px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.cal-item h4{font:600 17px/1.35 var(--font-head);margin:3px 0 2px}
+.cal-item p{font-size:13.5px;color:var(--ink-3);display:flex;gap:6px;align-items:flex-start}
+.cal-item p svg{width:14px;height:14px;flex-shrink:0;margin-top:3px}
+@media (max-width:900px){.cal{grid-template-columns:1fr;gap:28px;padding:28px 22px}}
+
+/* ---------- hipmi run feature ---------- */
+.feature{display:grid;grid-template-columns:1.05fr 1fr;background:linear-gradient(130deg,var(--navy-deep),var(--navy));color:#fff;border-radius:22px;overflow:hidden;margin-bottom:22px;box-shadow:var(--shadow)}
+.feature-img{position:relative;min-height:340px}
+.feature-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature-body{padding:36px;display:flex;flex-direction:column;gap:16px}
+.feature h3{font:700 clamp(26px,3vw,38px)/1.1 var(--font-head);color:#fff;letter-spacing:-.02em}
+.feature p{color:var(--on-navy-2)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fact{background:rgba(255,255,255,.08);border-radius:12px;padding:10px 12px}
+.fact small{display:block;font:700 10px var(--font-body);color:var(--gold);letter-spacing:.16em;text-transform:uppercase}
+.fact b{font-size:14.5px}
+.price{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:14px;color:var(--on-navy-2)}
+.price b{color:#fff}
+.countdown{display:flex;gap:8px}
+.cd{flex:1;text-align:center;border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px 4px}
+.cd b{display:block;font:700 26px/1 var(--font-head);color:var(--gold);font-variant-numeric:tabular-nums}
+.cd span{font:700 10px var(--font-body);color:var(--on-navy-3);letter-spacing:.14em;text-transform:uppercase}
+.feature .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.feature > *{min-width:0}
+@media (max-width:900px){.feature{grid-template-columns:1fr}.feature-img{min-height:230px}.feature-body{padding:24px}}
+@media (max-width:480px){.btn{white-space:normal;text-align:center}.feature .links .btn{flex:1 1 100%}}
+@media (max-width:420px){.facts{grid-template-columns:1fr}}
+
+/* ---------- daftar kegiatan ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 18px}
+.filter{font:600 13.5px var(--font-body);padding:8px 16px;border-radius:999px;border:1px solid var(--line-strong);background:#fff;color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.filter:hover{border-color:var(--navy);color:var(--navy)}
+.filter[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.event{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s}
+.event:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.event[hidden]{display:none}
+.event-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.event .tag.soft{background:var(--gold);color:var(--navy-ink)}
+.event time{font:700 11px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.event h4{font:600 18px/1.35 var(--font-head)}
+.event p{font-size:14.5px;color:var(--ink-3)}
+.event .src{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px 12px;font-size:13px;color:var(--ink-3)}
+.event .src .links{display:flex;gap:12px;flex-wrap:wrap}
+.event .src a{font-weight:700;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.event .src a:hover{text-decoration:underline}
+.event .src svg{width:13px;height:13px}
+@media (max-width:980px){.events{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.events{grid-template-columns:1fr}}
+.more-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:28px}
+.more-wrap[hidden]{display:none}
+.more-count{font-size:13px;color:var(--ink-3)}
+
+/* ---------- kabar media ---------- */
+.press-banner{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;padding:40px 44px;border-radius:22px;background:linear-gradient(120deg,var(--navy-deep),var(--navy) 70%,#3654A0);color:#fff;margin-bottom:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.press-banner::after{content:"";position:absolute;width:380px;height:380px;right:-120px;bottom:-220px;border-radius:50%;background:radial-gradient(circle,rgba(239,212,61,.2),transparent 65%)}
+.press-banner h2{font:700 clamp(26px,3.4vw,40px)/1.15 var(--font-head);color:#fff;letter-spacing:-.02em;margin-top:12px;max-width:20ch}
+.press-banner p{color:var(--on-navy-2);margin-top:10px;max-width:56ch;font-size:15px}
+.press-stats{display:flex;gap:10px;position:relative;z-index:1}
+.press-stats span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 16px;text-align:center;font:700 10px var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);min-width:92px}
+.press-stats b{display:block;font:700 28px/1.1 var(--font-head);color:#fff;letter-spacing:0;margin-bottom:4px}
+.outlets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.outlets span{font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink-2)}
+.press{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.news{display:flex;flex-direction:column;gap:12px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);text-decoration:none;color:inherit;box-shadow:var(--shadow-sm);transition:transform .25s,box-shadow .25s;position:relative}
+.news:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.news[hidden]{display:none}
+.news .meta-col{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.news time{font:700 11px var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);order:2}
+.news .outlet{order:1;font:700 10.5px var(--font-body);letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:999px;background:var(--gold);color:var(--navy-ink)}
+.news h3{font:600 17px/1.38 var(--font-head)}
+.news p{font-size:14px;color:var(--ink-3);margin-top:8px}
+.news .arrow{position:absolute;right:20px;bottom:18px;width:18px;height:18px;color:var(--line-strong);transition:color .2s}
+.news:hover .arrow{color:var(--navy)}
+.news > span:nth-child(2){padding-bottom:18px}
+.news.archive .outlet{background:var(--tint);color:var(--ink-3)}
+.press-note{margin-top:22px;font-size:13px;color:var(--ink-3)}
+@media (max-width:980px){.press{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.press{grid-template-columns:1fr}.press-banner{padding:28px 22px}.press-stats{width:100%}.press-stats span{flex:1;min-width:0}}
+
+/* ---------- agenda nasional (navy) ---------- */
+#nasional{background:var(--navy-ink);color:#fff}
+#nasional .sec-head h2{color:#fff}
+#nasional .eyebrow{color:var(--gold)}
+#nasional .sec-head p{color:var(--on-navy-2)}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:44px;border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden}
+.rung{padding:22px;border-right:1px solid rgba(255,255,255,.12)}
+.rung:last-child{border-right:0}
+.rung small{font:700 10.5px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.rung b{display:block;font:600 18px/1.25 var(--font-head);margin:8px 0 4px}
+.rung span{font-size:13.5px;color:var(--on-navy-2)}
+.rung.here{background:var(--gold);color:var(--navy-ink)}
+.rung.here small{color:var(--navy)}
+.rung.here span{color:#3A3410}
+@media (max-width:820px){.ladder{grid-template-columns:1fr 1fr}.rung:nth-child(2){border-right:0}.rung:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}}
+@media (max-width:460px){.ladder{grid-template-columns:1fr}.rung{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}.rung:last-child{border-bottom:0}}
+.agenda{display:grid;gap:12px}
+.ag{display:grid;grid-template-columns:150px 1fr auto;gap:28px;padding:26px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);align-items:start}
+.ag-date b{display:block;font:700 28px/1 var(--font-head);color:var(--gold)}
+.ag-date span{font-size:13px;color:var(--on-navy-3)}
+.ag h3{font-size:21px;margin-bottom:8px;color:#fff}
+.ag p{color:var(--on-navy-2);font-size:15px;max-width:68ch}
+.ag ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.ag li{font-size:12.5px;padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.16);color:#fff}
+.ag .srcs{display:flex;flex-direction:column;gap:6px;font-size:13px;text-align:right}
+.ag .srcs a{color:var(--on-navy-2);text-decoration:none;white-space:nowrap}
+.ag .srcs a:hover{color:var(--gold)}
+@media (max-width:820px){.ag{grid-template-columns:1fr;gap:14px;padding:22px}.ag .srcs{text-align:left;flex-direction:row;flex-wrap:wrap;gap:14px}}
+
+/* ---------- dokumen ---------- */
+.doc{display:grid;grid-template-columns:1fr 1.15fr;gap:20px}
+.doc > *{min-width:0}
+.paper{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-sm)}
+.paper h3{font-size:21px;margin-bottom:4px}
+.meta{display:grid;margin-top:18px}
+.meta div{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:14.5px}
+.meta dt{color:var(--ink-3);font-weight:600}
+.meta dd{margin:0;font-weight:600;color:var(--ink)}
+.clauses{display:grid;gap:10px}
+.clause{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.clause summary{cursor:pointer;list-style:none;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;font:600 15.5px var(--font-head);color:var(--heading);gap:12px}
+.clause summary::-webkit-details-marker{display:none}
+.clause[open] summary{background:var(--surface-2);border-bottom:1px solid var(--line)}
+.clause ol{margin:0;padding:16px 18px 16px 38px;display:grid;gap:10px;font-size:14.5px;color:var(--ink-2)}
+.pledge{margin-top:20px;background:linear-gradient(140deg,var(--navy),var(--navy-deep));color:#fff;border-radius:var(--radius);padding:28px}
+.pledge h3{font-size:19px;margin-bottom:14px;color:#fff}
+.pledge ol{margin:0;padding-left:22px;display:grid;gap:10px;color:var(--on-navy-2);font-size:15px}
+.pledge ol li::marker{color:var(--gold);font-weight:700}
+.quote{margin:20px 0 0;border-left:3px solid var(--gold);padding:4px 0 4px 18px;font:600 17px/1.55 var(--font-head);color:var(--heading)}
+.quote cite{display:block;font:500 13px var(--font-body);color:var(--ink-3);margin-top:8px;font-style:normal}
+.meta dd,.sk-badge .mono,.clause ol{overflow-wrap:anywhere}
+@media (max-width:900px){.doc{grid-template-columns:1fr}.meta div{grid-template-columns:1fr;gap:2px}}
+
+/* ---------- pita ajakan ---------- */
+.cta-band{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(120deg,var(--navy-deep),var(--navy));color:#fff;text-align:center;padding:96px 0}
+.cta-band::before,.cta-band::after{content:"";position:absolute;z-index:-1;border-radius:50%}
+.cta-band::before{width:520px;height:520px;left:-180px;top:-260px;background:radial-gradient(circle,rgba(255,255,255,.08),transparent 65%)}
+.cta-band::after{width:560px;height:560px;right:-200px;bottom:-300px;background:radial-gradient(circle,rgba(239,212,61,.18),transparent 65%)}
+.cta-band h2{font:700 clamp(30px,4.2vw,48px)/1.1 var(--font-head);color:#fff;letter-spacing:-.025em}
+.cta-band p{color:var(--on-navy-2);margin:14px auto 30px;max-width:54ch}
+.cta-band .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-ink);color:#fff;padding:72px 0 30px}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.foot .brand{color:#fff}
+.foot .small{font-size:14px;color:var(--on-navy-2);max-width:40ch;margin-top:18px}
+.foot .contact{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--on-navy-2)}
+.foot .contact a{color:var(--on-navy-2);text-decoration:none}
+.foot .contact a:hover{color:var(--gold)}
+.foot h4{font:700 11px var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot ul.links{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:14px}
+.foot ul.links a{text-decoration:none;color:var(--on-navy-2)}
+.foot ul.links a:hover{color:#fff}
+.socials{display:flex;gap:8px;margin-top:20px}
+.socials a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;color:#fff}
+.socials a:hover{background:var(--gold);color:var(--navy-ink);border-color:var(--gold)}
+.socials svg{width:16px;height:16px}
+.copy{margin-top:52px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:var(--on-navy-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:980px){.foot{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.foot{grid-template-columns:1fr}}
+
+/* ---------- pop-up hipmi run ---------- */
+.run-fab{position:fixed;right:16px;bottom:16px;z-index:40;background:var(--gold);color:var(--navy-ink);box-shadow:0 14px 30px -12px rgba(17,28,53,.5);padding:12px 18px 12px 14px;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .3s,translate .3s}
 .run-fab.show{opacity:1;translate:0 0;pointer-events:auto}
 .run-fab .dot{width:8px;height:8px;border-radius:50%;background:#C2410C;box-shadow:0 0 0 3px rgba(194,65,12,.25)}
 @media (min-width:1121px){.run-fab{display:none}}
-
-.run-modal{border:0;padding:0;width:min(560px,100% - 32px);max-height:min(92vh,860px);border-radius:24px;background:var(--surface);color:var(--ink);box-shadow:0 40px 90px -30px rgba(0,0,0,.7);overflow:auto;overscroll-behavior:contain}
-.run-modal::backdrop{background:rgba(6,14,10,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.run-modal{border:0;padding:0;width:min(560px,100% - 32px);max-height:min(92vh,860px);border-radius:22px;background:#fff;color:var(--ink);box-shadow:0 40px 90px -30px rgba(7,34,94,.6);overflow:auto;overscroll-behavior:contain}
+.run-modal::backdrop{background:rgba(17,28,53,.6);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .run-modal[open]{animation:runIn .35s cubic-bezier(.2,.8,.2,1)}
 @keyframes runIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
-.run-hero{position:relative;height:190px;background:var(--brand)}
+.run-hero{position:relative;height:190px;background:var(--navy)}
 .run-hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-.run-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,13,.05) 30%,rgba(6,20,13,.85))}
+.run-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,34,94,.05) 30%,rgba(7,34,94,.85))}
 .run-hero .tag{position:absolute;left:22px;bottom:18px;z-index:1;white-space:nowrap}
-.run-close{position:absolute;top:12px;right:12px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;display:grid;place-items:center;cursor:pointer}
-.run-close:hover{background:rgba(0,0,0,.65)}
+.run-close{position:absolute;top:12px;right:12px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:rgba(17,28,53,.5);color:#fff;display:grid;place-items:center;cursor:pointer}
+.run-close:hover{background:rgba(17,28,53,.75)}
 .run-close svg{width:18px;height:18px}
 .run-body{padding:22px 22px 24px;display:grid;gap:16px}
-.run-body h2{font-size:28px;font-weight:800}
-.run-sub{color:var(--ink-2);font-size:14.5px;margin-top:6px}
-.run-status{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:14px;background:rgba(194,65,12,.08);border:1px solid rgba(194,65,12,.28);font-size:14px;color:var(--ink-2)}
+.run-body h2{font-size:26px;font-weight:700}
+.run-sub{color:var(--ink-3);font-size:14.5px;margin-top:6px}
+.run-status{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:14px;background:#FFF7E6;border:1px solid #F5D9A0;font-size:14px;color:var(--ink-2)}
 .run-status b{display:block;color:var(--ink);font-size:14px}
 .run-status .dot{flex-shrink:0;margin-top:5px;width:9px;height:9px;border-radius:50%;background:#C2410C;box-shadow:0 0 0 4px rgba(194,65,12,.18);animation:pulse 1.8s ease-in-out infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(194,65,12,0)}}
 .run-options{display:grid;gap:10px}
-.run-opt{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px;border-radius:16px;border:1px solid var(--line-strong);text-decoration:none;color:inherit;transition:border-color .2s,background .2s,transform .2s}
-.run-opt:hover{border-color:var(--green);background:var(--green-wash)}
-.run-opt:active{transform:scale(.99)}
-.run-opt .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--gold);color:#16200F}
-.run-opt.alt .ico{background:var(--brand);color:var(--gold)}
+.run-opt{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px;border-radius:16px;border:1px solid var(--line-strong);text-decoration:none;color:inherit;transition:border-color .2s,background .2s}
+.run-opt:hover{border-color:var(--navy);background:var(--wash)}
+.run-opt.primary{border-color:var(--navy);background:var(--wash)}
+.run-opt .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--gold);color:var(--navy-ink)}
+.run-opt.alt .ico{background:var(--navy);color:var(--gold)}
 .run-opt .ico svg{width:22px;height:22px}
-.run-opt b{display:block;font:700 17px "Bricolage Grotesque",sans-serif}
 .run-opt > span:not(.ico){min-width:0}
-.run-opt > span > span{display:block;font-size:13.5px;color:var(--ink-3);margin-top:2px;line-height:1.4}
-.run-opt b{color:var(--ink)}
-.run-opt em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C2410C;margin-top:5px;display:block}
+.run-opt b{display:block;font:600 16.5px var(--font-head);color:var(--heading)}
+.run-opt > span > span{display:block;font-size:13.5px;color:var(--ink-3);margin-top:2px;line-height:1.45}
+.run-opt em{font-style:normal;font:700 10.5px var(--font-body);letter-spacing:.1em;text-transform:uppercase;color:#C2410C;margin-top:6px;display:block}
+.run-opt em.open{color:#1E7A4C}
 .run-opt .go{width:20px;height:20px;color:var(--ink-3)}
-.run-opt em.open{color:var(--green-ink)}
-.run-opt.primary{border-color:var(--green);background:var(--green-wash)}
 .run-meta{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;font-size:13px;color:var(--ink-3);padding-top:14px;border-top:1px solid var(--line)}
-.run-meta a{color:var(--green-ink);font-weight:700;text-decoration:none}
+.run-meta a{color:var(--navy);font-weight:700;text-decoration:none}
 .run-meta a:hover{text-decoration:underline}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .run-status{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.3)}:root:not([data-theme="light"]) .run-opt em:not(.open){color:#FB923C}}
-:root[data-theme="dark"] .run-status{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.3)}
-:root[data-theme="dark"] .run-opt em:not(.open){color:#FB923C}
-@media (max-width:420px){.run-hero{height:150px}.run-body h2{font-size:24px}.run-opt{grid-template-columns:auto 1fr;padding:14px}.run-opt .go{display:none}}
-@media (prefers-reduced-motion:reduce){.run-modal[open],.run-status .dot{animation:none}}
-
-/* kabar media */
-#berita{background:var(--bg-2)}
-.press-stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin:-18px 0 22px;font-size:14px;color:var(--ink-3)}
-.press-stats b{color:var(--ink);font:800 22px "Bricolage Grotesque",sans-serif;margin-right:6px}
-.outlets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
-.outlets span{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-2);background:var(--surface)}
-.press{display:grid;gap:10px}
-.news{display:grid;grid-template-columns:132px 1fr auto;gap:22px;align-items:start;padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:18px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
-.news:hover{border-color:var(--green);transform:translateX(3px)}
-.news[hidden]{display:none}
-.news time{font-size:13px;font-weight:700;color:var(--ink-3);display:block}
-.news .outlet{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--green-wash);color:var(--green-ink)}
-.news h3{font-size:18.5px;line-height:1.3;font-weight:700;letter-spacing:-.01em}
-.news p{font-size:14.5px;color:var(--ink-2);margin-top:6px;max-width:75ch}
-.news .arrow{width:20px;height:20px;color:var(--ink-3);margin-top:3px}
-.news:hover .arrow{color:var(--green-ink)}
-.news.archive .outlet{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line)}
-.press-note{margin-top:20px;font-size:13px;color:var(--ink-3);max-width:80ch}
-@media (max-width:700px){.news{grid-template-columns:1fr;gap:10px;padding:18px}.news .meta-col{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.news .outlet{margin-top:0}.news .arrow{display:none}}
-
-/* dokumen */
-.doc{display:grid;grid-template-columns:1fr 1.15fr;gap:20px}
-.paper{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
-.paper h3{font-size:22px;margin-bottom:4px}
-.meta{display:grid;gap:0;margin-top:18px}
-.meta div{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:14.5px}
-.meta dt{color:var(--ink-3);font-weight:600}
-.meta dd{margin:0;font-weight:600}
-.clauses{display:grid;gap:10px;margin-top:6px}
-.clause{border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.clause summary{cursor:pointer;list-style:none;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:700;gap:12px}
-.clause summary::-webkit-details-marker{display:none}
-.clause[open] summary{background:var(--surface-2);border-bottom:1px solid var(--line)}
-.clause ol{margin:0;padding:16px 18px 16px 38px;display:grid;gap:10px;font-size:14.5px;color:var(--ink-2)}
-.pledge{margin-top:20px;background:var(--brand);color:var(--on-brand);border-radius:var(--radius);padding:28px}
-.pledge h3{font-size:20px;margin-bottom:14px}
-.pledge ol{margin:0;padding-left:22px;display:grid;gap:10px;color:var(--on-brand-2);font-size:15px}
-.pledge ol li::marker{color:var(--gold);font-weight:800}
-.quote{margin-top:20px;border-left:3px solid var(--gold);padding:4px 0 4px 18px;font:600 17px/1.5 "Bricolage Grotesque",sans-serif;color:var(--ink)}
-.quote cite{display:block;font:500 13px "Plus Jakarta Sans",sans-serif;color:var(--ink-3);margin-top:8px;font-style:normal}
-@media (max-width:900px){.doc{grid-template-columns:1fr}.meta div{grid-template-columns:1fr;gap:2px}}
-.doc > *{min-width:0}
-.meta dd,.sk-badge .mono,.clause ol{overflow-wrap:anywhere}
-.brand,.brand span{min-width:0}
-.brand small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (max-width:360px){.brand small{display:none}.nav .wrap{gap:10px}.icon-btn{width:36px;height:36px}}
-
-/* footer */
-footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36px}
-.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
-.foot h4{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-family:"Plus Jakarta Sans",sans-serif;font-weight:700}
-.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14.5px}
-.foot a{text-decoration:none;color:var(--ink-2)}
-.foot a:hover{color:var(--green-ink)}
-.foot .tagline{font:800 26px/1.15 "Bricolage Grotesque",sans-serif;margin:16px 0 10px;letter-spacing:-.02em}
-.foot .small{font-size:13.5px;color:var(--ink-3);max-width:42ch}
-.copy{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media (max-width:820px){.foot{grid-template-columns:1fr}}
+@media (max-width:420px){.run-hero{height:150px}.run-body h2{font-size:23px}.run-opt{grid-template-columns:auto 1fr;padding:14px}.run-opt .go{display:none}}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.run-modal[open],.run-status .dot{animation:none}}
 </style>
 </head>
 <body>
 
-<nav class="nav" aria-label="Navigasi utama">
+<nav class="nav" id="siteNav" aria-label="Navigasi utama">
   <div class="wrap">
     <a class="brand" href="#top">
       <img src="assets/logo-mark.png" alt="" width="26" height="41">
@@ -463,9 +497,6 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
       <button class="run-pill" type="button" data-run-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="1.8"/><path d="m7 21 3.5-5.5 3 2.5V22M6 12.5l3-3.5 4 .5 2.5 3.5 3 .5M10.5 15.5 13 9.5"/></svg>HIPMI Run</button>
     </div>
     <div class="nav-actions">
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema terang/gelap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-      </button>
       <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -484,68 +515,74 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow">BPC HIPMI Kabupaten Karanganyar</span>
-      <h1>Sesarengan <em>Mbangun</em> Karanganyar.</h1>
-      <p class="lede">Badan Pengurus Cabang Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar. Kami menghimpun wirausahawan muda untuk menguatkan UMKM, mengoptimalkan potensi lokal, dan membangun ekosistem usaha yang kolaboratif dan berdaya saing.</p>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href="#pengurus">Lihat susunan pengurus
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener">@hipmi.karanganyar</a>
-      </div>
-      <div class="hero-stats">
-        <div><b>12</b><span>Bidang kerja</span></div>
-        <div><b>30</b><span>Kompartemen</span></div>
-        <div><b>69</b><span>Fungsionaris BPC</span></div>
-        <div><b>2025–28</b><span>Masa bakti</span></div>
-      </div>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <img class="hero-emblem" src="assets/logo-mark.png" alt="" width="340" height="540">
+  <div class="wrap hero-content">
+    <span class="eyebrow light">HIPMI Karanganyar · Jawa Tengah</span>
+    <h1>Sesarengan <em>Mbangun</em> Karanganyar</h1>
+    <p class="lede">Bergabung bersama sekitar 200 pengusaha muda Karanganyar dalam Badan Pengurus Cabang Himpunan Pengusaha Muda Indonesia, untuk menguatkan UMKM dan membangun ekosistem usaha yang kolaboratif.</p>
+    <div class="hero-cta">
+      <a class="btn btn-gold" href="#ksb">Kenali pengurus kami</a>
+      <a class="btn btn-ghost" href="#tentang">Tentang kami</a>
     </div>
-    <aside class="emblem-card" aria-label="Pengurus inti">
-      <img class="emblem" src="assets/logo-mark.png" alt="Lambang HIPMI" width="132" height="210">
-      <div class="trio">
-        <div class="trio-item"><span class="avatar">HM</span><div><small>Ketua Umum</small><strong>Hervan Miftah Hafidin</strong></div><a href="https://www.instagram.com/hervanmiftah/" target="_blank" rel="noopener" aria-label="Instagram Hervan Miftah Hafidin">IG ↗</a></div>
-        <div class="trio-item"><span class="avatar">IN</span><div><small>Sekretaris Umum</small><strong>Irwan Nur Hakim</strong></div><a href="https://www.instagram.com/irwannhakim_/" target="_blank" rel="noopener" aria-label="Instagram Irwan Nur Hakim">IG ↗</a></div>
-        <div class="trio-item"><span class="avatar">DR</span><div><small>Bendahara Umum</small><strong>Dynar Ramdhan Wijaya</strong></div><a href="https://www.instagram.com/dynarwijayaa/" target="_blank" rel="noopener" aria-label="Instagram Dynar Ramdhan Wijaya">IG ↗</a></div>
-      </div>
-      <p class="sk-badge">Disahkan SK BPD HIPMI Jawa Tengah <span class="mono">049/Kep/Sek/BPD-JTG/IV/2025</span></p>
-    </aside>
   </div>
 </header>
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-bar" aria-label="HIPMI Karanganyar dalam angka">
+      <div class="stat"><b>±200</b><span>Anggota</span></div>
+      <div class="stat"><b>69</b><span>Pengurus BPC</span></div>
+      <div class="stat"><b>12</b><span>Bidang kerja</span></div>
+      <div class="stat"><b>30</b><span>Kompartemen</span></div>
+    </div>
+  </div>
+</div>
 
 <main>
-<section id="tentang">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">Tentang kami</span><h2>Satu visi, satu gerak, satu Karanganyar.</h2></div>
-      <p>Kepengurusan 2025–2028 lahir dari Musyawarah Cabang ke-II dan dilantik oleh Ketua Umum BPD HIPMI Jawa Tengah, disaksikan Bupati Karanganyar.</p>
+<section id="tentang" class="bg-white">
+  <div class="wrap about2">
+    <div class="reveal">
+      <span class="eyebrow">Himpunan Pengusaha Muda Indonesia</span>
+      <h2>HIPMI Karanganyar <span>Kabupaten Karanganyar</span></h2>
+      <div class="about-copy">
+        <p>HIPMI adalah wadah pengusaha muda Indonesia yang berdiri sejak 10 Juni 1972. Di Kabupaten Karanganyar, Badan Pengurus Cabang menjadi rumah bagi sekitar 200 pelaku usaha muda lintas sektor, dari pertanian, ritel, dan pariwisata sampai properti, keuangan, dan industri kreatif.</p>
+        <p>Kepengurusan 2025–2028 lahir dari Musyawarah Cabang ke-II pada 15 Februari 2025 dan dilantik Ketua Umum BPD HIPMI Jawa Tengah pada 30 April 2025, disaksikan Bupati Karanganyar. Lewat optimasi potensi lokal, penguatan UMKM, dan semangat gotong royong, kami membangun Karanganyar yang lebih maju.</p>
+      </div>
+      <a class="btn btn-navy" href="#pengurus">Lihat susunan pengurus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="about-grid">
-      <div class="reveal">
-        <p class="manifesto">Kami hadir untuk mendorong <mark>ekosistem wirausaha muda</mark> yang inovatif, kolaboratif, dan berdaya saing, dari Karanganyar untuk Soloraya.</p>
-        <div class="about-copy">
-          <p>HIPMI adalah wadah pengusaha muda Indonesia yang berdiri sejak 10 Juni 1972. Di Kabupaten Karanganyar, Badan Pengurus Cabang menjadi rumah bagi pelaku usaha muda lintas sektor, dari pertanian dan pariwisata sampai industri kreatif dan properti.</p>
-          <p>Lewat optimasi potensi lokal, penguatan UMKM, dan semangat gotong royong, kami membangun Karanganyar yang lebih maju, sejalan dengan program pemerintah daerah dan arah organisasi HIPMI di tingkat provinsi dan nasional.</p>
-        </div>
-        <div class="pillars">
-          <div class="pillar"><b>Kaderisasi</b><span>Diklat berjenjang dan HIPMI Perguruan Tinggi &amp; Pesantren.</span></div>
-          <div class="pillar"><b>Kolaborasi</b><span>Sinergi dengan Pemkab, BUMN/BUMD, dan BPC se-Soloraya.</span></div>
-          <div class="pillar"><b>UMKM naik kelas</b><span>Pendampingan usaha, akses pasar, dan jejaring investasi.</span></div>
+    <div class="about-visual reveal">
+      <div class="visual-card">
+        <img class="emblem" src="assets/logo-mark.png" alt="Lambang HIPMI" width="110" height="175">
+        <div class="trio">
+          <div class="trio-item"><span class="avatar">HM</span><div><small>Ketua Umum</small><strong>Hervan Miftah Hafidin</strong></div><a href="https://www.instagram.com/hervanmiftah/" target="_blank" rel="noopener" aria-label="Instagram Hervan Miftah Hafidin">IG ↗</a></div>
+          <div class="trio-item"><span class="avatar">IN</span><div><small>Sekretaris Umum</small><strong>Irwan Nur Hakim</strong></div><a href="https://www.instagram.com/irwannhakim_/" target="_blank" rel="noopener" aria-label="Instagram Irwan Nur Hakim">IG ↗</a></div>
+          <div class="trio-item"><span class="avatar">DR</span><div><small>Bendahara Umum</small><strong>Dynar Ramdhan Wijaya</strong></div><a href="https://www.instagram.com/dynarwijayaa/" target="_blank" rel="noopener" aria-label="Instagram Dynar Ramdhan Wijaya">IG ↗</a></div>
         </div>
       </div>
-      <div class="timeline reveal" aria-label="Perjalanan kepengurusan">
-        <div class="tl"><time>15 Februari 2025</time><h4>Musyawarah Cabang ke-II</h4><p>Muscab di Harjo Space, Karanganyar, dihadiri 45 anggota. Hervan Miftah Hafidin terpilih secara aklamasi sebagai calon tunggal Ketua Umum.</p></div>
-        <div class="tl"><time>30 April 2025</time><h4>SK pengesahan &amp; pelantikan</h4><p>BPD HIPMI Jawa Tengah menerbitkan SK No. 049 sekaligus melantik 70 pengurus dan pembina di Gedung Teater Bhineka Tunggal Ika, disaksikan Bupati H. Rober Christanto.</p></div>
-        <div class="tl"><time>26 Juli 2025</time><h4>Diklatcab HIPMI Solo Raya</h4><p>Pendidikan dan pelatihan cabang bersama BPC HIPMI Surakarta dan Sukoharjo. Muda, bersatu, bertumbuh.</p></div>
-        <div class="tl"><time>29 Oktober 2025</time><h4>Pelantikan HIPMI PT UMUKA</h4><p>Kader kampus Universitas Muhammadiyah Karanganyar dilantik di Rumah Dinas Bupati dengan tema <em>Lead the Change, Build the Future</em>.</p></div>
-        <div class="tl"><time>3 April 2026</time><h4>Santunan 100 anak yatim</h4><p>Bersama HIPMI PT UMUKA dan Pemkab, sekaligus menandai mentoring bisnis bulanan dengan Kadin.</p></div>
-        <div class="tl upcoming"><time>13 Desember 2026</time><h4>HIPMI Run Karanganyar 2026</h4><p>Lomba lari 5K dan 10K dengan timing chip di Alun-alun Kabupaten Karanganyar.</p></div>
-      </div>
+      <div class="visual-badge"><b>2025–2028</b><span>Masa bakti · SK 049/2025</span></div>
     </div>
   </div>
 </section>
 
-<section id="ksb">
+<section class="band on-navy" aria-label="Arah gerak">
+  <div class="wrap band-grid">
+    <div class="reveal">
+      <span class="eyebrow">Arah gerak</span>
+      <p class="band-lead">Satu visi, satu gerak, satu Karanganyar: mendorong ekosistem wirausaha muda yang inovatif, kolaboratif, dan berdaya saing, dari Karanganyar untuk Soloraya.</p>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Fokus program</span>
+      <ol class="misi">
+        <li><span class="num">1</span><span><b>Kaderisasi berjenjang</b>Diklat cabang, Rakercab, serta HIPMI Perguruan Tinggi &amp; Pesantren.</span></li>
+        <li><span class="num">2</span><span><b>UMKM naik kelas</b>E-Catalog usaha anggota, pendampingan, dan perluasan akses pasar.</span></li>
+        <li><span class="num">3</span><span><b>Kolaborasi strategis</b>Sinergi dengan Pemkab, BUMN/BUMD, swasta, dan BPC se-Soloraya.</span></li>
+        <li><span class="num">4</span><span><b>Lapangan kerja</b>Membuka kesempatan kerja bagi masyarakat lewat usaha anggota.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="ksb" class="bg-tint">
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Profil KSB</span><h2>Ketua, Sekretaris, dan Bendahara Umum.</h2></div>
@@ -637,7 +674,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
   </div>
 </section>
 
-<section id="pengurus">
+<section id="pengurus" class="bg-white">
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Susunan fungsionaris</span><h2>Pengurus BPC masa bakti 2025–2028.</h2></div>
@@ -673,13 +710,29 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
   </div>
 </section>
 
-<section id="kegiatan">
+<section id="kegiatan" class="bg-tint">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">Kegiatan</span><h2>Dari pelantikan sampai garis start.</h2></div>
-      <p>17 kegiatan sejak Muscab Februari 2025, dirangkum dari Instagram @hipmi.karanganyar, @hipmirunkaranganyar, @hipmiptumuka, dan pemberitaan media lokal.</p>
+    <div class="cal reveal">
+      <div>
+        <span class="eyebrow">Agenda</span>
+        <h2>Kalender Kegiatan</h2>
+        <p>Jejak kegiatan kami, dari Muscab dan pelantikan sampai HIPMI Run di akhir tahun.</p>
+        <a class="btn btn-navy" href="#events">Semua kegiatan <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <ol class="cal-list">
+        <li class="cal-item next"><span class="date-tile"><small>Des</small><b>13</b></span><div><span class="cal-time">05.30 WIB · Akan datang</span><h4>HIPMI Run Karanganyar 2026</h4><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Alun-alun Kabupaten Karanganyar</p></div></li>
+        <li class="cal-item"><span class="date-tile"><small>Apr</small><b>3</b></span><div><span class="cal-time">2026 · Selesai</span><h4>Santunan 100 anak yatim &amp; mentoring bisnis</h4><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Rumah Dinas Bupati Karanganyar</p></div></li>
+        <li class="cal-item"><span class="date-tile"><small>Okt</small><b>29</b></span><div><span class="cal-time">2025 · Selesai</span><h4>Pelantikan HIPMI PT UMUKA</h4><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Ruang Anthurium, Rumah Dinas Bupati</p></div></li>
+        <li class="cal-item"><span class="date-tile"><small>Jul</small><b>26</b></span><div><span class="cal-time">2025 · Selesai</span><h4>Diklatcab HIPMI Solo Raya</h4><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Karanganyar, bersama BPC Surakarta &amp; Sukoharjo</p></div></li>
+        <li class="cal-item"><span class="date-tile"><small>Apr</small><b>30</b></span><div><span class="cal-time">2025 · Selesai</span><h4>Pelantikan BPC HIPMI Karanganyar</h4><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Gedung Teater Bhineka Tunggal Ika</p></div></li>
+      </ol>
     </div>
 
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Dokumentasi</span>
+      <h2>Kegiatan Kami</h2>
+      <p>17 kegiatan sejak Muscab Februari 2025, dirangkum dari Instagram @hipmi.karanganyar, @hipmirunkaranganyar, @hipmiptumuka, dan pemberitaan media lokal.</p>
+    </div>
     <article class="feature reveal">
       <div class="feature-img"><img src="assets/hipmi-run.webp" alt="Ilustrasi pelari HIPMI Run Karanganyar melewati gapura finis" loading="lazy"></div>
       <div class="feature-body">
@@ -716,7 +769,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
       <button class="filter" type="button" data-f="kolaborasi" aria-pressed="false">Kolaborasi &amp; sosial</button>
       <button class="filter" type="button" data-f="pt" aria-pressed="false">HIPMI Perguruan Tinggi</button>
     </div>
-    <div class="events" id="events"></div>
+    <div class="events" id="events" tabindex="-1"></div>
     <div class="more-wrap" id="moreWrap">
       <button class="btn btn-line" type="button" id="moreBtn">Muat lebih banyak</button>
       <span class="more-count" id="moreCount" aria-live="polite"></span>
@@ -724,13 +777,16 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
   </div>
 </section>
 
-<section id="berita">
+<section id="berita" class="bg-white">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">Kabar media</span><h2>HIPMI Karanganyar di pemberitaan.</h2></div>
-      <p>Liputan pers, rilis pemerintah daerah, dan kampus tentang HIPMI Karanganyar. Ringkasan ditulis ulang; baca selengkapnya di media aslinya.</p>
+    <div class="press-banner reveal">
+      <div style="position:relative;z-index:1">
+        <span class="eyebrow light">Kabar media</span>
+        <h2>Berita, cerita, semua tentang HIPMI Karanganyar</h2>
+        <p>Liputan pers, rilis pemerintah daerah, dan kampus. Ringkasan ditulis ulang; baca selengkapnya di media aslinya.</p>
+      </div>
+      <div class="press-stats" id="pressStats"></div>
     </div>
-    <div class="press-stats" id="pressStats"></div>
     <div class="outlets" id="outlets" aria-label="Media yang meliput"></div>
     <div class="filters" role="group" aria-label="Saring berita per tahun" id="pressFilters" style="margin-top:0">
       <button class="filter" type="button" data-y="semua" aria-pressed="true">Semua</button>
@@ -820,7 +876,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
   </div>
 </section>
 
-<section id="dokumen">
+<section id="dokumen" class="bg-tint">
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Dokumen</span><h2>Surat Keputusan pengesahan.</h2></div>
@@ -895,36 +951,60 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     </div>
   </div>
 </section>
+<section class="cta-band" aria-label="Ajakan bergabung">
+  <div class="wrap reveal">
+    <h2>Kolaborasikan Usahamu</h2>
+    <p>Jadilah bagian dari sekitar 200 pengusaha muda HIPMI Karanganyar. Hubungi kami untuk informasi keanggotaan dan kolaborasi.</p>
+    <div class="btns">
+      <a class="btn btn-gold" href="https://ig.me/m/hipmi.karanganyar" target="_blank" rel="noopener">Hubungi kami</a>
+      <button class="btn btn-ghost" type="button" data-run-open>HIPMI Run 2026</button>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer>
+<footer id="kontak">
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="brand" href="#top"><img src="assets/logo-mark.png" alt="" width="26" height="41"><span><b>HIPMI Karanganyar</b><small>Badan Pengurus Cabang</small></span></a>
-        <p class="tagline">Muda. Bersatu. Bertumbuh.</p>
-        <p class="small">Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar, Jawa Tengah. Masa bakti 2025–2028.</p>
-      </div>
-      <div>
-        <h4>Instagram</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener">@hipmi.karanganyar</a></li>
-          <li><a href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a></li>
-          <li><a href="run/">Website HIPMI Run</a></li>
-          <li><a href="https://stridein.id/events/hipmi-run-kabupaten-karanganyar-2026" target="_blank" rel="noopener">Daftar HIPMI Run di StrideIn</a></li>
-          <li><a href="https://www.instagram.com/hipmiptumuka/" target="_blank" rel="noopener">@hipmiptumuka</a></li>
+        <a class="brand" href="#top"><img src="assets/logo-mark.png" alt="" width="24" height="38"><span><b>HIPMI Karanganyar</b><small>Badan Pengurus Cabang · 2025–2028</small></span></a>
+        <p class="small">Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar. Pengusaha pejuang, pejuang pengusaha.</p>
+        <ul class="contact">
+          <li>Kabupaten Karanganyar, Jawa Tengah</li>
+          <li><a href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener">Instagram @hipmi.karanganyar</a></li>
+          <li><a href="mailto:hipmirun@hipmikaranganyar.com">hipmirun@hipmikaranganyar.com</a> (HIPMI Run)</li>
         </ul>
+        <div class="socials">
+          <a href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener" aria-label="Instagram HIPMI Karanganyar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener" aria-label="Instagram HIPMI Run Karanganyar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
       </div>
       <div>
-        <h4>Halaman</h4>
-        <ul>
-          <li><a href="#tentang">Tentang</a></li>
+        <h4>Tautan cepat</h4>
+        <ul class="links">
+          <li><a href="#tentang">Tentang kami</a></li>
           <li><a href="#ksb">Profil KSB</a></li>
           <li><a href="#pengurus">Susunan pengurus</a></li>
           <li><a href="#kegiatan">Kegiatan</a></li>
           <li><a href="#berita">Kabar media</a></li>
           <li><a href="#nasional">Agenda nasional</a></li>
           <li><a href="#dokumen">Dokumen SK</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>HIPMI Run 2026</h4>
+        <ul class="links">
+          <li><a href="https://stridein.id/events/hipmi-run-kabupaten-karanganyar-2026" target="_blank" rel="noopener">Daftar di StrideIn</a></li>
+          <li><a href="run/">Website HIPMI Run</a></li>
+          <li><a href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jaringan</h4>
+        <ul class="links">
+          <li><a href="https://www.instagram.com/hipmiptumuka/" target="_blank" rel="noopener">HIPMI PT UMUKA</a></li>
+          <li><a href="https://umuka.ac.id" target="_blank" rel="noopener">Universitas Muhammadiyah Karanganyar</a></li>
+          <li><a href="https://www.karanganyarkab.go.id" target="_blank" rel="noopener">Pemkab Karanganyar</a></li>
         </ul>
       </div>
     </div>
@@ -1244,7 +1324,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     `<span><b>${PRESS.length}</b>liputan</span><span><b>${outletNames.length}</b>media</span><span><b>${PRESS.filter(n => n.d >= '2026').length}</b>di tahun 2026</span>`;
   document.getElementById('outlets').innerHTML = outletNames.map(o => `<span>${esc(o)} · ${outletCount[o]}</span>`).join('');
   const news = [...pressWrap.children];
-  const PRESS_PAGE = 8;
+  const PRESS_PAGE = 9;
   let pressYear = 'semua', pressLimit = PRESS_PAGE;
   const pressMore = document.getElementById('pressMore'), pressMoreWrap = document.getElementById('pressMoreWrap'), pressCount = document.getElementById('pressCount');
   const renderPress = () => {
@@ -1289,20 +1369,22 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
   const heroEl = document.getElementById('top');
   new IntersectionObserver(([e]) => runFab.classList.toggle('show', !e.isIntersecting)).observe(heroEl);
 
-  // ---------- tema ----------
-  const root = document.documentElement;
-  try { const t = localStorage.getItem('hipmi-kra-theme'); if (t) root.dataset.theme = t; } catch (e) {}
-  document.getElementById('themeBtn').addEventListener('click', () => {
-    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    root.dataset.theme = dark ? 'light' : 'dark';
-    try { localStorage.setItem('hipmi-kra-theme', root.dataset.theme); } catch (e) {}
-  });
+  // ---------- header: transparan di atas hero, solid saat digulir ----------
+  const nav = document.getElementById('siteNav');
+  const setSolid = () => nav.classList.toggle('solid', scrollY > 40 || document.getElementById('mobileMenu').classList.contains('open'));
+  addEventListener('scroll', setSolid, { passive: true }); setSolid();
+  const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+  const spy = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  navLinks.forEach(a => { const t = document.querySelector(a.getAttribute('href')); if (t) spy.observe(t); });
 
   // ---------- menu mobile ----------
   const menuBtn = document.getElementById('menuBtn'), menu = document.getElementById('mobileMenu');
   menuBtn.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', open);
+    setSolid();
   });
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }));
 

@@ -324,6 +324,59 @@ section{padding:104px 0}
 .price{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--on-brand-2)}
 .price b{color:var(--on-brand)}
 
+/* pop-up hipmi run */
+.run-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 14px 8px 12px;border-radius:999px;border:0;background:var(--gold);color:#16200F;font:700 14px "Plus Jakarta Sans",sans-serif;cursor:pointer;transition:transform .2s,background .2s}
+.run-pill:hover{background:#FFE14A}
+.run-pill:active{transform:scale(.96)}
+.run-pill svg{width:17px;height:17px}
+.nav-links .run-pill{margin-left:6px}
+.mobile-menu .run-item{border:0;background:none;font:inherit;font-weight:700;color:var(--gold-ink);text-align:left;padding:13px 4px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.mobile-menu .run-item svg{width:18px;height:18px}
+.run-fab{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 14px 30px -12px rgba(0,0,0,.55);padding:12px 18px 12px 14px;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .3s,translate .3s,background .2s}
+.run-fab.show{opacity:1;translate:0 0;pointer-events:auto}
+.run-fab .dot{width:8px;height:8px;border-radius:50%;background:#C2410C;box-shadow:0 0 0 3px rgba(194,65,12,.25)}
+@media (min-width:901px){.run-fab{display:none}}
+
+.run-modal{border:0;padding:0;width:min(560px,100% - 32px);max-height:min(92vh,860px);border-radius:24px;background:var(--surface);color:var(--ink);box-shadow:0 40px 90px -30px rgba(0,0,0,.7);overflow:auto;overscroll-behavior:contain}
+.run-modal::backdrop{background:rgba(6,14,10,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.run-modal[open]{animation:runIn .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes runIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.run-hero{position:relative;height:190px;background:var(--brand)}
+.run-hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.run-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,13,.05) 30%,rgba(6,20,13,.85))}
+.run-hero .tag{position:absolute;left:22px;bottom:18px;z-index:1;white-space:nowrap}
+.run-close{position:absolute;top:12px;right:12px;z-index:2;width:38px;height:38px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;display:grid;place-items:center;cursor:pointer}
+.run-close:hover{background:rgba(0,0,0,.65)}
+.run-close svg{width:18px;height:18px}
+.run-body{padding:22px 22px 24px;display:grid;gap:16px}
+.run-body h2{font-size:28px;font-weight:800}
+.run-sub{color:var(--ink-2);font-size:14.5px;margin-top:6px}
+.run-status{display:flex;gap:12px;align-items:flex-start;padding:13px 15px;border-radius:14px;background:rgba(194,65,12,.08);border:1px solid rgba(194,65,12,.28);font-size:14px;color:var(--ink-2)}
+.run-status b{display:block;color:var(--ink);font-size:14px}
+.run-status .dot{flex-shrink:0;margin-top:5px;width:9px;height:9px;border-radius:50%;background:#C2410C;box-shadow:0 0 0 4px rgba(194,65,12,.18);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(194,65,12,0)}}
+.run-options{display:grid;gap:10px}
+.run-opt{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:16px;border-radius:16px;border:1px solid var(--line-strong);text-decoration:none;color:inherit;transition:border-color .2s,background .2s,transform .2s}
+.run-opt:hover{border-color:var(--green);background:var(--green-wash)}
+.run-opt:active{transform:scale(.99)}
+.run-opt .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--gold);color:#16200F}
+.run-opt.alt .ico{background:var(--brand);color:var(--gold)}
+.run-opt .ico svg{width:22px;height:22px}
+.run-opt b{display:block;font:700 17px "Bricolage Grotesque",sans-serif}
+.run-opt > span:not(.ico){min-width:0}
+.run-opt > span > span{display:block;font-size:13.5px;color:var(--ink-3);margin-top:2px;line-height:1.4}
+.run-opt b{color:var(--ink)}
+.run-opt em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C2410C;margin-top:5px;display:block}
+.run-opt .go{width:20px;height:20px;color:var(--ink-3)}
+.run-meta{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;font-size:13px;color:var(--ink-3);padding-top:14px;border-top:1px solid var(--line)}
+.run-meta a{color:var(--green-ink);font-weight:700;text-decoration:none}
+.run-meta a:hover{text-decoration:underline}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .run-status{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.3)}:root:not([data-theme="light"]) .run-opt em{color:#FB923C}}
+:root[data-theme="dark"] .run-status{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.3)}
+:root[data-theme="dark"] .run-opt em{color:#FB923C}
+@media (max-width:420px){.run-hero{height:150px}.run-body h2{font-size:24px}.run-opt{grid-template-columns:auto 1fr;padding:14px}.run-opt .go{display:none}}
+@media (prefers-reduced-motion:reduce){.run-modal[open],.run-status .dot{animation:none}}
+
 /* dokumen */
 .doc{display:grid;grid-template-columns:1fr 1.15fr;gap:20px}
 .paper{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
@@ -384,6 +437,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
       <a href="#kegiatan">Kegiatan</a>
       <a href="#nasional">Agenda Nasional</a>
       <a href="#dokumen">Dokumen SK</a>
+      <button class="run-pill" type="button" data-run-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="1.8"/><path d="m7 21 3.5-5.5 3 2.5V22M6 12.5l3-3.5 4 .5 2.5 3.5 3 .5M10.5 15.5 13 9.5"/></svg>HIPMI Run</button>
     </div>
     <div class="nav-actions">
       <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema terang/gelap">
@@ -401,6 +455,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     <a href="#kegiatan">Kegiatan</a>
     <a href="#nasional">Agenda Nasional</a>
     <a href="#dokumen">Dokumen SK</a>
+    <button class="run-item" type="button" data-run-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="1.8"/><path d="m7 21 3.5-5.5 3 2.5V22M6 12.5l3-3.5 4 .5 2.5 3.5 3 .5M10.5 15.5 13 9.5"/></svg>HIPMI Run 2026</button>
   </div>
 </nav>
 
@@ -621,7 +676,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
           <div class="cd"><b data-u="s">--</b><span>Detik</span></div>
         </div>
         <div class="links">
-          <a class="btn btn-gold" href="run/">Info pendaftaran HIPMI Run</a>
+          <button class="btn btn-gold" type="button" data-run-open style="border:0;cursor:pointer;font-family:inherit">Registrasi &amp; website HIPMI Run</button>
           <a class="btn btn-ghost" href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a>
           
         </div>
@@ -807,6 +862,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
         <ul>
           <li><a href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener">@hipmi.karanganyar</a></li>
           <li><a href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a></li>
+          <li><a href="run/">Website HIPMI Run</a></li>
           <li><a href="https://www.instagram.com/hipmiptumuka/" target="_blank" rel="noopener">@hipmiptumuka</a></li>
         </ul>
       </div>
@@ -825,6 +881,44 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     <div class="copy"><span>© 2026 BPC HIPMI Kabupaten Karanganyar</span><span>#SesarenganMbangunKaranganyar · #KaranganyarBisaKitaBisa</span></div>
   </div>
 </footer>
+
+<button class="run-pill run-fab" type="button" id="runFab" data-run-open aria-label="Buka pop-up HIPMI Run"><span class="dot" aria-hidden="true"></span>HIPMI Run</button>
+
+<dialog class="run-modal" id="runModal" aria-labelledby="runTitle">
+  <div class="run-hero">
+    <img src="assets/hipmi-run.webp" alt="" width="820" height="579">
+    <span class="tag gold">Vol. #1 · Minggu, 13 Des 2026</span>
+    <button class="run-close" type="button" id="runClose" aria-label="Tutup pop-up">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="run-body">
+    <div>
+      <h2 id="runTitle">HIPMI Run Karanganyar 2026</h2>
+      <p class="run-sub">City run 5K dan 10K dengan timing chip dari Alun-alun Karanganyar. Kuatkan Kaki, Kuatkan Ekonomi.</p>
+    </div>
+    <div class="run-status" role="status">
+      <span class="dot" aria-hidden="true"></span>
+      <div><b>Website sedang maintenance</b>Pendaftaran online ditutup sementara untuk crosscheck data. Data pendaftaran yang sudah masuk tetap tersimpan.</div>
+    </div>
+    <div class="run-options">
+      <a class="run-opt" href="registrasi.html">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="18" rx="2.5"/><path d="M9 3.5h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>
+        <span><b>Registrasi</b><span>Daftar 5K atau 10K. Early bird 10K&nbsp;Rp&nbsp;225.000 · 5K&nbsp;Rp&nbsp;175.000.</span><em>Sementara ditutup</em></span>
+        <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="run-opt alt" href="run/">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="1.8"/><path d="m7 21 3.5-5.5 3 2.5V22M6 12.5l3-3.5 4 .5 2.5 3.5 3 .5M10.5 15.5 13 9.5"/></svg></span>
+        <span><b>Masuk ke website HIPMI Run</b><span>Info lomba, rute, race pack, dan hasil pelari.</span><em>Sedang maintenance</em></span>
+        <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="run-meta">
+      <span id="runDays">Menuju race day</span>
+      <span><a href="mailto:hipmirun@hipmikaranganyar.com">hipmirun@hipmikaranganyar.com</a> · <a href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a></span>
+    </div>
+  </div>
+</dialog>
 
 <script>
 (() => {
@@ -1004,6 +1098,28 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     cdEls.m.textContent = String(m).padStart(2,'0'); cdEls.s.textContent = String(s).padStart(2,'0');
   };
   tick(); setInterval(tick, 1000);
+
+  // ---------- pop-up HIPMI Run ----------
+  const runModal = document.getElementById('runModal'), runFab = document.getElementById('runFab');
+  const SEEN_KEY = 'hipmi-kra-run-popup';
+  const openRun = () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('menuBtn').setAttribute('aria-expanded', false);
+    const days = Math.ceil((race - Date.now()) / 86400000);
+    document.getElementById('runDays').textContent = days > 0 ? `${days} hari lagi menuju race day` : 'Race day telah berlangsung';
+    if (!runModal.open) runModal.showModal();
+    try { localStorage.setItem(SEEN_KEY, String(Date.now())); } catch (e) {}
+  };
+  document.querySelectorAll('[data-run-open]').forEach(b => b.addEventListener('click', openRun));
+  document.getElementById('runClose').addEventListener('click', () => runModal.close());
+  runModal.addEventListener('click', e => { if (e.target === runModal) runModal.close(); });
+  // Muncul sendiri sekali per 12 jam, atau langsung lewat tautan #hipmirun.
+  let seen = 0;
+  try { seen = Number(localStorage.getItem(SEEN_KEY)) || 0; } catch (e) {}
+  if (location.hash === '#hipmirun') openRun();
+  else if (Date.now() - seen > 12 * 3600 * 1000) setTimeout(openRun, 1500);
+  const heroEl = document.getElementById('top');
+  new IntersectionObserver(([e]) => runFab.classList.toggle('show', !e.isIntersecting)).observe(heroEl);
 
   // ---------- tema ----------
   const root = document.documentElement;

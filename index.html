@@ -368,12 +368,14 @@ section{padding:104px 0}
 .run-opt b{color:var(--ink)}
 .run-opt em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#C2410C;margin-top:5px;display:block}
 .run-opt .go{width:20px;height:20px;color:var(--ink-3)}
+.run-opt em.open{color:var(--green-ink)}
+.run-opt.primary{border-color:var(--green);background:var(--green-wash)}
 .run-meta{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;font-size:13px;color:var(--ink-3);padding-top:14px;border-top:1px solid var(--line)}
 .run-meta a{color:var(--green-ink);font-weight:700;text-decoration:none}
 .run-meta a:hover{text-decoration:underline}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .run-status{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.3)}:root:not([data-theme="light"]) .run-opt em{color:#FB923C}}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .run-status{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.3)}:root:not([data-theme="light"]) .run-opt em:not(.open){color:#FB923C}}
 :root[data-theme="dark"] .run-status{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.3)}
-:root[data-theme="dark"] .run-opt em{color:#FB923C}
+:root[data-theme="dark"] .run-opt em:not(.open){color:#FB923C}
 @media (max-width:420px){.run-hero{height:150px}.run-body h2{font-size:24px}.run-opt{grid-template-columns:auto 1fr;padding:14px}.run-opt .go{display:none}}
 @media (prefers-reduced-motion:reduce){.run-modal[open],.run-status .dot{animation:none}}
 
@@ -668,7 +670,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
           <div class="fact"><small>Target</small><b>1.500 pelari</b></div>
         </div>
         <p class="price"><span>Early bird <b>10K Rp 225.000</b></span><span><b>5K Rp 175.000</b></span><span>sampai 13 Nov 2026 atau kuota habis, belum termasuk biaya layanan Rp 7.500</span></p>
-        <p class="price"><span>Pendaftaran online sedang ditutup sementara untuk crosscheck data. Data yang sudah masuk tetap tersimpan; kabar terbaru di @hipmirunkaranganyar.</span></p>
+        <p class="price"><span>Pendaftaran dibuka lewat <b>StrideIn</b>. Website HIPMI Run sedang maintenance; data yang sudah masuk sebelumnya tetap tersimpan.</span></p>
         <div class="countdown" id="countdown" aria-label="Hitung mundur menuju HIPMI Run">
           <div class="cd"><b data-u="d">--</b><span>Hari</span></div>
           <div class="cd"><b data-u="h">--</b><span>Jam</span></div>
@@ -676,7 +678,8 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
           <div class="cd"><b data-u="s">--</b><span>Detik</span></div>
         </div>
         <div class="links">
-          <button class="btn btn-gold" type="button" data-run-open style="border:0;cursor:pointer;font-family:inherit">Registrasi &amp; website HIPMI Run</button>
+          <a class="btn btn-gold" href="https://stridein.id/events/hipmi-run-kabupaten-karanganyar-2026" target="_blank" rel="noopener">Daftar di StrideIn ↗</a>
+          <button class="btn btn-ghost" type="button" data-run-open style="background:none;cursor:pointer;font-family:inherit">Registrasi &amp; website HIPMI Run</button>
           <a class="btn btn-ghost" href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a>
           
         </div>
@@ -863,6 +866,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
           <li><a href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener">@hipmi.karanganyar</a></li>
           <li><a href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a></li>
           <li><a href="run/">Website HIPMI Run</a></li>
+          <li><a href="https://stridein.id/events/hipmi-run-kabupaten-karanganyar-2026" target="_blank" rel="noopener">Daftar HIPMI Run di StrideIn</a></li>
           <li><a href="https://www.instagram.com/hipmiptumuka/" target="_blank" rel="noopener">@hipmiptumuka</a></li>
         </ul>
       </div>
@@ -899,12 +903,12 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     </div>
     <div class="run-status" role="status">
       <span class="dot" aria-hidden="true"></span>
-      <div><b>Website sedang maintenance</b>Pendaftaran online ditutup sementara untuk crosscheck data. Data pendaftaran yang sudah masuk tetap tersimpan.</div>
+      <div><b>Website HIPMI Run sedang maintenance</b>Pendaftaran tetap dibuka lewat StrideIn. Data pendaftaran yang sudah masuk sebelumnya tetap tersimpan.</div>
     </div>
     <div class="run-options">
-      <a class="run-opt" href="registrasi.html">
+      <a class="run-opt primary" href="https://stridein.id/events/hipmi-run-kabupaten-karanganyar-2026" target="_blank" rel="noopener">
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="18" rx="2.5"/><path d="M9 3.5h6v3H9zM8.5 11h7M8.5 15h4.5"/></svg></span>
-        <span><b>Registrasi</b><span>Daftar 5K atau 10K. Early bird 10K&nbsp;Rp&nbsp;225.000 · 5K&nbsp;Rp&nbsp;175.000.</span><em>Sementara ditutup</em></span>
+        <span><b>Registrasi di StrideIn</b><span>Pilih tiket 5K atau 10K. Early bird 10K&nbsp;Rp&nbsp;225.000 · 5K&nbsp;Rp&nbsp;175.000, kuota terbatas.</span><em class="open">Pendaftaran dibuka · stridein.id</em></span>
         <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a class="run-opt alt" href="run/">
@@ -1087,7 +1091,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
   renderEvents();
 
   // ---------- hitung mundur HIPMI Run ----------
-  const race = new Date('2026-12-13T05:45:00+07:00').getTime();
+  const race = new Date('2026-12-13T05:30:00+07:00').getTime(); // flag-off 10K menurut StrideIn
   const cdEls = Object.fromEntries([...document.querySelectorAll('#countdown [data-u]')].map(el => [el.dataset.u, el]));
   const tick = () => {
     let s = Math.max(0, Math.floor((race - Date.now()) / 1000));

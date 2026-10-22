@@ -79,7 +79,7 @@ p{margin:0}
 .icon-btn svg{width:18px;height:18px}
 .menu-btn{display:none}
 .mobile-menu{display:none}
-@media (max-width:900px){
+@media (max-width:1120px){
   .nav-links{display:none}
   .nav-actions{margin-left:auto}
   .menu-btn{display:grid}
@@ -335,7 +335,7 @@ section{padding:104px 0}
 .run-fab{position:fixed;right:16px;bottom:16px;z-index:40;box-shadow:0 14px 30px -12px rgba(0,0,0,.55);padding:12px 18px 12px 14px;opacity:0;translate:0 16px;pointer-events:none;transition:opacity .3s,translate .3s,background .2s}
 .run-fab.show{opacity:1;translate:0 0;pointer-events:auto}
 .run-fab .dot{width:8px;height:8px;border-radius:50%;background:#C2410C;box-shadow:0 0 0 3px rgba(194,65,12,.25)}
-@media (min-width:901px){.run-fab{display:none}}
+@media (min-width:1121px){.run-fab{display:none}}
 
 .run-modal{border:0;padding:0;width:min(560px,100% - 32px);max-height:min(92vh,860px);border-radius:24px;background:var(--surface);color:var(--ink);box-shadow:0 40px 90px -30px rgba(0,0,0,.7);overflow:auto;overscroll-behavior:contain}
 .run-modal::backdrop{background:rgba(6,14,10,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -378,6 +378,26 @@ section{padding:104px 0}
 :root[data-theme="dark"] .run-opt em:not(.open){color:#FB923C}
 @media (max-width:420px){.run-hero{height:150px}.run-body h2{font-size:24px}.run-opt{grid-template-columns:auto 1fr;padding:14px}.run-opt .go{display:none}}
 @media (prefers-reduced-motion:reduce){.run-modal[open],.run-status .dot{animation:none}}
+
+/* kabar media */
+#berita{background:var(--bg-2)}
+.press-stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin:-18px 0 22px;font-size:14px;color:var(--ink-3)}
+.press-stats b{color:var(--ink);font:800 22px "Bricolage Grotesque",sans-serif;margin-right:6px}
+.outlets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.outlets span{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-2);background:var(--surface)}
+.press{display:grid;gap:10px}
+.news{display:grid;grid-template-columns:132px 1fr auto;gap:22px;align-items:start;padding:20px 22px;background:var(--surface);border:1px solid var(--line);border-radius:18px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s}
+.news:hover{border-color:var(--green);transform:translateX(3px)}
+.news[hidden]{display:none}
+.news time{font-size:13px;font-weight:700;color:var(--ink-3);display:block}
+.news .outlet{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--green-wash);color:var(--green-ink)}
+.news h3{font-size:18.5px;line-height:1.3;font-weight:700;letter-spacing:-.01em}
+.news p{font-size:14.5px;color:var(--ink-2);margin-top:6px;max-width:75ch}
+.news .arrow{width:20px;height:20px;color:var(--ink-3);margin-top:3px}
+.news:hover .arrow{color:var(--green-ink)}
+.news.archive .outlet{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line)}
+.press-note{margin-top:20px;font-size:13px;color:var(--ink-3);max-width:80ch}
+@media (max-width:700px){.news{grid-template-columns:1fr;gap:10px;padding:18px}.news .meta-col{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.news .outlet{margin-top:0}.news .arrow{display:none}}
 
 /* dokumen */
 .doc{display:grid;grid-template-columns:1fr 1.15fr;gap:20px}
@@ -437,6 +457,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
       <a href="#ksb">Profil KSB</a>
       <a href="#pengurus">Pengurus</a>
       <a href="#kegiatan">Kegiatan</a>
+      <a href="#berita">Berita</a>
       <a href="#nasional">Agenda Nasional</a>
       <a href="#dokumen">Dokumen SK</a>
       <button class="run-pill" type="button" data-run-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="1.8"/><path d="m7 21 3.5-5.5 3 2.5V22M6 12.5l3-3.5 4 .5 2.5 3.5 3 .5M10.5 15.5 13 9.5"/></svg>HIPMI Run</button>
@@ -455,6 +476,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     <a href="#ksb">Profil KSB</a>
     <a href="#pengurus">Pengurus</a>
     <a href="#kegiatan">Kegiatan</a>
+    <a href="#berita">Berita</a>
     <a href="#nasional">Agenda Nasional</a>
     <a href="#dokumen">Dokumen SK</a>
     <button class="run-item" type="button" data-run-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="4.5" r="1.8"/><path d="m7 21 3.5-5.5 3 2.5V22M6 12.5l3-3.5 4 .5 2.5 3.5 3 .5M10.5 15.5 13 9.5"/></svg>HIPMI Run 2026</button>
@@ -702,6 +724,29 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
   </div>
 </section>
 
+<section id="berita">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Kabar media</span><h2>HIPMI Karanganyar di pemberitaan.</h2></div>
+      <p>Liputan pers, rilis pemerintah daerah, dan kampus tentang HIPMI Karanganyar. Ringkasan ditulis ulang; baca selengkapnya di media aslinya.</p>
+    </div>
+    <div class="press-stats" id="pressStats"></div>
+    <div class="outlets" id="outlets" aria-label="Media yang meliput"></div>
+    <div class="filters" role="group" aria-label="Saring berita per tahun" id="pressFilters" style="margin-top:0">
+      <button class="filter" type="button" data-y="semua" aria-pressed="true">Semua</button>
+      <button class="filter" type="button" data-y="2026" aria-pressed="false">2026</button>
+      <button class="filter" type="button" data-y="2025" aria-pressed="false">2025</button>
+      <button class="filter" type="button" data-y="arsip" aria-pressed="false">Sebelum 2025</button>
+    </div>
+    <div class="press" id="press"></div>
+    <div class="more-wrap" id="pressMoreWrap">
+      <button class="btn btn-line" type="button" id="pressMore">Muat lebih banyak berita</button>
+      <span class="more-count" id="pressCount" aria-live="polite"></span>
+    </div>
+    <p class="press-note">Tautan mengarah ke situs media masing-masing. Hak cipta isi berita milik penerbitnya.</p>
+  </div>
+</section>
+
 <section id="nasional">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -877,6 +922,7 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
           <li><a href="#ksb">Profil KSB</a></li>
           <li><a href="#pengurus">Susunan pengurus</a></li>
           <li><a href="#kegiatan">Kegiatan</a></li>
+          <li><a href="#berita">Kabar media</a></li>
           <li><a href="#nasional">Agenda nasional</a></li>
           <li><a href="#dokumen">Dokumen SK</a></li>
         </ul>
@@ -1102,6 +1148,124 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36
     cdEls.m.textContent = String(m).padStart(2,'0'); cdEls.s.textContent = String(s).padStart(2,'0');
   };
   tick(); setInterval(tick, 1000);
+
+  // ---------- kabar media ----------
+  // d: tanggal terbit (YYYY-MM-DD), m: label tanggal bila hari terbit tidak diketahui.
+  // Judul sesuai judul asli media; ringkasan ditulis ulang.
+  const PRESS = [
+    { d:'2026-10-13', o:'Jatengpos', t:'HIPMI Run 2026 Targetkan 1.500 Pelari di Karanganyar',
+      s:'Peluncuran jersey di Rumah Dinas Bupati. Panitia menyiapkan bazar UMKM dan business gathering, dengan panggung dan jersey buatan pengusaha anggota.',
+      u:'https://jatengpos.co.id/solo-raya/2026/10/13/hipmi-run-2026-targetkan-1-500-pelari-di-karanganyar/' },
+    { d:'2026-10-12', o:'Viva Jogja', t:'HIPMI Run 2026 Bidik 1500 Peserta, Pengusaha Muda Karanganyar Siapkan Strategi Perluas Pasar UMKM',
+      s:'Jersey peserta diproduksi Tegar Asri, usaha Karanganyar milik anggota HIPMI. Ketua Umum berharap event ini menjadi pijakan menuju skala nasional.',
+      u:'https://jogja.viva.co.id/solo-raya/12141-hipmi-run-2026-bidik-1500-peserta-pengusaha-muda-karanganyar-siapkan-strategi-perluas-pasar-umkm' },
+    { d:'2026-10-12', o:'Mercusuar', t:'Kuatkan Kaki dan Ekonomi, BPC HIPMI Karanganyar Gelar Event City Run 5K dan 10K, Ini Tanggalnya',
+      s:'Rute city run melewati Masjid Agung, Alun-alun, dan Taman Pancasila. BPC membuka paket sponsorship untuk BUMN, BUMD, dan swasta.',
+      u:'https://mercusuar.co/kuatkan-kaki-dan-ekonomi-bpc-hipmi-karanganyar-gelar-event-city-run-5k-dan-10k-ini-tanggalnya' },
+    { d:'2026-07-10', o:'UMUKA', t:'Youngpreneur Talk HIPMI PT UMUKA Bekali Generasi Muda Menjadi Wirausahawan Inovatif di Festival Perumahan Rakyat dan UMKM 2026',
+      s:'Ketua Umum BPC menjadi narasumber bersama Ketua HIPMI PT UMUKA di Gedung Wanita Karanganyar, diikuti mahasiswa dan pelajar SMA/SMK.',
+      u:'https://umuka.ac.id/umuka_wordpress/2026/07/10/youngpreneur-talk-hipmi-pt-umuka-bekali-generasi-muda-menjadi-wirausahawan-inovatif-di-festival-perumahan-rakyat-dan-umkm-2026/' },
+    { d:'2026-04-04', o:'Solopos', t:'HIPMI PT Dorong Mahasiswa Jadi Pengusaha Sejak Kuliah',
+      s:'Santunan untuk 100 anak yatim piatu di Rumah Dinas Bupati, sekaligus mentoring bisnis bulanan bersama Kadin untuk mahasiswa.',
+      u:'https://solopos.espos.id/hipmi-pt-dorong-mahasiswa-jadi-pengusaha-sejak-kuliah-2203421' },
+    { d:'2026-04-04', o:'Jatengnews', t:'Pengusaha Karanganyar Apresiasi Stabilitas BBM di Tengah Konflik Global',
+      s:'Ketua Umum BPC menilai dunia usaha Karanganyar belum terdampak signifikan dan melihat pelemahan rupiah sebagai peluang ekspor.',
+      u:'https://www.jatengnews.id/2026/04/04/pengusaha-karanganyar-apresiasi-stabilitas-bbm-di-tengah-konflik-global/' },
+    { d:'2026-03-17', o:'Solopos', t:'Ketegangan Timur Tengah Picu Kekhawatiran Pengusaha Muda Karanganyar',
+      s:'Kekhawatiran soal lonjakan harga energi yang bisa menaikkan biaya logistik dan menekan daya beli.',
+      u:'https://solopos.espos.id/ketegangan-timur-tengah-picu-kekhawatiran-pengusaha-muda-karanganyar-2198939' },
+    { d:'2025-10-29', o:'RRI', t:'HIPMI Karanganyar Lantik Pengurus HIPMI Perguruan Tinggi UMUKA',
+      s:'Sebanyak 44 pengurus angkatan pertama dilantik. Banyak di antaranya sudah merintis usaha, terutama di sektor makanan dan minuman.',
+      u:'https://rri.co.id/daerah/1936209/hipmi-karanganyar-lantik-pengurus-hipmi-perguruan-tinggi-umuka' },
+    { d:'2025-10-29', o:'Viva Jogja', t:'HIPMI Karanganyar Tanamkan Jiwa Wirausaha di Kampus, Mahasiswa Diajak Jadi Pencipta Peluang',
+      s:'HIPMI PT UMUKA diarahkan mencetak lulusan yang menciptakan lapangan kerja, bukan sekadar mencarinya.',
+      u:'https://jogja.viva.co.id/solo-raya/4957-hipmi-karanganyar-tanamkan-jiwa-wirausaha-di-kampus-mahasiswa-diajak-jadi-pencipta-peluang' },
+    { d:'2025-10-29', o:'Pemkab Karanganyar', t:'Pelantikan Pengurus HIPMI PT UMUKA Periode 2025–2026: Lead the Change, Build the Future',
+      s:'Rilis Pemkab: Plh. Bupati Adhe Eliana berpesan agar mahasiswa berani mengambil risiko dan bangkit dari kegagalan.',
+      u:'https://www.karanganyarkab.go.id/pelantikan-pengurus-hipmi-pt-umuka-periode-2025-2026-lead-the-change-build-the-future/' },
+    { d:'2025-09-19', o:'Viva Jogja', t:'HIPMI Karanganyar dan UMUKA Resmikan HIPMI Perguruan Tinggi Pertama',
+      s:'UMUKA menjadi percontohan HIPMI PT pertama di Karanganyar. Mahasiswa bisa berjejaring dengan lebih dari 180 anggota HIPMI.',
+      u:'https://jogja.viva.co.id/solo-raya/4477-hipmi-karanganyar-dan-umuka-resmikan-hipmi-perguruan-tinggi-pertama' },
+    { d:'2025-09-19', o:'Kabar Karanganyar', t:'Gandeng UMUKA HIPMI Karanganyar Bangun Jaringan Pengusaha Dan Mahasiswa Di 17 Kecamatan',
+      s:'Rencana roadshow kewirausahaan HIPMI PT ke seluruh 17 kecamatan di Kabupaten Karanganyar.',
+      u:'https://kabarkaranganyar.com/gandeng-umuka-hipmi-karanganyar-bangun-jaringan-pengusaha-dan-mahasiswa-di-17-kecamatan/' },
+    { d:'2025-07-30', o:'Joglosemar', t:'Diklatcab Hipmi Solo Raya 2025, Energi Baru Pengusaha Muda untuk Tumbuh Bersama',
+      s:'Diklat bersama BPC Surakarta dan Sukoharjo di Karanganyar, dibuka Ketua Umum BPD HIPMI Jawa Tengah.',
+      u:'https://joglosemarnews.com/2025/07/diklatcab-hipmi-solo-raya-2025-energi-baru-pengusaha-muda-untuk-tumbuh-bersama' },
+    { d:'2025-07-15', o:'ANTARA Jateng', t:'Hipmi kolaborasi bangun ekosistem wirausaha di Solo Raya',
+      s:'Forum Road to Musda HIPMI PT Jawa Tengah di Solo Techno Park, dihadiri Ketua Umum BPC HIPMI Karanganyar.',
+      u:'https://jateng.antaranews.com/berita/590577/hipmi-kolaborasi-bangun-ekosistem-wirausaha-di-solo-raya' },
+    { d:'2025-07-14', m:'Jul 2025', o:'Joglosemar', t:'Sinergi BPC HIPMI Se-Solo Raya, Bangun Ekosistem Wirausaha',
+      s:'BPC se-Solo Raya dan HIPMI PT membahas kolaborasi Penta Helix dan pembentukan HIPMI PT di kampus.',
+      u:'https://joglosemarnews.com/2025/07/sinergi-bpc-hipmi-se-solo-raya-bangun-ekosistem-wirausaha' },
+    { d:'2025-05-06', o:'Jatengpos', t:'HIPMI Karanganyar Buka Kesempatan Kerja Luas Bagi Masyarakat Karanganyar',
+      s:'Usai pelantikan, BPC berkomitmen membuka lapangan kerja. Sekitar 40 persen pengurus adalah wajah baru.',
+      u:'https://jatengpos.co.id/jateng/2025/05/06/hipmi-karanganyar-buka-kesempatan-kerja-luas-bagi-masyarakat-karanganyar/' },
+    { d:'2025-05-01', o:'Kilat Solo', t:'Anggota dan Pengurus HIPMI Karanganyar Resmi Dilantik, Sepakat Perluas Lapangan Kerja',
+      s:'70 pengusaha muda dilantik di Gedung Teater Bhineka Tunggal Ika. Wakil Bupati mengajak HIPMI menyinergikan program dengan Pemkab.',
+      u:'https://solo.kilat.com/umum/103015068220/anggota-dan-pengurus-hipmi-karanganyar-resmi-dilantik-sepakat-perluas-lapangan-kerja' },
+    { d:'2025-05-01', o:'Viva Jogja', t:'Hervan Pimpin HIPMI Karanganyar, Targetkan UMKM Lebih Dikenal dan Berkembang',
+      s:'Fokus kepengurusan baru: membantu UMKM naik kelas lewat pembinaan dan promosi, serta menghidupkan kembali kaderisasi.',
+      u:'https://jogja.viva.co.id/solo-raya/2642-hervan-pimpin-hipmi-karanganyar-targetkan-umkm-lebih-dikenal-dan-berkembang' },
+    { d:'2025-03-19', o:'Viva Jogja', t:'HIPMI Karanganyar dan Urbana City Kolaborasi Bangun Potensi Ekonomi Daerah',
+      s:'Buka puasa bersama sekaligus penjajakan kerja sama dengan pengembang perumahan Urbana City di Plesungan.',
+      u:'https://jogja.viva.co.id/solo-raya/2249-hipmi-karanganyar-dan-urbana-city-kolaborasi-bangun-potensi-ekonomi-daerah' },
+    { d:'2025-02-15', o:'Solopos', t:'Hervan Miftah Hafidin Terpilih Secara Aklamasi Jadi Ketua Hipmi Karanganyar',
+      s:'Muscab di Harjo Space dihadiri 45 anggota. Program unggulan yang diusung: e-catalog usaha anggota dan UMKM.',
+      u:'https://solopos.espos.id/hervan-miftah-hafidin-terpilih-secara-aklamasi-jadi-ketua-hipmi-karanganyar-2060583' },
+    { d:'2025-02-14', o:'Lokawarta', t:'Maju sebagai Ketua HIPMI Karanganyar, Herfan Miftah: Saya Ingin Memajukan Karanganyar Lewat Dunia Usaha',
+      s:'Profil calon ketua: lulusan HI UMY dan UGM, pengusaha lembaga keuangan, pusat kebugaran, dan ritel di Karanganyar.',
+      u:'https://lokawarta.com/maju-sebagai-ketua-hipmi-karanganyar-herfan-miftah-saya-ingin-memajukan-karanganyar-lewat-dunia-usaha/' },
+    { d:'2025-02-01', o:'Solopos', t:'Kandidat Ketua Hipmi Karanganyar Gencar Cari Dukungan ke Akar Rumput',
+      s:'Para bakal calon ketua menyapa anggota menjelang Muscab, membawa gagasan program masing-masing.',
+      u:'https://solopos.espos.id/kandidat-ketua-hipmi-karanganyar-gencar-cari-dukungan-ke-akar-rumput-2054877' },
+    { d:'2025-01-30', o:'Viva Jogja', t:'Kandidat Ketua HIPMI Karanganyar Hervan Miftah Serap Aspirasi Pengusaha Muda',
+      s:'Bincang santai dengan puluhan pengusaha muda: sinergi dengan Pemda dan akses permodalan UMKM menuju Indonesia Emas 2045.',
+      u:'https://jogja.viva.co.id/solo-raya/1635-kandidat-ketua-hipmi-karanganyar-hervan-miftah-serap-aspirasi-pengusaha-muda' },
+    { d:'2022-04-15', o:'Radar Solo', t:'HIPMI Karanganyar Dorong UMKM Masuk E-Katalog',
+      s:'Arsip kepengurusan sebelumnya: Ketua BPC Aan Shopuanudin mengajak UMKM mendaftar e-katalog pengadaan agar pulih pascapandemi.',
+      u:'https://radarsolo.jawapos.com/karanganyar/2204150036/hipmi-karanganyar-dorong-umkm-masuk-e-katalog' },
+  ];
+  const BULAN = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+  const fmtDate = n => { if (n.m) return n.m; const [y, mo, da] = n.d.split('-').map(Number); return `${da} ${BULAN[mo - 1]} ${y}`; };
+  const pressWrap = document.getElementById('press');
+  pressWrap.innerHTML = PRESS.map(n => {
+    const arsip = n.d < '2025';
+    return `<a class="news${arsip ? ' archive' : ''}" href="${n.u}" target="_blank" rel="noopener" data-y="${arsip ? 'arsip' : n.d.slice(0, 4)}">
+      <span class="meta-col"><time datetime="${n.d}">${fmtDate(n)}</time><span class="outlet">${esc(n.o)}</span></span>
+      <span><h3>${esc(n.t)}</h3><p>${esc(n.s)}</p></span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>`;
+  }).join('');
+  const outletCount = {};
+  PRESS.forEach(n => outletCount[n.o] = (outletCount[n.o] || 0) + 1);
+  const outletNames = Object.keys(outletCount).sort((a, b) => outletCount[b] - outletCount[a] || a.localeCompare(b));
+  document.getElementById('pressStats').innerHTML =
+    `<span><b>${PRESS.length}</b>liputan</span><span><b>${outletNames.length}</b>media</span><span><b>${PRESS.filter(n => n.d >= '2026').length}</b>di tahun 2026</span>`;
+  document.getElementById('outlets').innerHTML = outletNames.map(o => `<span>${esc(o)} · ${outletCount[o]}</span>`).join('');
+  const news = [...pressWrap.children];
+  const PRESS_PAGE = 8;
+  let pressYear = 'semua', pressLimit = PRESS_PAGE;
+  const pressMore = document.getElementById('pressMore'), pressMoreWrap = document.getElementById('pressMoreWrap'), pressCount = document.getElementById('pressCount');
+  const renderPress = () => {
+    const match = news.filter(n => pressYear === 'semua' || n.dataset.y === pressYear);
+    news.forEach(n => n.hidden = true);
+    match.forEach((n, i) => n.hidden = i >= pressLimit);
+    const shown = Math.min(pressLimit, match.length);
+    pressMoreWrap.hidden = match.length <= PRESS_PAGE;
+    pressMore.hidden = shown >= match.length;
+    pressCount.textContent = `Menampilkan ${shown} dari ${match.length} berita`;
+  };
+  pressMore.addEventListener('click', () => {
+    const next = news.filter(n => n.hidden && (pressYear === 'semua' || n.dataset.y === pressYear))[0];
+    pressLimit += PRESS_PAGE; renderPress();
+    if (next) next.focus({ preventScroll: true });
+  });
+  document.querySelectorAll('#pressFilters .filter').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('#pressFilters .filter').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    pressYear = btn.dataset.y; pressLimit = PRESS_PAGE; renderPress();
+  }));
+  renderPress();
 
   // ---------- pop-up HIPMI Run ----------
   const runModal = document.getElementById('runModal'), runFab = document.getElementById('runFab');

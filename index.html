@@ -3,95 +3,1024 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HIPMI RUN KARANGANYAR VOL. #1</title>
-
-<!-- Halaman penahan. Pendaftaran sedang ditutup panitia, jadi mesin pencari
-     tidak perlu mengindeks keadaan sementara ini. -->
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="HIPMI RUN KARANGANYAR VOL. #1 - situs sementara ditutup. Pendaftaran dialihkan; situs segera hadir kembali untuk crosscheck data pendaftaran.">
-
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/icon-192.png">
-<link rel="manifest" href="site.webmanifest">
-
+<title>HIPMI Karanganyar</title>
+<meta name="description" content="Profil Badan Pengurus Cabang Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar, masa bakti 2025–2028: susunan pengurus, kegiatan, agenda nasional, dan dokumen SK.">
+<meta name="theme-color" content="#0E3B26">
+<link rel="icon" type="image/png" href="assets/logo-mark.png">
+<link rel="canonical" href="https://hipmikaranganyar.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HIPMI Karanganyar">
+<meta property="og:title" content="BPC HIPMI Kabupaten Karanganyar 2025–2028">
+<meta property="og:description" content="Profil, pengurus, kegiatan, dan agenda Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar.">
+<meta property="og:url" content="https://hipmikaranganyar.com/">
+<meta property="og:image" content="https://hipmikaranganyar.com/assets/hipmi-run.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-  /* Semua gaya disematkan di sini: halaman ini harus tetap utuh walau
-     seluruh berkas CSS situs dicabut. */
-  :root{
-    --bg:#f6f8f5; --surface:#ffffff;
-    --ink:#13211a; --ink-2:#4c5f54; --ink-3:#7d8f84;
-    --brand-ink:#1c4130; --brand-black:#0e2119;
-    --gold:#b8924a; --line:#e2e8e3;
+:root{
+  --bg:#F5F3EA; --bg-2:#EDEADF; --surface:#FFFFFF; --surface-2:#FAF9F4;
+  --line:#E0DCCD; --line-strong:#C9C3AE;
+  --ink:#10201A; --ink-2:#3A4A42; --ink-3:#5D6A63;
+  --green:#0E5233; --green-ink:#0E5233; --green-wash:rgba(14,82,51,.08);
+  --gold:#F2D21B; --gold-ink:#7A5E00; --gold-wash:rgba(242,210,27,.22);
+  --brand:#0E3B26; --brand-2:#13492F; --on-brand:#F3F6EF; --on-brand-2:#B9CDBE;
+  --shadow:0 1px 0 rgba(255,255,255,.7), 0 18px 40px -30px rgba(16,32,26,.45);
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A130E; --bg-2:#0E1913; --surface:#111D16; --surface-2:#15231B;
+    --line:#203328; --line-strong:#2E4637;
+    --ink:#EEF2EC; --ink-2:#BFCBC3; --ink-3:#8FA096;
+    --green:#4DB57F; --green-ink:#6CCB98; --green-wash:rgba(77,181,127,.12);
+    --gold:#F2D21B; --gold-ink:#F2D21B; --gold-wash:rgba(242,210,27,.12);
+    --brand:#0D2A1C; --brand-2:#123524; --on-brand:#F3F6EF; --on-brand-2:#A9BFB0;
+    --shadow:0 1px 0 rgba(255,255,255,.03), 0 20px 44px -30px rgba(0,0,0,.9);
   }
-  @media (prefers-color-scheme:dark){
-    :root{
-      --bg:#0b1710; --surface:#152219;
-      --ink:#e9f2e9; --ink-2:#adbcb1; --ink-3:#86968b;
-      --brand-ink:#152219; --brand-black:#070f0b;
-      --line:#24352b;
-    }
-  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A130E; --bg-2:#0E1913; --surface:#111D16; --surface-2:#15231B;
+  --line:#203328; --line-strong:#2E4637;
+  --ink:#EEF2EC; --ink-2:#BFCBC3; --ink-3:#8FA096;
+  --green:#4DB57F; --green-ink:#6CCB98; --green-wash:rgba(77,181,127,.12);
+  --gold:#F2D21B; --gold-ink:#F2D21B; --gold-wash:rgba(242,210,27,.12);
+  --brand:#0D2A1C; --brand-2:#123524; --on-brand:#F3F6EF; --on-brand-2:#A9BFB0;
+  --shadow:0 1px 0 rgba(255,255,255,.03), 0 20px 44px -30px rgba(0,0,0,.9);
+}
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    display:grid; place-items:center; padding:2rem 1rem; line-height:1.6;
-  }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0;line-height:1.08;letter-spacing:-.02em}
+p{margin:0}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:.82em;letter-spacing:.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-ink)}
+.eyebrow::before{content:"";width:18px;height:2px;background:var(--gold);border-radius:2px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 
-  .kotak{
-    width:100%; max-width:30rem; text-align:center;
-    background:var(--surface); border:1px solid var(--line);
-    border-radius:18px; padding:clamp(2rem,1.4rem + 2.6vw,3.25rem) clamp(1.25rem,1rem + 1.6vw,2.5rem);
-    box-shadow:0 1px 2px rgba(14,33,25,.04), 0 12px 32px rgba(14,33,25,.06);
-  }
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.brand img{width:26px;height:auto}
+.brand b{font:700 15px/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em;display:block}
+.brand small{font-size:11.5px;color:var(--ink-3);display:block;font-weight:500}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{font-size:14px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:999px;transition:background .2s,color .2s}
+.nav-links a:hover{background:var(--green-wash);color:var(--ink)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.icon-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:border-color .2s,transform .2s}
+.icon-btn:hover{border-color:var(--line-strong)}
+.icon-btn:active{transform:scale(.95)}
+.icon-btn svg{width:18px;height:18px}
+.menu-btn{display:none}
+.mobile-menu{display:none}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .nav-actions{margin-left:auto}
+  .menu-btn{display:grid}
+  .mobile-menu{position:fixed;inset:64px 0 auto 0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 18px;flex-direction:column;z-index:49}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{padding:13px 4px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--line)}
+  .mobile-menu a:last-child{border:0}
+}
 
-  .logo{width:clamp(96px,26vw,132px); height:auto; margin:0 auto 1.6rem; display:block}
+/* ---------- hero ---------- */
+.hero{background:var(--brand);color:var(--on-brand);position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;width:760px;height:760px;right:-220px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(242,210,27,.20),rgba(242,210,27,0) 62%);z-index:-1}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,#000 30%,transparent);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;padding:88px 0 72px;align-items:center}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(40px,6.4vw,78px);font-weight:800;margin:20px 0 22px;letter-spacing:-.035em}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero .lede{font-size:clamp(16px,1.6vw,18.5px);color:var(--on-brand-2);max-width:56ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .2s,background .2s,border-color .2s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:17px;height:17px}
+.btn-gold{background:var(--gold);color:#16200F}
+.btn-gold:hover{background:#FFE14A}
+.btn-ghost{border:1px solid rgba(255,255,255,.22);color:var(--on-brand)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.12);margin-top:48px;padding-top:24px;gap:16px}
+.hero-stats b{display:block;font:800 clamp(24px,2.6vw,36px)/1 "Bricolage Grotesque",sans-serif;color:var(--on-brand);white-space:nowrap}
+.hero-stats span{font-size:13px;color:var(--on-brand-2)}
 
-  .label{
-    display:inline-block; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
-    font-weight:700; color:var(--gold); margin-bottom:.9rem;
-  }
+.emblem-card{position:relative;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:32px 28px 26px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+.emblem{width:132px;margin:0 auto 22px;filter:drop-shadow(0 12px 28px rgba(242,210,27,.25))}
+.trio{display:grid;gap:10px}
+.trio-item{display:flex;align-items:center;gap:14px;padding:12px 14px;background:rgba(0,0,0,.18);border-radius:14px;border:1px solid rgba(255,255,255,.06)}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--gold);color:#16200F;display:grid;place-items:center;font:800 15px "Bricolage Grotesque",sans-serif;flex-shrink:0}
+.trio-item small{display:block;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-brand-2);font-weight:600}
+.trio-item strong{font-size:15.5px;font-weight:700}
+.trio-item a{color:var(--on-brand-2);font-size:13px;margin-left:auto;text-decoration:none;white-space:nowrap}
+.trio-item a:hover{color:var(--gold)}
+.sk-badge{margin-top:16px;font-size:12.5px;color:var(--on-brand-2);text-align:center}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding:56px 0 48px}
+  .hero-stats{grid-template-columns:repeat(2,1fr);row-gap:22px}
+}
 
-  h1{
-    margin:0 0 .85rem; font-size:clamp(1.45rem,1.15rem + 1.3vw,2rem);
-    line-height:1.22; letter-spacing:-.02em; font-weight:800;
-  }
+/* ---------- sections ---------- */
+section{padding:104px 0}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
+.sec-head h2{font-size:clamp(32px,4.2vw,52px);font-weight:800;margin-top:14px}
+.sec-head p{color:var(--ink-2);max-width:52ch;justify-self:end}
+@media (max-width:820px){
+  section{padding:72px 0}
+  .sec-head{grid-template-columns:1fr;gap:16px;margin-bottom:32px}
+  .sec-head p{justify-self:start}
+}
 
-  p{margin:0 auto; max-width:30ch; color:var(--ink-2); font-size:.97rem}
-  p + p{margin-top:.8rem}
+/* about */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px}
+.manifesto{font:700 clamp(24px,2.8vw,34px)/1.22 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.manifesto mark{background:linear-gradient(transparent 62%,var(--gold-wash) 62%);color:inherit;padding:0 2px}
+.about-copy{margin-top:22px;color:var(--ink-2);display:grid;gap:14px;max-width:58ch}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.pillar b{display:block;font:700 16px "Bricolage Grotesque",sans-serif;margin-bottom:4px}
+.pillar span{font-size:13.5px;color:var(--ink-3);line-height:1.45;display:block}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl{position:relative;padding-bottom:26px}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-28px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--green)}
+.tl.upcoming::before{border-color:var(--gold);background:var(--gold)}
+.tl time{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--green-ink)}
+.tl.upcoming time{color:var(--gold-ink)}
+.tl h4{font-size:19px;margin:4px 0 4px}
+.tl p{font-size:14.5px;color:var(--ink-2)}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:44px}}
+@media (max-width:560px){.pillars{grid-template-columns:1fr}}
 
-  .garis{height:1px; background:var(--line); margin:1.8rem 0 1.4rem}
+/* pengurus */
+#pengurus{background:var(--bg-2)}
+.core{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:56px}
+.core-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow)}
+.core-card .role{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink)}
+.core-card h3{font-size:24px;font-weight:700}
+.core-card .avatar{width:52px;height:52px;font-size:18px}
+.core-card.lead{background:var(--brand);color:var(--on-brand);border-color:transparent}
+.core-card.lead .role{color:var(--gold)}
+.core-card .ig{font-size:13.5px;color:var(--ink-3);text-decoration:none;margin-top:auto}
+.core-card.lead .ig{color:var(--on-brand-2)}
+.core-card .ig:hover{color:var(--green-ink)}
+.core-card.lead .ig:hover{color:var(--gold)}
+@media (max-width:820px){.core{grid-template-columns:1fr}}
 
-  .kontak{font-size:.86rem; color:var(--ink-3)}
-  .kontak a{color:var(--brand-ink); font-weight:600; text-decoration:none; border-bottom:1px solid var(--line)}
-  .kontak a:hover{border-bottom-color:currentColor}
-  @media (prefers-color-scheme:dark){ .kontak a{color:#8fd3a6} }
+.bid-tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
+.bid-tools h3{font-size:26px}
+.search{position:relative;flex:0 1 340px}
+.search input{width:100%;font:inherit;font-size:15px;padding:12px 16px 12px 42px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
+.search input::placeholder{color:var(--ink-3)}
+.search svg{position:absolute;left:15px;top:50%;translate:0 -50%;width:17px;height:17px;color:var(--ink-3)}
+.search-note{font-size:13.5px;color:var(--ink-3);min-height:20px;margin:-6px 0 14px}
+.bidang-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.bidang{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
+.bidang[hidden]{display:none}
+.bidang summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:20px 22px}
+.bidang summary::-webkit-details-marker{display:none}
+.bidang:hover{border-color:var(--line-strong)}
+.bid-no{width:46px;height:46px;border-radius:12px;background:var(--green-wash);color:var(--green-ink);display:grid;place-items:center;font:800 15px "Bricolage Grotesque",sans-serif}
+.bidang[open] .bid-no{background:var(--gold);color:#16200F}
+.bid-name{font:700 17px/1.25 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.bid-lead{font-size:13.5px;color:var(--ink-3);margin-top:3px}
+.chev{width:20px;height:20px;color:var(--ink-3);transition:transform .25s}
+.bidang[open] .chev{transform:rotate(180deg)}
+.bid-body{padding:0 22px 22px;display:grid;gap:16px}
+.officers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.officer{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.officer small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.officer b{font-size:14px;font-weight:600;line-height:1.35;display:block;margin-top:2px}
+.komp-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.komp{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:0}
+.komp li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-top:1px dashed var(--line);font-size:14px}
+.komp li span{color:var(--ink-2)}
+.komp li b{font-weight:600;text-align:right}
+.hl{background:var(--gold-wash);border-radius:4px;box-shadow:0 0 0 2px var(--gold-wash)}
+@media (max-width:900px){.bidang-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.officers{grid-template-columns:1fr}.komp li{flex-direction:column;gap:2px}.komp li b{text-align:left}}
 
-  .jejak{margin-top:1.5rem; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3)}
+.councils{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:56px}
+.council{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.council h3{font-size:22px;margin-bottom:6px}
+.council > p{font-size:14px;color:var(--ink-3);margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 13px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);font-size:14px;font-weight:600}
+.chip.lead{background:var(--brand);color:var(--on-brand);border-color:transparent}
+.chip.lead small{color:var(--gold);font-weight:700;margin-right:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:820px){.councils{grid-template-columns:1fr}}
+
+/* kegiatan */
+.feature{display:grid;grid-template-columns:1.1fr 1fr;background:var(--brand);color:var(--on-brand);border-radius:26px;overflow:hidden;margin-bottom:18px}
+.feature-img{position:relative;min-height:340px}
+.feature-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feature-body{padding:36px;display:flex;flex-direction:column;gap:16px}
+.tag{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.04em}
+.tag.gold{background:var(--gold);color:#16200F}
+.tag.soft{background:var(--green-wash);color:var(--green-ink)}
+.feature h3{font-size:clamp(28px,3.2vw,40px);font-weight:800}
+.feature p{color:var(--on-brand-2)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fact{background:rgba(0,0,0,.2);border-radius:12px;padding:10px 12px}
+.fact small{display:block;font-size:11px;color:var(--on-brand-2);letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.fact b{font-size:14.5px}
+.countdown{display:flex;gap:8px}
+.cd{flex:1;text-align:center;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 4px}
+.cd b{display:block;font:800 28px/1 "Bricolage Grotesque",sans-serif;color:var(--gold);font-variant-numeric:tabular-nums}
+.cd span{font-size:11px;color:var(--on-brand-2);letter-spacing:.08em;text-transform:uppercase}
+.feature .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+@media (max-width:900px){.feature{grid-template-columns:1fr}.feature-img{min-height:240px}.feature-body{padding:24px}}
+@media (max-width:420px){.facts{grid-template-columns:1fr}}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 18px}
+.filter{font:inherit;font-size:14px;font-weight:600;padding:8px 15px;border-radius:999px;border:1px solid var(--line-strong);background:transparent;color:var(--ink-2);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.filter[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.event{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px;transition:transform .25s,border-color .25s}
+.event:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+.event[hidden]{display:none}
+.event-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.event time{font-size:13px;font-weight:700;color:var(--ink-3)}
+.event h4{font-size:20px;font-weight:700}
+.event p{font-size:14.5px;color:var(--ink-2)}
+.event .src{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-3)}
+.event .src a{font-weight:700;color:var(--green-ink);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.event .src a:hover{text-decoration:underline}
+.event .src svg{width:14px;height:14px}
+@media (max-width:980px){.events{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.events{grid-template-columns:1fr}}
+
+/* nasional */
+#nasional{background:var(--brand);color:var(--on-brand)}
+#nasional .eyebrow{color:var(--gold)}
+#nasional .sec-head p{color:var(--on-brand-2)}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-bottom:48px;border:1px solid rgba(255,255,255,.12);border-radius:20px;overflow:hidden}
+.rung{padding:22px;border-right:1px solid rgba(255,255,255,.12);position:relative}
+.rung:last-child{border-right:0}
+.rung small{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-brand-2);font-weight:600}
+.rung b{display:block;font:700 19px/1.2 "Bricolage Grotesque",sans-serif;margin:6px 0 4px}
+.rung span{font-size:13.5px;color:var(--on-brand-2)}
+.rung.here{background:var(--gold);color:#16200F}
+.rung.here small,.rung.here span{color:#3D4A1C}
+@media (max-width:820px){.ladder{grid-template-columns:1fr 1fr}.rung:nth-child(2){border-right:0}.rung:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}}
+@media (max-width:460px){.ladder{grid-template-columns:1fr}.rung{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}.rung:last-child{border-bottom:0}}
+.agenda{display:grid;gap:12px}
+.ag{display:grid;grid-template-columns:150px 1fr auto;gap:28px;padding:26px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);align-items:start}
+.ag-date b{display:block;font:800 30px/1 "Bricolage Grotesque",sans-serif;color:var(--gold)}
+.ag-date span{font-size:13px;color:var(--on-brand-2)}
+.ag h3{font-size:22px;margin-bottom:8px}
+.ag p{color:var(--on-brand-2);font-size:15px;max-width:68ch}
+.ag ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.ag li{font-size:12.5px;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:var(--on-brand)}
+.ag .srcs{display:flex;flex-direction:column;gap:6px;font-size:13px;text-align:right}
+.ag .srcs a{color:var(--on-brand-2);text-decoration:none;white-space:nowrap}
+.ag .srcs a:hover{color:var(--gold)}
+@media (max-width:820px){.ag{grid-template-columns:1fr;gap:14px;padding:22px}.ag .srcs{text-align:left;flex-direction:row;flex-wrap:wrap;gap:14px}}
+
+/* profil ksb */
+.ksb{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:14px;align-items:start}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.person-head{padding:26px 26px 22px;display:flex;gap:16px;align-items:center;border-bottom:1px solid var(--line)}
+.person .avatar{width:64px;height:64px;font-size:22px}
+.person-head small{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink)}
+.person-head h3{font-size:23px;font-weight:700;margin-top:4px}
+.person-head .cred{font-size:13px;color:var(--ink-3);margin-top:3px}
+
+.person.lead .person-head{background:var(--brand);color:var(--on-brand);border-color:transparent}
+.person.lead .person-head small{color:var(--gold)}
+.person.lead .person-head .cred{color:var(--on-brand-2)}
+.person-body{padding:20px 26px 24px;display:grid;gap:18px}
+.facts-list{display:grid;gap:0;margin:0}
+.facts-list div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-top:1px dashed var(--line);font-size:14px}
+.facts-list div:first-child{border-top:0;padding-top:0}
+.facts-list dt{color:var(--ink-3);font-weight:600}
+.facts-list dd{margin:0;font-weight:600}
+.person h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-family:"Plus Jakarta Sans",sans-serif;font-weight:700;margin-bottom:8px}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14.5px;color:var(--ink-2)}
+.ticks li{position:relative;padding-left:20px}
+.ticks li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--gold);transform:rotate(45deg)}
+.person blockquote{margin:0;border-left:3px solid var(--gold);padding:2px 0 2px 14px;font:600 16px/1.45 "Bricolage Grotesque",sans-serif}
+.person blockquote cite{display:block;font:500 12.5px "Plus Jakarta Sans",sans-serif;color:var(--ink-3);margin-top:6px;font-style:normal}
+.person-foot{margin-top:auto;padding:14px 26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;background:var(--surface-2)}
+.person-foot a{color:var(--ink-3);text-decoration:none}
+.person-foot a:hover{color:var(--green-ink)}
+.person-foot a.ig{color:var(--green-ink);font-weight:700;margin-right:auto}
+@media (max-width:1020px){.ksb{grid-template-columns:1fr 1fr}.person.lead{grid-row:auto;grid-column:1/-1}}
+@media (max-width:680px){.ksb{grid-template-columns:1fr}.facts-list div{grid-template-columns:1fr;gap:1px}}
+
+.more-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:26px}
+.more-wrap[hidden]{display:none}
+.btn-line{border:1px solid var(--line-strong);color:var(--ink);background:var(--surface);cursor:pointer;font-family:inherit}
+.btn-line:hover{border-color:var(--ink-3)}
+.more-count{font-size:13px;color:var(--ink-3)}
+.event .src{flex-wrap:wrap;gap:6px 12px}
+.event .src .links{display:flex;gap:12px;flex-wrap:wrap}
+.price{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--on-brand-2)}
+.price b{color:var(--on-brand)}
+
+/* dokumen */
+.doc{display:grid;grid-template-columns:1fr 1.15fr;gap:20px}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.paper h3{font-size:22px;margin-bottom:4px}
+.meta{display:grid;gap:0;margin-top:18px}
+.meta div{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:11px 0;border-top:1px solid var(--line);font-size:14.5px}
+.meta dt{color:var(--ink-3);font-weight:600}
+.meta dd{margin:0;font-weight:600}
+.clauses{display:grid;gap:10px;margin-top:6px}
+.clause{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.clause summary{cursor:pointer;list-style:none;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:700;gap:12px}
+.clause summary::-webkit-details-marker{display:none}
+.clause[open] summary{background:var(--surface-2);border-bottom:1px solid var(--line)}
+.clause ol{margin:0;padding:16px 18px 16px 38px;display:grid;gap:10px;font-size:14.5px;color:var(--ink-2)}
+.pledge{margin-top:20px;background:var(--brand);color:var(--on-brand);border-radius:var(--radius);padding:28px}
+.pledge h3{font-size:20px;margin-bottom:14px}
+.pledge ol{margin:0;padding-left:22px;display:grid;gap:10px;color:var(--on-brand-2);font-size:15px}
+.pledge ol li::marker{color:var(--gold);font-weight:800}
+.quote{margin-top:20px;border-left:3px solid var(--gold);padding:4px 0 4px 18px;font:600 17px/1.5 "Bricolage Grotesque",sans-serif;color:var(--ink)}
+.quote cite{display:block;font:500 13px "Plus Jakarta Sans",sans-serif;color:var(--ink-3);margin-top:8px;font-style:normal}
+@media (max-width:900px){.doc{grid-template-columns:1fr}.meta div{grid-template-columns:1fr;gap:2px}}
+
+/* footer */
+footer{background:var(--bg-2);border-top:1px solid var(--line);padding:56px 0 36px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot h4{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;font-family:"Plus Jakarta Sans",sans-serif;font-weight:700}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14.5px}
+.foot a{text-decoration:none;color:var(--ink-2)}
+.foot a:hover{color:var(--green-ink)}
+.foot .tagline{font:800 26px/1.15 "Bricolage Grotesque",sans-serif;margin:16px 0 10px;letter-spacing:-.02em}
+.foot .small{font-size:13.5px;color:var(--ink-3);max-width:42ch}
+.copy{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:820px){.foot{grid-template-columns:1fr}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-  <main class="kotak">
-    <img class="logo" src="assets/img/v2/logo.webp" alt="HIPMI RUN Karanganyar" width="132" height="132">
 
-    <span class="label">Pemberitahuan</span>
-    <h1>Situs sementara kami tutup.</h1>
+<nav class="nav" aria-label="Navigasi utama">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="assets/logo-mark.png" alt="" width="26" height="41">
+      <span><b>HIPMI Karanganyar</b><small>BPC · Masa Bakti 2025–2028</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#tentang">Tentang</a>
+      <a href="#ksb">Profil KSB</a>
+      <a href="#pengurus">Pengurus</a>
+      <a href="#kegiatan">Kegiatan</a>
+      <a href="#nasional">Agenda Nasional</a>
+      <a href="#dokumen">Dokumen SK</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema terang/gelap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#tentang">Tentang</a>
+    <a href="#ksb">Profil KSB</a>
+    <a href="#pengurus">Pengurus</a>
+    <a href="#kegiatan">Kegiatan</a>
+    <a href="#nasional">Agenda Nasional</a>
+    <a href="#dokumen">Dokumen SK</a>
+  </div>
+</nav>
 
-    <p>Pendaftaran untuk sementara dialihkan.</p>
-    <p>Situs akan <b>segera hadir kembali</b> untuk crosscheck data
-       pendaftaran. Jadwalnya kami informasikan lewat media sosial dan
-       email peserta.</p>
-    <p>Data pendaftaran yang sudah masuk <b>tetap tersimpan</b>.</p>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">BPC HIPMI Kabupaten Karanganyar</span>
+      <h1>Sesarengan <em>Mbangun</em> Karanganyar.</h1>
+      <p class="lede">Badan Pengurus Cabang Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar. Kami menghimpun wirausahawan muda untuk menguatkan UMKM, mengoptimalkan potensi lokal, dan membangun ekosistem usaha yang kolaboratif dan berdaya saing.</p>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#pengurus">Lihat susunan pengurus
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener">@hipmi.karanganyar</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>12</b><span>Bidang kerja</span></div>
+        <div><b>30</b><span>Kompartemen</span></div>
+        <div><b>69</b><span>Fungsionaris BPC</span></div>
+        <div><b>2025–28</b><span>Masa bakti</span></div>
+      </div>
+    </div>
+    <aside class="emblem-card" aria-label="Pengurus inti">
+      <img class="emblem" src="assets/logo-mark.png" alt="Lambang HIPMI" width="132" height="210">
+      <div class="trio">
+        <div class="trio-item"><span class="avatar">HM</span><div><small>Ketua Umum</small><strong>Hervan Miftah Hafidin</strong></div><a href="https://www.instagram.com/hervanmiftah/" target="_blank" rel="noopener" aria-label="Instagram Hervan Miftah Hafidin">IG ↗</a></div>
+        <div class="trio-item"><span class="avatar">IN</span><div><small>Sekretaris Umum</small><strong>Irwan Nur Hakim</strong></div><a href="https://www.instagram.com/irwannhakim_/" target="_blank" rel="noopener" aria-label="Instagram Irwan Nur Hakim">IG ↗</a></div>
+        <div class="trio-item"><span class="avatar">DR</span><div><small>Bendahara Umum</small><strong>Dynar Ramdhan Wijaya</strong></div><a href="https://www.instagram.com/dynarwijayaa/" target="_blank" rel="noopener" aria-label="Instagram Dynar Ramdhan Wijaya">IG ↗</a></div>
+      </div>
+      <p class="sk-badge">Disahkan SK BPD HIPMI Jawa Tengah <span class="mono">049/Kep/Sek/BPD-JTG/IV/2025</span></p>
+    </aside>
+  </div>
+</header>
 
-    <div class="garis"></div>
+<main>
+<section id="tentang">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Tentang kami</span><h2>Satu visi, satu gerak, satu Karanganyar.</h2></div>
+      <p>Kepengurusan 2025–2028 lahir dari Musyawarah Cabang ke-II dan dilantik oleh Ketua Umum BPD HIPMI Jawa Tengah, disaksikan Bupati Karanganyar.</p>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="manifesto">Kami hadir untuk mendorong <mark>ekosistem wirausaha muda</mark> yang inovatif, kolaboratif, dan berdaya saing, dari Karanganyar untuk Soloraya.</p>
+        <div class="about-copy">
+          <p>HIPMI adalah wadah pengusaha muda Indonesia yang berdiri sejak 10 Juni 1972. Di Kabupaten Karanganyar, Badan Pengurus Cabang menjadi rumah bagi pelaku usaha muda lintas sektor, dari pertanian dan pariwisata sampai industri kreatif dan properti.</p>
+          <p>Lewat optimasi potensi lokal, penguatan UMKM, dan semangat gotong royong, kami membangun Karanganyar yang lebih maju, sejalan dengan program pemerintah daerah dan arah organisasi HIPMI di tingkat provinsi dan nasional.</p>
+        </div>
+        <div class="pillars">
+          <div class="pillar"><b>Kaderisasi</b><span>Diklat berjenjang dan HIPMI Perguruan Tinggi &amp; Pesantren.</span></div>
+          <div class="pillar"><b>Kolaborasi</b><span>Sinergi dengan Pemkab, BUMN/BUMD, dan BPC se-Soloraya.</span></div>
+          <div class="pillar"><b>UMKM naik kelas</b><span>Pendampingan usaha, akses pasar, dan jejaring investasi.</span></div>
+        </div>
+      </div>
+      <div class="timeline reveal" aria-label="Perjalanan kepengurusan">
+        <div class="tl"><time>15 Februari 2025</time><h4>Musyawarah Cabang ke-II</h4><p>Muscab di Harjo Space, Karanganyar, dihadiri 45 anggota. Hervan Miftah Hafidin terpilih secara aklamasi sebagai calon tunggal Ketua Umum.</p></div>
+        <div class="tl"><time>30 April 2025</time><h4>SK pengesahan &amp; pelantikan</h4><p>BPD HIPMI Jawa Tengah menerbitkan SK No. 049 sekaligus melantik 70 pengurus dan pembina di Gedung Teater Bhineka Tunggal Ika, disaksikan Bupati H. Rober Christanto.</p></div>
+        <div class="tl"><time>26 Juli 2025</time><h4>Diklatcab HIPMI Solo Raya</h4><p>Pendidikan dan pelatihan cabang bersama BPC HIPMI Surakarta dan Sukoharjo. Muda, bersatu, bertumbuh.</p></div>
+        <div class="tl"><time>29 Oktober 2025</time><h4>Pelantikan HIPMI PT UMUKA</h4><p>Kader kampus Universitas Muhammadiyah Karanganyar dilantik di Rumah Dinas Bupati dengan tema <em>Lead the Change, Build the Future</em>.</p></div>
+        <div class="tl"><time>3 April 2026</time><h4>Santunan 100 anak yatim</h4><p>Bersama HIPMI PT UMUKA dan Pemkab, sekaligus menandai mentoring bisnis bulanan dengan Kadin.</p></div>
+        <div class="tl upcoming"><time>13 Desember 2026</time><h4>HIPMI Run Karanganyar 2026</h4><p>Lomba lari 5K dan 10K dengan timing chip di Alun-alun Kabupaten Karanganyar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <p class="kontak">Pertanyaan seputar pendaftaran:<br>
-      <a href="mailto:hipmirun@hipmikaranganyar.com">hipmirun@hipmikaranganyar.com</a>
-    </p>
+<section id="ksb">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Profil KSB</span><h2>Ketua, Sekretaris, dan Bendahara Umum.</h2></div>
+      <p>Tiga pengusaha muda Karanganyar yang memegang kemudi BPC HIPMI Karanganyar masa bakti 2025–2028. Disusun dari SK pengurus dan pemberitaan media.</p>
+    </div>
+    <div class="ksb">
+      <article class="person lead reveal">
+        <div class="person-head"><span class="avatar">HM</span><div><small>Ketua Umum</small><h3>Hervan Miftah Hafidin</h3><p class="cred">S.IP., M.A.</p></div></div>
+        <div class="person-body">
+          <dl class="facts-list">
+            <div><dt>Lahir</dt><dd>Karanganyar, 29 Oktober 1989</dd></div>
+            <div><dt>Pendidikan</dt><dd>S1 Hubungan Internasional UMY · S2 Hubungan Internasional UGM</dd></div>
+            <div><dt>Usaha</dt><dd>Mekar Surya Group: lembaga keuangan Mekar Surya, Hercules Fitness, dan Mr. DIY Karanganyar</dd></div>
+            <div><dt>Terpilih</dt><dd>Aklamasi sebagai calon tunggal, Muscab II, 15 Februari 2025</dd></div>
+          </dl>
+          <blockquote>“Membentuk HIPMI yang inovatif dan kolaboratif.”<cite>Visi saat maju sebagai calon ketua, Februari 2025</cite></blockquote>
+          <div>
+            <h4>Program yang diusung</h4>
+            <ul class="ticks">
+              <li><b>E-Catalog HIPMI</b>: data usaha anggota dan UMKM beserta produknya, untuk memperluas pemasaran dan memudahkan kolaborasi.</li>
+              <li>Kaderisasi calon pemimpin lewat Rakercab dan Diklat.</li>
+              <li>Membuka kesempatan kerja bagi masyarakat Karanganyar bersama usaha anggota.</li>
+              <li>Sinergi dengan Pemkab dan swasta, termasuk akses permodalan UMKM.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Kiprah</h4>
+            <ul class="ticks">
+              <li>Mendorong HIPMI Run Karanganyar 2026 menjadi agenda <em>sport tourism</em> tahunan.</li>
+              <li>Narasumber Youngpreneur Talk HIPMI PT UMUKA, 9 Juli 2026.</li>
+              <li>Hadir di Road to Musda HIPMI PT Jawa Tengah se-Solo Raya, Juli 2025.</li>
+              <li>Menyuarakan pandangan dunia usaha daerah soal stabilitas BBM dan peluang ekspor, April 2026.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="person-foot">
+          <a class="ig" href="https://www.instagram.com/hervanmiftah/" target="_blank" rel="noopener">@hervanmiftah ↗</a>
+          <a href="https://lokawarta.com/maju-sebagai-ketua-hipmi-karanganyar-herfan-miftah-saya-ingin-memajukan-karanganyar-lewat-dunia-usaha/" target="_blank" rel="noopener">Lokawarta</a>
+          <a href="https://solopos.espos.id/hervan-miftah-hafidin-terpilih-secara-aklamasi-jadi-ketua-hipmi-karanganyar-2060583" target="_blank" rel="noopener">Solopos</a>
+          <a href="https://jatengpos.co.id/jateng/2025/05/06/hipmi-karanganyar-buka-kesempatan-kerja-luas-bagi-masyarakat-karanganyar/" target="_blank" rel="noopener">Jatengpos</a>
+        </div>
+      </article>
 
-    <p class="jejak">Karanganyar &middot; 13 Desember 2026</p>
-  </main>
+      <article class="person reveal">
+        <div class="person-head"><span class="avatar">IN</span><div><small>Sekretaris Umum</small><h3>Irwan Nur Hakim</h3><p class="cred">Dolphin Group</p></div></div>
+        <div class="person-body">
+          <dl class="facts-list">
+            <div><dt>Usaha</dt><dd>Pengusaha dari Dolphin Group</dd></div>
+            <div><dt>Jabatan</dt><dd>Sekretaris Umum BPC 2025–2028</dd></div>
+          </dl>
+          <div>
+            <h4>Jejak</h4>
+            <ul class="ticks">
+              <li>Masuk bursa tujuh bakal calon Ketua HIPMI Karanganyar pada Desember 2024.</li>
+              <li>Duduk di jajaran inti bersama Ketua dan Bendahara Umum sejak pelantikan 30 April 2025.</li>
+              <li>Membawahi 12 wakil sekretaris bidang dalam tata kelola organisasi.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="person-foot">
+          <a class="ig" href="https://www.instagram.com/irwannhakim_/" target="_blank" rel="noopener">@irwannhakim_ ↗</a>
+          <a href="https://solopos.espos.id/putra-rober-christanto-masuk-bursa-balon-ketua-hipmi-karanganyar-2039401" target="_blank" rel="noopener">Solopos</a>
+        </div>
+      </article>
+
+      <article class="person reveal">
+        <div class="person-head"><span class="avatar">DR</span><div><small>Bendahara Umum</small><h3>Dynar Ramdhan Wijaya</h3><p class="cred">Putra Rahayu Group</p></div></div>
+        <div class="person-body">
+          <dl class="facts-list">
+            <div><dt>Usaha</dt><dd>Owner Putra Rahayu Group</dd></div>
+            <div><dt>Jabatan</dt><dd>Bendahara Umum BPC 2025–2028 · Ketua Panitia HIPMI Run 2026</dd></div>
+          </dl>
+          <blockquote>“Olahraga lari adalah media paling sederhana namun ampuh untuk membangun jejaring sosial dan ekonomi.”<cite>Peluncuran jersey HIPMI Run, 11 Oktober 2026</cite></blockquote>
+          <div>
+            <h4>Jejak</h4>
+            <ul class="ticks">
+              <li>Masuk bursa bakal calon Ketua HIPMI Karanganyar pada Desember 2024.</li>
+              <li>Memimpin panitia HIPMI Run 2026, yang panggung, venue, dan jersey resminya dibuat pengusaha anggota HIPMI Karanganyar.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="person-foot">
+          <a class="ig" href="https://www.instagram.com/dynarwijayaa/" target="_blank" rel="noopener">@dynarwijayaa ↗</a>
+          <a href="https://jatengpos.co.id/solo-raya/2026/10/13/hipmi-run-2026-targetkan-1-500-pelari-di-karanganyar/" target="_blank" rel="noopener">Jatengpos</a>
+          <a href="https://mercusuar.co/kuatkan-kaki-dan-ekonomi-bpc-hipmi-karanganyar-gelar-event-city-run-5k-dan-10k-ini-tanggalnya" target="_blank" rel="noopener">Mercusuar</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="pengurus">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Susunan fungsionaris</span><h2>Pengurus BPC masa bakti 2025–2028.</h2></div>
+      <p>Disusun sesuai lampiran SK BPD HIPMI Jawa Tengah. Setiap bidang dipimpin seorang ketua bidang, didampingi wakil sekretaris, wakil bendahara, dan kompartemen.</p>
+    </div>
+
+    <div class="bid-tools">
+      <h3>12 bidang kerja</h3>
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Cari nama pengurus atau bidang" aria-label="Cari nama pengurus atau bidang" autocomplete="off">
+      </label>
+    </div>
+    <p class="search-note" id="searchNote" aria-live="polite"></p>
+    <div class="bidang-grid" id="bidangGrid"></div>
+
+    <div class="councils">
+      <div class="council reveal">
+        <h3>Dewan Pembina</h3>
+        <p>Senior HIPMI Karanganyar yang memberi arahan dan pembinaan organisasi.</p>
+        <div class="chips" id="pembina"></div>
+      </div>
+      <div class="council reveal">
+        <h3>Dewan Penasehat</h3>
+        <p>Unsur pimpinan daerah Kabupaten Karanganyar.</p>
+        <div class="chips">
+          <span class="chip">Bupati Karanganyar</span>
+          <span class="chip">Wakil Bupati Karanganyar</span>
+          <span class="chip">Ketua DPRD Kabupaten Karanganyar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kegiatan">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Kegiatan</span><h2>Dari pelantikan sampai garis start.</h2></div>
+      <p>17 kegiatan sejak Muscab Februari 2025, dirangkum dari Instagram @hipmi.karanganyar, @hipmirunkaranganyar, @hipmiptumuka, dan pemberitaan media lokal.</p>
+    </div>
+
+    <article class="feature reveal">
+      <div class="feature-img"><img src="assets/hipmi-run.webp" alt="Ilustrasi pelari HIPMI Run Karanganyar melewati gapura finis" loading="lazy"></div>
+      <div class="feature-body">
+        <span class="tag gold">Segera · Program unggulan</span>
+        <h3>HIPMI Run Karanganyar 2026</h3>
+        <p>Move together, rise together. Lomba lari pertama HIPMI Karanganyar dengan semangat <em>Kuatkan Kaki, Kuatkan Ekonomi</em>, diselenggarakan bersama Karanganyar Running Hub. Rute <em>city run</em> melintasi Masjid Agung, Alun-alun, dan Taman Pancasila, dilengkapi bazar UMKM dan <em>business gathering</em>.</p>
+        <div class="facts">
+          <div class="fact"><small>Tanggal</small><b>13 Des 2026</b></div>
+          <div class="fact"><small>Kategori</small><b>5K · 10K</b></div>
+          <div class="fact"><small>Target</small><b>1.500 pelari</b></div>
+        </div>
+        <p class="price"><span>Early bird <b>10K Rp 225.000</b></span><span><b>5K Rp 175.000</b></span><span>sampai 13 Nov 2026 atau kuota habis, belum termasuk biaya layanan Rp 7.500</span></p>
+        <p class="price"><span>Pendaftaran online sedang ditutup sementara untuk crosscheck data. Data yang sudah masuk tetap tersimpan; kabar terbaru di @hipmirunkaranganyar.</span></p>
+        <div class="countdown" id="countdown" aria-label="Hitung mundur menuju HIPMI Run">
+          <div class="cd"><b data-u="d">--</b><span>Hari</span></div>
+          <div class="cd"><b data-u="h">--</b><span>Jam</span></div>
+          <div class="cd"><b data-u="m">--</b><span>Menit</span></div>
+          <div class="cd"><b data-u="s">--</b><span>Detik</span></div>
+        </div>
+        <div class="links">
+          <a class="btn btn-gold" href="run/">Info pendaftaran HIPMI Run</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a>
+          
+        </div>
+      </div>
+    </article>
+
+    <div class="filters" role="group" aria-label="Saring kegiatan">
+      <button class="filter" type="button" data-f="semua" aria-pressed="true">Semua</button>
+      <button class="filter" type="button" data-f="organisasi" aria-pressed="false">Organisasi</button>
+      <button class="filter" type="button" data-f="kaderisasi" aria-pressed="false">Kaderisasi</button>
+      <button class="filter" type="button" data-f="komunitas" aria-pressed="false">Komunitas &amp; olahraga</button>
+      <button class="filter" type="button" data-f="kolaborasi" aria-pressed="false">Kolaborasi &amp; sosial</button>
+      <button class="filter" type="button" data-f="pt" aria-pressed="false">HIPMI Perguruan Tinggi</button>
+    </div>
+    <div class="events" id="events"></div>
+    <div class="more-wrap" id="moreWrap">
+      <button class="btn btn-line" type="button" id="moreBtn">Muat lebih banyak</button>
+      <span class="more-count" id="moreCount" aria-live="polite"></span>
+    </div>
+  </div>
+</section>
+
+<section id="nasional">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Agenda nasional &amp; Jawa Tengah</span><h2>Bagian dari gerak HIPMI se-Indonesia.</h2></div>
+      <p>BPC Karanganyar berada dalam struktur berjenjang HIPMI. Arah organisasi di cabang mengikuti keputusan forum nasional seperti Munas dan Rakernas.</p>
+    </div>
+
+    <div class="ladder reveal" aria-label="Struktur berjenjang HIPMI">
+      <div class="rung"><small>Pusat</small><b>BPP HIPMI</b><span>Ketua Umum 2026–2029: Ade Jona Prasetyo</span></div>
+      <div class="rung"><small>Provinsi</small><b>BPD HIPMI Jawa Tengah</b><span>Ketua Umum 2025–2028: Teddy Agung Tirtayadi</span></div>
+      <div class="rung here"><small>Kabupaten</small><b>BPC HIPMI Karanganyar</b><span>Ketua Umum: Hervan Miftah Hafidin</span></div>
+      <div class="rung"><small>Kampus &amp; pesantren</small><b>HIPMI PT</b><span>Contoh: HIPMI PT UMUKA</span></div>
+    </div>
+
+    <div class="agenda">
+      <article class="ag reveal">
+        <div class="ag-date"><b>10–11 Jun</b><span>2026 · Bandar Lampung</span></div>
+        <div>
+          <h3>Musyawarah Nasional XVIII HIPMI</h3>
+          <p>Forum tertinggi HIPMI bertema <em>Sinergi Pengusaha Muda Membangun Kekuatan Ekonomi Nasional</em>. Pembukaan dihadiri Presiden Prabowo Subianto, bertepatan dengan hari lahir HIPMI 10 Juni.</p>
+          <ul><li>HIPMI Business Forum</li><li>Business matching</li><li>Sidang pleno &amp; arah kebijakan</li><li>Konsolidasi BPP–BPD</li></ul>
+        </div>
+        <div class="srcs"><a href="https://towa.co.id/postingan/hipmi-gelar-munas-juni-2026-usung-tema-sinergi-pengusaha-muda-untuk-perkuat-ekonomi-nasional" target="_blank" rel="noopener">towa.co.id ↗</a><a href="https://lampung.tribunnews.com/lampung/1211376/munas-xviii-hipmi-di-lampung-dibuka-prabowo-ditutup-mirza" target="_blank" rel="noopener">Tribun Lampung ↗</a></div>
+      </article>
+      <article class="ag reveal">
+        <div class="ag-date"><b>11 Jun</b><span>2026 · Sidang pleno Munas</span></div>
+        <div>
+          <h3>Ade Jona Prasetyo, Ketua Umum BPP HIPMI 2026–2029</h3>
+          <p>Terpilih secara aklamasi dengan dukungan mayoritas BPD. Sebelumnya menjabat Ketua Umum BPD HIPMI Sumatera Utara 2021–2024 dan Wakil Bendahara Umum BPP HIPMI. Ia melanjutkan kepemimpinan Akbar Himawan Buchari.</p>
+          <ul><li>Konsolidasi pengurus pusat</li><li>Dukungan program prioritas pemerintah</li></ul>
+        </div>
+        <div class="srcs"><a href="https://mediaindonesia.com/politik-dan-hukum/899404/ade-jona-prasetyo-terpilih-aklamasi-jadi-ketua-umum-bpp-hipmi-2026-2029" target="_blank" rel="noopener">Media Indonesia ↗</a><a href="https://lampung.tribunnews.com/lampung/1211348/profil-ade-jona-prasetyo-yang-terpilih-menjadi-ketua-umum-bpp-hipmi-2026-2029" target="_blank" rel="noopener">Tribun Lampung ↗</a></div>
+      </article>
+      <article class="ag reveal">
+        <div class="ag-date"><b>11 Jun</b><span>2025 · Musda XVI Jawa Tengah</span></div>
+        <div>
+          <h3>Teddy Agung Tirtayadi pimpin BPD HIPMI Jawa Tengah</h3>
+          <p>Musda XVI HIPMI Jawa Tengah menetapkan Teddy Agung Tirtayadi, sebelumnya Bendahara Umum BPD 2022–2025, sebagai Ketua Umum masa bakti 2025–2028. Pengurus dilantik 18 Juni 2025 di Gedung Gradika Bhakti Praja, Semarang. Ia kemudian hadir membuka Diklatcab HIPMI Solo Raya di Karanganyar.</p>
+          <ul><li>Penerus W. Rudy Prasetiyo</li><li>SK BPC Karanganyar diterbitkan kepengurusan sebelumnya</li></ul>
+        </div>
+        <div class="srcs"><a href="https://jateng.suara.com/read/2025/06/24/102534/bri-siap-suport-hipmi-jateng-dengan-ragam-layanan-perbankan-untuk-dukung-pengusaha-muda" target="_blank" rel="noopener">Suara Jateng ↗</a><a href="https://jateng.nu.or.id/warta/usai-dilantik-hipmi-jateng-nyatakan-siap-bersinergi-dukung-pembangunan-ekonomi-jawa-tengah-tY8nU" target="_blank" rel="noopener">NU Jateng ↗</a></div>
+      </article>
+      <article class="ag reveal">
+        <div class="ag-date"><b>13 Jul</b><span>2025 · Solo Raya</span></div>
+        <div>
+          <h3>Road to Musda HIPMI PT Jawa Tengah</h3>
+          <p>Forum Karesidenan Solo Raya bertema <em>Muda Berkarya, Solo Raya Berdaya</em>, mempertemukan BPD HIPMI Jateng, Ketua Umum BPC se-Solo Raya termasuk Karanganyar, dan HIPMI PT se-Jawa Tengah untuk mendorong lahirnya HIPMI PT di kampus-kampus.</p>
+          <ul><li>Kolaborasi Penta Helix</li><li>Pembentukan HIPMI PT</li></ul>
+        </div>
+        <div class="srcs"><a href="https://joglosemarnews.com/2025/07/sinergi-bpc-hipmi-se-solo-raya-bangun-ekosistem-wirausaha" target="_blank" rel="noopener">Joglosemar ↗</a><a href="https://jateng.antaranews.com/berita/590577/hipmi-kolaborasi-bangun-ekosistem-wirausaha-di-solo-raya" target="_blank" rel="noopener">ANTARA Jateng ↗</a></div>
+      </article>
+      <article class="ag reveal">
+        <div class="ag-date"><b>30–31 Agu</b><span>2023 · ICE BSD, Tangerang</span></div>
+        <div>
+          <h3>Rapat Kerja Nasional XVIII HIPMI</h3>
+          <p>Bertema <em>Kolaborasi Pengusaha Muda Mendorong Keberlanjutan Pembangunan Indonesia</em> dan dibuka Presiden Joko Widodo. Hasil keputusan Rakernas ini menjadi salah satu dasar hukum SK pengesahan pengurus BPC Karanganyar.</p>
+          <ul><li>Dasar SK No. 049/2025</li><li>Pembangunan berkelanjutan</li></ul>
+        </div>
+        <div class="srcs"><a href="https://presidenri.go.id/siaran-pers/presiden-jokowi-resmikan-pembukaan-rakernas-xviii-hipmi/" target="_blank" rel="noopener">presidenri.go.id ↗</a><a href="https://www.kemenpora.go.id/detail/4145/presiden-joko-widodo-buka-rakernas-hipmi-ke-xviii" target="_blank" rel="noopener">Kemenpora ↗</a></div>
+      </article>
+      <article class="ag reveal">
+        <div class="ag-date"><b>10 Jun</b><span>Setiap tahun · sejak 1972</span></div>
+        <div>
+          <h3>Hari lahir HIPMI</h3>
+          <p>HIPMI didirikan di Jakarta pada 10 Juni 1972. Momentum ini diperingati seluruh jenjang organisasi, dari BPP hingga BPC, sebagai pengingat misi mencetak pengusaha muda pejuang.</p>
+          <ul><li>Diklat berjenjang: Diklatcab, Diklatda, Diklatnas</li><li>Pengusaha pejuang, pejuang pengusaha</li></ul>
+        </div>
+        <div class="srcs"><a href="https://en.wikipedia.org/wiki/Indonesian_Young_Entrepreneur_Association" target="_blank" rel="noopener">Wikipedia ↗</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="dokumen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Dokumen</span><h2>Surat Keputusan pengesahan.</h2></div>
+      <p>Ringkasan SK BPD HIPMI Jawa Tengah tentang pengesahan susunan fungsionaris BPC, Dewan Pembina, dan Dewan Kehormatan HIPMI Kabupaten Karanganyar.</p>
+    </div>
+    <div class="doc">
+      <div class="reveal">
+        <div class="paper">
+          <h3>SK BPD HIPMI Jawa Tengah</h3>
+          <p style="color:var(--ink-3);font-size:14.5px">Pengesahan Susunan Fungsionaris BPC HIPMI Kabupaten Karanganyar Masa Bakti 2025–2028</p>
+          <dl class="meta">
+            <div><dt>Nomor</dt><dd class="mono">049/Kep/Sek/BPD-JTG/IV/2025</dd></div>
+            <div><dt>Ditetapkan di</dt><dd>Karanganyar</dd></div>
+            <div><dt>Tanggal</dt><dd>30 April 2025</dd></div>
+            <div><dt>Penandatangan</dt><dd>W. Rudy Prasetiyo (Ketua Umum) · Shoraya L. Octaviana (Sekretaris Umum)</dd></div>
+            <div><dt>Mencabut</dt><dd>SK BPD HIPMI No. 015/A/1.SEK/SKEP/HIPMIJATENG/VI/2021 tanggal 7 Juni 2021</dd></div>
+            <div><dt>Tembusan</dt><dd>BPP HIPMI, BPC HIPMI se-Jawa Tengah, Dewan Pembina BPD HIPMI Jawa Tengah, Bupati dan Forkopimda Kabupaten Karanganyar</dd></div>
+          </dl>
+        </div>
+        <div class="pledge">
+          <h3>Janji Pengurus</h3>
+          <ol>
+            <li>Taat dan setia kepada Negara Kesatuan Republik Indonesia.</li>
+            <li>Patuh dan memegang teguh Anggaran Dasar, Anggaran Rumah Tangga, serta tata laksana organisasi HIPMI.</li>
+            <li>Mengutamakan kepentingan organisasi di atas kepentingan pribadi.</li>
+            <li>Menjunjung tinggi kehormatan dan nama baik HIPMI.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="clauses">
+          <details class="clause" open>
+            <summary>Menimbang <span class="mono" style="color:var(--ink-3)">2 butir</span></summary>
+            <ol>
+              <li>Untuk menjaga amanah dan menjalankan roda organisasi, susunan fungsionaris BPC, Dewan Pembina, dan Dewan Kehormatan HIPMI Kabupaten Karanganyar 2025–2028 perlu disahkan dalam satu Surat Keputusan.</li>
+              <li>Keabsahan kepengurusan didasarkan pada hasil Musyawarah Cabang ke-II tanggal 15 Februari 2025 di Harjo Space, Kabupaten Karanganyar.</li>
+            </ol>
+          </details>
+          <details class="clause">
+            <summary>Mengingat <span class="mono" style="color:var(--ink-3)">3 butir</span></summary>
+            <ol>
+              <li>Anggaran Dasar HIPMI.</li>
+              <li>Anggaran Rumah Tangga HIPMI.</li>
+              <li>Hasil Keputusan Rakernas ke-XVIII tahun 2023.</li>
+            </ol>
+          </details>
+          <details class="clause">
+            <summary>Memperhatikan <span class="mono" style="color:var(--ink-3)">2 butir</span></summary>
+            <ol>
+              <li>Saran dan pendapat dalam Rapat Tim Formatur dan Badan Pengurus Lengkap BPC HIPMI Kabupaten Karanganyar.</li>
+              <li>Surat BPC HIPMI Kabupaten Karanganyar No. 01/FORMATEUR/HIPMI/BPC-KRA/IV/2025 tentang permohonan penerbitan SK pengurus.</li>
+            </ol>
+          </details>
+          <details class="clause">
+            <summary>Memutuskan <span class="mono" style="color:var(--ink-3)">3 diktum</span></summary>
+            <ol>
+              <li><b>Pertama.</b> Mengesahkan hasil Muscab ke-II dan susunan pengurus BPC HIPMI Kabupaten Karanganyar 2025–2028 sebagaimana terlampir.</li>
+              <li><b>Kedua.</b> SK BPD HIPMI No. 015/A/1.SEK/SKEP/HIPMIJATENG/VI/2021 dicabut dan tidak berlaku lagi.</li>
+              <li><b>Ketiga.</b> Keputusan berlaku sejak ditetapkan, dengan peninjauan kembali bila terdapat kekeliruan.</li>
+            </ol>
+          </details>
+          <details class="clause">
+            <summary>Berita acara pelantikan</summary>
+            <ol>
+              <li>Pelantikan dilaksanakan Rabu, 30 April 2025 oleh Ketua Umum BPD HIPMI Jawa Tengah.</li>
+              <li>Ditandatangani W. Rudy Prasetiyo (BPD) dan Hervan Miftah Hafidin (BPC), disaksikan Bupati Karanganyar H. Rober Christanto, S.E., M.M.</li>
+            </ol>
+          </details>
+        </div>
+        <blockquote class="quote">“Gelorakanlah senantiasa semangat kewirausahaan di kalangan generasi muda, dan kibarkanlah panji-panji pengusaha muda ini di seluruh pelosok Kabupaten Karanganyar.”<cite>Amanat penyerahan pataka HIPMI, 30 April 2025</cite></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top"><img src="assets/logo-mark.png" alt="" width="26" height="41"><span><b>HIPMI Karanganyar</b><small>Badan Pengurus Cabang</small></span></a>
+        <p class="tagline">Muda. Bersatu. Bertumbuh.</p>
+        <p class="small">Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar, Jawa Tengah. Masa bakti 2025–2028.</p>
+      </div>
+      <div>
+        <h4>Instagram</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/hipmi.karanganyar/" target="_blank" rel="noopener">@hipmi.karanganyar</a></li>
+          <li><a href="https://www.instagram.com/hipmirunkaranganyar/" target="_blank" rel="noopener">@hipmirunkaranganyar</a></li>
+          <li><a href="https://www.instagram.com/hipmiptumuka/" target="_blank" rel="noopener">@hipmiptumuka</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Halaman</h4>
+        <ul>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#ksb">Profil KSB</a></li>
+          <li><a href="#pengurus">Susunan pengurus</a></li>
+          <li><a href="#kegiatan">Kegiatan</a></li>
+          <li><a href="#nasional">Agenda nasional</a></li>
+          <li><a href="#dokumen">Dokumen SK</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 BPC HIPMI Kabupaten Karanganyar</span><span>#SesarenganMbangunKaranganyar · #KaranganyarBisaKitaBisa</span></div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // ---------- data dari lampiran SK ----------
+  const BIDANG = [
+    { no:'I', nama:'Organisasi, Keanggotaan & Kaderisasi', ketua:'Rahmad Efendy', wasek:'Yannuwar Faishal M.C', wabend:'Demas Erza Ramadhan',
+      komp:[['Organisasi','Sri Partini'],['Keanggotaan dan Kaderisasi','Wahyono'],['Pembinaan Ideologi Organisasi, Evaluasi Kinerja Organisasi & Etik','Topbi Mahendra Bintang Putra'],['Lembaga Kelengkapan Organisasi','Rudianta'],['Hubungan Kelembagaan, Kebijakan Publik, Hukum, Regulasi & Perundang-undangan','Retno Kumala'],['HIPMI Perguruan Tinggi & Pesantren','Dhuha Prabu']] },
+    { no:'II', nama:'Keuangan, Perbankan & Perencanaan Pembangunan', ketua:'Luqman Wibisana', wasek:'Anton Sugiarto', wabend:'Afif Arya Wibawa',
+      komp:[['Keuangan & Perbankan','Novan Palwa Pramesti'],['Ekonomi Makro & Pasar Modal','Ari Rahma']] },
+    { no:'III', nama:'ESDM, Lingkungan Hidup & Kehutanan', ketua:'Ari Mujiatmoko', wasek:'Ahmad Thoha Nur Ramadhan', wabend:'Heny Moerwati',
+      komp:[['Energi & Pertambangan','Rido Magatama Pangestu'],['Lingkungan Hidup & Kehutanan','Budi Prihono']] },
+    { no:'IV', nama:'Perindustrian & Perdagangan', ketua:'Hendra Kurniawan', wasek:'Raditya Kurniawan Pramono', wabend:'Muhammad Ilham A Hutama',
+      komp:[['Perindustrian','Siti Asri Muthmainah'],['Perdagangan','Sevrina Fitieningtyas']] },
+    { no:'V', nama:'Sinergitas BUMN & BUMD', ketua:'Agusvirna Henny Ekosaputri', wasek:'Mahendra Sanjaya', wabend:'Muhammad Harry Fernando',
+      komp:[['Sinergi BUMN & BUMD','Murti Cahyaningsih'],['Pembangunan Desa','Lestari']] },
+    { no:'VI', nama:'Maritim, Kelautan & Perikanan', ketua:'Hasan Baihaqi', wasek:'Dhodith Kristiana', wabend:'Muchtar Latif Al Faqih',
+      komp:[['Kemaritiman & Kelautan','Ety Maryati'],['Perikanan','Prihantari Charisma Dewi']] },
+    { no:'VII', nama:'Pertanian, Perkebunan & Peternakan', ketua:'Latifatin Ulinnu', wasek:'Yeni Maulana', wabend:'Novandi Nurcholis Isrom',
+      komp:[['Pertanian & Perkebunan','Fajrin Hanif Kuncoro'],['Peternakan',"Ma'ruf"]] },
+    { no:'VIII', nama:'Pariwisata, Ekonomi Kreatif & Infokom', ketua:'Anton Sudibyo', wasek:'An Nisaa Budiman', wabend:'Andi Wak Blangkon',
+      komp:[['Pariwisata','Bayu Prasetyo'],['Ekonomi Kreatif','Yuyun Arbiyanto Nugroho'],['Infokom & Infrastruktur Telekomunikasi','Diky Adha Rohmansyah']] },
+    { no:'IX', nama:'UMKM, Koperasi & Kewirausahaan', ketua:'Danang Prihantoro', wasek:'Ivan Dwi Paniar', wabend:'Deni Tirawati',
+      komp:[['Koperasi','Bangunia Diyah'],['UMKM & Kewirausahaan','Anis Sartini']] },
+    { no:'X', nama:'Infrastruktur, Tata Ruang, Properti & Perhubungan', ketua:'Ristiyo Ahmad Sejati', wasek:'Muflik Malikun', wabend:'Angga Deki Prasetiyo',
+      komp:[['Pembangunan Daerah','Clara Dilasantri'],['Infrastruktur & Perhubungan','Andre Winarno']] },
+    { no:'XI', nama:'Pendidikan, Riset, Inovasi, Ketenagakerjaan, Kesehatan, Pemuda & Olahraga', ketua:'Tancuti Keksi Endah N', wasek:'Yusuf Nur Sahid', wabend:'Muhammad Fatan Rosid',
+      komp:[['Pendidikan, Riset & Inovasi','Arie Nugroho'],['Ketenagakerjaan & Kesehatan','Anggoro Wahid Bayu Prishasno'],['Pemuda, Olahraga & E-sport','Saiful Haq']] },
+    { no:'XII', nama:'Investasi & Hubungan Internasional', ketua:'Gesang Triwigati', wasek:'Anggito Galih Nuragam', wabend:'Bambang Sriyanto',
+      komp:[['Investasi & Koordinasi Penanaman Modal','Gusaifah Pedrag'],['Hubungan Internasional','Siti Purwaningsih']] },
+  ];
+  const PEMBINA = ['Fermy Ferdianto, S.E., M.Si','Resdian Candra Purnomo, S.E.','Indah Prima, S.E.','Anwar Sanusi','Lusia Andry Endah Retnowati','Tri Nur Nugroho','Yuis Setiawan','Alif Danan'];
+
+  const IG = 'https://www.instagram.com';
+  // Urut terbaru dulu. links: [label, url]; label diawali @ untuk Instagram.
+  const EVENTS = [
+    { cat:'komunitas', tag:'HIPMI Run', date:'11 Okt 2026', title:'Press conference & peluncuran jersey HIPMI Run',
+      body:'Konsep, jersey, dan medali HIPMI Run 2026 diperkenalkan di Ruang Anturium Rumah Dinas Bupati. Pendaftaran early bird dibuka hari yang sama, dengan target lebih dari 1.500 pelari.',
+      links:[['@hipmirunkaranganyar', IG+'/hipmirunkaranganyar/p/DeO_wZnpBKY/'],['Jatengpos','https://jatengpos.co.id/solo-raya/2026/10/13/hipmi-run-2026-targetkan-1-500-pelari-di-karanganyar/']] },
+    { cat:'komunitas', tag:'HIPMI Run', date:'7 Okt 2026', title:'HIPMI Run Karanganyar 2026 diumumkan',
+      body:'Kategori 5K dan 10K dengan timing chip, 13 Desember 2026 di Alun-alun Kabupaten Karanganyar, bersama Karanganyar Running Hub.',
+      links:[['@hipmirunkaranganyar', IG+'/hipmirunkaranganyar/reel/DeMUAKxpT5g/'],['Mercusuar','https://mercusuar.co/kuatkan-kaki-dan-ekonomi-bpc-hipmi-karanganyar-gelar-event-city-run-5k-dan-10k-ini-tanggalnya']] },
+    { cat:'pt', tag:'HIPMI PT', date:'20 Sep 2026', title:'HIPMI Level Up Tournament',
+      body:'Mabar PES 2021 di Coffee Flow Kontainer. Main game sambil memperluas relasi antarpengusaha muda dan mahasiswa.',
+      links:[['@hipmiptumuka', IG+'/hipmiptumuka/p/DdJoc2ABWZP/']] },
+    { cat:'komunitas', tag:'HIPMI Run', date:'18 Sep 2026', title:'Teaser HIPMI Run 2026',
+      body:'Move together. Rise together. Where energy meets connection. Pengumuman awal lomba lari HIPMI Karanganyar.',
+      links:[['@hipmi.karanganyar', IG+'/hipmi.karanganyar/reel/DdbSYXtp9lU/']] },
+    { cat:'pt', tag:'HIPMI PT', date:'15 Sep 2026', title:'Podcast "Zero to Hero" di RRI Pro2',
+      body:'Muhammad Ardiansyah, founder Coffee Flow dan Ketua HIPMI PT UMUKA, berbagi perjalanan dari mahasiswa menjadi pengusaha di RRI Surakarta.',
+      links:[['@hipmiptumuka', IG+'/hipmiptumuka/p/DdQhKPIB-kH/']] },
+    { cat:'pt', tag:'HIPMI PT', date:'Sep 2026', title:'E-Sports Tournament 2026',
+      body:'HIPMI PT UMUKA menggelar turnamen eFootball PES 2021 dan Mobile Legends untuk anak muda Karanganyar.',
+      links:[['@hipmiptumuka', IG+'/hipmiptumuka/reel/Dc3SnZIhtXl/']] },
+    { cat:'komunitas', tag:'Komunitas', date:'2 Sep 2026', title:'Padel bareng, silaturahmi makin solid',
+      body:'Sore main padel di Padi Padel Karanganyar. Bukan soal menang atau kalah, tapi ketemu, main bareng, dan obrolan di sela pertandingan.',
+      links:[['@hipmi.karanganyar', IG+'/hipmi.karanganyar/reel/DcyNAuBpAw9/']] },
+    { cat:'organisasi', tag:'Organisasi', date:'28 Agu 2026', title:'Satu Visi, Satu Gerak, Satu Karanganyar',
+      body:'Pernyataan arah BPC: ekosistem wirausaha muda yang inovatif dan kolaboratif melalui optimasi potensi lokal dan penguatan UMKM.',
+      links:[['@hipmi.karanganyar', IG+'/hipmi.karanganyar/p/Dclq0a8HzrE/']] },
+    { cat:'kolaborasi', tag:'Kolaborasi', date:'9 Jul 2026', title:'Youngpreneur Talk: sinergi properti & UMKM',
+      body:'Ketua Umum BPC menjadi narasumber di Gedung Wanita Karanganyar, rangkaian Festival Perumahan Rakyat dan UMKM 2026, bagi mahasiswa dan pelajar SMA/SMK.',
+      links:[['UMUKA','https://umuka.ac.id/umuka_wordpress/2026/07/10/youngpreneur-talk-hipmi-pt-umuka-bekali-generasi-muda-menjadi-wirausahawan-inovatif-di-festival-perumahan-rakyat-dan-umkm-2026/']] },
+    { cat:'kolaborasi', tag:'Sosial', date:'3 Apr 2026', title:'Santunan 100 anak yatim piatu',
+      body:'Bersama HIPMI PT UMUKA dan Pemkab di Rumah Dinas Bupati, diisi hiburan edukatif. Sekda Karanganyar mengapresiasi perpaduan kewirausahaan dan kepedulian sosial.',
+      links:[['Solopos','https://solopos.espos.id/hipmi-pt-dorong-mahasiswa-jadi-pengusaha-sejak-kuliah-2203421']] },
+    { cat:'kaderisasi', tag:'Kaderisasi', date:'Rutin bulanan', title:'Mentoring bisnis mahasiswa bersama Kadin',
+      body:'BPC HIPMI Karanganyar, HIPMI PT UMUKA, dan Kadin memberi materi sekaligus pendampingan langsung dari pelaku usaha lintas sektor.',
+      links:[['Solopos','https://solopos.espos.id/hipmi-pt-dorong-mahasiswa-jadi-pengusaha-sejak-kuliah-2203421']] },
+    { cat:'pt', tag:'HIPMI PT', date:'29 Okt 2025', title:'Pelantikan HIPMI PT UMUKA 2025–2026',
+      body:'Kepengurusan HIPMI PT Universitas Muhammadiyah Karanganyar dilantik di Ruang Anthurium Rumah Dinas Bupati, bertema Lead the Change, Build the Future.',
+      links:[['Pemkab Karanganyar','https://www.karanganyarkab.go.id/pelantikan-pengurus-hipmi-pt-umuka-periode-2025-2026-lead-the-change-build-the-future/']] },
+    { cat:'kaderisasi', tag:'Kaderisasi', date:'26 Jul 2025', title:'Diklatcab HIPMI Solo Raya 2025',
+      body:'Diklat bersama BPC HIPMI Surakarta dan Sukoharjo di Karanganyar, dibuka Ketua Umum BPD HIPMI Jateng Teddy Tirtayadi. Tema: Muda, Bersatu, Bertumbuh.',
+      links:[['@hipmi.karanganyar', IG+'/hipmi.karanganyar/reel/DNGBYhOy8hv/'],['Joglosemar','https://joglosemarnews.com/2025/07/diklatcab-hipmi-solo-raya-2025-energi-baru-pengusaha-muda-untuk-tumbuh-bersama']] },
+    { cat:'kaderisasi', tag:'Kaderisasi', date:'13 Jul 2025', title:'Road to Musda HIPMI PT Jateng se-Solo Raya',
+      body:'Ketua Umum BPC hadir bersama BPD HIPMI Jateng dan BPC se-Solo Raya membahas kolaborasi Penta Helix dan pembentukan HIPMI PT di kampus.',
+      links:[['Joglosemar','https://joglosemarnews.com/2025/07/sinergi-bpc-hipmi-se-solo-raya-bangun-ekosistem-wirausaha']] },
+    { cat:'organisasi', tag:'Organisasi', date:'30 Apr 2025', title:'Pelantikan BPC HIPMI Karanganyar',
+      body:'70 pengurus dan pembina dikukuhkan di Gedung Teater Bhineka Tunggal Ika. Pemkab mengajak HIPMI berkolaborasi memperluas lapangan kerja.',
+      links:[['@hipmi.karanganyar', IG+'/hipmi.karanganyar/reel/DJHBcLxyjSG/'],['Jatengpos','https://jatengpos.co.id/jateng/2025/05/06/hipmi-karanganyar-buka-kesempatan-kerja-luas-bagi-masyarakat-karanganyar/']] },
+    { cat:'kolaborasi', tag:'Kolaborasi', date:'18 Mar 2025', title:'Buka puasa bersama & kolaborasi Urbana City',
+      body:'Silaturahmi Ramadan sekaligus penjajakan kerja sama dengan pengembang perumahan Urbana City di Plesungan untuk menggali potensi ekonomi Karanganyar.',
+      links:[['Viva Jogja','https://jogja.viva.co.id/solo-raya/2249-hipmi-karanganyar-dan-urbana-city-kolaborasi-bangun-potensi-ekonomi-daerah']] },
+    { cat:'organisasi', tag:'Organisasi', date:'15 Feb 2025', title:'Muscab II: Ketua Umum terpilih aklamasi',
+      body:'Di Harjo Space, Karanganyar, 45 anggota menerima LPJ Aan Shopuanudin lalu menetapkan Hervan Miftah Hafidin sebagai Ketua Umum 2025–2028.',
+      links:[['Solopos','https://solopos.espos.id/hervan-miftah-hafidin-terpilih-secara-aklamasi-jadi-ketua-hipmi-karanganyar-2060583']] },
+  ];
+
+  const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const chev = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+
+  // ---------- render bidang ----------
+  const grid = document.getElementById('bidangGrid');
+  grid.innerHTML = BIDANG.map(b => `
+    <details class="bidang" data-text="${esc([b.no,b.nama,b.ketua,b.wasek,b.wabend,...b.komp.flat()].join(' ').toLowerCase())}">
+      <summary>
+        <span class="bid-no">${b.no}</span>
+        <span><span class="bid-name">${esc(b.nama)}</span><span class="bid-lead" style="display:block">Ketua: ${esc(b.ketua)} · ${b.komp.length} kompartemen</span></span>
+        ${chev}
+      </summary>
+      <div class="bid-body">
+        <div class="officers">
+          <div class="officer"><small>Ketua bidang</small><b data-n>${esc(b.ketua)}</b></div>
+          <div class="officer"><small>Wakil sekretaris</small><b data-n>${esc(b.wasek)}</b></div>
+          <div class="officer"><small>Wakil bendahara</small><b data-n>${esc(b.wabend)}</b></div>
+        </div>
+        <div>
+          <p class="komp-title">Kompartemen</p>
+          <ul class="komp">${b.komp.map(([k,n]) => `<li><span>${esc(k)}</span><b data-n>${esc(n)}</b></li>`).join('')}</ul>
+        </div>
+      </div>
+    </details>`).join('');
+
+  document.getElementById('pembina').innerHTML =
+    '<span class="chip lead"><small>Ketua</small>Aan Shopuanudin, M.Pd.S.I., M.H., M.M.</span>' +
+    PEMBINA.map(n => `<span class="chip">${esc(n)}</span>`).join('');
+
+  // ---------- pencarian ----------
+  const q = document.getElementById('q'), note = document.getElementById('searchNote');
+  const cards = [...grid.querySelectorAll('.bidang')];
+  q.addEventListener('input', () => {
+    const v = q.value.trim().toLowerCase();
+    let shown = 0;
+    cards.forEach(c => {
+      const hit = !v || c.dataset.text.includes(v);
+      c.hidden = !hit; if (hit) shown++;
+      c.open = !!v && hit;
+      c.querySelectorAll('[data-n]').forEach(n => n.classList.toggle('hl', !!v && n.textContent.toLowerCase().includes(v)));
+    });
+    note.textContent = !v ? '' : shown ? `${shown} bidang cocok dengan “${q.value.trim()}”.` : `Tidak ada pengurus atau bidang yang cocok dengan “${q.value.trim()}”.`;
+  });
+
+  // ---------- kegiatan ----------
+  const PAGE = 6;
+  const evWrap = document.getElementById('events');
+  evWrap.innerHTML = EVENTS.map(e => `
+    <article class="event" data-cat="${e.cat}">
+      <div class="event-top"><span class="tag soft">${esc(e.tag)}</span><time>${esc(e.date)}</time></div>
+      <h4>${esc(e.title)}</h4>
+      <p>${esc(e.body)}</p>
+      <div class="src"><span>${e.links[0][0].startsWith('@') ? 'Instagram' : 'Berita'}</span><span class="links">${e.links.map(([l, u]) =>
+        `<a href="${u}" target="_blank" rel="noopener">${esc(l.startsWith('@') ? 'Lihat post' : l)} ${arrow}</a>`).join('')}</span></div>
+    </article>`).join('');
+  const evs = [...evWrap.children];
+  const moreWrap = document.getElementById('moreWrap'), moreBtn = document.getElementById('moreBtn'), moreCount = document.getElementById('moreCount');
+  let filter = 'semua', limit = PAGE;
+  const renderEvents = () => {
+    const match = evs.filter(e => filter === 'semua' || e.dataset.cat === filter);
+    evs.forEach(e => e.hidden = true);
+    match.forEach((e, i) => e.hidden = i >= limit);
+    const shown = Math.min(limit, match.length);
+    moreWrap.hidden = match.length <= PAGE;
+    moreBtn.hidden = shown >= match.length;
+    moreCount.textContent = `Menampilkan ${shown} dari ${match.length} kegiatan`;
+  };
+  moreBtn.addEventListener('click', () => {
+    const first = evs.filter(e => e.hidden && (filter === 'semua' || e.dataset.cat === filter))[0];
+    limit += PAGE; renderEvents();
+    if (first) first.querySelector('a')?.focus({ preventScroll: true });
+  });
+  document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(b => b.setAttribute('aria-pressed', b === btn));
+    filter = btn.dataset.f; limit = PAGE; renderEvents();
+  }));
+  renderEvents();
+
+  // ---------- hitung mundur HIPMI Run ----------
+  const race = new Date('2026-12-13T05:45:00+07:00').getTime();
+  const cdEls = Object.fromEntries([...document.querySelectorAll('#countdown [data-u]')].map(el => [el.dataset.u, el]));
+  const tick = () => {
+    let s = Math.max(0, Math.floor((race - Date.now()) / 1000));
+    const d = Math.floor(s / 86400); s %= 86400;
+    const h = Math.floor(s / 3600); s %= 3600;
+    const m = Math.floor(s / 60); s %= 60;
+    cdEls.d.textContent = d; cdEls.h.textContent = String(h).padStart(2,'0');
+    cdEls.m.textContent = String(m).padStart(2,'0'); cdEls.s.textContent = String(s).padStart(2,'0');
+  };
+  tick(); setInterval(tick, 1000);
+
+  // ---------- tema ----------
+  const root = document.documentElement;
+  try { const t = localStorage.getItem('hipmi-kra-theme'); if (t) root.dataset.theme = t; } catch (e) {}
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('hipmi-kra-theme', root.dataset.theme); } catch (e) {}
+  });
+
+  // ---------- menu mobile ----------
+  const menuBtn = document.getElementById('menuBtn'), menu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }));
+
+  // ---------- reveal ----------
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin:'0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+</script>
 </body>
 </html>

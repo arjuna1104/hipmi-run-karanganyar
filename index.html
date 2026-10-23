@@ -9,6 +9,7 @@
 <meta name="application-name" content="HIPMI Karanganyar">
 <meta name="apple-mobile-web-app-title" content="HIPMI Karanganyar">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/assets/icon-96.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -22,7 +23,7 @@
 <meta property="og:image" content="https://hipmikaranganyar.com/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logo HIPMI dan tulisan HIPMI Karanganyar">
+<meta property="og:image:alt" content="Logo BPC HIPMI Karanganyar">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
@@ -46,9 +47,9 @@
       "url": "https://hipmikaranganyar.com/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://hipmikaranganyar.com/assets/icon-192.png",
-        "width": 192,
-        "height": 192
+        "url": "https://hipmikaranganyar.com/assets/logo-bpc.png",
+        "width": 720,
+        "height": 598
       },
       "image": "https://hipmikaranganyar.com/assets/og-image.jpg",
       "address": {
@@ -119,7 +120,7 @@ p{margin:0}
 .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
 .nav .wrap{display:flex;align-items:center;gap:20px;height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;flex-shrink:0;min-width:0}
-.brand img{width:24px;height:auto}
+.brand img{height:38px;width:auto}
 .brand b{font:700 17px/1.1 var(--font-head);letter-spacing:.01em;display:block;text-transform:uppercase}
 .brand small{display:block;font-size:11px;letter-spacing:.08em;opacity:.75;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
@@ -157,7 +158,8 @@ p{margin:0}
 }
 .brand > span{min-width:0}
 .brand b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (max-width:380px){.brand small{display:none}.nav .wrap{gap:10px}.brand b{font-size:15px}}
+@media (max-width:1120px){.nav .brand{flex-shrink:1}}
+@media (max-width:380px){.brand small{display:none}.nav .wrap{gap:10px}.brand b{font-size:15px}.brand img{height:32px}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;isolation:isolate;background:var(--navy-ink);color:#fff;min-height:min(100svh,880px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
@@ -166,7 +168,7 @@ p{margin:0}
   radial-gradient(800px 600px at 10% 0%,rgba(37,65,128,.9),transparent 70%),
   linear-gradient(160deg,#1B3270 0%,#111C35 70%)}
 .hero-bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);background-size:26px 26px;mask-image:linear-gradient(180deg,#000,transparent 85%)}
-.hero-emblem{position:absolute;z-index:-1;right:max(4vw,calc((100vw - 1200px)/2));top:50%;translate:0 -58%;width:min(30vw,340px);filter:drop-shadow(0 30px 60px rgba(239,212,61,.28));opacity:.95;-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent);mask-image:linear-gradient(180deg,#000 72%,transparent)}
+.hero-emblem{position:absolute;z-index:-1;right:max(3vw,calc((100vw - 1200px)/2 - 20px));top:50%;translate:0 -56%;width:min(38vw,470px);height:auto;filter:drop-shadow(0 30px 60px rgba(239,212,61,.22))}
 .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;z-index:-1;background:linear-gradient(0deg,rgba(17,28,53,.85),transparent)}
 .hero-content{padding:140px 0 150px}
 .hero h1{font:700 clamp(38px,5.6vw,64px)/1.05 var(--font-head);letter-spacing:-.025em;text-transform:uppercase;color:#fff;margin:18px 0 18px;max-width:14ch}
@@ -207,7 +209,8 @@ section{padding:110px 0}
 .about-visual{position:relative;padding-bottom:34px}
 .visual-card{background:linear-gradient(150deg,var(--navy),var(--navy-deep));border-radius:22px;padding:34px 30px 64px;color:#fff;box-shadow:var(--shadow);position:relative;overflow:hidden}
 .visual-card::before{content:"";position:absolute;width:420px;height:420px;right:-160px;top:-180px;border-radius:50%;background:radial-gradient(circle,rgba(239,212,61,.22),transparent 65%)}
-.visual-card .emblem{width:110px;margin:0 auto 24px;position:relative;filter:drop-shadow(0 14px 30px rgba(239,212,61,.25))}
+.logo-tile{position:relative;background:#fff;border-radius:16px;padding:22px 26px;margin-bottom:22px;box-shadow:0 14px 30px -18px rgba(0,0,0,.45)}
+.logo-tile img{width:min(100%,300px);height:auto;margin:0 auto}
 .trio{display:grid;gap:10px;position:relative}
 .trio-item{display:flex;align-items:center;gap:14px;padding:12px 14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:14px}
 .trio-item small{display:block;font:700 10.5px var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
@@ -532,7 +535,7 @@ footer{background:var(--navy-ink);color:#fff;padding:72px 0 30px}
 <nav class="nav" id="siteNav" aria-label="Navigasi utama">
   <div class="wrap">
     <a class="brand" href="#top">
-      <img src="assets/logo-mark.png" alt="" width="26" height="41">
+      <img src="assets/logo-mark.png" alt="Logo BPC HIPMI Karanganyar" width="55" height="38">
       <span><b>HIPMI Karanganyar</b><small>BPC · Masa Bakti 2025–2028</small></span>
     </a>
     <div class="nav-links">
@@ -565,7 +568,7 @@ footer{background:var(--navy-ink);color:#fff;padding:72px 0 30px}
 
 <header class="hero" id="top">
   <div class="hero-bg" aria-hidden="true"></div>
-  <img class="hero-emblem" src="assets/logo-mark.png" alt="" width="340" height="540">
+  <img class="hero-emblem" src="assets/logo-mark.png" alt="" width="470" height="326">
   <div class="wrap hero-content">
     <span class="eyebrow light">HIPMI Karanganyar · Jawa Tengah</span>
     <h1>Sesarengan <em>Mbangun</em> Karanganyar</h1>
@@ -601,7 +604,7 @@ footer{background:var(--navy-ink);color:#fff;padding:72px 0 30px}
     </div>
     <div class="about-visual reveal">
       <div class="visual-card">
-        <img class="emblem" src="assets/logo-mark.png" alt="Lambang HIPMI" width="110" height="175">
+        <div class="logo-tile"><img src="assets/logo-bpc.png" alt="Logo BPC HIPMI Karanganyar" width="300" height="249"></div>
         <div class="trio">
           <div class="trio-item"><span class="avatar">HM</span><div><small>Ketua Umum</small><strong>Hervan Miftah Hafidin</strong></div><a href="https://www.instagram.com/hervanmiftah/" target="_blank" rel="noopener" aria-label="Instagram Hervan Miftah Hafidin">IG ↗</a></div>
           <div class="trio-item"><span class="avatar">IN</span><div><small>Sekretaris Umum</small><strong>Irwan Nur Hakim</strong></div><a href="https://www.instagram.com/irwannhakim_/" target="_blank" rel="noopener" aria-label="Instagram Irwan Nur Hakim">IG ↗</a></div>
@@ -1016,7 +1019,7 @@ footer{background:var(--navy-ink);color:#fff;padding:72px 0 30px}
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="brand" href="#top"><img src="assets/logo-mark.png" alt="" width="24" height="38"><span><b>HIPMI Karanganyar</b><small>Badan Pengurus Cabang · 2025–2028</small></span></a>
+        <a class="brand" href="#top"><img src="assets/logo-mark.png" alt="" width="55" height="38"><span><b>HIPMI Karanganyar</b><small>Badan Pengurus Cabang · 2025–2028</small></span></a>
         <p class="small">Himpunan Pengusaha Muda Indonesia Kabupaten Karanganyar. Pengusaha pejuang, pejuang pengusaha.</p>
         <ul class="contact">
           <li>Kabupaten Karanganyar, Jawa Tengah</li>
